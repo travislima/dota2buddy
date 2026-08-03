@@ -1,0 +1,2206 @@
+{
+  "patch": "7.41e",
+  "name": "7.41e",
+  "released": "2026-07-30T07:00:00.000Z",
+  "fetched_at": "2026-08-03T21:16:00.109Z",
+  "source": "https://www.dota2.com/patches/7.41e",
+  "general": [
+    {
+      "title": "Twin Gates",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Channeling the Twin Gate can now be interrupted by root",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Tormentor",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Now disjoints projectiles when moving between chasms",
+          "icon": null
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": 139,
+      "key": "butterfly",
+      "name": "Butterfly",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Agility bonus decreased from +35 to +30",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Damage bonus increased from +25 to +30",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1856,
+      "key": "crellas_crozier",
+      "name": "Crella's Crozier",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/crellas_crozier.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Rite of Rumusque movement speed steal duration increased from 1.5s to 2s",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Rite of Rumusque Putrefaction Aura effect increased from 75% to 90%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 172,
+      "key": "mask_of_madness",
+      "name": "Mask of Madness",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Berserk movement speed bonus on ranged heroes decreased from 8% to 6%",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Berserk now provides 15% slow resistance for ranged heroes and 30% for melee heroes, instead of 30% for any hero",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1575,
+      "key": "orb_of_frost",
+      "name": "Orb of Frost",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orb_of_frost.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Frost no longer applies when attacking allies",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Frost health restoration reduction increased from 13% to 15%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "key": "urn_of_shadows",
+      "name": "Urn of Shadows",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/urn_of_shadows.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Mana Regen bonus decreased from +1.25 to +1",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "When in Stash, no longer grants charges from nearby hero deaths",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "key": "abyssal_blade",
+      "name": "Abyssal Blade",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Strength bonus increased from +26 to +30",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1872,
+      "key": "chasm_stone",
+      "name": "Chasm Stone",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/chasm_stone.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Cost increased from 800 to 900",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "key": "shivas_guard",
+      "name": "Shiva's Guard",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Recipe cost decreased from 1350 to 1250. Total cost unchanged at 4500g",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1466,
+      "key": "gungir",
+      "name": "Gleipnir",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gungir.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Recipe cost decreased from 400 to 300. Total cost unchanged at 4650g",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "key": "rapier",
+      "name": "Divine Rapier",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rapier.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Spell Amplification from multiple Divine Rapiers no longer stacks",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 160,
+      "key": "skadi",
+      "name": "Eye of Skadi",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Cold Attack attack speed slow increased from 20% to 25%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "key": "hand_of_midas",
+      "name": "Hand of Midas",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hand_of_midas.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Attack Speed bonus increased from +35 to +40",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "key": "heavens_halberd",
+      "name": "Heaven's Halberd",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heavens_halberd.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Disarm cooldown decreased from 16s to 15s",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 263,
+      "key": "hurricane_pike",
+      "name": "Hurricane Pike",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hurricane_pike.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Hurricane Thrust buff duration decreased from 6s to 5s",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 259,
+      "key": "kaya",
+      "name": "Kaya",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/kaya.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Mana Regen Amplification decreased from 30% to 20%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 223,
+      "key": "meteor_hammer",
+      "name": "Meteor Hammer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/meteor_hammer.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Mana Regen Amplification decreased from 35% to 25%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 273,
+      "key": "kaya_and_sange",
+      "name": "Kaya and Sange",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/kaya_and_sange.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Mana Regen Amplification decreased from 40% to 30%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 277,
+      "key": "yasha_and_kaya",
+      "name": "Yasha and Kaya",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/yasha_and_kaya.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Mana Regen Amplification decreased from 40% to 30%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 569,
+      "key": "orb_of_corrosion",
+      "name": "Orb of Corrosion",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orb_of_corrosion.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Corrosion health restoration reduction increased from 16% to 18%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 181,
+      "key": "orb_of_venom",
+      "name": "Orb of Venom",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orb_of_venom.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Poison Attack damage per second increased from 10 to 12",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 260,
+      "key": "refresher_shard",
+      "name": "Refresher Shard",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher_shard.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "No longer provides +12 Health Regen, +6 Mana Regen, or +20 Damage",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 156,
+      "key": "satanic",
+      "name": "Satanic",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Unholy Rage cooldown increased from 30s to 40s",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "key": "smoke_of_deceit",
+      "name": "Smoke of Deceit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/smoke_of_deceit.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Disguise now has a fixed duration and is not affected by buff duration amplification",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1852,
+      "key": "essence_distiller",
+      "name": "Essence Distiller",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/essence_distiller.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "When in Stash, no longer grants charges from nearby hero deaths",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 267,
+      "key": "spirit_vessel",
+      "name": "Spirit Vessel",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/spirit_vessel.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "When in Stash, no longer grants charges from nearby hero deaths",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "key": "veil_of_discord",
+      "name": "Veil of Discord",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/veil_of_discord.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Spell Weakness mana cost decreased from 50 to 25",
+          "icon": null
+        }
+      ]
+    }
+  ],
+  "neutral_headings": [
+    "Artifacts",
+    "Enchantments"
+  ],
+  "neutral_items": [
+    {
+      "id": 1868,
+      "key": "foragers_kit",
+      "name": "Forager's Kit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/foragers_kit.png",
+      "neutral_tier": 0,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Forage time decreased from 1s to 0.75s",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "<br>",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1864,
+      "key": "conjurers_catalyst",
+      "name": "Conjurer's Catalyst",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/conjurers_catalyst.png",
+      "neutral_tier": 3,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Spellover non-hero explosion damage decreased from 30 to 20 ",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Spellover damage threshold on illusions now only considers pre-amplification damage",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1862,
+      "key": "enchanters_bauble",
+      "name": "Enchanter's Bauble",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/enchanters_bauble.png",
+      "neutral_tier": 3,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Enchant recraft bonus decreased from 40% to 35% ",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "<br>",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1593,
+      "key": "enhancement_greedy",
+      "name": "Greedy",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/enhancement_greedy.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "GPM Bonus decreased from +75/100 to +65/90",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "<br>",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 1587,
+      "key": "enhancement_feverish",
+      "name": "Feverish",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/enhancement_feverish.png",
+      "neutral_tier": -1,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "No longer increases Mana Cost/Lost by 7%",
+          "icon": null
+        },
+        {
+          "indent": 1,
+          "text": "Now decreases maximum mana by 20%",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "id": 837,
+      "key": "heavy_blade",
+      "name": "Witchbane",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heavy_blade.png",
+      "neutral_tier": 4,
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Cleanse cooldown decreased from 40s to 30s",
+          "icon": null
+        }
+      ]
+    }
+  ],
+  "heroes": [
+    {
+      "id": 3,
+      "key": "bane",
+      "name": "Bane",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bane.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/bane.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1202,
+          "name": "Ichor of Nyctasha",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/bane_ichor_of_nyctasha.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Max Terrors per hero increased from 5 to 6",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Status Resistance per Terror decreased from 5% to 4%",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5014,
+          "name": "Nightmare",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/bane_nightmare.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Duration decreased from 3.5/4.5/5.5/6.5s to 3/4/5/6s",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Now completely disables the target's sight, instead of overriding the vision range value",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5013,
+          "name": "Fiend's Grip",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/bane_fiends_grip.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Aghanim's Scepter cooldown reduction decreased from 45s to 40s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 51,
+      "key": "rattletrap",
+      "name": "Clockwerk",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/rattletrap.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5238,
+          "name": "Power Cogs",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/rattletrap_power_cogs.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Burn decreased from 40/80/120/160 to 40/75/110/145",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Cogs Travel Distance decreased from 1000 to 850/900/950/1000",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Cogs Day/Night Vision decreased from 1600/600 to 800/400",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Cogs no longer block creep camps",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 95,
+      "key": "troll_warlord",
+      "name": "Troll Warlord",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/troll_warlord.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Agility increased from 23 to 24",
+          "icon": "agility"
+        },
+        {
+          "indent": 2,
+          "text": "Damage on level 1 increased from 50-58 to 51-59",
+          "icon": "damage"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 1478,
+          "name": "Battle Stance",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/troll_warlord_switch_stance.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Toggling between stances no longer breaks invisibility",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5512,
+          "name": "Battle Trance",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/troll_warlord_battle_trance.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Now also grants 35% Slow Resistance",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 104,
+      "key": "legion_commander",
+      "name": "Legion Commander",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/legion_commander.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Strength increased from 24 to 25",
+          "icon": "strength"
+        },
+        {
+          "indent": 2,
+          "text": "Damage at level 1 increased from 57-61 to 58-62",
+          "icon": "damage"
+        },
+        {
+          "indent": 1,
+          "text": "Strength gain decreased from 3.1 to 3.0",
+          "icon": "strength"
+        },
+        {
+          "indent": 1,
+          "text": "Base Attack Speed increased from 100 to 105",
+          "icon": "attack_speed"
+        }
+      ],
+      "abilities": [],
+      "talents": [
+        {
+          "text": "Level 25 Talent Duel Refreshes Cooldown On Victory replaced with Duel Advances Cooldown by 30s On Victory",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "key": "snapfire",
+      "name": "Snapfire",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/snapfire.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 6480,
+          "name": "Scatterblast",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/snapfire_scatterblast.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Initial Blast Width is no longer increased by bonuses to AoE",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Point Blank Damage Bonus decreased from 30% to 25%",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 6483,
+          "name": "Firesnap Cookie",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/snapfire_firesnap_cookie.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Impact Damage decreased from 75/150/225/300 to 60/130/200/270",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 6482,
+          "name": "Mortimer Kisses",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/snapfire_mortimer_kisses.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage per glob decreased from 180/270/360 to 170/250/330",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "text": "Level 10 Talent Mortimer Kisses Burn DPS decreased from +35 to +30",
+          "indent": 1
+        },
+        {
+          "text": "Level 15 Talent -3s Firesnap Cookie Cooldown replaced with +125 Cast Range",
+          "indent": 1
+        },
+        {
+          "text": "Level 25 Talent Mortimer Kisses Launched decreased from +8 to +6",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "key": "drow_ranger",
+      "name": "Drow Ranger",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/drow_ranger.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 343,
+          "name": "Multishot",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/drow_ranger_multishot.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost increased from 50/70/90/110 to 70/85/100/115",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Arrow Range rescaled from 1.75x Drow Ranger's Attack Range to 475 + 1x Drow Ranger's Attack Range",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Arrow Base Damage Bonus decreased from 100/120/140/160% to 80/100/120/140%",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 22,
+      "key": "zuus",
+      "name": "Zeus",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/zuus.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5113,
+          "name": "Thundergod's Wrath",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/zuus_thundergods_wrath.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage decreased from 300/475/650 to 275/425/575",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 1110,
+          "name": "Lightning Hands",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/zuus_lightning_hands.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Toggling on/off no longer breaks invisibility and can be done while silenced",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Bonus Attack Speed decreased from 30 to 20",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 69,
+      "key": "doom_bringer",
+      "name": "Doom",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/doom_bringer.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Attack Range decreased from 200 to 175",
+          "icon": "attack_range"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 5341,
+          "name": "Infernal Blade",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/doom_bringer_infernal_blade.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Base Burn Damage increased from 15/30/45/60 to 18/34/50/66",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Max HP As Damage rescaled from 1/2/3/4% to 0.5/1.75/3/4.25%",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 72,
+      "key": "gyrocopter",
+      "name": "Gyrocopter",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/gyrocopter.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5361,
+          "name": "Rocket Barrage",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/gyrocopter_rocket_barrage.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost decreased from 85 to 75",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5362,
+          "name": "Homing Missile",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/gyrocopter_homing_missile.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost decreased from 120/130/140/150 to 120",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Cooldown decreased from 30/24/18/12s to 26/21/16/11s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 76,
+      "key": "obsidian_destroyer",
+      "name": "Outworld Destroyer",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/obsidian_destroyer.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1760,
+          "name": "Objurgation",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/obsidian_destroyer_objurgation.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Now has an instant cast and no longer cancels movement ",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Barrier increased from 120/180/240/300 to 150/200/250/300",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Cooldown decreased from 36/34/32/30 to 36/33/30/27s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 83,
+      "key": "treant",
+      "name": "Treant Protector",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/treant.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Attack Speed decreased from 100 to 90",
+          "icon": "attack_speed"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 5435,
+          "name": "Leech Seed",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_leech_seed.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Root duration decreased from 0.9/1.1/1.3/1.5s to 0.75/1.0/1.25/1.5s",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5436,
+          "name": "Living Armor",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/treant_living_armor.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost increased from 65/70/75/80 to 80",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 123,
+      "key": "hoodwink",
+      "name": "Hoodwink",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/hoodwink.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1423,
+          "name": "Mistwoods Wayfarer",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/hoodwink_mistwoods_wayfarer.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Redirect Chance decreased from 14% + 1% per level to 14.25% + 0.75% per level",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 8106,
+          "name": "Sharpshooter",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/hoodwink_sharpshooter.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost increased from 100/150/200 to 150/200/250",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 1422,
+          "name": "Hunter's Boomerang",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/hoodwink_hunters_boomerang.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cooldown increased from 18s to 20s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 2,
+      "key": "axe",
+      "name": "Axe",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/axe.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Agility decreased from 20 to 18",
+          "icon": "agility"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 5008,
+          "name": "Battle Hunger",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/axe_battle_hunger.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage per second decreased from 12/18/24/30 to 12/16/20/24",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 10,
+      "key": "morphling",
+      "name": "Morphling",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/morphling.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5057,
+          "name": "Morph",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/morphling_replicate.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cooldown decreased from 140/100/60s to 125/90/55s",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Aghanim's Scepter illusion no longer has illusion vision penalty",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 11,
+      "key": "nevermore",
+      "name": "Shadow Fiend",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/nevermore.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Intelligence decreased from 18 to 16",
+          "icon": "intelligence"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 5059,
+          "name": "Shadowraze",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/nevermore_shadowraze1.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Stack duration decreased from 7s to 6s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "text": "Level 25 Talent Shadowraze Applies Attack Damage no longer applies attack modifiers or procs",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "key": "necrolyte",
+      "name": "Necrophos",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/necrolyte.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5160,
+          "name": "Sadist",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_sadist.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "HP/Mana Regen decreased from 3.7 + 0.3 per level to 3.8 + 0.2 per level",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 661,
+          "name": "Death Seeker",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_death_seeker.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cast Range decreased from 750 to 600",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 39,
+      "key": "queenofpain",
+      "name": "Queen of Pain",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/queenofpain.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5173,
+          "name": "Shadow Strike",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_shadow_strike.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Mana Cost decreased from 100/110/120/130 to 100/105/110/115",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5176,
+          "name": "Sonic Wave",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/queenofpain_sonic_wave.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage from two Sonic Waves cast in quick succession now stack",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 43,
+      "key": "death_prophet",
+      "name": "Death Prophet",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/death_prophet.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Agility gain increased from 2.0 to 2.3",
+          "icon": "agility"
+        },
+        {
+          "indent": 2,
+          "text": "Damage gain per level increased from 3.6 to 3.7",
+          "icon": "damage"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 45,
+      "key": "pugna",
+      "name": "Pugna",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/pugna.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Intelligence increased from 26 to 27",
+          "icon": "intelligence"
+        },
+        {
+          "indent": 2,
+          "text": "Damage at level 1 increased from 47-54 to 48-55",
+          "icon": "damage"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 74,
+      "key": "invoker",
+      "name": "Invoker",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/invoker.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5381,
+          "name": "Ghost Walk",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/invoker_ghost_walk.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Duration decreased from 60s to 50s",
+              "icon": null
+            },
+            {
+              "indent": 1,
+              "text": "Aghanim's Shard no longer increases radius",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 85,
+      "key": "undying",
+      "name": "Undying",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/undying.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Movement Speed decreased from 300 to 295",
+          "icon": "movement"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 5447,
+          "name": "Flesh Golem",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/undying_flesh_golem.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Bonus Movement Speed increased from 20 to 25",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 90,
+      "key": "keeper_of_the_light",
+      "name": "Keeper of the Light",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/keeper_of_the_light.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5473,
+          "name": "Chakra Magic",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/keeper_of_the_light_chakra_magic.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cooldown increased from 19/16/13/10s to 20/17/14/11s",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 1372,
+          "name": "Solar Bind",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/keeper_of_the_light_radiant_bind.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cast Range decreased from 850 to 750",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 96,
+      "key": "centaur",
+      "name": "Centaur Warrunner",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/centaur.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5515,
+          "name": "Double Edge",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_double_edge.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Aghanim's Shard Buff duration decreased from 15s to 12s",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5516,
+          "name": "Retaliate",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/centaur_return.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Strength Return Damage decreased from 16/24/32/40% to 14/21/28/35%",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 103,
+      "key": "elder_titan",
+      "name": "Elder Titan",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/elder_titan.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/elder_titan.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1393,
+          "name": "Momentum",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/elder_titan_momentum.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Bonus Speed to Armor increased from 5% + 0.5% per level to 7% + 0.5% per level",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 1392,
+          "name": "Astral Spirit",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/elder_titan_ancestral_spirit.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Return Astral Spirit and Move Astral Spirit sub-abilities no longer break Elder Titan's invisibility when used",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 111,
+      "key": "oracle",
+      "name": "Oracle",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/oracle.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/oracle.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5638,
+          "name": "Fate's Edict",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_fates_edict.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Fate's Edict that was cast on Oracle or his ally is now dispellable by enemies",
+              "icon": null
+            }
+          ]
+        },
+        {
+          "id": 5640,
+          "name": "False Promise",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_false_promise.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cast Range increased from 700/800/900 to 800/850/900",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 1961,
+      "key": "spirit_bear",
+      "name": "Spirit Bear",
+      "belongs_to": "Lone Druid",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/lone_druid.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Armor decreased by 1",
+          "icon": "armor"
+        }
+      ],
+      "abilities": [
+        {
+          "id": 1348,
+          "name": "Demolish",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lone_druid_spirit_bear_demolish.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Bonus Building Damage decreased from 30% to 20%",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 12,
+      "key": "phantom_lancer",
+      "name": "Phantom Lancer",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/phantom_lancer.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5067,
+          "name": "Juxtapose",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_lancer_juxtapose.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Aghanim's Shard cooldown increased from 15s to 18s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 13,
+      "key": "puck",
+      "name": "Puck",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/puck.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5069,
+          "name": "Illusory Orb",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/puck_illusory_orb.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cooldown increased from 11/10/9/8s to 12/11/10/9s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 19,
+      "key": "tiny",
+      "name": "Tiny",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/tiny.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Health Regen decreased by 1.0",
+          "icon": "health_regen"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 20,
+      "key": "vengefulspirit",
+      "name": "Vengeful Spirit",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/vengefulspirit.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5123,
+          "name": "Vengeance Aura",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/vengefulspirit_command_aura.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Aghanim's Scepter illusion no longer has illusion vision penalty",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 25,
+      "key": "lina",
+      "name": "Lina",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/lina.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Agility decreased from 23 to 21",
+          "icon": "agility"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 30,
+      "key": "witch_doctor",
+      "name": "Witch Doctor",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/witch_doctor.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5140,
+          "name": "Maledict",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/witch_doctor_maledict.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Level 20 Talent Maledict bursts deal 75% damage in a 800 AoE now considers illusions as creep targets and bursts from them will not deal damage",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 35,
+      "key": "sniper",
+      "name": "Sniper",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/sniper.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 694,
+          "name": "Concussive Grenade",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_concussive_grenade.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Can now be cast while rooted, but will not knock Sniper back if he is under the effect of root",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 40,
+      "key": "venomancer",
+      "name": "Venomancer",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/venomancer.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1749,
+          "name": "Snakebite",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/venomancer_snakebite.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Initial Damage increased from 40/60/80/100 to 40/70/100/130",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 44,
+      "key": "phantom_assassin",
+      "name": "Phantom Assassin",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/phantom_assassin.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5192,
+          "name": "Blur",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_blur.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Now cannot be dispelled",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 46,
+      "key": "templar_assassin",
+      "name": "Templar Assassin",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/templar_assassin.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 7853,
+          "name": "Psionic Projection",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/templar_assassin_trap_teleport.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Can now be now interrupted by root",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 49,
+      "key": "dragon_knight",
+      "name": "Dragon Knight",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/dragon_knight.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1752,
+          "name": "Wyrm's Wrath",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/dragon_knight_wyrms_wrath.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "AoE Bonus increased from 25/50/75/100 to 30/60/90/120",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 57,
+      "key": "omniknight",
+      "name": "Omniknight",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/omniknight.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 656,
+          "name": "Hammer of Purity",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_hammer_of_purity.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Heal Amount improved from 35% over 5s to 40% over 4s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 60,
+      "key": "night_stalker",
+      "name": "Night Stalker",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/night_stalker.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5276,
+          "name": "Crippling Fear",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/night_stalker_crippling_fear.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Radius decreased from 375 to 350",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 63,
+      "key": "weaver",
+      "name": "Weaver",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/weaver.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1754,
+          "name": "Threads of Fate",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/weaver_threads_of_fate.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Thread Break Distance increased from 900 to 890 + 10 per hero level",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 64,
+      "key": "jakiro",
+      "name": "Jakiro",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/jakiro.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Intelligence gain increased from 3.0 to 3.3",
+          "icon": "intelligence"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 65,
+      "key": "batrider",
+      "name": "Batrider",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/batrider.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/batrider.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 1319,
+          "name": "Smoldering Resin",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/batrider_smoldering_resin.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "No longer applies when attacking allies",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 67,
+      "key": "spectre",
+      "name": "Spectre",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/spectre.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5337,
+          "name": "Haunt",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spectre_haunt.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "text": "Level 25 Talent All Spectre Illusion Damage decreased from +15% to +12%",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "key": "ancient_apparition",
+      "name": "Ancient Apparition",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/ancient_apparition.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5348,
+          "name": "Ice Blast",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ancient_apparition_ice_blast.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Cooldown decreased from 60/50/40s to 50/45/40s",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 81,
+      "key": "chaos_knight",
+      "name": "Chaos Knight",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/chaos_knight.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5426,
+          "name": "Chaos Bolt",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_bolt.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Bolt Speed increased from 700 to 900",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 92,
+      "key": "visage",
+      "name": "Visage",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/visage.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 7116,
+          "name": "Stone Form",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/visage_stone_form_self_cast.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "No longer breaks Visage's invisibility when used to order Familiars to execute",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 94,
+      "key": "medusa",
+      "name": "Medusa",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/medusa.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5504,
+          "name": "Split Shot",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/medusa_split_shot.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Toggling on/off no longer breaks invisibility and can be done while silenced",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 97,
+      "key": "magnataur",
+      "name": "Magnus",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/magnataur.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 649,
+          "name": "Horn Toss",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/magnataur_horn_toss.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage increased from 300 to 325",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 106,
+      "key": "ember_spirit",
+      "name": "Ember Spirit",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/ember_spirit.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Movement Speed decreased from 300 to 295",
+          "icon": "movement"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 107,
+      "key": "earth_spirit",
+      "name": "Earth Spirit",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/earth_spirit.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Base Intelligence decreased from 18 to 17",
+          "icon": "intelligence"
+        }
+      ],
+      "abilities": [],
+      "talents": [
+        {
+          "text": "Level 20 Talent Magnetize Damage & Duration decreased from +30% to +25%",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "key": "abyssal_underlord",
+      "name": "Underlord",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/abyssal_underlord.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 865,
+          "name": "Fiend's Gate",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/abyssal_underlord_dark_portal.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Gate channeling can now be interrupted by root",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 121,
+      "key": "grimstroke",
+      "name": "Grimstroke",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/grimstroke.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/grimstroke.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 7852,
+          "name": "Dark Portrait",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/grimstroke_dark_portrait.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "No longer has illusion vision penalty",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 129,
+      "key": "mars",
+      "name": "Mars",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/mars.png",
+      "notes": [
+        {
+          "indent": 1,
+          "text": "Intelligence gain increased from 2.2 to 2.4",
+          "icon": "intelligence"
+        }
+      ],
+      "abilities": [],
+      "talents": []
+    },
+    {
+      "id": 131,
+      "key": "ringmaster",
+      "name": "Ringmaster",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/ringmaster.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 386,
+          "name": "Impalement Arts",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ringmaster_impalement.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Damage per Second (Creeps) rescaled from 85/90/95/100 to 60/75/90/105",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 138,
+      "key": "muerta",
+      "name": "Muerta",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/muerta.png",
+      "notes": [],
+      "abilities": [
+        {
+          "id": 5753,
+          "name": "Gunslinger",
+          "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png",
+          "notes": [
+            {
+              "indent": 1,
+              "text": "Toggling on/off no longer breaks invisibility",
+              "icon": null
+            }
+          ]
+        }
+      ],
+      "talents": []
+    },
+    {
+      "id": 38,
+      "key": "beastmaster",
+      "name": "Beastmaster",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/beastmaster.png",
+      "notes": [],
+      "abilities": [],
+      "talents": [
+        {
+          "text": "Level 20 Talent Damage to Beastmaster and his summons decreased from +30 to +25",
+          "indent": 1
+        },
+        {
+          "text": "Level 25 Talent Primal Roar Cooldown Reduction decreased from 25s to 20s",
+          "indent": 1
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "key": "lone_druid",
+      "name": "Lone Druid",
+      "belongs_to": null,
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png",
+      "portrait": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/lone_druid.png",
+      "notes": [],
+      "abilities": [],
+      "talents": [
+        {
+          "text": "Level 15 Talent Savage Roar Cooldown Reduction decreased from 5s to 4s",
+          "indent": 1
+        },
+        {
+          "text": "Level 20 Talent Savage Roar Radius decreased from +150 to +125",
+          "indent": 1
+        }
+      ]
+    }
+  ]
+}

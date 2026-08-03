@@ -1,0 +1,3673 @@
+{
+  "fetched_at": "2026-08-03T21:16:02.527Z",
+  "source": "https://api.opendota.com/api/heroStats",
+  "note": "Public matches from roughly the last week. High = Ancient/Divine/Immortal.",
+  "heroes": [
+    {
+      "id": 1,
+      "key": "antimage",
+      "name": "Anti-Mage",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 479103,
+        "winrate": 49.74,
+        "pickrate": 12.35
+      },
+      "high": {
+        "picks": 82419,
+        "winrate": 49.47
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 0,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 2,
+      "key": "axe",
+      "name": "Axe",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png",
+      "roles": [
+        "Initiator",
+        "Durable",
+        "Disabler",
+        "Carry"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 745202,
+        "winrate": 50.88,
+        "pickrate": 19.21
+      },
+      "high": {
+        "picks": 167193,
+        "winrate": 49.76
+      },
+      "pro": {
+        "picks": 30,
+        "bans": 42,
+        "winrate": 53.33
+      }
+    },
+    {
+      "id": 3,
+      "key": "bane",
+      "name": "Bane",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bane.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker",
+        "Durable"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 158712,
+        "winrate": 49.88,
+        "pickrate": 4.09
+      },
+      "high": {
+        "picks": 42525,
+        "winrate": 51.38
+      },
+      "pro": {
+        "picks": 37,
+        "bans": 98,
+        "winrate": 37.84
+      }
+    },
+    {
+      "id": 4,
+      "key": "bloodseeker",
+      "name": "Bloodseeker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Nuker",
+        "Initiator"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 153370,
+        "winrate": 51.89,
+        "pickrate": 3.95
+      },
+      "high": {
+        "picks": 19405,
+        "winrate": 52.17
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 5,
+      "key": "crystal_maiden",
+      "name": "Crystal Maiden",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/crystal_maiden.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 515583,
+        "winrate": 51.46,
+        "pickrate": 13.29
+      },
+      "high": {
+        "picks": 100932,
+        "winrate": 49.98
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 0,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 6,
+      "key": "drow_ranger",
+      "name": "Drow Ranger",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/drow_ranger.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Pusher"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 607494,
+        "winrate": 48.28,
+        "pickrate": 15.66
+      },
+      "high": {
+        "picks": 130922,
+        "winrate": 48.08
+      },
+      "pro": {
+        "picks": 19,
+        "bans": 56,
+        "winrate": 36.84
+      }
+    },
+    {
+      "id": 7,
+      "key": "earthshaker",
+      "name": "Earthshaker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png",
+      "roles": [
+        "Support",
+        "Initiator",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 567191,
+        "winrate": 50.36,
+        "pickrate": 14.62
+      },
+      "high": {
+        "picks": 129316,
+        "winrate": 51
+      },
+      "pro": {
+        "picks": 14,
+        "bans": 8,
+        "winrate": 42.86
+      }
+    },
+    {
+      "id": 8,
+      "key": "juggernaut",
+      "name": "Juggernaut",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 632273,
+        "winrate": 51.77,
+        "pickrate": 16.3
+      },
+      "high": {
+        "picks": 128999,
+        "winrate": 52.17
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 1,
+        "winrate": 75
+      }
+    },
+    {
+      "id": 9,
+      "key": "mirana",
+      "name": "Mirana",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mirana.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Escape",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 340600,
+        "winrate": 51.18,
+        "pickrate": 8.78
+      },
+      "high": {
+        "picks": 88046,
+        "winrate": 50.85
+      },
+      "pro": {
+        "picks": 51,
+        "bans": 17,
+        "winrate": 58.82
+      }
+    },
+    {
+      "id": 10,
+      "key": "morphling",
+      "name": "Morphling",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Durable",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 157586,
+        "winrate": 47.34,
+        "pickrate": 4.06
+      },
+      "high": {
+        "picks": 39329,
+        "winrate": 47.67
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 3,
+        "winrate": 25
+      }
+    },
+    {
+      "id": 11,
+      "key": "nevermore",
+      "name": "Shadow Fiend",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png",
+      "roles": [
+        "Carry",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 691124,
+        "winrate": 48.2,
+        "pickrate": 17.82
+      },
+      "high": {
+        "picks": 169159,
+        "winrate": 47.78
+      },
+      "pro": {
+        "picks": 51,
+        "bans": 105,
+        "winrate": 47.06
+      }
+    },
+    {
+      "id": 12,
+      "key": "phantom_lancer",
+      "name": "Phantom Lancer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Pusher",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 412654,
+        "winrate": 52.7,
+        "pickrate": 10.64
+      },
+      "high": {
+        "picks": 87173,
+        "winrate": 53.25
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 24,
+        "winrate": 30
+      }
+    },
+    {
+      "id": 13,
+      "key": "puck",
+      "name": "Puck",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 152898,
+        "winrate": 46.89,
+        "pickrate": 3.94
+      },
+      "high": {
+        "picks": 48819,
+        "winrate": 48.68
+      },
+      "pro": {
+        "picks": 32,
+        "bans": 120,
+        "winrate": 53.13
+      }
+    },
+    {
+      "id": 14,
+      "key": "pudge",
+      "name": "Pudge",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pudge.png",
+      "roles": [
+        "Disabler",
+        "Initiator",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 1088193,
+        "winrate": 51.46,
+        "pickrate": 28.06
+      },
+      "high": {
+        "picks": 244474,
+        "winrate": 51.05
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 6,
+        "winrate": 90
+      }
+    },
+    {
+      "id": 15,
+      "key": "razor",
+      "name": "Razor",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Nuker",
+        "Pusher"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 228707,
+        "winrate": 50.38,
+        "pickrate": 5.9
+      },
+      "high": {
+        "picks": 45159,
+        "winrate": 50.36
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 3,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 16,
+      "key": "sand_king",
+      "name": "Sand King",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Support",
+        "Nuker",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 170482,
+        "winrate": 48.84,
+        "pickrate": 4.4
+      },
+      "high": {
+        "picks": 32468,
+        "winrate": 46.75
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 5,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 17,
+      "key": "storm_spirit",
+      "name": "Storm Spirit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker",
+        "Initiator",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 270821,
+        "winrate": 46.47,
+        "pickrate": 6.98
+      },
+      "high": {
+        "picks": 70515,
+        "winrate": 47.2
+      },
+      "pro": {
+        "picks": 28,
+        "bans": 31,
+        "winrate": 57.14
+      }
+    },
+    {
+      "id": 18,
+      "key": "sven",
+      "name": "Sven",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Initiator",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 272905,
+        "winrate": 50.68,
+        "pickrate": 7.04
+      },
+      "high": {
+        "picks": 57415,
+        "winrate": 51.25
+      },
+      "pro": {
+        "picks": 9,
+        "bans": 8,
+        "winrate": 66.67
+      }
+    },
+    {
+      "id": 19,
+      "key": "tiny",
+      "name": "Tiny",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Pusher",
+        "Initiator",
+        "Durable",
+        "Disabler"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 219406,
+        "winrate": 44.55,
+        "pickrate": 5.66
+      },
+      "high": {
+        "picks": 59711,
+        "winrate": 44.74
+      },
+      "pro": {
+        "picks": 38,
+        "bans": 46,
+        "winrate": 55.26
+      }
+    },
+    {
+      "id": 20,
+      "key": "vengefulspirit",
+      "name": "Vengeful Spirit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png",
+      "roles": [
+        "Support",
+        "Initiator",
+        "Disabler",
+        "Nuker",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 510888,
+        "winrate": 53.35,
+        "pickrate": 13.17
+      },
+      "high": {
+        "picks": 120923,
+        "winrate": 52.25
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 5,
+        "winrate": 20
+      }
+    },
+    {
+      "id": 21,
+      "key": "windrunner",
+      "name": "Windranger",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Disabler",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 559580,
+        "winrate": 48.13,
+        "pickrate": 14.43
+      },
+      "high": {
+        "picks": 135896,
+        "winrate": 48.96
+      },
+      "pro": {
+        "picks": 34,
+        "bans": 17,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 22,
+      "key": "zuus",
+      "name": "Zeus",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png",
+      "roles": [
+        "Nuker",
+        "Carry"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 693104,
+        "winrate": 50.74,
+        "pickrate": 17.87
+      },
+      "high": {
+        "picks": 162737,
+        "winrate": 50.16
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 9,
+        "winrate": 40
+      }
+    },
+    {
+      "id": 23,
+      "key": "kunkka",
+      "name": "Kunkka",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kunkka.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Disabler",
+        "Initiator",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 189787,
+        "winrate": 49.23,
+        "pickrate": 4.89
+      },
+      "high": {
+        "picks": 44825,
+        "winrate": 49.67
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 2,
+        "winrate": null
+      }
+    },
+    {
+      "id": 25,
+      "key": "lina",
+      "name": "Lina",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png",
+      "roles": [
+        "Support",
+        "Carry",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 690338,
+        "winrate": 49.3,
+        "pickrate": 17.8
+      },
+      "high": {
+        "picks": 168657,
+        "winrate": 50.04
+      },
+      "pro": {
+        "picks": 69,
+        "bans": 84,
+        "winrate": 46.38
+      }
+    },
+    {
+      "id": 26,
+      "key": "lion",
+      "name": "Lion",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lion.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker",
+        "Initiator"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 998830,
+        "winrate": 48.69,
+        "pickrate": 25.75
+      },
+      "high": {
+        "picks": 222243,
+        "winrate": 48.72
+      },
+      "pro": {
+        "picks": 37,
+        "bans": 12,
+        "winrate": 51.35
+      }
+    },
+    {
+      "id": 27,
+      "key": "shadow_shaman",
+      "name": "Shadow Shaman",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png",
+      "roles": [
+        "Support",
+        "Pusher",
+        "Disabler",
+        "Nuker",
+        "Initiator"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 611503,
+        "winrate": 51.87,
+        "pickrate": 15.77
+      },
+      "high": {
+        "picks": 116668,
+        "winrate": 51.43
+      },
+      "pro": {
+        "picks": 6,
+        "bans": 1,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 28,
+      "key": "slardar",
+      "name": "Slardar",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Initiator",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 307903,
+        "winrate": 50.19,
+        "pickrate": 7.94
+      },
+      "high": {
+        "picks": 67706,
+        "winrate": 49.58
+      },
+      "pro": {
+        "picks": 20,
+        "bans": 21,
+        "winrate": 25
+      }
+    },
+    {
+      "id": 29,
+      "key": "tidehunter",
+      "name": "Tidehunter",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png",
+      "roles": [
+        "Initiator",
+        "Durable",
+        "Disabler",
+        "Nuker",
+        "Carry"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 338875,
+        "winrate": 50.25,
+        "pickrate": 8.74
+      },
+      "high": {
+        "picks": 80001,
+        "winrate": 49.76
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 9,
+        "winrate": 70
+      }
+    },
+    {
+      "id": 30,
+      "key": "witch_doctor",
+      "name": "Witch Doctor",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 610748,
+        "winrate": 51.74,
+        "pickrate": 15.75
+      },
+      "high": {
+        "picks": 110669,
+        "winrate": 50.75
+      },
+      "pro": {
+        "picks": 21,
+        "bans": 6,
+        "winrate": 47.62
+      }
+    },
+    {
+      "id": 31,
+      "key": "lich",
+      "name": "Lich",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png",
+      "roles": [
+        "Support",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 421373,
+        "winrate": 52.51,
+        "pickrate": 10.87
+      },
+      "high": {
+        "picks": 108565,
+        "winrate": 51.94
+      },
+      "pro": {
+        "picks": 21,
+        "bans": 4,
+        "winrate": 57.14
+      }
+    },
+    {
+      "id": 32,
+      "key": "riki",
+      "name": "Riki",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/riki.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 218942,
+        "winrate": 52.53,
+        "pickrate": 5.65
+      },
+      "high": {
+        "picks": 38037,
+        "winrate": 52.96
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 33,
+      "key": "enigma",
+      "name": "Enigma",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enigma.png",
+      "roles": [
+        "Disabler",
+        "Initiator",
+        "Pusher"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 141051,
+        "winrate": 50.77,
+        "pickrate": 3.64
+      },
+      "high": {
+        "picks": 29005,
+        "winrate": 54.28
+      },
+      "pro": {
+        "picks": 15,
+        "bans": 27,
+        "winrate": 66.67
+      }
+    },
+    {
+      "id": 34,
+      "key": "tinker",
+      "name": "Tinker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Pusher"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 209360,
+        "winrate": 47.02,
+        "pickrate": 5.4
+      },
+      "high": {
+        "picks": 48802,
+        "winrate": 49.06
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 6,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 35,
+      "key": "sniper",
+      "name": "Sniper",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png",
+      "roles": [
+        "Carry",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 797635,
+        "winrate": 50.23,
+        "pickrate": 20.57
+      },
+      "high": {
+        "picks": 128066,
+        "winrate": 48.8
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 8,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 36,
+      "key": "necrolyte",
+      "name": "Necrophos",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Durable",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 658440,
+        "winrate": 51.37,
+        "pickrate": 16.98
+      },
+      "high": {
+        "picks": 148029,
+        "winrate": 49.85
+      },
+      "pro": {
+        "picks": 34,
+        "bans": 73,
+        "winrate": 44.12
+      }
+    },
+    {
+      "id": 37,
+      "key": "warlock",
+      "name": "Warlock",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/warlock.png",
+      "roles": [
+        "Support",
+        "Initiator",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 261844,
+        "winrate": 49.45,
+        "pickrate": 6.75
+      },
+      "high": {
+        "picks": 49367,
+        "winrate": 47.51
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 0,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 38,
+      "key": "beastmaster",
+      "name": "Beastmaster",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 115145,
+        "winrate": 44.6,
+        "pickrate": 2.97
+      },
+      "high": {
+        "picks": 26348,
+        "winrate": 46.7
+      },
+      "pro": {
+        "picks": 23,
+        "bans": 35,
+        "winrate": 43.48
+      }
+    },
+    {
+      "id": 39,
+      "key": "queenofpain",
+      "name": "Queen of Pain",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Escape"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 416812,
+        "winrate": 46.76,
+        "pickrate": 10.75
+      },
+      "high": {
+        "picks": 102976,
+        "winrate": 46.83
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 1,
+        "winrate": 60
+      }
+    },
+    {
+      "id": 40,
+      "key": "venomancer",
+      "name": "Venomancer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Initiator",
+        "Pusher",
+        "Disabler"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 305279,
+        "winrate": 47.56,
+        "pickrate": 7.87
+      },
+      "high": {
+        "picks": 56040,
+        "winrate": 47.38
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 1,
+        "winrate": 66.67
+      }
+    },
+    {
+      "id": 41,
+      "key": "faceless_void",
+      "name": "Faceless Void",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png",
+      "roles": [
+        "Carry",
+        "Initiator",
+        "Disabler",
+        "Escape",
+        "Durable"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 389254,
+        "winrate": 49.31,
+        "pickrate": 10.04
+      },
+      "high": {
+        "picks": 84111,
+        "winrate": 49.96
+      },
+      "pro": {
+        "picks": 7,
+        "bans": 6,
+        "winrate": 57.14
+      }
+    },
+    {
+      "id": 42,
+      "key": "skeleton_king",
+      "name": "Wraith King",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Durable",
+        "Disabler",
+        "Initiator"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 498323,
+        "winrate": 54.7,
+        "pickrate": 12.85
+      },
+      "high": {
+        "picks": 92116,
+        "winrate": 53.02
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 43,
+      "key": "death_prophet",
+      "name": "Death Prophet",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 157351,
+        "winrate": 47.88,
+        "pickrate": 4.06
+      },
+      "high": {
+        "picks": 34572,
+        "winrate": 48.3
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 1,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 44,
+      "key": "phantom_assassin",
+      "name": "Phantom Assassin",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png",
+      "roles": [
+        "Carry",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 560134,
+        "winrate": 50.96,
+        "pickrate": 14.44
+      },
+      "high": {
+        "picks": 83287,
+        "winrate": 49.79
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 45,
+      "key": "pugna",
+      "name": "Pugna",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png",
+      "roles": [
+        "Nuker",
+        "Pusher"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 160171,
+        "winrate": 50.08,
+        "pickrate": 4.13
+      },
+      "high": {
+        "picks": 34133,
+        "winrate": 51.35
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 0,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 46,
+      "key": "templar_assassin",
+      "name": "Templar Assassin",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/templar_assassin.png",
+      "roles": [
+        "Carry",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 157892,
+        "winrate": 46.19,
+        "pickrate": 4.07
+      },
+      "high": {
+        "picks": 35373,
+        "winrate": 46.48
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 13,
+        "winrate": 60
+      }
+    },
+    {
+      "id": 47,
+      "key": "viper",
+      "name": "Viper",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/viper.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Initiator",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 304463,
+        "winrate": 48.48,
+        "pickrate": 7.85
+      },
+      "high": {
+        "picks": 47433,
+        "winrate": 48.91
+      },
+      "pro": {
+        "picks": 12,
+        "bans": 50,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 48,
+      "key": "luna",
+      "name": "Luna",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Pusher"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 421543,
+        "winrate": 50.1,
+        "pickrate": 10.87
+      },
+      "high": {
+        "picks": 113289,
+        "winrate": 49.55
+      },
+      "pro": {
+        "picks": 20,
+        "bans": 11,
+        "winrate": 60
+      }
+    },
+    {
+      "id": 49,
+      "key": "dragon_knight",
+      "name": "Dragon Knight",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Durable",
+        "Disabler",
+        "Initiator",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 147129,
+        "winrate": 49.75,
+        "pickrate": 3.79
+      },
+      "high": {
+        "picks": 21656,
+        "winrate": 49.11
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 50,
+      "key": "dazzle",
+      "name": "Dazzle",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dazzle.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 189164,
+        "winrate": 50.79,
+        "pickrate": 4.88
+      },
+      "high": {
+        "picks": 34185,
+        "winrate": 51.71
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 1,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 51,
+      "key": "rattletrap",
+      "name": "Clockwerk",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rattletrap.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 146337,
+        "winrate": 48.47,
+        "pickrate": 3.77
+      },
+      "high": {
+        "picks": 46002,
+        "winrate": 49.66
+      },
+      "pro": {
+        "picks": 51,
+        "bans": 62,
+        "winrate": 62.75
+      }
+    },
+    {
+      "id": 52,
+      "key": "leshrac",
+      "name": "Leshrac",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Nuker",
+        "Pusher",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 105750,
+        "winrate": 51.55,
+        "pickrate": 2.73
+      },
+      "high": {
+        "picks": 26147,
+        "winrate": 51.96
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 2,
+        "winrate": 40
+      }
+    },
+    {
+      "id": 53,
+      "key": "furion",
+      "name": "Nature's Prophet",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 328238,
+        "winrate": 43.03,
+        "pickrate": 8.46
+      },
+      "high": {
+        "picks": 65718,
+        "winrate": 43.62
+      },
+      "pro": {
+        "picks": 30,
+        "bans": 37,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 54,
+      "key": "life_stealer",
+      "name": "Lifestealer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 438425,
+        "winrate": 52.67,
+        "pickrate": 11.3
+      },
+      "high": {
+        "picks": 113180,
+        "winrate": 53.07
+      },
+      "pro": {
+        "picks": 22,
+        "bans": 28,
+        "winrate": 54.55
+      }
+    },
+    {
+      "id": 55,
+      "key": "dark_seer",
+      "name": "Dark Seer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png",
+      "roles": [
+        "Initiator",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 121728,
+        "winrate": 48.97,
+        "pickrate": 3.14
+      },
+      "high": {
+        "picks": 36577,
+        "winrate": 50.05
+      },
+      "pro": {
+        "picks": 34,
+        "bans": 34,
+        "winrate": 44.12
+      }
+    },
+    {
+      "id": 56,
+      "key": "clinkz",
+      "name": "Clinkz",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Pusher"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 197858,
+        "winrate": 49.8,
+        "pickrate": 5.1
+      },
+      "high": {
+        "picks": 39540,
+        "winrate": 51.36
+      },
+      "pro": {
+        "picks": 20,
+        "bans": 23,
+        "winrate": 65
+      }
+    },
+    {
+      "id": 57,
+      "key": "omniknight",
+      "name": "Omniknight",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png",
+      "roles": [
+        "Support",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 109114,
+        "winrate": 50.17,
+        "pickrate": 2.81
+      },
+      "high": {
+        "picks": 23770,
+        "winrate": 50.87
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 1,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 58,
+      "key": "enchantress",
+      "name": "Enchantress",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png",
+      "roles": [
+        "Support",
+        "Pusher",
+        "Durable",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 95114,
+        "winrate": 47.99,
+        "pickrate": 2.45
+      },
+      "high": {
+        "picks": 17938,
+        "winrate": 48.16
+      },
+      "pro": {
+        "picks": 20,
+        "bans": 9,
+        "winrate": 75
+      }
+    },
+    {
+      "id": 59,
+      "key": "huskar",
+      "name": "Huskar",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Initiator"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 147832,
+        "winrate": 44.85,
+        "pickrate": 3.81
+      },
+      "high": {
+        "picks": 26101,
+        "winrate": 45.65
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 61,
+        "winrate": 25
+      }
+    },
+    {
+      "id": 60,
+      "key": "night_stalker",
+      "name": "Night Stalker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png",
+      "roles": [
+        "Carry",
+        "Initiator",
+        "Durable",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 285037,
+        "winrate": 52.11,
+        "pickrate": 7.35
+      },
+      "high": {
+        "picks": 89640,
+        "winrate": 53.22
+      },
+      "pro": {
+        "picks": 12,
+        "bans": 9,
+        "winrate": 58.33
+      }
+    },
+    {
+      "id": 61,
+      "key": "broodmother",
+      "name": "Broodmother",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 80948,
+        "winrate": 50.21,
+        "pickrate": 2.09
+      },
+      "high": {
+        "picks": 12685,
+        "winrate": 50.85
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 5,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 62,
+      "key": "bounty_hunter",
+      "name": "Bounty Hunter",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png",
+      "roles": [
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 188567,
+        "winrate": 51.68,
+        "pickrate": 4.86
+      },
+      "high": {
+        "picks": 46571,
+        "winrate": 54.33
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 0,
+        "winrate": 60
+      }
+    },
+    {
+      "id": 63,
+      "key": "weaver",
+      "name": "Weaver",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png",
+      "roles": [
+        "Carry",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 231217,
+        "winrate": 47.54,
+        "pickrate": 5.96
+      },
+      "high": {
+        "picks": 43569,
+        "winrate": 47.54
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 1,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 64,
+      "key": "jakiro",
+      "name": "Jakiro",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/jakiro.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Pusher",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 389841,
+        "winrate": 47.76,
+        "pickrate": 10.05
+      },
+      "high": {
+        "picks": 75063,
+        "winrate": 46.23
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 0,
+        "winrate": 60
+      }
+    },
+    {
+      "id": 65,
+      "key": "batrider",
+      "name": "Batrider",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/batrider.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 50280,
+        "winrate": 43.25,
+        "pickrate": 1.3
+      },
+      "high": {
+        "picks": 11816,
+        "winrate": 44.63
+      },
+      "pro": {
+        "picks": 20,
+        "bans": 17,
+        "winrate": 35
+      }
+    },
+    {
+      "id": 66,
+      "key": "chen",
+      "name": "Chen",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chen.png",
+      "roles": [
+        "Support",
+        "Pusher"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 17594,
+        "winrate": 44.99,
+        "pickrate": 0.45
+      },
+      "high": {
+        "picks": 4100,
+        "winrate": 48.41
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 1,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 67,
+      "key": "spectre",
+      "name": "Spectre",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 515935,
+        "winrate": 54.31,
+        "pickrate": 13.3
+      },
+      "high": {
+        "picks": 116940,
+        "winrate": 54.08
+      },
+      "pro": {
+        "picks": 17,
+        "bans": 25,
+        "winrate": 58.82
+      }
+    },
+    {
+      "id": 68,
+      "key": "ancient_apparition",
+      "name": "Ancient Apparition",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 274057,
+        "winrate": 51.67,
+        "pickrate": 7.07
+      },
+      "high": {
+        "picks": 56880,
+        "winrate": 50.17
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 1,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 69,
+      "key": "doom_bringer",
+      "name": "Doom",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Initiator",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 209891,
+        "winrate": 46.59,
+        "pickrate": 5.41
+      },
+      "high": {
+        "picks": 62059,
+        "winrate": 48.45
+      },
+      "pro": {
+        "picks": 18,
+        "bans": 46,
+        "winrate": 61.11
+      }
+    },
+    {
+      "id": 70,
+      "key": "ursa",
+      "name": "Ursa",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 257611,
+        "winrate": 47.28,
+        "pickrate": 6.64
+      },
+      "high": {
+        "picks": 56415,
+        "winrate": 48.06
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 5,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 71,
+      "key": "spirit_breaker",
+      "name": "Spirit Breaker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png",
+      "roles": [
+        "Carry",
+        "Initiator",
+        "Disabler",
+        "Durable",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 587897,
+        "winrate": 51.76,
+        "pickrate": 15.16
+      },
+      "high": {
+        "picks": 128866,
+        "winrate": 51.6
+      },
+      "pro": {
+        "picks": 6,
+        "bans": 7,
+        "winrate": 83.33
+      }
+    },
+    {
+      "id": 72,
+      "key": "gyrocopter",
+      "name": "Gyrocopter",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 117291,
+        "winrate": 44,
+        "pickrate": 3.02
+      },
+      "high": {
+        "picks": 25890,
+        "winrate": 44.04
+      },
+      "pro": {
+        "picks": 7,
+        "bans": 8,
+        "winrate": 14.29
+      }
+    },
+    {
+      "id": 73,
+      "key": "alchemist",
+      "name": "Alchemist",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Durable",
+        "Disabler",
+        "Initiator",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 150043,
+        "winrate": 47.29,
+        "pickrate": 3.87
+      },
+      "high": {
+        "picks": 29995,
+        "winrate": 46.15
+      },
+      "pro": {
+        "picks": 10,
+        "bans": 11,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 74,
+      "key": "invoker",
+      "name": "Invoker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Disabler",
+        "Escape",
+        "Pusher"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 732963,
+        "winrate": 50.81,
+        "pickrate": 18.9
+      },
+      "high": {
+        "picks": 195562,
+        "winrate": 51.93
+      },
+      "pro": {
+        "picks": 32,
+        "bans": 114,
+        "winrate": 59.38
+      }
+    },
+    {
+      "id": 75,
+      "key": "silencer",
+      "name": "Silencer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Disabler",
+        "Initiator",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 451954,
+        "winrate": 50.84,
+        "pickrate": 11.65
+      },
+      "high": {
+        "picks": 94566,
+        "winrate": 49.84
+      },
+      "pro": {
+        "picks": 8,
+        "bans": 8,
+        "winrate": 75
+      }
+    },
+    {
+      "id": 76,
+      "key": "obsidian_destroyer",
+      "name": "Outworld Devourer",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 188606,
+        "winrate": 51.74,
+        "pickrate": 4.86
+      },
+      "high": {
+        "picks": 44762,
+        "winrate": 52.68
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 1,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 77,
+      "key": "lycan",
+      "name": "Lycan",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Durable",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 59284,
+        "winrate": 48.78,
+        "pickrate": 1.53
+      },
+      "high": {
+        "picks": 16179,
+        "winrate": 51.16
+      },
+      "pro": {
+        "picks": 15,
+        "bans": 37,
+        "winrate": 46.67
+      }
+    },
+    {
+      "id": 78,
+      "key": "brewmaster",
+      "name": "Brewmaster",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png",
+      "roles": [
+        "Carry",
+        "Initiator",
+        "Durable",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 63532,
+        "winrate": 50.85,
+        "pickrate": 1.64
+      },
+      "high": {
+        "picks": 19350,
+        "winrate": 52.5
+      },
+      "pro": {
+        "picks": 12,
+        "bans": 35,
+        "winrate": 75
+      }
+    },
+    {
+      "id": 79,
+      "key": "shadow_demon",
+      "name": "Shadow Demon",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_demon.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Initiator",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 87142,
+        "winrate": 44.43,
+        "pickrate": 2.25
+      },
+      "high": {
+        "picks": 24233,
+        "winrate": 45.09
+      },
+      "pro": {
+        "picks": 6,
+        "bans": 1,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 80,
+      "key": "lone_druid",
+      "name": "Lone Druid",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Durable"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 82729,
+        "winrate": 48.44,
+        "pickrate": 2.13
+      },
+      "high": {
+        "picks": 21076,
+        "winrate": 49.18
+      },
+      "pro": {
+        "picks": 21,
+        "bans": 156,
+        "winrate": 52.38
+      }
+    },
+    {
+      "id": 81,
+      "key": "chaos_knight",
+      "name": "Chaos Knight",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Durable",
+        "Pusher",
+        "Initiator"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 178671,
+        "winrate": 51.27,
+        "pickrate": 4.61
+      },
+      "high": {
+        "picks": 26324,
+        "winrate": 50.62
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 0,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 82,
+      "key": "meepo",
+      "name": "Meepo",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/meepo.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker",
+        "Disabler",
+        "Initiator",
+        "Pusher"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 65688,
+        "winrate": 51.32,
+        "pickrate": 1.69
+      },
+      "high": {
+        "picks": 12073,
+        "winrate": 52.92
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 1,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 83,
+      "key": "treant",
+      "name": "Treant Protector",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png",
+      "roles": [
+        "Support",
+        "Initiator",
+        "Durable",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 163094,
+        "winrate": 50.19,
+        "pickrate": 4.21
+      },
+      "high": {
+        "picks": 55858,
+        "winrate": 51.89
+      },
+      "pro": {
+        "picks": 17,
+        "bans": 184,
+        "winrate": 82.35
+      }
+    },
+    {
+      "id": 84,
+      "key": "ogre_magi",
+      "name": "Ogre Magi",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Durable",
+        "Initiator"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 666307,
+        "winrate": 50.88,
+        "pickrate": 17.18
+      },
+      "high": {
+        "picks": 115169,
+        "winrate": 49.59
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 0,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 85,
+      "key": "undying",
+      "name": "Undying",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png",
+      "roles": [
+        "Support",
+        "Durable",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 507071,
+        "winrate": 52.06,
+        "pickrate": 13.07
+      },
+      "high": {
+        "picks": 124454,
+        "winrate": 51.87
+      },
+      "pro": {
+        "picks": 65,
+        "bans": 87,
+        "winrate": 40
+      }
+    },
+    {
+      "id": 86,
+      "key": "rubick",
+      "name": "Rubick",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 723533,
+        "winrate": 49.37,
+        "pickrate": 18.66
+      },
+      "high": {
+        "picks": 216829,
+        "winrate": 49.81
+      },
+      "pro": {
+        "picks": 39,
+        "bans": 17,
+        "winrate": 53.85
+      }
+    },
+    {
+      "id": 87,
+      "key": "disruptor",
+      "name": "Disruptor",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/disruptor.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker",
+        "Initiator"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 302266,
+        "winrate": 49.91,
+        "pickrate": 7.79
+      },
+      "high": {
+        "picks": 86083,
+        "winrate": 50.67
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 2,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 88,
+      "key": "nyx_assassin",
+      "name": "Nyx Assassin",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png",
+      "roles": [
+        "Disabler",
+        "Nuker",
+        "Initiator",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 257752,
+        "winrate": 52.08,
+        "pickrate": 6.65
+      },
+      "high": {
+        "picks": 66815,
+        "winrate": 52.31
+      },
+      "pro": {
+        "picks": 11,
+        "bans": 4,
+        "winrate": 72.73
+      }
+    },
+    {
+      "id": 89,
+      "key": "naga_siren",
+      "name": "Naga Siren",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/naga_siren.png",
+      "roles": [
+        "Carry",
+        "Support",
+        "Pusher",
+        "Disabler",
+        "Initiator",
+        "Escape"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 73206,
+        "winrate": 48.23,
+        "pickrate": 1.89
+      },
+      "high": {
+        "picks": 9272,
+        "winrate": 49.02
+      },
+      "pro": {
+        "picks": 8,
+        "bans": 11,
+        "winrate": 62.5
+      }
+    },
+    {
+      "id": 90,
+      "key": "keeper_of_the_light",
+      "name": "Keeper of the Light",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 277700,
+        "winrate": 50.41,
+        "pickrate": 7.16
+      },
+      "high": {
+        "picks": 70787,
+        "winrate": 52.53
+      },
+      "pro": {
+        "picks": 34,
+        "bans": 108,
+        "winrate": 58.82
+      }
+    },
+    {
+      "id": 91,
+      "key": "wisp",
+      "name": "Io",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/wisp.png",
+      "roles": [
+        "Support",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 180211,
+        "winrate": 50.77,
+        "pickrate": 4.65
+      },
+      "high": {
+        "picks": 43765,
+        "winrate": 51.24
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 14,
+        "winrate": 25
+      }
+    },
+    {
+      "id": 92,
+      "key": "visage",
+      "name": "Visage",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Durable",
+        "Disabler",
+        "Pusher"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 57486,
+        "winrate": 52.4,
+        "pickrate": 1.48
+      },
+      "high": {
+        "picks": 15930,
+        "winrate": 54.49
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 93,
+      "key": "slark",
+      "name": "Slark",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 398763,
+        "winrate": 49.57,
+        "pickrate": 10.28
+      },
+      "high": {
+        "picks": 92237,
+        "winrate": 49.79
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 11,
+        "winrate": 80
+      }
+    },
+    {
+      "id": 94,
+      "key": "medusa",
+      "name": "Medusa",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Durable"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 137345,
+        "winrate": 49.68,
+        "pickrate": 3.54
+      },
+      "high": {
+        "picks": 24952,
+        "winrate": 48.81
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 3,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 95,
+      "key": "troll_warlord",
+      "name": "Troll Warlord",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Disabler",
+        "Durable"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 112217,
+        "winrate": 51.15,
+        "pickrate": 2.89
+      },
+      "high": {
+        "picks": 18268,
+        "winrate": 49.81
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 0,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 96,
+      "key": "centaur",
+      "name": "Centaur Warrunner",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png",
+      "roles": [
+        "Durable",
+        "Initiator",
+        "Disabler",
+        "Nuker",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 326058,
+        "winrate": 50.71,
+        "pickrate": 8.41
+      },
+      "high": {
+        "picks": 86195,
+        "winrate": 50.02
+      },
+      "pro": {
+        "picks": 65,
+        "bans": 67,
+        "winrate": 56.92
+      }
+    },
+    {
+      "id": 97,
+      "key": "magnataur",
+      "name": "Magnus",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Nuker",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 437503,
+        "winrate": 48.58,
+        "pickrate": 11.28
+      },
+      "high": {
+        "picks": 127074,
+        "winrate": 49.29
+      },
+      "pro": {
+        "picks": 8,
+        "bans": 5,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 98,
+      "key": "shredder",
+      "name": "Timbersaw",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png",
+      "roles": [
+        "Nuker",
+        "Durable",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 170613,
+        "winrate": 44.63,
+        "pickrate": 4.4
+      },
+      "high": {
+        "picks": 47828,
+        "winrate": 44.06
+      },
+      "pro": {
+        "picks": 16,
+        "bans": 28,
+        "winrate": 56.25
+      }
+    },
+    {
+      "id": 99,
+      "key": "bristleback",
+      "name": "Bristleback",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png",
+      "roles": [
+        "Carry",
+        "Durable",
+        "Initiator",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 314297,
+        "winrate": 48.93,
+        "pickrate": 8.1
+      },
+      "high": {
+        "picks": 41140,
+        "winrate": 46.01
+      },
+      "pro": {
+        "picks": 6,
+        "bans": 1,
+        "winrate": 16.67
+      }
+    },
+    {
+      "id": 100,
+      "key": "tusk",
+      "name": "Tusk",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 210988,
+        "winrate": 47.61,
+        "pickrate": 5.44
+      },
+      "high": {
+        "picks": 74194,
+        "winrate": 48.95
+      },
+      "pro": {
+        "picks": 35,
+        "bans": 20,
+        "winrate": 45.71
+      }
+    },
+    {
+      "id": 101,
+      "key": "skywrath_mage",
+      "name": "Skywrath Mage",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skywrath_mage.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 494994,
+        "winrate": 49.97,
+        "pickrate": 12.76
+      },
+      "high": {
+        "picks": 104497,
+        "winrate": 49.09
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 3,
+        "winrate": 25
+      }
+    },
+    {
+      "id": 102,
+      "key": "abaddon",
+      "name": "Abaddon",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png",
+      "roles": [
+        "Support",
+        "Carry",
+        "Durable"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 163641,
+        "winrate": 51.3,
+        "pickrate": 4.22
+      },
+      "high": {
+        "picks": 34346,
+        "winrate": 51.44
+      },
+      "pro": {
+        "picks": 1,
+        "bans": 1,
+        "winrate": 100
+      }
+    },
+    {
+      "id": 103,
+      "key": "elder_titan",
+      "name": "Elder Titan",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/elder_titan.png",
+      "roles": [
+        "Initiator",
+        "Disabler",
+        "Nuker",
+        "Durable"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 41521,
+        "winrate": 50.88,
+        "pickrate": 1.07
+      },
+      "high": {
+        "picks": 9891,
+        "winrate": 52.93
+      },
+      "pro": {
+        "picks": 2,
+        "bans": 0,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 104,
+      "key": "legion_commander",
+      "name": "Legion Commander",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png",
+      "roles": [
+        "Carry",
+        "Disabler",
+        "Initiator",
+        "Durable",
+        "Nuker"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 569688,
+        "winrate": 52.82,
+        "pickrate": 14.69
+      },
+      "high": {
+        "picks": 108842,
+        "winrate": 52.45
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 105,
+      "key": "techies",
+      "name": "Techies",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/techies.png",
+      "roles": [
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 375893,
+        "winrate": 50.71,
+        "pickrate": 9.69
+      },
+      "high": {
+        "picks": 80483,
+        "winrate": 50.4
+      },
+      "pro": {
+        "picks": 27,
+        "bans": 33,
+        "winrate": 44.44
+      }
+    },
+    {
+      "id": 106,
+      "key": "ember_spirit",
+      "name": "Ember Spirit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker",
+        "Disabler",
+        "Initiator"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 253951,
+        "winrate": 49.51,
+        "pickrate": 6.55
+      },
+      "high": {
+        "picks": 86819,
+        "winrate": 50.96
+      },
+      "pro": {
+        "picks": 73,
+        "bans": 79,
+        "winrate": 58.9
+      }
+    },
+    {
+      "id": 107,
+      "key": "earth_spirit",
+      "name": "Earth Spirit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png",
+      "roles": [
+        "Nuker",
+        "Escape",
+        "Disabler",
+        "Initiator",
+        "Durable"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 203769,
+        "winrate": 50,
+        "pickrate": 5.25
+      },
+      "high": {
+        "picks": 76623,
+        "winrate": 51.4
+      },
+      "pro": {
+        "picks": 48,
+        "bans": 58,
+        "winrate": 56.25
+      }
+    },
+    {
+      "id": 108,
+      "key": "abyssal_underlord",
+      "name": "Underlord",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Durable",
+        "Escape"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 255676,
+        "winrate": 50.07,
+        "pickrate": 6.59
+      },
+      "high": {
+        "picks": 67660,
+        "winrate": 48.53
+      },
+      "pro": {
+        "picks": 18,
+        "bans": 20,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 109,
+      "key": "terrorblade",
+      "name": "Terrorblade",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png",
+      "roles": [
+        "Carry",
+        "Pusher",
+        "Nuker"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 121300,
+        "winrate": 47.15,
+        "pickrate": 3.13
+      },
+      "high": {
+        "picks": 27997,
+        "winrate": 48.5
+      },
+      "pro": {
+        "picks": 18,
+        "bans": 38,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 110,
+      "key": "phoenix",
+      "name": "Phoenix",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Initiator",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 211505,
+        "winrate": 51.04,
+        "pickrate": 5.45
+      },
+      "high": {
+        "picks": 63239,
+        "winrate": 51.07
+      },
+      "pro": {
+        "picks": 13,
+        "bans": 5,
+        "winrate": 30.77
+      }
+    },
+    {
+      "id": 111,
+      "key": "oracle",
+      "name": "Oracle",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/oracle.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 162868,
+        "winrate": 49.64,
+        "pickrate": 4.2
+      },
+      "high": {
+        "picks": 46220,
+        "winrate": 51.67
+      },
+      "pro": {
+        "picks": 6,
+        "bans": 2,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 112,
+      "key": "winter_wyvern",
+      "name": "Winter Wyvern",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/winter_wyvern.png",
+      "roles": [
+        "Support",
+        "Disabler",
+        "Nuker"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 163855,
+        "winrate": 49.49,
+        "pickrate": 4.22
+      },
+      "high": {
+        "picks": 42717,
+        "winrate": 51.45
+      },
+      "pro": {
+        "picks": 49,
+        "bans": 31,
+        "winrate": 55.1
+      }
+    },
+    {
+      "id": 113,
+      "key": "arc_warden",
+      "name": "Arc Warden",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 144879,
+        "winrate": 51.35,
+        "pickrate": 3.74
+      },
+      "high": {
+        "picks": 27966,
+        "winrate": 52.72
+      },
+      "pro": {
+        "picks": 0,
+        "bans": 0,
+        "winrate": null
+      }
+    },
+    {
+      "id": 114,
+      "key": "monkey_king",
+      "name": "Monkey King",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/monkey_king.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Disabler",
+        "Initiator"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 206037,
+        "winrate": 44.82,
+        "pickrate": 5.31
+      },
+      "high": {
+        "picks": 47908,
+        "winrate": 46.13
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 6,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 119,
+      "key": "dark_willow",
+      "name": "Dark Willow",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 199939,
+        "winrate": 48.22,
+        "pickrate": 5.16
+      },
+      "high": {
+        "picks": 51491,
+        "winrate": 49.44
+      },
+      "pro": {
+        "picks": 50,
+        "bans": 23,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 120,
+      "key": "pangolier",
+      "name": "Pangolier",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Disabler",
+        "Durable",
+        "Escape",
+        "Initiator"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 119498,
+        "winrate": 45.96,
+        "pickrate": 3.08
+      },
+      "high": {
+        "picks": 42272,
+        "winrate": 46.81
+      },
+      "pro": {
+        "picks": 29,
+        "bans": 33,
+        "winrate": 41.38
+      }
+    },
+    {
+      "id": 121,
+      "key": "grimstroke",
+      "name": "Grimstroke",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/grimstroke.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 256355,
+        "winrate": 51.54,
+        "pickrate": 6.61
+      },
+      "high": {
+        "picks": 69759,
+        "winrate": 51.82
+      },
+      "pro": {
+        "picks": 16,
+        "bans": 5,
+        "winrate": 37.5
+      }
+    },
+    {
+      "id": 123,
+      "key": "hoodwink",
+      "name": "Hoodwink",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 386003,
+        "winrate": 47.83,
+        "pickrate": 9.95
+      },
+      "high": {
+        "picks": 96412,
+        "winrate": 48.16
+      },
+      "pro": {
+        "picks": 78,
+        "bans": 55,
+        "winrate": 37.18
+      }
+    },
+    {
+      "id": 126,
+      "key": "void_spirit",
+      "name": "Void Spirit",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/void_spirit.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 169622,
+        "winrate": 49.39,
+        "pickrate": 4.37
+      },
+      "high": {
+        "picks": 54742,
+        "winrate": 49.25
+      },
+      "pro": {
+        "picks": 17,
+        "bans": 6,
+        "winrate": 35.29
+      }
+    },
+    {
+      "id": 128,
+      "key": "snapfire",
+      "name": "Snapfire",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 685884,
+        "winrate": 51.39,
+        "pickrate": 17.69
+      },
+      "high": {
+        "picks": 199001,
+        "winrate": 50.97
+      },
+      "pro": {
+        "picks": 27,
+        "bans": 42,
+        "winrate": 48.15
+      }
+    },
+    {
+      "id": 129,
+      "key": "mars",
+      "name": "Mars",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png",
+      "roles": [
+        "Carry",
+        "Initiator",
+        "Disabler",
+        "Durable"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 187980,
+        "winrate": 46.8,
+        "pickrate": 4.85
+      },
+      "high": {
+        "picks": 59328,
+        "winrate": 46.67
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 2,
+        "winrate": 0
+      }
+    },
+    {
+      "id": 131,
+      "key": "ringmaster",
+      "name": "Ring Master",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png",
+      "roles": [
+        "Support",
+        "Nuker",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 203760,
+        "winrate": 48.13,
+        "pickrate": 5.25
+      },
+      "high": {
+        "picks": 66916,
+        "winrate": 48.91
+      },
+      "pro": {
+        "picks": 40,
+        "bans": 21,
+        "winrate": 35
+      }
+    },
+    {
+      "id": 135,
+      "key": "dawnbreaker",
+      "name": "Dawnbreaker",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dawnbreaker.png",
+      "roles": [
+        "Carry",
+        "Durable"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 350066,
+        "winrate": 51.94,
+        "pickrate": 9.03
+      },
+      "high": {
+        "picks": 107406,
+        "winrate": 51.86
+      },
+      "pro": {
+        "picks": 32,
+        "bans": 32,
+        "winrate": 37.5
+      }
+    },
+    {
+      "id": 136,
+      "key": "marci",
+      "name": "Marci",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png",
+      "roles": [
+        "Support",
+        "Carry",
+        "Initiator",
+        "Disabler",
+        "Escape"
+      ],
+      "primary_attr": "all",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 154897,
+        "winrate": 49.99,
+        "pickrate": 3.99
+      },
+      "high": {
+        "picks": 37306,
+        "winrate": 51.2
+      },
+      "pro": {
+        "picks": 5,
+        "bans": 4,
+        "winrate": 40
+      }
+    },
+    {
+      "id": 137,
+      "key": "primal_beast",
+      "name": "Primal Beast",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png",
+      "roles": [
+        "Initiator",
+        "Durable",
+        "Disabler"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 121522,
+        "winrate": 48.62,
+        "pickrate": 3.13
+      },
+      "high": {
+        "picks": 31128,
+        "winrate": 49.82
+      },
+      "pro": {
+        "picks": 3,
+        "bans": 0,
+        "winrate": 33.33
+      }
+    },
+    {
+      "id": 138,
+      "key": "muerta",
+      "name": "Muerta",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png",
+      "roles": [
+        "Carry",
+        "Nuker",
+        "Disabler"
+      ],
+      "primary_attr": "int",
+      "attack_type": "Ranged",
+      "complexity": null,
+      "all": {
+        "picks": 143182,
+        "winrate": 46.99,
+        "pickrate": 3.69
+      },
+      "high": {
+        "picks": 33074,
+        "winrate": 46.81
+      },
+      "pro": {
+        "picks": 4,
+        "bans": 3,
+        "winrate": 50
+      }
+    },
+    {
+      "id": 145,
+      "key": "kez",
+      "name": "Kez",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png",
+      "roles": [
+        "Carry",
+        "Escape",
+        "Disabler"
+      ],
+      "primary_attr": "agi",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 180873,
+        "winrate": 43.96,
+        "pickrate": 4.66
+      },
+      "high": {
+        "picks": 48537,
+        "winrate": 43.82
+      },
+      "pro": {
+        "picks": 29,
+        "bans": 23,
+        "winrate": 44.83
+      }
+    },
+    {
+      "id": 155,
+      "key": "largo",
+      "name": "Largo",
+      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/largo.png",
+      "roles": [
+        "Durable",
+        "Disabler",
+        "Support"
+      ],
+      "primary_attr": "str",
+      "attack_type": "Melee",
+      "complexity": null,
+      "all": {
+        "picks": 72566,
+        "winrate": 48,
+        "pickrate": 1.87
+      },
+      "high": {
+        "picks": 21973,
+        "winrate": 48.89
+      },
+      "pro": {
+        "picks": 47,
+        "bans": 75,
+        "winrate": 44.68
+      }
+    }
+  ]
+}

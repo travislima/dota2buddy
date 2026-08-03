@@ -1,0 +1,17 @@
+{
+  "name": "dota-buddy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dota patch notes, distilled into what actually matters.",
+  "scripts": {
+    "fetch": "node scripts/fetch-patch.mjs",
+    "meta": "node scripts/fetch-meta.mjs",
+    "community": "node scripts/fetch-community.mjs",
+    "update": "npm run fetch && npm run meta && npm run community",
+    "validate": "node scripts/validate-brief.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}
