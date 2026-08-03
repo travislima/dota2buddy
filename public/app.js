@@ -1,6 +1,10 @@
 /* Dota Buddy — joins the raw patch, the written brief and live meta stats
    into one browsable thing. No build step, no framework. */
 
+import { store } from './store.js';
+import { config } from './config.js';
+import { initAnalytics, trackView, trackEvent } from './analytics.js';
+
 const state = {
   patches: null,
   raw: null,
@@ -9,6 +13,9 @@ const state = {
   heroFilter: 'all',
   heroSearch: '',
   itemSearch: '',
+  pickerSearch: '',
+  previousVisit: null,
+  isNewPatch: false,
 };
 
 const app = document.getElementById('app');
@@ -83,6 +90,14 @@ async function boot() {
     state.meta = meta;
     state.brief = brief;
 
+    // Reading progress resets when the patch changes, so "3 left" always means
+    // 3 left in the patch you're actually looking at.
+    const { isNewPatch } = store.startPatch(raw.patch);
+    state.isNewPatch = isNewPatch;
+    state.previousVisit = store.touchVisit();
+
+    initAnalytics();
+
     document.getElementById('patch-chip').innerHTML =
       `<b>${esc(raw.patch)}</b><span>${esc(daysAgo(raw.released))}</span>`;
 
@@ -91,7 +106,12 @@ async function boot() {
     if (brief?.written_at) notes.push(`Analysis written ${fmtDate(brief.written_at)}.`);
     document.getElementById('footer-note').textContent = notes.join(' ');
 
+    const heroesBtn = document.getElementById('my-heroes');
+    heroesBtn.classList.toggle('on', store.heroes.length > 0);
+    heroesBtn.addEventListener('click', openHeroPicker);
+
     window.addEventListener('hashchange', route);
+    attachShortcuts();
     route();
   } catch (err) {
     app.innerHTML = `<div class="empty">
@@ -108,6 +128,8 @@ function route() {
   const hash = location.hash.replace(/^#\/?/, '');
   const [view, arg] = hash.split('/');
 
+  document.getElementById('my-heroes')?.classList.toggle('on', store.heroes.length > 0);
+
   document.querySelectorAll('.tabs a').forEach((a) => {
     const tab = a.dataset.tab;
     const active = (!view && tab === 'brief')
@@ -123,7 +145,16 @@ function route() {
     case 'items': renderItems(); break;
     case 'item': renderItemDetail(arg); break;
     case 'notes': renderNotes(); break;
+    case 'theme': renderBrief(); break;
     default: renderBrief();
+  }
+
+  trackView(`/${view || 'brief'}${arg ? `/${arg}` : ''}`, document.title);
+
+  // A deep-linked headline scrolls itself into view; everything else starts at the top.
+  if (view === 'theme' && arg) {
+    const card = document.getElementById(`theme-${arg}`);
+    if (card) { card.open = true; card.scrollIntoView({ block: 'center' }); return; }
   }
   window.scrollTo(0, 0);
 }
@@ -146,8 +177,11 @@ function renderBrief() {
 
   const v = b.verdict ?? {};
   const themes = (b.themes ?? []).slice().sort((a, c) => (a.rank ?? 99) - (c.rank ?? 99));
+  const unread = themes.filter((t) => !store.hasRead(t.id)).length;
 
   app.innerHTML = `
+    ${renderWelcome(unread, themes.length)}
+
     <section class="tldr">
       <div class="eyebrow">Patch ${esc(b.patch)} · released ${esc(fmtDate(b.released))}</div>
       <p>${rich(b.tldr)}</p>
@@ -159,9 +193,15 @@ function renderBrief() {
         </div>` : ''}
     </section>
 
+    ${renderForYou()}
+
     <div class="section-head">
       <h2>If you read nothing else</h2>
-      <button class="expand-all" id="expand-all">Expand all</button>
+      <div class="head-actions">
+        ${unread > 0 && unread < themes.length
+          ? `<span class="progress">${themes.length - unread}/${themes.length} read</span>` : ''}
+        <button class="expand-all" id="expand-all">Expand all</button>
+      </div>
     </div>
 
     ${themes.filter((t) => (t.rank ?? 99) <= 3).map(renderHeadline).join('')}
@@ -181,15 +221,253 @@ function renderBrief() {
       ${quickLink('#/items', 'Items', `${state.raw.items.length + state.raw.neutral_items.length} changed, including neutrals`)}
       ${quickLink('#/notes', 'Full notes', 'The official changes, verbatim, nothing added')}
     </div>
+
+    ${renderJoin()}
   `;
 
+  attachBriefHandlers();
+}
+
+/** A short line that only appears when it has something to say. */
+function renderWelcome(unread, total) {
+  if (state.isNewPatch) {
+    return `<div class="welcome new">
+      <strong>New patch since you were last here.</strong>
+      ${esc(state.raw.patch)} landed ${esc(daysAgo(state.raw.released))} — here's what changed.
+    </div>`;
+  }
+  if (state.previousVisit && unread > 0 && unread < total) {
+    return `<div class="welcome">
+      Welcome back. <strong>${unread} of ${total}</strong> still unread from ${esc(state.raw.patch)}.
+    </div>`;
+  }
+  if (state.previousVisit && unread === 0) {
+    return `<div class="welcome done">
+      You're all caught up on ${esc(state.raw.patch)}. Nothing new until the next patch.
+    </div>`;
+  }
+  return '';
+}
+
+/* ---------- your heroes ---------- */
+
+/**
+ * The whole point of picking heroes: 57 changed heroes becomes the handful you
+ * actually play, plus a short warning list for the ones you'll be up against.
+ */
+function renderForYou() {
+  const picked = store.heroes;
+
+  if (!picked.length) {
+    if (store.isDismissed('hero-prompt')) return '';
+    return `
+      <div class="setup-prompt" id="hero-prompt">
+        <button class="dismiss" data-dismiss="hero-prompt" aria-label="Dismiss">×</button>
+        <h3>Make this about your games</h3>
+        <p>Pick the heroes you actually play and this page will lead with what changed for
+           you — and flag the ones you'll be facing.</p>
+        <button class="btn-primary" data-open-picker>Pick my heroes</button>
+      </div>`;
+  }
+
+  const mine = state.raw.heroes
+    .filter((h) => picked.includes(h.key))
+    .sort((a, c) => (briefHero(c.key)?.impact ?? 0) - (briefHero(a.key)?.impact ?? 0));
+
+  const untouched = picked.length - mine.length;
+
+  // Heroes you don't play that got a big change — you'll meet these in games.
+  const facing = state.raw.heroes
+    .filter((h) => !picked.includes(h.key) && (briefHero(h.key)?.impact ?? 0) >= 4)
+    .sort((a, c) => (briefHero(c.key)?.impact ?? 0) - (briefHero(a.key)?.impact ?? 0))
+    .slice(0, 4);
+
+  return `
+    <div class="section-head">
+      <h2>Your heroes in ${esc(state.raw.patch)}</h2>
+      <button class="expand-all" data-open-picker>Edit list</button>
+    </div>
+
+    ${mine.length
+      ? `<div class="grid">${mine.map(heroCard).join('')}</div>`
+      : `<div class="welcome done">None of your ${picked.length} heroes were touched this patch.
+           Nothing to relearn.</div>`}
+
+    ${untouched > 0 && mine.length
+      ? `<p class="aside">${untouched} of your heroes ${untouched === 1 ? 'was' : 'were'} untouched this patch.</p>`
+      : ''}
+
+    ${facing.length ? `
+      <div class="section-head">
+        <h2>You'll be facing</h2>
+        <span class="hint">Big changes on heroes you don't play</span>
+      </div>
+      <div class="grid">${facing.map(heroCard).join('')}</div>` : ''}
+  `;
+}
+
+/** Full-screen hero chooser, built from the OpenDota roster so every hero is offered. */
+function openHeroPicker() {
+  const all = (state.meta?.heroes ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
+  const changed = new Set(state.raw.heroes.map((h) => h.key));
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal" role="dialog" aria-label="Pick your heroes">
+      <div class="modal-head">
+        <div>
+          <h3>Which heroes do you play?</h3>
+          <p>Pick as many as you like. Stored on this device only.</p>
+        </div>
+        <button class="modal-close" aria-label="Close">×</button>
+      </div>
+      <input class="search" id="picker-search" type="search" placeholder="Search heroes…" autocomplete="off">
+      <div class="picker-grid" id="picker-grid"></div>
+      <div class="modal-foot">
+        <span id="picker-count"></span>
+        <button class="btn-primary" id="picker-done">Done</button>
+      </div>
+    </div>`;
+
+  const paint = () => {
+    const q = (overlay.querySelector('#picker-search').value || '').toLowerCase();
+    const list = all.filter((h) => !q || h.name.toLowerCase().includes(q));
+    overlay.querySelector('#picker-grid').innerHTML = list.map((h) => `
+      <button class="picker-hero ${store.playsHero(h.key) ? 'on' : ''}" data-hero="${esc(h.key)}"
+              title="${esc(h.name)}${changed.has(h.key) ? ' — changed this patch' : ''}">
+        <img src="${esc(h.icon)}" alt="" loading="lazy">
+        <span>${esc(h.name)}</span>
+        ${changed.has(h.key) ? '<i class="dot" aria-hidden="true"></i>' : ''}
+      </button>`).join('');
+    const n = store.heroes.length;
+    overlay.querySelector('#picker-count').textContent =
+      n ? `${n} hero${n === 1 ? '' : 'es'} selected` : 'None selected yet';
+  };
+
+  const close = () => {
+    overlay.remove();
+    document.body.style.overflow = '';
+    route();
+  };
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.closest('.modal-close') || e.target.closest('#picker-done')) {
+      trackEvent('heroes_picked', String(store.heroes.length));
+      close();
+      return;
+    }
+    const btn = e.target.closest('[data-hero]');
+    if (btn) { store.toggleHero(btn.dataset.hero); paint(); }
+  });
+  overlay.querySelector('#picker-search').addEventListener('input', paint);
+
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  paint();
+  overlay.querySelector('#picker-search').focus();
+}
+
+/* ---------- signup placeholder ---------- */
+
+function renderJoin() {
+  if (!config.signup.enabled) return '';
+  const joined = store.joined;
+
+  if (joined) {
+    return `<div class="join done">
+      <h3>You're on the list</h3>
+      <p>We'll use <strong>${esc(joined.email)}</strong> when the next patch is distilled.</p>
+      <p class="note">Heads up: there's no mailing list connected yet, so this is saved on your
+         device and nothing has been sent anywhere.</p>
+    </div>`;
+  }
+
+  return `<div class="join">
+    <h3>Get the next patch distilled</h3>
+    <p>One email when a patch lands, with the three things that actually matter. Nothing else.</p>
+    <form id="join-form" novalidate>
+      <input type="email" id="join-email" placeholder="you@example.com" aria-label="Email address" required>
+      <button class="btn-primary" type="submit">Notify me</button>
+    </form>
+    <p class="note">Placeholder — no mailing list is connected yet, so your address stays on
+       this device and isn't sent anywhere.</p>
+  </div>`;
+}
+
+/* ---------- brief interactions ---------- */
+
+function attachBriefHandlers() {
   const toggle = document.getElementById('expand-all');
-  toggle.addEventListener('click', () => {
+  toggle?.addEventListener('click', () => {
     const cards = [...app.querySelectorAll('details.headline')];
     const expanding = cards.some((d) => !d.open);
-    cards.forEach((d) => { d.open = expanding; });
+    cards.forEach((d) => { d.open = expanding; if (expanding) markRead(d); });
     toggle.textContent = expanding ? 'Collapse all' : 'Expand all';
+    trackEvent('expand_all', expanding ? 'open' : 'close');
   });
+
+  // Opening a headline is the strongest signal that a write-up earned attention.
+  app.querySelectorAll('details.headline').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      markRead(d);
+      trackEvent('headline_open', d.dataset.theme);
+    });
+  });
+
+  app.addEventListener('click', (e) => {
+    const dismiss = e.target.closest('[data-dismiss]');
+    if (dismiss) { store.dismiss(dismiss.dataset.dismiss); route(); return; }
+
+    if (e.target.closest('[data-open-picker]')) { openHeroPicker(); return; }
+
+    const voteBtn = e.target.closest('[data-vote]');
+    if (voteBtn) {
+      const card = voteBtn.closest('details.headline');
+      const id = card.dataset.theme;
+      const result = store.vote(id, voteBtn.dataset.vote);
+      trackEvent('vote', `${voteBtn.dataset.vote}:${id}`);
+      card.querySelector('.vote').outerHTML = voteBlock(id, result);
+      return;
+    }
+
+    const share = e.target.closest('[data-share]');
+    if (share) {
+      const url = `${location.origin}${location.pathname}#/theme/${share.dataset.share}`;
+      navigator.clipboard?.writeText(url);
+      share.textContent = 'Link copied';
+      setTimeout(() => { share.textContent = 'Copy link'; }, 1600);
+      trackEvent('share', share.dataset.share);
+    }
+  });
+
+  document.getElementById('join-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.getElementById('join-email');
+    if (!input.value.includes('@')) { input.focus(); return; }
+    store.join(input.value.trim());
+    trackEvent('signup');
+    route();
+  });
+}
+
+function markRead(details) {
+  if (store.markRead(details.dataset.theme)) details.classList.remove('unread');
+}
+
+function voteBlock(id, current) {
+  if (current) {
+    return `<div class="vote voted">
+      <span>${current === 'up' ? 'Glad it helped.' : 'Noted — that one needs work.'}</span>
+      <button class="vote-btn" data-vote="${current}">Undo</button>
+    </div>`;
+  }
+  return `<div class="vote">
+    <span>Was this useful?</span>
+    <button class="vote-btn" data-vote="up">Yes</button>
+    <button class="vote-btn" data-vote="down">Not really</button>
+  </div>`;
 }
 
 const quickLink = (href, title, sub) => `
@@ -216,7 +494,8 @@ function renderHeadline(t) {
   const chips = [...heroChips, ...itemChips];
 
   return `
-  <details class="headline ${(t.rank ?? 99) <= 3 ? 'top' : ''}">
+  <details class="headline ${(t.rank ?? 99) <= 3 ? 'top' : ''} ${store.hasRead(t.id) ? '' : 'unread'}"
+           id="theme-${esc(t.id)}" data-theme="${esc(t.id)}">
     <summary class="headline-row">
       <span class="rank">#${t.rank ?? '?'}</span>
       <div class="headline-row-text">
@@ -253,6 +532,11 @@ function renderHeadline(t) {
           ${t.changes.map((c) => `<div class="raw-line"><b>${esc(c.source)}</b>${esc(cleanText(c.text))}</div>`).join('')}
         </div>
       </details>` : ''}
+
+    <div class="card-foot">
+      ${voteBlock(t.id, store.voteFor(t.id))}
+      <button class="link-btn" data-share="${esc(t.id)}">Copy link</button>
+    </div>
   </details>`;
 }
 
@@ -269,11 +553,12 @@ function heroCard(h) {
   const verdict = b?.verdict ?? '';
 
   return `
-  <a class="entity ${esc(verdict)}" href="#/hero/${esc(h.key)}">
+  <a class="entity ${esc(verdict)} ${store.playsHero(h.key) ? 'mine' : ''}" href="#/hero/${esc(h.key)}">
     <img class="portrait" src="${esc(h.icon)}" alt="" loading="lazy">
     <div class="entity-body">
       <div class="entity-name">
         <strong>${esc(h.name)}</strong>
+        ${store.playsHero(h.key) ? '<span class="yours" title="One of yours">★</span>' : ''}
         ${verdictPill(verdict)}
         ${b?.impact ? impactDots(b.impact) : ''}
       </div>
@@ -292,7 +577,11 @@ function renderHeroes() {
 
   let list = state.raw.heroes.filter((h) => {
     const b = briefHero(h.key);
-    if (state.heroFilter !== 'all' && (b?.verdict ?? '') !== state.heroFilter) return false;
+    if (state.heroFilter === 'mine') {
+      if (!store.playsHero(h.key)) return false;
+    } else if (state.heroFilter !== 'all' && (b?.verdict ?? '') !== state.heroFilter) {
+      return false;
+    }
     if (q && !h.name.toLowerCase().includes(q)) return false;
     return true;
   });
@@ -311,6 +600,10 @@ function renderHeroes() {
     const v = briefHero(h.key)?.verdict ?? 'unwritten';
     counts[v] = (counts[v] ?? 0) + 1;
   }
+  counts.mine = state.raw.heroes.filter((h) => store.playsHero(h.key)).length;
+
+  // "Mine" only earns a slot once you've told us who you play.
+  const filters = ['all', ...(store.heroes.length ? ['mine'] : []), 'nerf', 'buff', 'mixed', 'qol'];
 
   app.innerHTML = `
     <div class="section-head">
@@ -321,9 +614,9 @@ function renderHeroes() {
     <div class="filters">
       <input class="search" id="hero-search" type="search" placeholder="Search heroes…"
              value="${esc(state.heroSearch)}" autocomplete="off">
-      ${['all', 'nerf', 'buff', 'mixed', 'qol'].map((f) => `
-        <button class="filter-btn ${state.heroFilter === f ? 'active' : ''}" data-filter="${f}">
-          ${f === 'all' ? 'All' : f[0].toUpperCase() + f.slice(1)}${counts[f] ? ` ${counts[f]}` : ''}
+      ${filters.map((f) => `
+        <button class="filter-btn ${state.heroFilter === f ? 'active' : ''} ${f === 'mine' ? 'gold' : ''}" data-filter="${f}">
+          ${f === 'all' ? 'All' : f === 'mine' ? '★ Mine' : f[0].toUpperCase() + f.slice(1)}${counts[f] ? ` ${counts[f]}` : ''}
         </button>`).join('')}
     </div>
 
@@ -602,6 +895,38 @@ function renderNotes() {
           </div>` : ''}
       </div>`).join(''))}
   `;
+}
+
+/* ---------- keyboard ---------- */
+
+function attachShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    const overlay = document.querySelector('.modal-overlay');
+    if (e.key === 'Escape' && overlay) {
+      overlay.remove();
+      document.body.style.overflow = '';
+      route();
+      return;
+    }
+
+    // Never hijack a key while someone is typing into a field.
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName ?? '');
+    if (typing) return;
+
+    if (e.key === '/') {
+      const search = document.querySelector('.search');
+      if (search) { e.preventDefault(); search.focus(); search.select(); }
+    } else if (e.key === 'e') {
+      document.getElementById('expand-all')?.click();
+    } else if (e.key === 'h') {
+      openHeroPicker();
+    } else if (['1', '2', '3', '4'].includes(e.key)) {
+      const tab = document.querySelectorAll('.tabs a')[Number(e.key) - 1];
+      if (tab) location.hash = tab.getAttribute('href');
+    }
+  });
 }
 
 /* ---------- PWA ---------- */

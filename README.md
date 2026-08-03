@@ -47,6 +47,49 @@ npm run validate   # fails if any changed hero or item has no write-up
 - **Items** — same treatment, including neutrals and enchantments.
 - **Full notes** — the official text, unedited, for when you want the source.
 
+## Made yours
+
+Hit the ★ in the corner (or press `h`) and pick the heroes you actually play. From then on the
+brief opens with **Your heroes in this patch**, plus a short **You'll be facing** list of the big
+changes on heroes you don't play — because those still decide your games. The Heroes tab gains a
+★ Mine filter too.
+
+It also keeps track of what you've read. Come back later and the top of the page tells you how
+much is left, unread headlines keep a small dot, and a new patch resets the count. All of it
+lives in one `localStorage` key on your own device — no account, no server, no cookies.
+
+Each headline has a **Was this useful?** vote and a **Copy link** that deep-links straight to it
+(`#/theme/kaya-mana`), which is the fastest way to send a friend the one thing they need.
+
+Keyboard: `1`-`4` switch tabs, `/` focuses search, `e` expands everything, `h` opens the hero
+picker, `Esc` closes.
+
+## Analytics
+
+GitHub Pages has none built in. `public/config.js` is wired for three cookieless providers, so
+no consent banner is needed — and **nothing third-party loads until you set one**:
+
+| Provider | Cost | Custom events |
+|---|---|---|
+| **GoatCounter** | Free for personal use | Yes — see which headlines get opened and voted on |
+| Cloudflare Web Analytics | Free | No, pageviews only |
+| Plausible | Paid | Yes |
+
+GoatCounter is the one to pick, because the custom events are the interesting part. Sign up,
+then set:
+
+```js
+analytics: { provider: 'goatcounter', site: 'your-code' }
+```
+
+It records `headline_open`, `vote`, `share`, `heroes_picked`, `signup` and `expand_all` — so
+"which write-ups actually earned attention" becomes a real answer rather than a guess. Local
+development is excluded automatically, and with `provider: 'none'` the events just log to the
+console so you can watch them.
+
+Google Analytics is deliberately not the default: it uses cookies, which would mean a consent
+banner on a page whose whole point is getting out of your way.
+
 ## Deploy it
 
 `public/` is a plain static folder — nothing to build. Every path in the app is relative and
@@ -73,6 +116,9 @@ public/
   data/raw/<v>.json    the patch, verbatim but legible   ← generated
   data/briefs/<v>.json the analysis                      ← written by hand
   data/meta.json       live hero stats                   ← generated
+  config.js            analytics + signup switches       ← the file you edit
+  store.js             everything remembered on-device
+  analytics.js         provider-agnostic event tracking
   index.html app.js styles.css sw.js manifest.webmanifest
 ```
 

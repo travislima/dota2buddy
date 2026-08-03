@@ -1,12 +1,15 @@
 /* Offline support: cache the shell, always try the network for data first so a
    freshly regenerated brief shows up without anyone clearing anything. */
 
-const VERSION = 'dota-buddy-v2';
+const VERSION = 'dota-buddy-v3';
 const SHELL = [
   './',
   'index.html',
   'styles.css',
   'app.js',
+  'store.js',
+  'config.js',
+  'analytics.js',
   'icon.svg',
   'manifest.webmanifest',
 ];

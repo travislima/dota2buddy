@@ -102,6 +102,21 @@ Prose fields support `*emphasis*`. Everything is escaped before rendering.
 - OpenDota's window is roughly the last week, so just after a patch it's a blend of before and
   after. Don't describe it as post-patch data.
 
+## The client-side layer
+
+- `public/config.js` — the only file to edit to switch analytics or the signup form on. Analytics
+  defaults to `none` and loads nothing third-party until a provider and site id are set.
+- `public/store.js` — one `localStorage` key holding chosen heroes, votes, read state, last visit
+  and the signup placeholder. `startPatch()` deliberately clears reads and votes when the patch
+  changes, so progress always refers to the patch on screen.
+- `public/analytics.js` — `trackEvent()` / `trackView()` wrappers. Events fired today:
+  `headline_open`, `vote`, `share`, `heroes_picked`, `signup`, `expand_all`. If you add a feature
+  worth measuring, fire an event for it — that data is what tells us which write-ups earn their
+  keep.
+
+The signup form has no backend. It says so in the UI, and it must keep saying so until
+`config.signup.endpoint` is real — never let it imply an email was sent.
+
 ## Not this
 
 Don't add a build step, a framework, or dependencies. It's plain files on purpose so it can be
