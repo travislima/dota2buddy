@@ -28,7 +28,6 @@ That pulls three things:
 |---|---|---|
 | Patch notes | Valve's official datafeed | Every change, with ids resolved to real names |
 | Pick/win rates | OpenDota public matches | Whether a hero is *actually* being played more |
-| Community posts | r/DotA2 and r/learndota2 RSS | What people have noticed that the notes don't say |
 
 Then the analysis gets written into `public/data/briefs/<version>.json`. That part is done by
 hand in a Claude Code session — say "new patch dropped" and it reads the diff and writes the
@@ -47,7 +46,6 @@ npm run validate   # fails if any changed hero or item has no write-up
   and the raw changes.
 - **Items** — same treatment, including neutrals and enchantments.
 - **Full notes** — the official text, unedited, for when you want the source.
-- **Community** — what r/DotA2 is talking about right now.
 
 ## Deploy it
 
@@ -68,7 +66,6 @@ command.
 scripts/
   fetch-patch.mjs      Valve datafeed → readable, name-resolved JSON
   fetch-meta.mjs       OpenDota pick/win rates per bracket
-  fetch-community.mjs  Reddit RSS (best-effort, rate-limit aware)
   validate-brief.mjs   checks the write-up covers everything
   make-icons.mjs       generates the PWA PNGs, no image deps
   serve.mjs            tiny static server
@@ -76,7 +73,6 @@ public/
   data/raw/<v>.json    the patch, verbatim but legible   ← generated
   data/briefs/<v>.json the analysis                      ← written by hand
   data/meta.json       live hero stats                   ← generated
-  data/community.json  Reddit                            ← generated
   index.html app.js styles.css sw.js manifest.webmanifest
 ```
 

@@ -1,12 +1,11 @@
-/* Dota Buddy — joins the raw patch, the written brief, live meta stats and
-   community chatter into one browsable thing. No build step, no framework. */
+/* Dota Buddy — joins the raw patch, the written brief and live meta stats
+   into one browsable thing. No build step, no framework. */
 
 const state = {
   patches: null,
   raw: null,
   brief: null,
   meta: null,
-  community: null,
   heroFilter: 'all',
   heroSearch: '',
   itemSearch: '',
@@ -74,16 +73,14 @@ async function boot() {
     state.patches = await json('data/patches.json');
     const v = state.patches.latest;
 
-    const [raw, meta, community, brief] = await Promise.all([
+    const [raw, meta, brief] = await Promise.all([
       json(`data/raw/${v}.json`),
       json('data/meta.json').catch(() => null),
-      json('data/community.json').catch(() => null),
       json(`data/briefs/${v}.json`).catch(() => null),
     ]);
 
     state.raw = raw;
     state.meta = meta;
-    state.community = community;
     state.brief = brief;
 
     document.getElementById('patch-chip').innerHTML =
@@ -126,7 +123,6 @@ function route() {
     case 'items': renderItems(); break;
     case 'item': renderItemDetail(arg); break;
     case 'notes': renderNotes(); break;
-    case 'community': renderCommunity(); break;
     default: renderBrief();
   }
   window.scrollTo(0, 0);
@@ -184,7 +180,6 @@ function renderBrief() {
       ${quickLink('#/heroes', 'Heroes', `${state.raw.heroes.length} changed — see what each one means for you`)}
       ${quickLink('#/items', 'Items', `${state.raw.items.length + state.raw.neutral_items.length} changed, including neutrals`)}
       ${quickLink('#/notes', 'Full notes', 'The official changes, verbatim, nothing added')}
-      ${quickLink('#/community', 'Community', 'What r/DotA2 is talking about right now')}
     </div>
   `;
 
@@ -606,42 +601,6 @@ function renderNotes() {
             <ul>${h.talents.map((t) => `<li>${esc(cleanText(t.text))}</li>`).join('')}</ul>
           </div>` : ''}
       </div>`).join(''))}
-  `;
-}
-
-/* ---------- view: community ---------- */
-
-function renderCommunity() {
-  const c = state.community;
-  if (!c) {
-    app.innerHTML = '<div class="empty">No community data. Run <code>npm run community</code>.</div>';
-    return;
-  }
-
-  const sections = c.sections.filter((s) => s.posts.length);
-
-  app.innerHTML = `
-    <div class="section-head">
-      <h2>What people are talking about</h2>
-      <span class="hint">Updated ${esc(daysAgo(c.fetched_at))}</span>
-    </div>
-
-    <div class="callout">
-      Straight from Reddit, unfiltered and unranked by us — useful for spotting what the
-      community has noticed that a patch note doesn't tell you.
-    </div>
-
-    ${sections.length ? sections.map((s) => `
-      <div class="section-head"><h2>${esc(s.label)}</h2></div>
-      ${s.posts.map((p) => `
-        <a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">
-          <div class="title">${esc(p.title)}</div>
-          <div class="meta">
-            ${p.author ? `<span>${esc(p.author)}</span>` : ''}
-            ${p.posted ? `<span>${esc(daysAgo(p.posted))}</span>` : ''}
-          </div>
-        </a>`).join('')}
-    `).join('') : '<div class="empty">Reddit didn\'t return anything this time. Try again later.</div>'}
   `;
 }
 

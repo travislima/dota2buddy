@@ -7,8 +7,7 @@
   "scripts": {
     "fetch": "node scripts/fetch-patch.mjs",
     "meta": "node scripts/fetch-meta.mjs",
-    "community": "node scripts/fetch-community.mjs",
-    "update": "npm run fetch && npm run meta && npm run community",
+    "update": "npm run fetch && npm run meta",
     "validate": "node scripts/validate-brief.mjs",
     "icons": "node scripts/make-icons.mjs",
     "dev": "node scripts/serve.mjs",

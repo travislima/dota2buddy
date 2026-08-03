@@ -8,12 +8,12 @@ The product is **not** "here's what changed." Valve already publishes that. The 
 The user says "new patch." Then:
 
 ```bash
-npm run update              # fetch patch + meta stats + Reddit
+npm run update              # fetch patch + live meta stats
 npm run validate            # tells you exactly what still needs writing
 ```
 
-1. `npm run update` writes `public/data/raw/<version>.json`, refreshes `public/data/meta.json`
-   and `public/data/community.json`.
+1. `npm run update` writes `public/data/raw/<version>.json` and refreshes
+   `public/data/meta.json`.
 2. **Read the whole raw file.** Not a skim — every hero, every item. The systemic themes only
    become visible when you've seen all of it at once.
 3. Write `public/data/briefs/<version>.json` (copy the previous patch's file as the shape).
@@ -46,8 +46,8 @@ first.
 **Be honest about the two kinds of claim.** Mechanics, numbers and arithmetic are checkable —
 state them plainly. How the meta will respond is a prediction — write "expect", "likely",
 and set `confidence.meta` accordingly. Never write "pros are doing X" or "players are building
-Y" unless it's actually in the Reddit data. Inventing community consensus is the one thing
-that would make this dashboard worthless.
+Y" — there is no data source backing that claim. Inventing community consensus is the one
+thing that would make this dashboard worthless.
 
 **Explain the second-order effect, not the first.** "Cooldown 30s → 40s" is the change.
 "You get one Satanic per fight instead of two, so extended fights against a fed carry are
@@ -96,8 +96,9 @@ Prose fields support `*emphasis*`. Everything is escaped before rendering.
   `herolist` — see `UNIT_OVERRIDES` in `scripts/fetch-patch.mjs`. If a new patch shows
   "Hero <number>", check the ability icon filename to identify the unit and add an override.
 - The feed contains literal `<br>` rows and blank notes. `realNotes()` in `app.js` filters them.
-- Reddit's `.json` API requires OAuth now; only the `.rss` feeds are open, and they rate-limit
-  bursts. `fetch-community.mjs` backs off and degrades to an empty section rather than failing.
+- A Reddit community feed was tried and removed: the subreddit's top posts are mostly memes
+  and cosplay, so it surfaced noise rather than patch discussion. If it comes back, it should
+  query Reddit's search RSS for the patch number specifically, not the general subreddit feed.
 - OpenDota's window is roughly the last week, so just after a patch it's a blend of before and
   after. Don't describe it as post-patch data.
 
