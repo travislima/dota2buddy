@@ -21,8 +21,8 @@ export const config = {
    * Analytics would need one, which is why it isn't the default here.
    */
   analytics: {
-    provider: 'none',
-    site: '',
+    provider: 'goatcounter',
+    site: 'dota2buddy',
   },
 
   /**
