@@ -56,6 +56,9 @@ winnable again" is the product. Always push one step past the obvious reading.
 **Keep it short. This is the rule most likely to slip.** The reader is busy — that is the
 entire premise of the product. Budgets, enforced by taste not tooling:
 
+- theme `title` — 5-8 words. It is the whole card when collapsed, so it has to land alone.
+- theme `punch.stat` — 2-4 words, ideally one number pair (`30% → 20%`). This is what makes a
+  headline readable at a glance; pick the single most telling figure, not a summary.
 - theme `why` — 2-3 sentences, ~40 words. Lead with the consequence.
 - hero and item `why` — 1-2 sentences, ~20 words.
 - `summary` — one line, always.
@@ -76,8 +79,10 @@ omission. `npm run validate` enforces this.
 
 - `tldr` — one paragraph. The whole patch for someone with fifteen seconds.
 - `verdict` — `shape`, `biggest_loser`, `biggest_winner`.
-- `themes[]` — the ranked headlines. Fields: `id`, `rank`, `title`, `severity`
-  (`major`/`notable`/`minor`), `tags[]`, `what` (neutral statement), `why` (the payload),
+- `themes[]` — the ranked headlines. Fields: `id`, `rank`, `title`,
+  `punch` (`{stat, dir}` where dir is `better`/`worse`/`neutral` — renders as the coloured chip
+  on the collapsed row), `severity` (`major`/`notable`/`minor`), `tags[]`,
+  `what` (neutral statement, shown only once expanded), `why` (the payload),
   `do[]` (actionable), `watch`, `affects.heroes[]` / `affects.items[]` (must be real keys —
   they render as clickable chips), `changes[]` (`{source, text}`, shown verbatim under a
   disclosure), `confidence`.
@@ -101,6 +106,14 @@ Prose fields support `*emphasis*`. Everything is escaped before rendering.
   query Reddit's search RSS for the patch number specifically, not the general subreddit feed.
 - OpenDota's window is roughly the last week, so just after a patch it's a blend of before and
   after. Don't describe it as post-patch data.
+
+## Density is a feature
+
+The collapsed brief was audited at 742 words and 3.2 screens; it is now ~480 and under 3, with
+each row down from 39 words to 12. That was achieved by moving `what` inside the expanded card,
+replacing the TL;DR paragraph with counts plus a split bar, and giving every headline one
+number chip. If a future patch's brief starts creeping back up, re-measure rather than eyeball
+it — count words in `main` and divide `scrollHeight` by `innerHeight`.
 
 ## The client-side layer
 

@@ -182,16 +182,7 @@ function renderBrief() {
   app.innerHTML = `
     ${renderWelcome(unread, themes.length)}
 
-    <section class="tldr">
-      <div class="eyebrow">Patch ${esc(b.patch)} · released ${esc(fmtDate(b.released))}</div>
-      <p>${rich(b.tldr)}</p>
-      ${v.shape || v.biggest_loser ? `
-        <div class="verdict-grid">
-          ${v.shape ? `<div><span>The shape of it</span><p>${rich(v.shape)}</p></div>` : ''}
-          ${v.biggest_loser ? `<div><span>Biggest loser</span><p>${rich(v.biggest_loser)}</p></div>` : ''}
-          ${v.biggest_winner ? `<div><span>Biggest winner</span><p>${rich(v.biggest_winner)}</p></div>` : ''}
-        </div>` : ''}
-    </section>
+    ${renderGlance(v, themes.length)}
 
     ${renderForYou()}
 
@@ -213,19 +204,71 @@ function renderBrief() {
 
     ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}
 
-    <div class="section-head">
-      <h2>Everything else</h2>
-    </div>
-    <div class="grid">
-      ${quickLink('#/heroes', 'Heroes', `${state.raw.heroes.length} changed — see what each one means for you`)}
-      ${quickLink('#/items', 'Items', `${state.raw.items.length + state.raw.neutral_items.length} changed, including neutrals`)}
-      ${quickLink('#/notes', 'Full notes', 'The official changes, verbatim, nothing added')}
-    </div>
 
     ${renderJoin()}
   `;
 
   attachBriefHandlers();
+}
+
+/**
+ * The patch in one screen: a sentence, three counts, and the buff/nerf split
+ * as a bar you read rather than a paragraph you parse.
+ */
+function renderGlance(v, themeCount) {
+  const b = state.brief;
+  const tally = { nerf: 0, buff: 0, mixed: 0, qol: 0, rework: 0 };
+  for (const h of state.raw.heroes) {
+    const verdict = briefHero(h.key)?.verdict;
+    if (verdict in tally) tally[verdict] += 1;
+  }
+  const total = Object.values(tally).reduce((s, n) => s + n, 0) || 1;
+  const items = state.raw.items.length + state.raw.neutral_items.length;
+
+  // "Late-game carries — Satanic, Refresher…" → bold headline, quiet detail.
+  const split = (s = '') => {
+    const [head, ...rest] = s.split(' — ');
+    return { head, rest: rest.join(' — ') };
+  };
+  const win = split(v.biggest_winner);
+  const lose = split(v.biggest_loser);
+
+  const seg = (key, label) => tally[key]
+    ? `<i class="${key}" style="flex:${tally[key]}" title="${tally[key]} ${label}">
+         ${tally[key] / total > 0.12 ? `${tally[key]} ${label}` : ''}</i>`
+    : '';
+
+  return `
+    <section class="glance">
+      <div class="glance-top">
+        <div class="glance-patch">
+          <b>${esc(b.patch)}</b>
+          <span>${esc(fmtDate(b.released))} · ${esc(daysAgo(b.released))}</span>
+        </div>
+        <div class="glance-counts">
+          <div><b>${state.raw.heroes.length}</b><span>heroes</span></div>
+          <div><b>${items}</b><span>items</span></div>
+          <div><b>${themeCount}</b><span>to know</span></div>
+        </div>
+      </div>
+
+      <p class="glance-tldr">${rich(b.tldr)}</p>
+
+      <div class="split-bar" aria-label="How the hero changes break down">
+        ${seg('nerf', 'nerfed')}${seg('buff', 'buffed')}${seg('mixed', 'mixed')}${seg('qol', 'QoL')}
+      </div>
+
+      <div class="wl">
+        <div class="win">
+          <span>▲ Biggest winner</span>
+          <b>${esc(win.head)}</b>${win.rest ? `<p>${esc(win.rest)}</p>` : ''}
+        </div>
+        <div class="lose">
+          <span>▼ Biggest loser</span>
+          <b>${esc(lose.head)}</b>${lose.rest ? `<p>${esc(lose.rest)}</p>` : ''}
+        </div>
+      </div>
+    </section>`;
 }
 
 /** A short line that only appears when it has something to say. */
@@ -470,14 +513,6 @@ function voteBlock(id, current) {
   </div>`;
 }
 
-const quickLink = (href, title, sub) => `
-  <a class="entity" href="${href}">
-    <div class="entity-body">
-      <div class="entity-name"><strong>${esc(title)}</strong></div>
-      <p class="entity-summary">${esc(sub)}</p>
-    </div>
-  </a>`;
-
 function renderHeadline(t) {
   const heroChips = (t.affects?.heroes ?? [])
     .map((k) => heroByKey(k))
@@ -498,18 +533,16 @@ function renderHeadline(t) {
            id="theme-${esc(t.id)}" data-theme="${esc(t.id)}">
     <summary class="headline-row">
       <span class="rank">#${t.rank ?? '?'}</span>
-      <div class="headline-row-text">
-        <h3>${esc(t.title)}</h3>
-        <p class="what">${rich(t.what)}</p>
-      </div>
-      <span class="pill ${esc(t.severity ?? 'minor')}">${esc(t.severity ?? 'minor')}</span>
+      <h3>${esc(t.title)}</h3>
+      <span class="row-stats">
+        ${t.punch ? `<span class="punch ${esc(t.punch.dir)}">${esc(t.punch.stat)}</span>` : ''}
+        <span class="pill ${esc(t.severity ?? 'minor')}">${esc(t.severity ?? 'minor')}</span>
+      </span>
       <span class="chev" aria-hidden="true">▸</span>
     </summary>
 
     <div class="headline-top">
-      <div class="headline-meta">
-        ${(t.tags ?? []).map((g) => `<span class="tag">${esc(g)}</span>`).join('')}
-      </div>
+      <p class="what">${rich(t.what)}</p>
 
       <div class="why-label">Why it matters</div>
       <p class="why">${rich(t.why)}</p>

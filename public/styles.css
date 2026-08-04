@@ -160,42 +160,79 @@ main {
 }
 .section-head .hint { font-size: 12.5px; color: var(--text-faint); }
 
-/* ---------- TL;DR ---------- */
+/* ---------- At a glance ---------- */
 
-.tldr {
-  background: linear-gradient(160deg, #1a2131 0%, var(--bg-card) 58%);
+.glance {
+  background: linear-gradient(158deg, #1a2131 0%, var(--bg-card) 60%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 22px 22px 20px;
+  padding: 18px 20px 16px;
   box-shadow: var(--shadow);
-  position: relative;
+}
+
+.glance-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.glance-patch { display: flex; align-items: baseline; gap: 9px; }
+.glance-patch b {
+  font-size: 27px; font-weight: 660; letter-spacing: -0.025em;
+  color: var(--gold); font-variant-numeric: tabular-nums;
+}
+.glance-patch span { font-size: 12px; color: var(--text-faint); }
+
+.glance-counts { display: flex; gap: 22px; }
+.glance-counts div { text-align: right; line-height: 1.1; }
+.glance-counts b {
+  display: block;
+  font-size: 21px; font-weight: 640; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.glance-counts span { font-size: 10.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .06em; }
+
+.glance-tldr {
+  margin: 0 0 14px;
+  font-size: 15.5px; line-height: 1.55; color: #dbe3f0;
+  max-width: 68ch;
+}
+
+/* The buff/nerf split, read at a glance instead of counted. */
+.split-bar {
+  display: flex; gap: 3px;
+  height: 26px;
+  margin-bottom: 14px;
+  border-radius: 6px;
   overflow: hidden;
 }
-.tldr::before {
-  content: "";
-  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(180deg, var(--accent-soft), var(--accent) 45%, transparent);
+.split-bar i {
+  display: flex; align-items: center; justify-content: center;
+  font-style: normal;
+  font-size: 11px; font-weight: 600;
+  color: #0b0e14;
+  white-space: nowrap;
+  min-width: 8px;
 }
-.tldr .eyebrow {
-  font-size: 11px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--accent-soft); margin-bottom: 9px;
-}
-.tldr p { margin: 0; font-size: 16.5px; line-height: 1.62; color: #dbe3f0; }
+.split-bar .nerf  { background: var(--nerf); }
+.split-bar .buff  { background: var(--buff); }
+.split-bar .mixed { background: var(--mixed); }
+.split-bar .qol   { background: var(--qol); }
 
-.verdict-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 10px;
-  margin-top: 18px;
-  padding-top: 17px;
+.wl {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  padding-top: 13px;
   border-top: 1px solid var(--line-soft);
 }
-.verdict-grid div span {
+.wl > div { min-width: 0; }
+.wl span {
   display: block;
-  font-size: 10.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--text-faint); margin-bottom: 3px;
+  font-size: 10.5px; font-weight: 650; letter-spacing: .07em; text-transform: uppercase;
+  margin-bottom: 3px;
 }
-.verdict-grid div p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--text-dim); }
+.wl .win span  { color: var(--buff); }
+.wl .lose span { color: var(--nerf); }
+.wl b { font-size: 14.5px; font-weight: 620; letter-spacing: -0.01em; }
+.wl p { margin: 2px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--text-faint); }
 
 /* ---------- Headline cards ---------- */
 
@@ -212,7 +249,7 @@ main {
 
 /* The scan row: everything you need to decide whether to open it. */
 .headline-row {
-  display: flex; align-items: flex-start; gap: 11px;
+  display: flex; align-items: center; gap: 11px;
   padding: 15px 17px;
   cursor: pointer;
   list-style: none;
@@ -222,33 +259,39 @@ main {
 .headline-row::-webkit-details-marker { display: none; }
 .headline-row:hover { background: var(--bg-hover); }
 
-.headline-row-text { flex: 1; min-width: 0; }
-
 .headline-row h3 {
-  margin: 0 0 4px;
-  font-size: 17px; line-height: 1.32; font-weight: 620; letter-spacing: -0.015em;
-}
-.headline.top .headline-row h3 { font-size: 18.5px; }
-
-.headline-row .what {
+  flex: 1; min-width: 0;
   margin: 0;
-  font-size: 13.5px; line-height: 1.5;
-  color: var(--text-faint);
-  padding: 0; border: 0;
+  font-size: 16.5px; line-height: 1.35; font-weight: 620; letter-spacing: -0.015em;
 }
-/* Keep collapsed rows a uniform, scannable height. */
-.headline:not([open]) .headline-row .what {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.headline[open] .headline-row .what { color: var(--text-dim); }
+.headline.top .headline-row h3 { font-size: 18px; }
 
-.headline-row .pill { flex: none; margin-top: 2px; }
+/* The one number that makes the headline land, without reading a sentence. */
+.punch {
+  flex: none;
+  font-size: 12px; font-weight: 640;
+  font-variant-numeric: tabular-nums;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.punch.worse   { background: var(--nerf-bg); color: #ef7a63; border: 1px solid rgba(210,84,63,.3); }
+.punch.better  { background: var(--buff-bg); color: #5cbb80; border: 1px solid rgba(75,163,106,.3); }
+.punch.neutral { background: var(--bg-raised); color: var(--text-dim); border: 1px solid var(--line); }
+
+.row-stats { display: flex; align-items: center; gap: 8px; flex: none; }
+.headline-row .pill { flex: none; }
+
+/* The neutral restatement is context once you're in, not something to scan past. */
+.headline-top .what {
+  margin: 0 0 14px;
+  padding-left: 11px;
+  border-left: 2px solid var(--line);
+  font-size: 13.5px; line-height: 1.55; color: var(--text-faint);
+}
 
 .chev {
-  flex: none; margin-top: 3px;
+  flex: none;
   font-size: 11px; color: var(--text-faint);
   transition: transform .18s;
 }
@@ -871,3 +914,31 @@ details.verbatim .body { padding: 2px 17px 16px; }
 
 .filter-btn.gold { color: var(--gold); border-color: rgba(217,164,65,.28); }
 .filter-btn.gold.active { background: var(--gold); color: #1a1206; border-color: var(--gold); }
+
+@media (max-width: 620px) {
+  /* A fixed two-row shape, so every card reads the same regardless of title length. */
+  .headline-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "rank title chev" "stats stats stats";
+    gap: 9px 10px;
+    padding: 12px 14px;
+  }
+  .headline-row .rank  { grid-area: rank; align-self: start; margin-top: 2px; }
+  .headline-row h3     { grid-area: title; font-size: 16px; }
+  .headline-row .chev  { grid-area: chev; align-self: start; margin-top: 3px; }
+  .row-stats           { grid-area: stats; }
+  .punch { font-size: 11.5px; padding: 2px 9px; }
+  .glance-counts { gap: 16px; }
+  .glance-counts b { font-size: 18px; }
+  .wl { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Opening a card should feel like it responded, not just reflowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .headline[open] .headline-top { animation: reveal .22s ease-out; }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
