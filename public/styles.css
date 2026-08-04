@@ -427,8 +427,9 @@ details.verbatim .body { padding: 2px 17px 16px; }
   margin-bottom: 16px;
 }
 .search {
-  flex: 1 1 200px;
-  min-width: 150px;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
@@ -441,6 +442,7 @@ details.verbatim .body { padding: 2px 17px 16px; }
 .search:focus { border-color: #3a4a6b; }
 
 .filter-btn {
+  display: inline-flex; align-items: center; gap: 6px;
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -451,7 +453,42 @@ details.verbatim .body { padding: 2px 17px 16px; }
   transition: all .14s;
 }
 .filter-btn:hover { background: var(--bg-hover); }
+.filter-btn b {
+  font-size: 11px; font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  opacity: .65;
+}
 .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 560; }
+
+/* Same colour language as the cards: red is weaker, green is stronger. A colour
+   swatch also survives being read at a glance, which a word alone doesn't. */
+.filter-btn.nerf, .filter-btn.buff, .filter-btn.mixed, .filter-btn.qol, .filter-btn.rework {
+  position: relative;
+  padding-left: 26px;
+}
+.filter-btn.nerf::before, .filter-btn.buff::before, .filter-btn.mixed::before,
+.filter-btn.qol::before, .filter-btn.rework::before {
+  content: "";
+  position: absolute; left: 11px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.filter-btn.nerf   { color: #e08872; border-color: rgba(210,84,63,.32); }
+.filter-btn.nerf::before   { background: var(--nerf); }
+.filter-btn.buff   { color: #6cbe8b; border-color: rgba(75,163,106,.32); }
+.filter-btn.buff::before   { background: var(--buff); }
+.filter-btn.mixed  { color: #d6a84a; border-color: rgba(201,146,47,.32); }
+.filter-btn.mixed::before  { background: var(--mixed); }
+.filter-btn.qol    { color: #6ea3d6; border-color: rgba(74,134,196,.32); }
+.filter-btn.qol::before    { background: var(--qol); }
+.filter-btn.rework { color: var(--text-dim); }
+.filter-btn.rework::before { background: var(--text-faint); }
+
+.filter-btn.nerf.active   { background: var(--nerf);  color: #fff; border-color: var(--nerf); }
+.filter-btn.buff.active   { background: var(--buff);  color: #08120c; border-color: var(--buff); }
+.filter-btn.mixed.active  { background: var(--mixed); color: #1a1206; border-color: var(--mixed); }
+.filter-btn.qol.active    { background: var(--qol);   color: #06121e; border-color: var(--qol); }
+.filter-btn.active::before { background: currentColor !important; opacity: .55; }
 
 /* ---------- Grids ---------- */
 

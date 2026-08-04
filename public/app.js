@@ -12,7 +12,9 @@ const state = {
   meta: null,
   heroFilter: 'all',
   heroSearch: '',
+  itemFilter: 'all',
   itemSearch: '',
+  themeFilter: 'all',
   pickerSearch: '',
   previousVisit: null,
   isNewPatch: false,
@@ -58,7 +60,47 @@ const impactDots = (n = 0) =>
     [1, 2, 3, 4, 5].map((i) => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')
   }</span>`;
 
-const verdictPill = (v) => v ? `<span class="verdict ${esc(v)}">${esc(v)}</span>` : '';
+/* "QoL" is Dota shorthand that not everyone reads fluently, so the filters spell
+   it out and the pills carry a tooltip. */
+const VERDICT_LABEL = {
+  nerf: 'Nerfed', buff: 'Buffed', mixed: 'Mixed', qol: 'Quality of life', rework: 'Reworked',
+};
+const VERDICT_HINT = {
+  nerf: 'Weaker than it was',
+  buff: 'Stronger than it was',
+  mixed: 'Better in some ways, worse in others',
+  qol: 'Quality of life — easier to use, not more powerful',
+  rework: 'Fundamentally changed',
+};
+
+const verdictPill = (v) => v
+  ? `<span class="verdict ${esc(v)}" title="${esc(VERDICT_HINT[v] ?? '')}">${esc(v)}</span>`
+  : '';
+
+/**
+ * One filter row, shared by the brief, heroes and items so the colour language
+ * means the same thing everywhere: red is weaker, green is stronger.
+ */
+function filterBar(options, current) {
+  return options.filter((o) => o.count !== 0).map((o) => `
+    <button class="filter-btn ${esc(o.cls ?? o.key)} ${current === o.key ? 'active' : ''}"
+            data-filter="${esc(o.key)}"
+            ${o.hint ? `title="${esc(o.hint)}"` : ''}>
+      ${esc(o.label)}${o.count != null ? ` <b>${o.count}</b>` : ''}
+    </button>`).join('');
+}
+
+/** How many of `list` fall under each verdict, for the filter counts. */
+function verdictCounts(list, lookup) {
+  const counts = {};
+  for (const entry of list) {
+    const v = lookup(entry.key)?.verdict;
+    if (v) counts[v] = (counts[v] ?? 0) + 1;
+  }
+  return counts;
+}
+
+const VERDICT_ORDER = ['nerf', 'buff', 'mixed', 'qol', 'rework'];
 
 /** Count of changed lines, used when a hero has no write-up yet. */
 const lineCount = (h) =>
@@ -176,33 +218,52 @@ function renderBrief() {
   }
 
   const v = b.verdict ?? {};
-  const themes = (b.themes ?? []).slice().sort((a, c) => (a.rank ?? 99) - (c.rank ?? 99));
-  const unread = themes.filter((t) => !store.hasRead(t.id)).length;
+  const all = (b.themes ?? []).slice().sort((a, c) => (a.rank ?? 99) - (c.rank ?? 99));
+  const unread = all.filter((t) => !store.hasRead(t.id)).length;
+
+  // Headlines carry a direction rather than a verdict, but it means the same thing
+  // to a reader: worse for you, better for you, or neither.
+  const dirOf = (t) => t.punch?.dir ?? 'neutral';
+  const dirCount = (d) => all.filter((t) => dirOf(t) === d).length;
+  const themeOptions = [
+    { key: 'all', label: 'All', count: all.length },
+    { key: 'worse', cls: 'nerf', label: 'Nerfs', count: dirCount('worse'), hint: 'Something got weaker' },
+    { key: 'better', cls: 'buff', label: 'Buffs', count: dirCount('better'), hint: 'Something got stronger' },
+    { key: 'neutral', cls: 'mixed', label: 'Neither', count: dirCount('neutral'), hint: 'Changed, but not up or down' },
+  ];
+  const filtering = state.themeFilter !== 'all';
+  const themes = filtering ? all.filter((t) => dirOf(t) === state.themeFilter) : all;
 
   app.innerHTML = `
-    ${renderWelcome(unread, themes.length)}
+    ${renderWelcome(unread, all.length)}
 
-    ${renderGlance(v, themes.length)}
+    ${renderGlance(v, all.length)}
 
     ${renderForYou()}
 
     <div class="section-head">
-      <h2>If you read nothing else</h2>
+      <h2>${filtering ? 'Filtered' : 'If you read nothing else'}</h2>
       <div class="head-actions">
-        ${unread > 0 && unread < themes.length
-          ? `<span class="progress">${themes.length - unread}/${themes.length} read</span>` : ''}
+        ${!filtering && unread > 0 && unread < all.length
+          ? `<span class="progress">${all.length - unread}/${all.length} read</span>` : ''}
         <button class="expand-all" id="expand-all">Expand all</button>
       </div>
     </div>
 
-    ${themes.filter((t) => (t.rank ?? 99) <= 3).map(renderHeadline).join('')}
+    <div class="filters">${filterBar(themeOptions, state.themeFilter)}</div>
 
-    <div class="section-head">
-      <h2>Worth knowing</h2>
-      <span class="hint">${themes.length - 3} more, ranked</span>
-    </div>
+    ${filtering ? (themes.length
+        ? themes.map(renderHeadline).join('')
+        : '<div class="empty">Nothing in this patch matches that.</div>')
+      : `
+        ${themes.filter((t) => (t.rank ?? 99) <= 3).map(renderHeadline).join('')}
 
-    ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}
+        <div class="section-head">
+          <h2>Worth knowing</h2>
+          <span class="hint">${themes.length - 3} more, ranked</span>
+        </div>
+
+        ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}`}
 
 
     ${renderJoin()}
@@ -460,6 +521,18 @@ function attachBriefHandlers() {
   });
 
   app.addEventListener('click', (e) => {
+    const filterBtn = e.target.closest('[data-filter]');
+    if (filterBtn) {
+      state.themeFilter = filterBtn.dataset.filter;
+      trackEvent('filter_brief', state.themeFilter);
+      renderBrief();
+      // The list above the filters is unchanged, but the list below just resized —
+      // park the filter row at the top so you're looking at the result.
+      app.querySelector('.filters')?.scrollIntoView({ block: 'start' });
+      window.scrollBy(0, -100);
+      return;
+    }
+
     const dismiss = e.target.closest('[data-dismiss]');
     if (dismiss) { store.dismiss(dismiss.dataset.dismiss); route(); return; }
 
@@ -628,15 +701,17 @@ function renderHeroes() {
     return a.name.localeCompare(c.name);
   });
 
-  const counts = { all: state.raw.heroes.length };
-  for (const h of state.raw.heroes) {
-    const v = briefHero(h.key)?.verdict ?? 'unwritten';
-    counts[v] = (counts[v] ?? 0) + 1;
-  }
-  counts.mine = state.raw.heroes.filter((h) => store.playsHero(h.key)).length;
+  const counts = verdictCounts(state.raw.heroes, briefHero);
+  const mine = state.raw.heroes.filter((h) => store.playsHero(h.key)).length;
 
-  // "Mine" only earns a slot once you've told us who you play.
-  const filters = ['all', ...(store.heroes.length ? ['mine'] : []), 'nerf', 'buff', 'mixed', 'qol'];
+  const options = [
+    { key: 'all', label: 'All', count: state.raw.heroes.length },
+    // "Mine" only earns a slot once you've told us who you play.
+    ...(mine ? [{ key: 'mine', label: '★ Mine', count: mine, hint: 'Heroes you play' }] : []),
+    ...VERDICT_ORDER.map((v) => ({
+      key: v, label: VERDICT_LABEL[v], count: counts[v] ?? 0, hint: VERDICT_HINT[v],
+    })),
+  ];
 
   app.innerHTML = `
     <div class="section-head">
@@ -644,14 +719,9 @@ function renderHeroes() {
       <span class="hint">Sorted by how much it matters</span>
     </div>
 
-    <div class="filters">
-      <input class="search" id="hero-search" type="search" placeholder="Search heroes…"
-             value="${esc(state.heroSearch)}" autocomplete="off">
-      ${filters.map((f) => `
-        <button class="filter-btn ${state.heroFilter === f ? 'active' : ''} ${f === 'mine' ? 'gold' : ''}" data-filter="${f}">
-          ${f === 'all' ? 'All' : f === 'mine' ? '★ Mine' : f[0].toUpperCase() + f.slice(1)}${counts[f] ? ` ${counts[f]}` : ''}
-        </button>`).join('')}
-    </div>
+    <input class="search" id="hero-search" type="search" placeholder="Search heroes…"
+           value="${esc(state.heroSearch)}" autocomplete="off">
+    <div class="filters">${filterBar(options, state.heroFilter)}</div>
 
     ${list.length
       ? `<div class="grid">${list.map(heroCard).join('')}</div>`
@@ -777,7 +847,12 @@ function itemCard(i, isNeutral) {
 
 function renderItems() {
   const q = state.itemSearch.toLowerCase();
-  const match = (i) => !q || i.name.toLowerCase().includes(q);
+  const all = [...state.raw.items, ...state.raw.neutral_items];
+  const match = (i) => {
+    if (q && !i.name.toLowerCase().includes(q)) return false;
+    if (state.itemFilter !== 'all' && (briefItem(i.key)?.verdict ?? '') !== state.itemFilter) return false;
+    return true;
+  };
 
   const sortByImpact = (a, c) =>
     (briefItem(c.key)?.impact ?? 0) - (briefItem(a.key)?.impact ?? 0)
@@ -786,16 +861,23 @@ function renderItems() {
   const items = state.raw.items.filter(match).sort(sortByImpact);
   const neutrals = state.raw.neutral_items.filter(match).sort(sortByImpact);
 
+  const counts = verdictCounts(all, briefItem);
+  const options = [
+    { key: 'all', label: 'All', count: all.length },
+    ...VERDICT_ORDER.map((v) => ({
+      key: v, label: VERDICT_LABEL[v], count: counts[v] ?? 0, hint: VERDICT_HINT[v],
+    })),
+  ];
+
   app.innerHTML = `
     <div class="section-head">
       <h2>Every item that changed</h2>
       <span class="hint">Sorted by how much it matters</span>
     </div>
 
-    <div class="filters">
-      <input class="search" id="item-search" type="search" placeholder="Search items…"
-             value="${esc(state.itemSearch)}" autocomplete="off">
-    </div>
+    <input class="search" id="item-search" type="search" placeholder="Search items…"
+           value="${esc(state.itemSearch)}" autocomplete="off">
+    <div class="filters">${filterBar(options, state.itemFilter)}</div>
 
     ${items.length ? `<div class="grid">${items.map((i) => itemCard(i, false)).join('')}</div>` : ''}
 
@@ -817,6 +899,12 @@ function renderItems() {
     const s = document.getElementById('item-search');
     s.focus();
     s.setSelectionRange(s.value.length, s.value.length);
+  });
+  app.querySelectorAll('[data-filter]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      state.itemFilter = btn.dataset.filter;
+      renderItems();
+    });
   });
 }
 

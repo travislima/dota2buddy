@@ -47,6 +47,11 @@ npm run validate   # fails if any changed hero or item has no write-up
 - **Items** — same treatment, including neutrals and enchantments.
 - **Full notes** — the official text, unedited, for when you want the source.
 
+Every one of those three pages filters by the same colour language: **red is weaker, green is
+stronger, amber is mixed, blue is quality of life** (easier to use, not more powerful). Want just
+the nerfs? One click on any page. The brief filters by direction rather than verdict, since a
+headline is a theme rather than a single hero.
+
 ## Made yours
 
 Hit the ★ in the corner (or press `h`) and pick the heroes you actually play. From then on the

@@ -115,6 +115,20 @@ replacing the TL;DR paragraph with counts plus a split bar, and giving every hea
 number chip. If a future patch's brief starts creeping back up, re-measure rather than eyeball
 it — count words in `main` and divide `scrollHeight` by `innerHeight`.
 
+## Filters and the colour language
+
+Red = weaker, green = stronger, amber = mixed, blue = quality of life. That mapping is used by
+verdict pills, hero/item card borders, the split bar and the filter buttons, so it has to stay
+consistent — `filterBar()` and `VERDICT_LABEL` / `VERDICT_HINT` in `app.js` are the single
+source. Filters with a count of zero hide themselves rather than render a dead button.
+
+Never surface the raw key `qol` as a label. It reads as jargon to anyone who isn't deep in Dota
+discourse; the filter says "Quality of life" and the pill carries a tooltip.
+
+The brief filters on `punch.dir` (`worse`/`better`/`neutral`) rather than a verdict, because a
+headline groups several changes and often has no single verdict. When a filter is active the
+two-tier "if you read nothing else / worth knowing" split collapses into one flat list.
+
 ## The client-side layer
 
 - `public/config.js` — the only file to edit to switch analytics or the signup form on. Analytics
