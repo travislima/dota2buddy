@@ -17,6 +17,11 @@
       "rank": 1,
       "title": "Six heroes can toggle while invisible",
       "punch": { "stat": "6 heroes", "dir": "better" },
+      "bites": [
+        "Troll, Zeus, Elder Titan",
+        "Visage, Medusa, Muerta",
+        "Shadow Blade & Smoke got better"
+      ],
       "severity": "major",
       "tags": ["mechanics", "invisibility", "ganking"],
       "what": "Troll's Battle Stance, Zeus's Lightning Hands, Elder Titan's Astral Spirit controls, Visage's Stone Form, Medusa's Split Shot and Muerta's Gunslinger no longer break invisibility. Zeus and Medusa can also toggle while silenced.",
@@ -43,6 +48,12 @@
       "rank": 2,
       "title": "The Kaya line's mana regen cut by a third",
       "punch": { "stat": "30% → 20%", "dir": "worse" },
+      "bites": [
+        "Kaya 30% → 20%",
+        "Meteor Hammer 35% → 25%",
+        "Kaya+Sange & Yasha+Kaya 40% → 30%",
+        "Urn regen 1.25 → 1"
+      ],
       "severity": "major",
       "tags": ["items", "casters", "sustain"],
       "what": "Kaya 30% → 20%. Meteor Hammer 35% → 25%. Kaya and Sange 40% → 30%. Yasha and Kaya 40% → 30%. Urn of Shadows also dropped from +1.25 to +1 mana regen.",
@@ -68,6 +79,12 @@
       "rank": 3,
       "title": "Root now cancels channels and globals",
       "punch": { "stat": "4 abilities", "dir": "neutral" },
+      "bites": [
+        "Twin Gates cancellable",
+        "Underlord's Fiend's Gate cancellable",
+        "TA's Psionic Projection cancellable",
+        "Sniper can grenade while rooted"
+      ],
       "severity": "major",
       "tags": ["mechanics", "root", "map"],
       "what": "Root now interrupts Twin Gate channeling, Underlord's Fiend's Gate and Templar Assassin's Psionic Projection. Sniper can now cast Concussive Grenade while rooted, without the knockback.",
@@ -92,6 +109,12 @@
       "rank": 4,
       "title": "Late-game carries trimmed four ways",
       "punch": { "stat": "Satanic 30s → 40s", "dir": "worse" },
+      "bites": [
+        "Satanic 30s → 40s",
+        "Refresher Shard: all stats gone",
+        "Butterfly −5 agi, +5 damage",
+        "Spectre's Haunt flattened"
+      ],
       "severity": "major",
       "tags": ["items", "carries", "lategame"],
       "what": "Satanic cooldown 30s → 40s. Refresher Shard lost all its stats. Butterfly traded 5 agility for 5 damage. Spectre's Haunt was flattened.",
@@ -116,6 +139,11 @@
       "rank": 5,
       "title": "Charge items no longer farm in your stash",
       "punch": { "stat": "3 items", "dir": "worse" },
+      "bites": [
+        "Urn of Shadows",
+        "Spirit Vessel",
+        "Essence Distiller"
+      ],
       "severity": "notable",
       "tags": ["items", "exploit-fix"],
       "what": "Urn of Shadows, Spirit Vessel and Essence Distiller no longer gain charges from nearby hero deaths while sitting in your stash.",
@@ -138,6 +166,12 @@
       "rank": 6,
       "title": "Legion's infinite Duel chain is dead",
       "punch": { "stat": "Full reset → −30s", "dir": "worse" },
+      "bites": [
+        "Lv25 Duel: full reset → −30s",
+        "Base strength 24 → 25",
+        "Attack speed 100 → 105",
+        "Strength gain 3.1 → 3.0"
+      ],
       "severity": "major",
       "tags": ["heroes", "talents"],
       "what": "Level 25 talent 'Duel Refreshes Cooldown On Victory' is now 'Duel Advances Cooldown by 30s On Victory'. Also: base strength 24 → 25, base attack speed 100 → 105, more level 1 damage, strength gain 3.1 → 3.0.",
@@ -161,6 +195,11 @@
       "rank": 7,
       "title": "Multishot stopped scaling with range items",
       "punch": { "stat": "1339 → 1240 range", "dir": "worse" },
+      "bites": [
+        "Range 1.75× → 475 + 1×",
+        "Mana 50 → 70 at rank 1",
+        "Damage −20pp at every level"
+      ],
       "severity": "major",
       "tags": ["heroes", "math"],
       "what": "Multishot arrow range changed from 1.75× attack range to 475 + 1× attack range. Mana cost 50 → 70 at rank 1, and base damage down 20 percentage points at every level.",
@@ -183,6 +222,12 @@
       "rank": 8,
       "title": "Cogs lost their vision and camp block",
       "punch": { "stat": "1600 → 800 vision", "dir": "worse" },
+      "bites": [
+        "Vision 1600 → 800",
+        "No longer blocks camps",
+        "Rank 1 distance 1000 → 850",
+        "Mana burn down"
+      ],
       "severity": "notable",
       "tags": ["heroes", "vision", "jungle"],
       "what": "Power Cogs vision cut from 1600/600 to 800/400, cogs no longer block creep camps, travel distance now scales 850-1000 instead of a flat 1000, mana burn down at higher levels.",
@@ -206,6 +251,10 @@
       "rank": 9,
       "title": "Invoker's Ghost Walk got shorter",
       "punch": { "stat": "60s → 50s", "dir": "worse" },
+      "bites": [
+        "Duration 60s → 50s",
+        "Shard no longer widens the radius"
+      ],
       "severity": "notable",
       "tags": ["heroes", "invisibility"],
       "what": "Ghost Walk duration cut from 60s to 50s, and the Aghanim's Shard no longer increases its radius.",
@@ -227,6 +276,11 @@
       "rank": 10,
       "title": "Mask of Madness now favours melee",
       "punch": { "stat": "30% → 15% slow resist", "dir": "worse" },
+      "bites": [
+        "Ranged slow resist 30% → 15%",
+        "Melee keeps all 30%",
+        "Ranged move speed 8% → 6%"
+      ],
       "severity": "notable",
       "tags": ["items", "ranged"],
       "what": "Berserk movement speed on ranged heroes 8% → 6%. Slow resistance is now 15% ranged and 30% melee, where it used to be 30% for everyone.",
@@ -248,6 +302,10 @@
       "rank": 11,
       "title": "Spectre's Haunt was flattened",
       "punch": { "stat": "70% → 65%", "dir": "worse" },
+      "bites": [
+        "Haunt 30/50/70% → 35/50/65%",
+        "Lv25 talent +15% → +12%"
+      ],
       "severity": "notable",
       "tags": ["heroes", "carries"],
       "what": "Haunt illusion damage rescaled from 30/50/70% to 35/50/65%, and the level 25 talent dropped from +15% to +12%.",
@@ -269,6 +327,11 @@
       "rank": 12,
       "title": "Bane's Nightmare fully blinds you",
       "punch": { "stat": "Total blindness", "dir": "better" },
+      "bites": [
+        "Now total blindness",
+        "Duration −0.5s at every level",
+        "Ichor: 6 terrors at 4% each"
+      ],
       "severity": "notable",
       "tags": ["heroes", "vision"],
       "what": "Nightmare now completely disables the target's sight instead of overriding their vision range, for 0.5s less duration at every level.",
@@ -290,6 +353,11 @@
       "rank": 13,
       "title": "Three small lines, big consequences",
       "punch": { "stat": "Blur undispellable", "dir": "better" },
+      "bites": [
+        "PA's Blur can't be dispelled",
+        "Double Rapier spell amp capped",
+        "Chaos Bolt speed 700 → 900"
+      ],
       "severity": "notable",
       "tags": ["mechanics", "items", "heroes"],
       "what": "Phantom Assassin's Blur can no longer be dispelled. Divine Rapier spell amp no longer stacks. Chaos Knight's Chaos Bolt travels at 900 instead of 700.",

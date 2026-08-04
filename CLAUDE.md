@@ -57,8 +57,12 @@ winnable again" is the product. Always push one step past the obvious reading.
 entire premise of the product. Budgets, enforced by taste not tooling:
 
 - theme `title` — 5-8 words. It is the whole card when collapsed, so it has to land alone.
-- theme `punch.stat` — 2-4 words, ideally one number pair (`30% → 20%`). This is what makes a
-  headline readable at a glance; pick the single most telling figure, not a summary.
+- theme `punch` — `{stat, dir}`. `stat` is unused in the UI now but `dir` drives the brief
+  filter and colours the first bite, so keep it accurate.
+- theme `bites[]` — **2-4 concrete facts, 3-6 words each.** These sit on the collapsed row and
+  are what a reader uses to decide whether to open it. Numbers where possible
+  (`Satanic 30s → 40s`), hero names where the change is behavioural
+  (`Troll, Zeus, Elder Titan`). Never a sentence — a bite that needs a verb is too long.
 - theme `why` — 2-3 sentences, ~40 words. Lead with the consequence.
 - hero and item `why` — 1-2 sentences, ~20 words.
 - `summary` — one line, always.
@@ -109,8 +113,8 @@ Prose fields support `*emphasis*`. Everything is escaped before rendering.
 
 ## Density is a feature
 
-The collapsed brief was audited at 742 words and 3.2 screens; it is now ~480 and under 3, with
-each row down from 39 words to 12. That was achieved by moving `what` inside the expanded card,
+The collapsed brief was audited at 742 words and 3.2 screens; it is now ~435 and 2.5, with each
+row carrying 24 words of structured facts instead of 39 words of prose. That was achieved by moving `what` inside the expanded card,
 replacing the TL;DR paragraph with counts plus a split bar, and giving every headline one
 number chip. If a future patch's brief starts creeping back up, re-measure rather than eyeball
 it — count words in `main` and divide `scrollHeight` by `innerHeight`.

@@ -370,17 +370,8 @@ function signupShownInline(unread) {
 function renderForYou() {
   const picked = store.heroes;
 
-  if (!picked.length) {
-    if (store.isDismissed('hero-prompt')) return '';
-    return `
-      <div class="setup-prompt" id="hero-prompt">
-        <button class="dismiss" data-dismiss="hero-prompt" aria-label="Dismiss">×</button>
-        <h3>Make this about your games</h3>
-        <p>Pick the heroes you actually play and this page will lead with what changed for
-           you — and flag the ones you'll be facing.</p>
-        <button class="btn-primary" data-open-picker>Pick my heroes</button>
-      </div>`;
-  }
+  // No prompt card — the header button carries this, so the brief stays the brief.
+  if (!picked.length) return '';
 
   const mine = state.raw.heroes
     .filter((h) => picked.includes(h.key))
@@ -690,10 +681,13 @@ function renderHeadline(t) {
       <span class="rank">#${t.rank ?? '?'}</span>
       <h3>${esc(t.title)}</h3>
       <span class="row-stats">
-        ${t.punch ? `<span class="punch ${esc(t.punch.dir)}">${esc(t.punch.stat)}</span>` : ''}
         <span class="pill ${esc(t.severity ?? 'minor')}">${esc(t.severity ?? 'minor')}</span>
       </span>
       <span class="chev" aria-hidden="true">▸</span>
+      ${(t.bites ?? []).length ? `
+        <span class="bites">
+          ${t.bites.map((b, i) => `<span class="bite ${i === 0 ? esc(t.punch?.dir ?? '') : ''}">${esc(b)}</span>`).join('')}
+        </span>` : ''}
     </summary>
 
     <div class="headline-top">

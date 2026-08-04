@@ -39,8 +39,10 @@ npm run validate   # fails if any changed hero or item has no write-up
 
 ## What's in it
 
-- **Brief** — a TL;DR plus the ranked headlines. Each one says what changed, why it matters,
-  what to do about it, and expands to show the official lines verbatim.
+- **Brief** — the patch at a glance, then the ranked headlines. Each collapsed headline carries
+  two to four concrete facts (`Satanic 30s → 40s · Refresher Shard: all stats gone`) so you can
+  decide whether it's worth opening. Expand for why it matters, what to do, and the official
+  lines verbatim.
 - **Heroes** — all 57 changed heroes, sorted by how much it matters. Click any of them for the
   verdict, the reasoning, how to play them and how to play against them, their live win rate,
   and the raw changes.
@@ -54,7 +56,7 @@ headline is a theme rather than a single hero.
 
 ## Made yours
 
-Hit the ★ in the corner (or press `h`) and pick the heroes you actually play. From then on the
+Hit **★ Your heroes** in the corner (or press `h`) and pick the heroes you actually play. From then on the
 brief opens with **Your heroes in this patch**, plus a short **You'll be facing** list of the big
 changes on heroes you don't play — because those still decide your games. The Heroes tab gains a
 ★ Mine filter too.

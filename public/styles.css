@@ -249,18 +249,48 @@ main {
 
 /* The scan row: everything you need to decide whether to open it. */
 .headline-row {
-  display: flex; align-items: center; gap: 11px;
-  padding: 15px 17px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: "rank title stats chev" ". bites bites bites";
+  align-items: center;
+  gap: 7px 11px;
+  padding: 14px 17px;
   cursor: pointer;
   list-style: none;
   user-select: none;
   transition: background .14s;
 }
+.headline-row .rank { grid-area: rank; }
+.headline-row h3   { grid-area: title; }
+.row-stats         { grid-area: stats; }
+.headline-row .chev { grid-area: chev; }
+
+/* The bite-sized facts: enough to know whether this one is worth opening. */
+.bites {
+  grid-area: bites;
+  display: flex; flex-wrap: wrap; gap: 5px 7px;
+  align-items: center;
+}
+.bite {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+.bite + .bite::before {
+  content: "·";
+  margin-right: 7px;
+  color: #3d4759;
+}
+/* The first fact is the headline number, coloured by direction. */
+.bite.worse   { color: #e08872; font-weight: 560; }
+.bite.better  { color: #6cbe8b; font-weight: 560; }
+.bite.neutral { color: var(--text-dim); font-weight: 560; }
 .headline-row::-webkit-details-marker { display: none; }
 .headline-row:hover { background: var(--bg-hover); }
 
 .headline-row h3 {
-  flex: 1; min-width: 0;
+  min-width: 0;
   margin: 0;
   font-size: 16.5px; line-height: 1.35; font-weight: 620; letter-spacing: -0.015em;
 }
@@ -775,41 +805,28 @@ details.verbatim .body { padding: 2px 17px 16px; }
 .link-btn:hover { color: var(--text-dim); }
 
 .icon-btn {
+  display: inline-flex; align-items: center; gap: 6px;
   background: var(--bg-card);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  width: 30px; height: 30px;
+  border-radius: 20px;
+  height: 30px;
+  padding: 0 12px;
   font-size: 13px;
   color: var(--text-faint);
   cursor: pointer;
+  white-space: nowrap;
   transition: all .14s;
+}
+.icon-btn-label { font-size: 12.5px; }
+/* On a phone the star alone carries it — the label would crowd the patch chip. */
+@media (max-width: 560px) {
+  .icon-btn { width: 30px; padding: 0; justify-content: center; border-radius: 8px; }
+  .icon-btn-label { display: none; }
 }
 .icon-btn:hover { color: var(--gold); border-color: #3a4560; }
 .icon-btn.on { color: var(--gold); border-color: rgba(217,164,65,.4); }
 
 .top-actions { display: flex; align-items: center; gap: 11px; flex: none; }
-
-/* ---------- Setup prompt ---------- */
-
-.setup-prompt {
-  position: relative;
-  background: linear-gradient(150deg, #1c2436 0%, var(--bg-card) 60%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-  margin: 20px 0 4px;
-}
-.setup-prompt h3 { margin: 0 0 6px; font-size: 17px; font-weight: 620; letter-spacing: -0.01em; }
-.setup-prompt p { margin: 0 0 14px; font-size: 14px; line-height: 1.55; color: var(--text-dim); max-width: 60ch; }
-.dismiss {
-  position: absolute; top: 10px; right: 12px;
-  background: none; border: 0;
-  color: var(--text-faint);
-  font-size: 19px; line-height: 1;
-  cursor: pointer; padding: 4px 7px;
-  border-radius: 6px;
-}
-.dismiss:hover { color: var(--text); background: var(--bg-hover); }
 
 .yours { color: var(--gold); font-size: 12px; }
 .entity.mine { box-shadow: inset 0 0 0 1px rgba(217,164,65,.18), var(--shadow); }
@@ -954,18 +971,17 @@ details.verbatim .body { padding: 2px 17px 16px; }
 
 @media (max-width: 620px) {
   /* A fixed two-row shape, so every card reads the same regardless of title length. */
+  /* Rank and severity share one thin meta line; title and facts get full width. */
   .headline-row {
-    display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-areas: "rank title chev" "stats stats stats";
-    gap: 9px 10px;
-    padding: 12px 14px;
+    grid-template-areas: "rank stats chev" "title title title" "bites bites bites";
+    gap: 7px 9px;
+    padding: 11px 14px;
   }
-  .headline-row .rank  { grid-area: rank; align-self: start; margin-top: 2px; }
-  .headline-row h3     { grid-area: title; font-size: 16px; }
-  .headline-row .chev  { grid-area: chev; align-self: start; margin-top: 3px; }
-  .row-stats           { grid-area: stats; }
-  .punch { font-size: 11.5px; padding: 2px 9px; }
+  .headline-row h3    { font-size: 16.5px; }
+  .headline-row .chev { justify-self: end; }
+  .row-stats          { justify-self: start; }
+  .bite { font-size: 11.5px; }
   .glance-counts { gap: 16px; }
   .glance-counts b { font-size: 18px; }
   .wl { grid-template-columns: 1fr; gap: 12px; }
