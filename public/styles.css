@@ -71,7 +71,8 @@ button { font: inherit; color: inherit; }
 
 .tabs {
   position: sticky;
-  top: 55px;
+  /* Offset and z-index are set in the reskin layer, which decides whether the
+     topbar above stays pinned. Don't hard-code a height-derived offset here. */
   z-index: 40;
   display: flex;
   gap: 2px;
@@ -1141,7 +1142,12 @@ body {
 
 /* ---------- tabs ---------- */
 
+/* The brand bar scrolls away (position: relative above) and the tabs take over
+   the top of the viewport, so they pin at 0 — not at the topbar's height. These
+   two rules have to move together; that coupling is what broke the first time. */
 .tabs {
+  top: 0;
+  z-index: 60;
   background: rgba(8, 10, 13, .94);
   border-bottom: 1px solid var(--line-soft);
   gap: 4px;
@@ -1796,4 +1802,38 @@ details.verbatim .body { padding: 2px 18px 16px; }
 @media (max-width: 620px) {
   /* keep the existing three-row reflow; just don't scale the top-3 title up */
   .headline.top .headline-row h3 { font-size: 16.5px; }
+}
+
+/* Who wrote the analysis — visible without shouting, expandable for the method. */
+.provenance {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+}
+.provenance summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--text-faint);
+  display: flex; align-items: center; gap: 7px;
+}
+.provenance summary::-webkit-details-marker { display: none; }
+.provenance summary::before {
+  content: "◆";
+  font-size: 7px;
+  color: var(--accent);
+}
+.provenance summary::after {
+  content: "▶";
+  font-size: 7px;
+  transition: transform .18s;
+}
+.provenance[open] summary::after { transform: rotate(90deg); }
+.provenance summary:hover { color: var(--text-dim); }
+.provenance p {
+  margin: 9px 0 0;
+  font-size: 13px; line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 78ch;
 }

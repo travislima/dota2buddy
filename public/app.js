@@ -145,7 +145,9 @@ async function boot() {
 
     const notes = [];
     if (meta?.fetched_at) notes.push(`Meta stats updated ${daysAgo(meta.fetched_at)}.`);
-    if (brief?.written_at) notes.push(`Analysis written ${fmtDate(brief.written_at)}.`);
+    if (brief?.written_at) {
+      notes.push(`Analysis written ${fmtDate(brief.written_at)} by Claude, from Valve's full patch diff.`);
+    }
     document.getElementById('footer-note').textContent = notes.join(' ');
 
     const heroesBtn = document.getElementById('my-heroes');
@@ -333,6 +335,12 @@ function renderGlance(v, themeCount) {
           <b>${esc(lose.head)}</b>${lose.rest ? `<p>${esc(lose.rest)}</p>` : ''}
         </div>
       </div>
+
+      ${b.method ? `
+        <details class="provenance">
+          <summary>Written by AI from the official diff — how to read that</summary>
+          <p>${esc(b.method)}</p>
+        </details>` : ''}
     </section>`;
 }
 

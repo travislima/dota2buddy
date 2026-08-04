@@ -2,7 +2,7 @@
   "patch": "7.41e",
   "released": "2026-07-30",
   "written_at": "2026-08-03",
-  "method": "Written from the full official diff, cross-referenced against live public-match pick/win rates. Numbers and mechanics are checked. Predictions about the meta are flagged as predictions.",
+  "method": "Written by Claude (Anthropic's AI) reading Valve's complete patch diff, cross-referenced against live OpenDota win rates. Numbers, mechanics and arithmetic are checked. Anything about how the meta will respond is a prediction and is flagged as one. No pro or community consensus is claimed anywhere — there's no data source for it.",
   "tldr": "Nothing was reworked, but four systemic changes ripple across dozens of heroes. Each line looks tiny; together they change how you itemise and how you gank.",
   "verdict": {
     "label": "Systemic balance patch",
