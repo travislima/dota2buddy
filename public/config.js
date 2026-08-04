@@ -26,6 +26,16 @@ export const config = {
   },
 
   /**
+   * Whether to show who wrote the analysis. Off for now at the owner's request.
+   * Flip to true before sharing this anywhere public — the write-ups are AI
+   * reasoning over the diff, and that's much better said upfront than found out.
+   * The text itself lives in the brief's `method` field.
+   */
+  provenance: {
+    show: false,
+  },
+
+  /**
    * The "get notified" form.
    *
    * While `endpoint` is null the form saves to the visitor's own device and says

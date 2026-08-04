@@ -11,6 +11,24 @@
     "biggest_winner": "Shadow Blade buyers — six heroes can now toggle without breaking invisibility."
   },
 
+  "creators": {
+    "checked": "2026-08-05",
+    "note": "Links to other people's work, in their words. Nothing here is summarised or paraphrased by us.",
+    "people": [
+      {
+        "name": "Torte de Lini",
+        "who": "Michael Cohen — his in-game hero build guides are used in roughly 90% of daily Dota matches.",
+        "what": "Build guides: skill order, item timings and per-hero notes, loaded straight into the client.",
+        "url": "https://steamcommunity.com/id/0825771/myworkshopfiles/?section=guides",
+        "extra": {
+          "label": "tortedelini.com",
+          "url": "https://tortedelini.com/"
+        },
+        "status": "His guides were published against 7.41d when this brief was written — no 7.41e rebuild yet. Worth a look to see if that's changed."
+      }
+    ]
+  },
+
   "themes": [
     {
       "id": "toggle-invis",

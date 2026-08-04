@@ -146,7 +146,9 @@ async function boot() {
     const notes = [];
     if (meta?.fetched_at) notes.push(`Meta stats updated ${daysAgo(meta.fetched_at)}.`);
     if (brief?.written_at) {
-      notes.push(`Analysis written ${fmtDate(brief.written_at)} by Claude, from Valve's full patch diff.`);
+      notes.push(config.provenance.show
+        ? `Analysis written ${fmtDate(brief.written_at)} by Claude, from Valve's full patch diff.`
+        : `Analysis written ${fmtDate(brief.written_at)}.`);
     }
     document.getElementById('footer-note').textContent = notes.join(' ');
 
@@ -269,6 +271,8 @@ function renderBrief() {
         ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}`}
 
 
+    ${renderCreators()}
+
     ${signupShownInline(unread) ? '' : renderJoin()}
   `;
 
@@ -336,7 +340,7 @@ function renderGlance(v, themeCount) {
         </div>
       </div>
 
-      ${b.method ? `
+      ${config.provenance.show && b.method ? `
         <details class="provenance">
           <summary>Written by AI from the official diff — how to read that</summary>
           <p>${esc(b.method)}</p>
@@ -370,6 +374,41 @@ function renderWelcome(unread, total) {
 /** True when the caught-up banner is already carrying the signup. */
 function signupShownInline(unread) {
   return Boolean(state.previousVisit) && unread === 0 && !state.isNewPatch && !store.joined;
+}
+
+/**
+ * Other people's work, pointed at rather than summarised.
+ *
+ * We never paraphrase a named creator's take — putting words in a real person's
+ * mouth is the fastest way to lose the trust this whole site runs on. Each entry
+ * is a link to their own work plus an honest note on how current it is.
+ */
+function renderCreators() {
+  const c = state.brief?.creators;
+  if (!c?.people?.length) return '';
+
+  return `
+    <div class="section-head">
+      <h2>Go deeper</h2>
+      <span class="hint">${esc(c.note ?? '')}</span>
+    </div>
+    <div class="grid">
+      ${c.people.map((p) => `
+        <div class="creator">
+          <div class="creator-head">
+            <strong>${esc(p.name)}</strong>
+            <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"
+               class="link-btn" data-creator="${esc(p.name)}">Open →</a>
+          </div>
+          ${p.who ? `<p class="creator-who">${esc(p.who)}</p>` : ''}
+          <p class="creator-what">${esc(p.what)}</p>
+          ${p.status ? `<p class="creator-status">${esc(p.status)}</p>` : ''}
+          ${p.extra ? `<a class="creator-extra" href="${esc(p.extra.url)}"
+             target="_blank" rel="noopener noreferrer">${esc(p.extra.label)}</a>` : ''}
+        </div>`).join('')}
+    </div>
+    ${c.checked ? `<p class="aside">Links checked ${esc(fmtDate(c.checked))}.</p>` : ''}
+  `;
 }
 
 /* ---------- your heroes ---------- */

@@ -1837,3 +1837,36 @@ details.verbatim .body { padding: 2px 18px 16px; }
   color: var(--text-dim);
   max-width: 78ch;
 }
+
+/* Pointers to other people's work — a card that reads as a link, not a claim. */
+.creator {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.creator-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; margin-bottom: 6px;
+}
+.creator-head strong {
+  font-family: var(--display);
+  font-size: 14.5px; font-weight: 600; letter-spacing: .02em;
+  color: var(--text-bright);
+}
+.creator-who { margin: 0 0 7px; font-size: 12.5px; line-height: 1.45; color: var(--text-faint); }
+.creator-what { margin: 0; font-size: 13.5px; line-height: 1.45; color: var(--text-dim); }
+.creator-status {
+  margin: 8px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+  font-size: 12.5px; line-height: 1.45; color: var(--text-faint);
+}
+.creator-extra {
+  display: inline-block; margin-top: 9px;
+  font-size: 12px; letter-spacing: .04em;
+  color: var(--accent-soft);
+  border-bottom: 1px solid rgba(227, 196, 105, .3);
+}
+.creator-extra:hover { color: var(--accent); }
