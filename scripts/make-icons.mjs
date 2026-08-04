@@ -64,16 +64,24 @@ function encodePNG(width, height, rgba) {
   ]);
 }
 
-/* ---- the mark: dark tile, angular "D" in the warm gradient ----
-   Polygons mirror public/icon.svg, divided through by its 64-unit viewBox. ---- */
+/* ---- the mark: notched gold plate, angular "D" ----
+   Polygons mirror public/icon.svg, divided through by its 64-unit viewBox.
+   The D path data is unchanged from the previous mark; only the plate and
+   colours moved with the reskin. ---- */
 
 const N = (pts) => pts.map(([x, y]) => [x / 64, y / 64]);
 
-// Outer D, and the counter punched out of it.
+// The plate has a notched bottom-right corner instead of a radius.
+const PLATE = N([[0, 0], [64, 0], [64, 48], [48, 64], [0, 64]]);
+// Same shape inset ~2 units, so the ring between the two is the gold edge.
+const PLATE_INNER = N([[2, 2], [62, 2], [62, 46.8], [46.8, 62], [2, 62]]);
+
 const D_OUTER = N([[14, 11], [34, 11], [53, 32], [34, 53], [14, 53]]);
 const D_COUNTER = N([[25, 21], [32, 21], [41, 32], [32, 43], [25, 43]]);
 
-const TILE = [0x12, 0x16, 0x1f];
+const PLATE_RGB = [0x0d, 0x11, 0x14];
+const EDGE_RGB = [0xc9, 0xa2, 0x27];
+const EDGE_ALPHA = 0.45;
 
 /** Standard ray-casting point-in-polygon. */
 function inPoly(u, v, poly) {
@@ -88,47 +96,50 @@ function inPoly(u, v, poly) {
 
 const mix = (a, b, t) => a + (b - a) * t;
 
+/** Three-stop gold gradient, matching the SVG's linearGradient. */
 function shade(u, v) {
-  // Diagonal gradient across the mark, matching the SVG's linearGradient.
   const t = Math.min(1, Math.max(0, (u + v) / 2));
-  const hi = [255, 138, 99];
-  const lo = [200, 68, 46];
-  return [0, 1, 2].map((i) => mix(hi[i], lo[i], t));
+  const hi = [0xf0, 0xd9, 0x8a];
+  const mid = [0xc9, 0xa2, 0x27];
+  const lo = [0x8a, 0x6a, 0x18];
+  return t < 0.55
+    ? [0, 1, 2].map((i) => mix(hi[i], mid[i], t / 0.55))
+    : [0, 1, 2].map((i) => mix(mid[i], lo[i], (t - 0.55) / 0.45));
 }
 
-/** Coverage of tile and mark at a pixel, supersampled for smooth edges. */
+/** Coverage of plate, gold edge and mark at a pixel, supersampled for smooth edges. */
 function sample(x, y, size) {
   const S = 4;
-  let tile = 0, mark = 0;
+  let plate = 0, edge = 0, mark = 0;
   for (let sy = 0; sy < S; sy++) {
     for (let sx = 0; sx < S; sx++) {
       const u = (x + (sx + 0.5) / S) / size;
       const v = (y + (sy + 0.5) / S) / size;
-
-      // rounded square tile
-      const r = 0.234;
-      const dx = Math.max(Math.abs(u - 0.5) - (0.5 - r), 0);
-      const dy = Math.max(Math.abs(v - 0.5) - (0.5 - r), 0);
-      if (Math.hypot(dx, dy) <= r) tile++;
-
+      const onPlate = inPoly(u, v, PLATE);
+      if (onPlate) plate++;
+      if (onPlate && !inPoly(u, v, PLATE_INNER)) edge++;
       if (inPoly(u, v, D_OUTER) && !inPoly(u, v, D_COUNTER)) mark++;
     }
   }
   const n = S * S;
-  return { tile: tile / n, mark: mark / n };
+  return { plate: plate / n, edge: edge / n, mark: mark / n };
 }
 
 function render(size) {
   const rgba = Buffer.alloc(size * size * 4);
   for (let y = 0; y < size; y++) {
     for (let x = 0; x < size; x++) {
-      const { tile, mark } = sample(x, y, size);
-      const warm = shade(x / size, y / size);
+      const { plate, edge, mark } = sample(x, y, size);
+      const gold = shade(x / size, y / size);
 
-      // Mark over tile, then the rounded-square coverage becomes alpha.
+      // plate → gold edge ring → the D on top; plate coverage becomes alpha.
       const o = (y * size + x) * 4;
-      for (let i = 0; i < 3; i++) rgba[o + i] = Math.round(mix(TILE[i], warm[i], mark));
-      rgba[o + 3] = Math.round(tile * 255);
+      for (let i = 0; i < 3; i++) {
+        let c = mix(PLATE_RGB[i], EDGE_RGB[i], edge * EDGE_ALPHA);
+        c = mix(c, gold[i], mark);
+        rgba[o + i] = Math.round(c);
+      }
+      rgba[o + 3] = Math.round(plate * 255);
     }
   }
   return encodePNG(size, size, rgba);

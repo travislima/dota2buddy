@@ -1,7 +1,7 @@
 /* Offline support: cache the shell, always try the network for data first so a
    freshly regenerated brief shows up without anyone clearing anything. */
 
-const VERSION = 'dota-buddy-v4';
+const VERSION = 'dota-buddy-v5';
 const SHELL = [
   './',
   'index.html',

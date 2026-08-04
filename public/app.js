@@ -304,8 +304,11 @@ function renderGlance(v, themeCount) {
     <section class="glance">
       <div class="glance-top">
         <div class="glance-patch">
-          <b>${esc(b.patch)}</b>
-          <span>${esc(fmtDate(b.released))} · ${esc(daysAgo(b.released))}</span>
+          <span class="glance-eyebrow">The patch at a glance</span>
+          <div class="glance-patch-row">
+            <b>${esc(b.patch)}</b>
+            <span>${esc(fmtDate(b.released))} · ${esc(daysAgo(b.released))}</span>
+          </div>
         </div>
         <div class="glance-counts">
           <div><b>${state.raw.heroes.length}</b><span>heroes</span></div>
@@ -740,11 +743,11 @@ function heroCard(h) {
 
   return `
   <a class="entity ${esc(verdict)} ${store.playsHero(h.key) ? 'mine' : ''}" href="#/hero/${esc(h.key)}">
-    <img class="portrait" src="${esc(h.icon)}" alt="" loading="lazy">
+    <img class="portrait" src="${esc(h.portrait ?? h.icon)}" alt="" loading="lazy">
     <div class="entity-body">
       <div class="entity-name">
         <strong>${esc(h.name)}</strong>
-        ${store.playsHero(h.key) ? '<span class="yours" title="One of yours">★</span>' : ''}
+        ${store.playsHero(h.key) ? '<span class="yours" title="One of yours">◆</span>' : ''}
         ${verdictPill(verdict)}
         ${b?.impact ? impactDots(b.impact) : ''}
       </div>
@@ -787,7 +790,7 @@ function renderHeroes() {
   const options = [
     { key: 'all', label: 'All', count: state.raw.heroes.length },
     // "Mine" only earns a slot once you've told us who you play.
-    ...(mine ? [{ key: 'mine', label: '★ Mine', count: mine, hint: 'Heroes you play' }] : []),
+    ...(mine ? [{ key: 'mine', cls: 'gold', label: '◆ Mine', count: mine, hint: 'Heroes you play' }] : []),
     ...VERDICT_ORDER.map((v) => ({
       key: v, label: VERDICT_LABEL[v], count: counts[v] ?? 0, hint: VERDICT_HINT[v],
     })),
@@ -842,7 +845,7 @@ function renderHeroDetail(key) {
     <a class="back" href="#/heroes">← All heroes</a>
 
     <div class="detail-head">
-      <img src="${esc(h.icon)}" alt="">
+      <img src="${esc(h.portrait ?? h.icon)}" alt="">
       <div>
         <h1>${esc(h.name)}</h1>
         <div class="badges">

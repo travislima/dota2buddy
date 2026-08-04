@@ -120,9 +120,34 @@ replacing the TL;DR paragraph with counts plus a split bar, and giving every hea
 number chip. If a future patch's brief starts creeping back up, re-measure rather than eyeball
 it — count words in `main` and divide `scrollHeight` by `innerHeight`.
 
+## The visual system
+
+`public/styles.css` is two layers in one file. Everything above the RESKIN banner is **structure**
+— grids, flex containers, `grid-template-areas`. Everything below is the **visual system** from the
+"more like Dota 2" design handoff: tokens, type, colour, panel treatment. The reskin layer loads
+last so it wins the cascade, and it was written assuming the structure above stays put. If you move
+a rule between layers, keep that split — layout up top, looks below.
+
+Key facts to preserve:
+
+- **Two fonts.** Cinzel (`--display`) names things: brand, tabs, section headings, hero and item
+  names, verdict slabs, labels. Barlow Semi Condensed (`--font`) is prose, numbers and controls.
+  `--mono` stays on the verbatim patch lines — that contrast between our words and Valve's is
+  doing real work.
+- **Gold is the accent** (`#c9a227`), not red. Red (`--dire`) is now only for destructive buttons
+  and "biggest loser".
+- **Nothing is round.** `--radius: 0`. Softening happens with angular `clip-path` notches on hero
+  art and the icon plate, not radii.
+- Hero cards and hero detail use `portrait` (the `crops/` art) from the raw feed; chips, the picker
+  and the full-notes list use `icon`. `spirit_bear` reusing `lone_druid`'s crop is correct.
+- `scripts/make-icons.mjs` mirrors `public/icon.svg` by hand. Change one, change the other, then
+  `npm run icons`.
+
 ## Filters and the colour language
 
-Red = weaker, green = stronger, amber = mixed, blue = quality of life. That mapping is used by
+Red = weaker, green = stronger, amber = mixed, blue = quality of life. Since the reskin these are
+Dire crimson and Radiant moss, so "biggest winner / biggest loser" and "buffed / nerfed" share one
+colour language instead of colliding. That mapping is used by
 verdict pills, hero/item card borders, the split bar and the filter buttons, so it has to stay
 consistent — `filterBar()` and `VERDICT_LABEL` / `VERDICT_HINT` in `app.js` are the single
 source. Filters with a count of zero hide themselves rather than render a dead button.

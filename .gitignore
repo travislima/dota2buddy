@@ -3,3 +3,6 @@
 
 # Local Claude Code settings (machine-specific permissions)
 .claude/settings.local.json
+
+# Design handoff source (implemented in styles.css; kept out of the repo)
+*.zip
