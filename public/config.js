@@ -41,6 +41,6 @@ export const config = {
    */
   signup: {
     enabled: true,
-    endpoint: null,
+    endpoint: 'https://buttondown.com/api/emails/embed-subscribe/dota2buddy',
   },
 };

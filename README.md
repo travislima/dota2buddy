@@ -95,6 +95,19 @@ console so you can watch them.
 Google Analytics is deliberately not the default: it uses cookies, which would mean a consent
 banner on a page whose whole point is getting out of your way.
 
+## The email list
+
+`public/config.js` points `signup.endpoint` at Buttondown. Addresses are POSTed straight there,
+Buttondown handles double opt-in and unsubscribe, and nothing is stored by this site beyond the
+visitor's own device.
+
+The form renders in two places, never both: inline in the "you're all caught up" banner — the
+moment the need is actually felt — and as a card at the foot of the brief for everyone else.
+The `signup` event records which one converted.
+
+Set `endpoint` back to `null` and the copy automatically reverts to saying nothing is connected.
+The UI is built so it can't imply an email was sent when it wasn't.
+
 ## Deploy it
 
 `public/` is a plain static folder — nothing to build. Every path in the app is relative and
