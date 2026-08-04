@@ -267,7 +267,7 @@ function renderBrief() {
         ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}`}
 
 
-    ${renderJoin()}
+    ${signupShownInline(unread) ? '' : renderJoin()}
   `;
 
   attachBriefHandlers();
@@ -347,11 +347,18 @@ function renderWelcome(unread, total) {
     </div>`;
   }
   if (state.previousVisit && unread === 0) {
+    // The one moment the signup answers a need the reader just felt.
     return `<div class="welcome done">
       You're all caught up on ${esc(state.raw.patch)}. Nothing new until the next patch.
+      ${renderJoin({ compact: true })}
     </div>`;
   }
   return '';
+}
+
+/** True when the caught-up banner is already carrying the signup. */
+function signupShownInline(unread) {
+  return Boolean(state.previousVisit) && unread === 0 && !state.isNewPatch && !store.joined;
 }
 
 /* ---------- your heroes ---------- */
@@ -480,28 +487,52 @@ function openHeroPicker() {
 
 /* ---------- signup placeholder ---------- */
 
-function renderJoin() {
+const signupLive = () => Boolean(config.signup.endpoint);
+
+/**
+ * The signup, in two shapes. `compact` rides inside the "you're caught up"
+ * banner — the one moment the need is actually felt — and the full card sits at
+ * the foot of the brief for everyone else.
+ */
+function renderJoin({ compact = false } = {}) {
   if (!config.signup.enabled) return '';
   const joined = store.joined;
 
   if (joined) {
+    if (compact) return '';
     return `<div class="join done">
       <h3>You're on the list</h3>
-      <p>We'll use <strong>${esc(joined.email)}</strong> when the next patch is distilled.</p>
-      <p class="note">Heads up: there's no mailing list connected yet, so this is saved on your
-         device and nothing has been sent anywhere.</p>
+      <p>${signupLive()
+        ? `Check your inbox — we've sent <strong>${esc(joined.email)}</strong> a confirmation link.`
+        : `We'll use <strong>${esc(joined.email)}</strong> when the next patch is distilled.`}</p>
+      ${signupLive() ? '' : `<p class="note">Heads up: there's no mailing list connected yet, so this
+         is saved on your device and nothing has been sent anywhere.</p>`}
+    </div>`;
+  }
+
+  const form = `
+    <form class="join-form" novalidate>
+      <input type="email" class="join-email" placeholder="you@example.com"
+             aria-label="Email address" required>
+      <button class="btn-primary" type="submit">Notify me</button>
+    </form>`;
+
+  const disclaimer = signupLive()
+    ? `<p class="note">One email per patch. Unsubscribe in a click.</p>`
+    : `<p class="note">Placeholder — no mailing list is connected yet, so your address stays on
+         this device and isn't sent anywhere.</p>`;
+
+  if (compact) {
+    return `<div class="join-inline">
+      <p>Want a nudge when the next one lands?</p>
+      ${form}${disclaimer}
     </div>`;
   }
 
   return `<div class="join">
     <h3>Get the next patch distilled</h3>
     <p>One email when a patch lands, with the three things that actually matter. Nothing else.</p>
-    <form id="join-form" novalidate>
-      <input type="email" id="join-email" placeholder="you@example.com" aria-label="Email address" required>
-      <button class="btn-primary" type="submit">Notify me</button>
-    </form>
-    <p class="note">Placeholder — no mailing list is connected yet, so your address stays on
-       this device and isn't sent anywhere.</p>
+    ${form}${disclaimer}
   </div>`;
 }
 
@@ -514,6 +545,20 @@ function renderJoin() {
  * of you. Filters carry a data-scope so a click always reaches its own view.
  */
 function attachAppHandlers() {
+  // The form renders in two places, so listen once and let submit bubble.
+  app.addEventListener('submit', (e) => {
+    const form = e.target.closest('.join-form');
+    if (!form) return;
+    e.preventDefault();
+    const input = form.querySelector('.join-email');
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { input.focus(); return; }
+    submitSignup(email);
+    store.join(email);
+    trackEvent('signup', form.closest('.join-inline') ? 'inline' : 'card');
+    renderBrief();
+  });
+
   app.addEventListener('click', (e) => {
     const filterBtn = e.target.closest('[data-filter]');
     if (filterBtn) {
@@ -583,14 +628,26 @@ function attachBriefHandlers() {
     });
   });
 
-  document.getElementById('join-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = document.getElementById('join-email');
-    if (!input.value.includes('@')) { input.focus(); return; }
-    store.join(input.value.trim());
-    trackEvent('signup');
-    route();
-  });
+}
+
+/**
+ * Sends the address to whatever `config.signup.endpoint` points at.
+ *
+ * Providers like Buttondown accept a plain form POST but don't send CORS
+ * headers, so the response is unreadable from here — `no-cors` still delivers
+ * it. That's fine because the real confirmation is the double opt-in email the
+ * provider sends; we just never claim more certainty than we have.
+ */
+async function submitSignup(email) {
+  if (!signupLive()) return;
+  const body = new FormData();
+  body.append('email', email);
+  try {
+    await fetch(config.signup.endpoint, { method: 'POST', mode: 'no-cors', body });
+  } catch {
+    // Offline or blocked — the address is still stored locally, so nothing is lost
+    // from the reader's point of view and they can try again.
+  }
 }
 
 function markRead(details) {

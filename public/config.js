@@ -26,9 +26,18 @@ export const config = {
   },
 
   /**
-   * The "get notified" card. There's no mailing list wired up yet, so the form
-   * only saves to the visitor's own device and says so plainly. Point this at a
-   * real endpoint (Buttondown, ConvertKit, a Google Form) when you have one.
+   * The "get notified" form.
+   *
+   * While `endpoint` is null the form saves to the visitor's own device and says
+   * so plainly — it never implies an email was sent. Set the endpoint and the
+   * copy switches to the real promise ("one email per patch, unsubscribe in a
+   * click") and addresses are POSTed to your provider.
+   *
+   * Buttondown:  https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME
+   * Kit:         https://app.kit.com/forms/YOUR_FORM_ID/subscriptions
+   *
+   * Use a provider with a real unsubscribe link rather than a form-to-inbox
+   * service — that part is an obligation, not a nice-to-have.
    */
   signup: {
     enabled: true,

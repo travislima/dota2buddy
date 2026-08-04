@@ -149,8 +149,11 @@ name asserts something, the sort key has to be the thing it asserts.
   worth measuring, fire an event for it — that data is what tells us which write-ups earn their
   keep.
 
-The signup form has no backend. It says so in the UI, and it must keep saying so until
-`config.signup.endpoint` is real — never let it imply an email was sent.
+The signup form is a promise. While `config.signup.endpoint` is null it says plainly that
+nothing is connected and the address stays on-device; when an endpoint is set the copy switches
+to the real commitment. Never let it imply an email was sent when none was. It renders in two
+places — inline in the "you're caught up" banner (the moment the need is felt, and where it
+converts) and as a card at the foot of the brief for everyone else. Only ever one at a time.
 
 ## Not this
 
