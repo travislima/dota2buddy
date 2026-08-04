@@ -1,7 +1,7 @@
 /* Offline support: cache the shell, always try the network for data first so a
    freshly regenerated brief shows up without anyone clearing anything. */
 
-const VERSION = 'dota-buddy-v3';
+const VERSION = 'dota-buddy-v4';
 const SHELL = [
   './',
   'index.html',
@@ -39,9 +39,15 @@ self.addEventListener('fetch', (event) => {
 
   /* Network first for everything we serve ourselves, cache as the offline fallback.
      Cache-first on the shell meant an edited app.js kept serving the old code until
-     someone remembered to bump VERSION — not worth the few milliseconds it saved. */
+     someone remembered to bump VERSION — not worth the few milliseconds it saved.
+
+     `cache: 'no-cache'` forces a conditional request (cheap: a 304 when unchanged).
+     Without it a plain fetch() is still served by the HTTP cache, and GitHub Pages
+     sends max-age=600 — so for ten minutes after a deploy you could get fresh
+     data/*.json alongside a stale app.js. Mismatched code and data renders worse
+     than either being uniformly old. */
   event.respondWith(
-    fetch(request)
+    fetch(new Request(request.url, { cache: 'no-cache', credentials: 'same-origin' }))
       .then((res) => {
         const copy = res.clone();
         caches.open(VERSION).then((c) => c.put(request, copy));
