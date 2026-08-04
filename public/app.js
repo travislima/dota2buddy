@@ -81,10 +81,10 @@ const verdictPill = (v) => v
  * One filter row, shared by the brief, heroes and items so the colour language
  * means the same thing everywhere: red is weaker, green is stronger.
  */
-function filterBar(options, current) {
+function filterBar(options, current, scope) {
   return options.filter((o) => o.count !== 0).map((o) => `
     <button class="filter-btn ${esc(o.cls ?? o.key)} ${current === o.key ? 'active' : ''}"
-            data-filter="${esc(o.key)}"
+            data-filter="${esc(o.key)}" data-scope="${esc(scope)}"
             ${o.hint ? `title="${esc(o.hint)}"` : ''}>
       ${esc(o.label)}${o.count != null ? ` <b>${o.count}</b>` : ''}
     </button>`).join('');
@@ -153,6 +153,7 @@ async function boot() {
     heroesBtn.addEventListener('click', openHeroPicker);
 
     window.addEventListener('hashchange', route);
+    attachAppHandlers();
     attachShortcuts();
     route();
   } catch (err) {
@@ -250,7 +251,7 @@ function renderBrief() {
       </div>
     </div>
 
-    <div class="filters">${filterBar(themeOptions, state.themeFilter)}</div>
+    <div class="filters">${filterBar(themeOptions, state.themeFilter, 'brief')}</div>
 
     ${filtering ? (themes.length
         ? themes.map(renderHeadline).join('')
@@ -380,10 +381,14 @@ function renderForYou() {
 
   const untouched = picked.length - mine.length;
 
-  // Heroes you don't play that got a big change — you'll meet these in games.
+  /* Heroes you don't play, that changed meaningfully, ranked by how often they're
+     actually picked. The pick rate is real data from OpenDota and is printed on
+     each card, so the claim is checkable rather than asserted. */
   const facing = state.raw.heroes
-    .filter((h) => !picked.includes(h.key) && (briefHero(h.key)?.impact ?? 0) >= 4)
-    .sort((a, c) => (briefHero(c.key)?.impact ?? 0) - (briefHero(a.key)?.impact ?? 0))
+    .filter((h) => !picked.includes(h.key) && (briefHero(h.key)?.impact ?? 0) >= 3)
+    .map((h) => ({ hero: h, pickrate: metaByKey(h.key)?.all.pickrate ?? 0 }))
+    .filter((x) => x.pickrate > 0)
+    .sort((a, c) => c.pickrate - a.pickrate)
     .slice(0, 4);
 
   return `
@@ -403,10 +408,11 @@ function renderForYou() {
 
     ${facing.length ? `
       <div class="section-head">
-        <h2>You'll be facing</h2>
-        <span class="hint">Big changes on heroes you don't play</span>
+        <h2>Most likely to show up against you</h2>
+        <span class="hint">Changed heroes you don't play, by how often they're picked</span>
       </div>
-      <div class="grid">${facing.map(heroCard).join('')}</div>` : ''}
+      <div class="grid">${facing.map((x) => heroCard(x.hero)).join('')}</div>
+      <p class="aside">Pick rates are from OpenDota public matches, shown on each card.</p>` : ''}
   `;
 }
 
@@ -499,37 +505,34 @@ function renderJoin() {
   </div>`;
 }
 
-/* ---------- brief interactions ---------- */
-
-function attachBriefHandlers() {
-  const toggle = document.getElementById('expand-all');
-  toggle?.addEventListener('click', () => {
-    const cards = [...app.querySelectorAll('details.headline')];
-    const expanding = cards.some((d) => !d.open);
-    cards.forEach((d) => { d.open = expanding; if (expanding) markRead(d); });
-    toggle.textContent = expanding ? 'Collapse all' : 'Expand all';
-    trackEvent('expand_all', expanding ? 'open' : 'close');
-  });
-
-  // Opening a headline is the strongest signal that a write-up earned attention.
-  app.querySelectorAll('details.headline').forEach((d) => {
-    d.addEventListener('toggle', () => {
-      if (!d.open) return;
-      markRead(d);
-      trackEvent('headline_open', d.dataset.theme);
-    });
-  });
-
+/**
+ * One delegated listener for the whole app, bound once at boot.
+ *
+ * This used to live in attachBriefHandlers() and bind to `app` on every brief
+ * render — which both stacked duplicate listeners and, worse, kept firing after
+ * you navigated away, so a filter click on Heroes re-rendered the Brief on top
+ * of you. Filters carry a data-scope so a click always reaches its own view.
+ */
+function attachAppHandlers() {
   app.addEventListener('click', (e) => {
     const filterBtn = e.target.closest('[data-filter]');
     if (filterBtn) {
-      state.themeFilter = filterBtn.dataset.filter;
-      trackEvent('filter_brief', state.themeFilter);
-      renderBrief();
-      // The list above the filters is unchanged, but the list below just resized —
-      // park the filter row at the top so you're looking at the result.
-      app.querySelector('.filters')?.scrollIntoView({ block: 'start' });
-      window.scrollBy(0, -100);
+      const { filter, scope } = filterBtn.dataset;
+      trackEvent(`filter_${scope}`, filter);
+      if (scope === 'brief') {
+        state.themeFilter = filter;
+        renderBrief();
+        // The list below the filters just resized — park the row at the top so
+        // you're looking at the result rather than wherever you were scrolled.
+        app.querySelector('.filters')?.scrollIntoView({ block: 'start' });
+        window.scrollBy(0, -100);
+      } else if (scope === 'heroes') {
+        state.heroFilter = filter;
+        renderHeroes();
+      } else if (scope === 'items') {
+        state.itemFilter = filter;
+        renderItems();
+      }
       return;
     }
 
@@ -556,6 +559,28 @@ function attachBriefHandlers() {
       setTimeout(() => { share.textContent = 'Copy link'; }, 1600);
       trackEvent('share', share.dataset.share);
     }
+  });
+}
+
+/* ---------- brief interactions ---------- */
+
+function attachBriefHandlers() {
+  const toggle = document.getElementById('expand-all');
+  toggle?.addEventListener('click', () => {
+    const cards = [...app.querySelectorAll('details.headline')];
+    const expanding = cards.some((d) => !d.open);
+    cards.forEach((d) => { d.open = expanding; if (expanding) markRead(d); });
+    toggle.textContent = expanding ? 'Collapse all' : 'Expand all';
+    trackEvent('expand_all', expanding ? 'open' : 'close');
+  });
+
+  // Opening a headline is the strongest signal that a write-up earned attention.
+  app.querySelectorAll('details.headline').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      markRead(d);
+      trackEvent('headline_open', d.dataset.theme);
+    });
   });
 
   document.getElementById('join-form')?.addEventListener('submit', (e) => {
@@ -721,7 +746,7 @@ function renderHeroes() {
 
     <input class="search" id="hero-search" type="search" placeholder="Search heroes…"
            value="${esc(state.heroSearch)}" autocomplete="off">
-    <div class="filters">${filterBar(options, state.heroFilter)}</div>
+    <div class="filters">${filterBar(options, state.heroFilter, 'heroes')}</div>
 
     ${list.length
       ? `<div class="grid">${list.map(heroCard).join('')}</div>`
@@ -735,12 +760,6 @@ function renderHeroes() {
     const s = document.getElementById('hero-search');
     s.focus();
     s.setSelectionRange(s.value.length, s.value.length);
-  });
-  app.querySelectorAll('[data-filter]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      state.heroFilter = btn.dataset.filter;
-      renderHeroes();
-    });
   });
 }
 
@@ -877,7 +896,7 @@ function renderItems() {
 
     <input class="search" id="item-search" type="search" placeholder="Search items…"
            value="${esc(state.itemSearch)}" autocomplete="off">
-    <div class="filters">${filterBar(options, state.itemFilter)}</div>
+    <div class="filters">${filterBar(options, state.itemFilter, 'items')}</div>
 
     ${items.length ? `<div class="grid">${items.map((i) => itemCard(i, false)).join('')}</div>` : ''}
 
@@ -899,12 +918,6 @@ function renderItems() {
     const s = document.getElementById('item-search');
     s.focus();
     s.setSelectionRange(s.value.length, s.value.length);
-  });
-  app.querySelectorAll('[data-filter]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      state.itemFilter = btn.dataset.filter;
-      renderItems();
-    });
   });
 }
 

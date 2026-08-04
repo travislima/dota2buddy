@@ -129,6 +129,14 @@ The brief filters on `punch.dir` (`worse`/`better`/`neutral`) rather than a verd
 headline groups several changes and often has no single verdict. When a filter is active the
 two-tier "if you read nothing else / worth knowing" split collapses into one flat list.
 
+## Claims have to be backed by something
+
+"Most likely to show up against you" is ranked by **pick rate from `meta.json`**, and the number
+is printed on every card so a reader can check it. It was originally ranked by the hand-authored
+`impact` score, which made the heading a claim the data didn't support — impact is an editorial
+judgement about how much a change matters, not a prediction about who you'll meet. If a section
+name asserts something, the sort key has to be the thing it asserts.
+
 ## The client-side layer
 
 - `public/config.js` — the only file to edit to switch analytics or the signup form on. Analytics
