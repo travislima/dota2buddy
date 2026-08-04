@@ -320,12 +320,28 @@ main {
   font-size: 13.5px; line-height: 1.55; color: var(--text-faint);
 }
 
+/* A real affordance: this reads as a button you can press, not a stray glyph. */
 .chev {
   flex: none;
-  font-size: 11px; color: var(--text-faint);
-  transition: transform .18s;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  color: var(--text-dim);
+  transition: transform .2s ease, background .14s, color .14s, border-color .14s;
 }
-.headline[open] .chev { transform: rotate(90deg); }
+.chev svg { width: 14px; height: 14px; display: block; }
+.headline-row:hover .chev {
+  background: var(--bg-hover);
+  border-color: #3a4560;
+  color: var(--text);
+}
+.headline[open] .chev {
+  transform: rotate(180deg);
+  border-color: rgba(200,68,46,.4);
+  color: var(--accent-soft);
+}
 
 .expand-all {
   background: transparent;

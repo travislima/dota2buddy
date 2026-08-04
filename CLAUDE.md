@@ -86,7 +86,8 @@ omission. `npm run validate` enforces this.
 - `themes[]` — the ranked headlines. Fields: `id`, `rank`, `title`,
   `punch` (`{stat, dir}` where dir is `better`/`worse`/`neutral` — renders as the coloured chip
   on the collapsed row), `severity` (`major`/`notable`/`minor`), `tags[]`,
-  `what` (neutral statement, shown only once expanded), `why` (the payload),
+  `what` (neutral statement — only rendered as a fallback when `bites` is absent, since the
+  bites say the same thing more scannably), `why` (the payload),
   `do[]` (actionable), `watch`, `affects.heroes[]` / `affects.items[]` (must be real keys —
   they render as clickable chips), `changes[]` (`{source, text}`, shown verbatim under a
   disclosure), `confidence`.

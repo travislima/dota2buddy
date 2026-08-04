@@ -683,7 +683,11 @@ function renderHeadline(t) {
       <span class="row-stats">
         <span class="pill ${esc(t.severity ?? 'minor')}">${esc(t.severity ?? 'minor')}</span>
       </span>
-      <span class="chev" aria-hidden="true">▸</span>
+      <span class="chev" aria-hidden="true">
+        <svg viewBox="0 0 14 14"><path d="M3.5 5.25 L7 8.75 L10.5 5.25"
+          fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
       ${(t.bites ?? []).length ? `
         <span class="bites">
           ${t.bites.map((b, i) => `<span class="bite ${i === 0 ? esc(t.punch?.dir ?? '') : ''}">${esc(b)}</span>`).join('')}
@@ -691,7 +695,7 @@ function renderHeadline(t) {
     </summary>
 
     <div class="headline-top">
-      <p class="what">${rich(t.what)}</p>
+      ${(t.bites ?? []).length ? '' : `<p class="what">${rich(t.what)}</p>`}
 
       <div class="why-label">Why it matters</div>
       <p class="why">${rich(t.why)}</p>
