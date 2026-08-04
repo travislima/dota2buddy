@@ -8,45 +8,71 @@ import { config } from './config.js';
 
 const { provider, site } = config.analytics;
 const isLocal = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+const enabled = provider !== 'none' && Boolean(site) && !isLocal;
 
-let ready = false;
+let scriptLoaded = false;
+/* The provider script is async, but the first pageview fires the moment the app
+   routes — well before it arrives. Without this buffer every visitor's landing
+   view would be dropped, which is the one number you least want to lose.
+   Capped so a blocked script can't grow it without bound. */
+let pending = [];
+const MAX_PENDING = 40;
 
 function loadScript(src, attrs = {}) {
   const s = document.createElement('script');
   s.src = src;
   s.async = true;
-  s.dataset.noSw = 'true';
   for (const [k, v] of Object.entries(attrs)) s.setAttribute(k, v);
+  s.addEventListener('load', () => {
+    scriptLoaded = true;
+    const queued = pending;
+    pending = [];
+    for (const hit of queued) send(hit);
+  });
   document.head.appendChild(s);
-  return s;
+}
+
+/** Hand one hit to whichever provider is configured, or hold it until we can. */
+function send(hit) {
+  if (!scriptLoaded) {
+    if (pending.length < MAX_PENDING) pending.push(hit);
+    return;
+  }
+  if (provider === 'goatcounter') {
+    window.goatcounter?.count?.(hit);
+  } else if (provider === 'plausible') {
+    if (hit.event) window.plausible?.(hit.title, { props: { detail: hit.path } });
+    else window.plausible?.('pageview', { u: location.origin + hit.path });
+  }
+  // Cloudflare Web Analytics counts views itself and has no manual API.
 }
 
 export function initAnalytics() {
-  if (ready || provider === 'none' || !site) return;
-  if (isLocal) return; // don't pollute your own stats while developing
+  if (!enabled) return;
 
   if (provider === 'goatcounter') {
+    // no_onload stops it counting the initial load itself; we send views per route.
     window.goatcounter = { no_onload: true };
-    loadScript('https://gc.zgo.at/count.js', { 'data-goatcounter': `https://${site}.goatcounter.com/count` });
+    loadScript('https://gc.zgo.at/count.js', {
+      'data-goatcounter': `https://${site}.goatcounter.com/count`,
+    });
   } else if (provider === 'cloudflare') {
-    loadScript('https://static.cloudflareinsights.com/beacon.min.js',
-      { 'data-cf-beacon': JSON.stringify({ token: site }) });
+    scriptLoaded = true; // nothing is ever queued for Cloudflare
+    loadScript('https://static.cloudflareinsights.com/beacon.min.js', {
+      'data-cf-beacon': JSON.stringify({ token: site }),
+    });
   } else if (provider === 'plausible') {
     loadScript('https://plausible.io/js/script.manual.js', { 'data-domain': site });
-    window.plausible = window.plausible || function (...a) { (window.plausible.q ||= []).push(a); };
   }
-  ready = true;
 }
 
 /** A page/route view. Called on every hash change. */
 export function trackView(path, title) {
-  if (provider === 'none' || !site) {
+  if (!enabled) {
     if (isLocal) console.debug('[analytics] view', path);
     return;
   }
-  if (provider === 'goatcounter') window.goatcounter?.count?.({ path, title, event: false });
-  else if (provider === 'plausible') window.plausible?.('pageview', { u: location.origin + path });
-  // Cloudflare counts views automatically and has no manual API.
+  send({ path, title, event: false });
 }
 
 /**
@@ -54,12 +80,9 @@ export function trackView(path, title) {
  * This is the data that answers "which of my write-ups are worth writing".
  */
 export function trackEvent(name, detail = '') {
-  const path = detail ? `${name}:${detail}` : name;
-  if (provider === 'none' || !site) {
-    if (isLocal) console.debug('[analytics] event', path);
+  if (!enabled) {
+    if (isLocal) console.debug('[analytics] event', detail ? `${name}:${detail}` : name);
     return;
   }
-  if (provider === 'goatcounter') window.goatcounter?.count?.({ path, title: name, event: true });
-  else if (provider === 'plausible') window.plausible?.(name, { props: { detail } });
-  // Cloudflare Web Analytics doesn't support custom events.
+  send({ path: detail ? `${name}:${detail}` : name, title: name, event: true });
 }
