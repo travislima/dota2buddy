@@ -926,7 +926,7 @@
       "verdict": "mixed",
       "impact": 4,
       "summary": "Nightmare is now a true blind, at the cost of half a second.",
-      "why": "Total sight denial beats the duration loss — the target has no information at all. The Ichor change (6 terrors at 4% instead of 5 at 5%) slightly lowers his status resistance ceiling and makes each stack worth less.",
+      "why": "Before, Nightmare left you a small circle of vision. Now you see nothing at all, so Bane's team can walk straight past you or set up a fight while you're blind. The cost is half a second of duration.",
       "play": [
         "Use Nightmare as setup — your team can reposition freely while the target is blind."
       ],
@@ -938,7 +938,7 @@
       "verdict": "nerf",
       "impact": 4,
       "summary": "Cogs lost their two expert uses: free vision and camp blocking.",
-      "why": "Vision halved and camp blocking removed. Trapping is untouched, so this hits good Clockwerk players far harder than average ones.",
+      "why": "Good Clockwerks used cogs as a free ward — 1600 vision dropped anywhere — and to block enemy jungle camps. Both are gone. If you only ever used cogs to trap people, nothing changed for you.",
       "play": [
         "Budget real wards for what cogs used to scout."
       ],
@@ -950,7 +950,7 @@
       "verdict": "buff",
       "impact": 4,
       "summary": "Battle Trance now grants 35% slow resistance, and stance toggling doesn't break invisibility.",
-      "why": "Slow resistance is real survivability on an ultimate that commits him to a fight. Shadow Blade also got much smoother. The Mask of Madness ranged nerf pulls the other way in ranged stance.",
+      "why": "35% slow resistance during Battle Trance means enemies can't kite you out of your own ultimate. With the toggle fix on top, Shadow Blade finally works properly on him.",
       "play": [
         "Shadow Blade is a better pickup — pick your stance mid-approach."
       ],
@@ -961,8 +961,8 @@
     "legion_commander": {
       "verdict": "mixed",
       "impact": 5,
-      "summary": "Better lane, no more infinite Duel chain at level 25.",
-      "why": "A guaranteed Duel refresh became a flat 30-second reduction. In exchange: +1 base strength, +5 base attack speed, more level 1 damage, minus a little strength gain.",
+      "summary": "Better level 1, no more guaranteed second Duel.",
+      "why": "Winning a duel used to fully reset it, so a fed Legion duelled again immediately. Now it only takes 30 seconds off, so a follow-up isn't guaranteed. She gets a stronger level 1 instead — about 22 more health and faster attacks.",
       "play": [
         "Push your advantage earlier — the gains are front-loaded."
       ],
@@ -974,7 +974,7 @@
       "verdict": "nerf",
       "impact": 4,
       "summary": "Hit in five places at once — damage down across the kit plus three talent cuts.",
-      "why": "Scatterblast, Cookie and Mortimer Kisses all lost damage, and Scatterblast's width no longer benefits from AoE bonuses — which quietly kills a scaling path.",
+      "why": "Every part of her kit does less damage and three talents were cut. Scatterblast's width also stopped growing with AoE bonuses, which kills a whole build.",
       "play": [
         "Scatterblast needs tighter positioning now that width can't be inflated."
       ],
@@ -986,7 +986,7 @@
       "verdict": "nerf",
       "impact": 5,
       "summary": "Multishot stopped scaling with attack range items.",
-      "why": "The new formula is a wash at her base range but loses ~90 range once you buy Dragon Lance. Plus 40% more mana at level 1 and 20 points less base damage.",
+      "why": "Multishot used to reach further every time you bought attack range. Now it barely does — with a Dragon Lance you actually lose about 90 range. It also costs 20 more mana at level 1, which is a lot when you're level 1.",
       "play": [
         "Buy range items for the auto-attacks, not to extend Multishot."
       ],
@@ -998,7 +998,7 @@
       "verdict": "mixed",
       "impact": 3,
       "summary": "Ultimate damage down, but Lightning Hands toggles while invisible or silenced.",
-      "why": "Thundergod's Wrath lost 8-11% damage and Lightning Hands lost 10 attack speed. The toggle change is a genuine gain for smoke ganks.",
+      "why": "His ultimate does 8-11% less damage, so fewer kills sniped from across the map. In exchange he can flip Lightning Hands on mid-gank instead of guessing before he goes in.",
       "play": [
         "Toggle Lightning Hands as the gank lands, not before."
       ],
@@ -1010,7 +1010,7 @@
       "verdict": "mixed",
       "impact": 3,
       "summary": "Shorter attack range, and Infernal Blade shifted from early damage to late.",
-      "why": "200 → 175 attack range is a real laning nerf. Infernal Blade's max-HP burn is worse at ranks 1-2 and better at rank 4.",
+      "why": "25 less attack range means standing closer to last hit, where he can be hit back. Infernal Blade got worse at low levels and better at max.",
       "play": [
         "Skill Infernal Blade later — its early value dropped."
       ],
@@ -1022,7 +1022,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "A rescue attempt — mana costs down across the board.",
-      "why": "Homing Missile flattened to 120 mana at all levels with ~5s off the cooldown. He's the worst performer in the changed list at 44.0%, so this is Valve reaching for him.",
+      "why": "Homing Missile costs a flat 120 mana instead of scaling up to 150, and returns about 5 seconds sooner. You can throw it out to harass instead of saving it.",
       "play": [
         "Homing Missile is far more spammable — use it as harassment."
       ],
@@ -1034,7 +1034,7 @@
       "verdict": "buff",
       "impact": 4,
       "summary": "Objurgation is now instant-cast and doesn't stop your movement.",
-      "why": "No cast animation and no movement cancel means you can barrier mid-chase without losing tempo. Early barrier also up 120 → 150. Already at 52.7%.",
+      "why": "The barrier used to stop you moving while you cast it. It's instant now, so you can shield yourself mid-chase or mid-escape without losing a step.",
       "play": [
         "Barrier while running — it costs you nothing now."
       ],
@@ -1046,7 +1046,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Slower attacks, shorter early root, pricier early Living Armor.",
-      "why": "Base attack speed 100 → 90 hurts his lane directly, and Living Armor at a flat 80 mana is a real constraint on an already mana-hungry support.",
+      "why": "10 less base attack speed makes last hitting noticeably harder. Living Armor also costs 80 mana at rank 1 instead of 65 — a lot for a support with no items yet.",
       "play": [
         "Be more selective with early Living Armor."
       ],
@@ -1058,7 +1058,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Sharpshooter costs a lot more mana and Boomerang is on a longer leash.",
-      "why": "Sharpshooter is 50 mana more expensive at every level and Boomerang's cooldown went up 2s. Her harass cadence drops significantly.",
+      "why": "Sharpshooter costs 50 more mana at every rank, so you can't fire it off casually to scout or chip. Boomerang comes back 2 seconds slower.",
       "play": [
         "You can't casually cast Sharpshooter to scout or chip anymore."
       ],
@@ -1070,7 +1070,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Less armour and attack speed, weaker Battle Hunger scaling.",
-      "why": "Base agility 20 → 18 costs a bit of armour and attack speed, and Battle Hunger's DPS is down 20% at max.",
+      "why": "2 less base agility is about 0.33 armour and 2 attack speed. Small, but it's on the hero whose whole plan is being hit. Battle Hunger also does 20% less damage at max.",
       "play": [
         "Battle Hunger is a weaker maxing choice."
       ],
@@ -1082,7 +1082,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "Morph is available more often and the scepter illusion can see.",
-      "why": "10-15s off Morph's cooldown is real flexibility on a hero defined by swapping stats, and the illusion is now usable for scouting rather than just damage.",
+      "why": "Morph returns 10-15 seconds sooner, so he can swap between tanky and damage far more often. The scepter illusion can also see properly now, making it useful for scouting.",
       "play": [
         "The scepter illusion is a map tool now, not just a body."
       ],
@@ -1094,7 +1094,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Smaller mana pool and the level 25 raze talent no longer procs attack modifiers.",
-      "why": "Base intelligence 18 → 16 bites exactly when he's spamming razes. The talent losing modifier and proc application removes a combo that made it disproportionately strong.",
+      "why": "2 less base intelligence is 24 less mana, exactly when he wants to spam razes. The level 25 talent also stopped triggering item effects, which was the main reason to take it.",
       "play": [
         "The raze stack window is a second tighter — sequence faster."
       ],
@@ -1106,7 +1106,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Death Seeker lost 150 cast range, and Sadist scales worse.",
-      "why": "A 20% cut to his primary engage range means committing much closer. Sadist is now slightly better at level 1 and clearly worse after.",
+      "why": "Death Seeker's range drops from 750 to 600, so he has to walk 150 units closer before he can start anything. That's a real window to punish him.",
       "play": [
         "You're inside a much tighter range to land Death Seeker."
       ],
@@ -1118,7 +1118,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Cheaper Shadow Strike, and double Sonic Waves now stack.",
-      "why": "Flatter mana costs help against the Kaya regen nerf, and stacking Sonic Waves matters specifically for Refresher builds.",
+      "why": "Cheaper Shadow Strike softens the Kaya mana nerf. Two ultimates cast back to back now both deal full damage, which only matters if you buy Refresher.",
       "play": [
         "Refresher combos got better — the second wave isn't wasted."
       ],
@@ -1130,7 +1130,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Better attack scaling per level.",
-      "why": "Agility gain 2.0 → 2.3 and more damage per level compound over a game. Small but purely positive.",
+      "why": "More agility and damage every level. By level 25 that's roughly 1.25 extra armour and 7 attack speed — small each level, real by the end.",
       "play": [
         "Her right-click contribution grows faster now."
       ]
@@ -1139,7 +1139,7 @@
       "verdict": "buff",
       "impact": 1,
       "summary": "Slightly more intelligence and damage at level 1.",
-      "why": "Base intelligence 26 → 27 plus a point of damage. Marginal laning improvement, nothing changes.",
+      "why": "One more base intelligence is 12 more mana and a point of damage. You won't feel it.",
       "play": [
         "Very slightly better level 1 last hitting."
       ]
@@ -1148,7 +1148,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Ghost Walk is 10 seconds shorter and the Shard no longer widens it.",
-      "why": "Less free map movement and no more offensive slow application from the Shard. At 18.9% pick rate it touches a lot of games.",
+      "why": "10 seconds less invisibility is 10 seconds less free movement around the map, and the Shard no longer widens Ghost Walk's slow. He's a little easier to catch out.",
       "play": [
         "Don't buy the Shard for the Ghost Walk radius."
       ],
@@ -1159,8 +1159,8 @@
     "undying": {
       "verdict": "mixed",
       "impact": 2,
-      "summary": "Slower normally, faster inside Flesh Golem.",
-      "why": "300 → 295 base with Flesh Golem up 20 → 25 is a wash while ulting and a straight nerf outside it. Nudges him toward ulting to engage.",
+      "summary": "Slower walking around, same speed inside his ultimate.",
+      "why": "5 slower walking around, 5 faster inside Flesh Golem. Net: same in a fight, slower everywhere else, which nudges you to ult to engage rather than walk in.",
       "play": [
         "You're 5 speed slower all game except when ulting."
       ]
@@ -1169,7 +1169,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Chakra Magic on a longer cooldown, Solar Bind 100 range shorter.",
-      "why": "Less mana fed to your core, compounding with the Kaya nerfs elsewhere. Solar Bind at 750 forces him meaningfully closer.",
+      "why": "One second longer on Chakra means less mana handed to your carry, on top of the Kaya nerfs. Solar Bind also reaches 100 less, so he has to commit closer.",
       "play": [
         "Solar Bind takes real commitment at 750 range."
       ],
@@ -1181,7 +1181,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Retaliate returns less damage; Shard buff is shorter.",
-      "why": "12% less return damage at max, which matters most in the long attrition fights Centaur wins.",
+      "why": "Retaliate returns about 12% less damage. That bites hardest in long fights, which is exactly how Centaur wins them.",
       "play": [
         "Standing in a fight returns less — commit more deliberately."
       ]
@@ -1190,7 +1190,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "More armour from Momentum, and Astral Spirit controls don't break invisibility.",
-      "why": "The speed-to-armour base rate jumped 40%, real durability on a hero who stacks movement speed. Smoke and Shadow Blade setups also got much cleaner.",
+      "why": "Momentum turns movement speed into armour at a better rate — the base went from 5% to 7%, a 40% improvement. Movement speed items are worth more on him now.",
       "play": [
         "Movement speed items are worth more — they convert to armour better."
       ]
@@ -1199,7 +1199,7 @@
       "verdict": "mixed",
       "impact": 3,
       "summary": "False Promise reaches further, but Fate's Edict can now be stripped.",
-      "why": "A save that was guaranteed is now contestable by any enemy dispel. The extra False Promise range partly compensates.",
+      "why": "Enemies can now dispel Fate's Edict off you or an ally, so the save can simply be removed. False Promise reaches 100 further at rank 1 to make up for it.",
       "play": [
         "Against dispel-heavy lineups, Fate's Edict isn't a reliable save."
       ],
@@ -1211,7 +1211,7 @@
       "verdict": "nerf",
       "impact": 4,
       "summary": "Lone Druid's bear takes towers a third slower and has less armour.",
-      "why": "Demolish 30% → 20% cuts directly into the thing Lone Druid exists to do, and 1 less armour makes the bear easier to kill while doing it.",
+      "why": "Demolish drops from 30% to 20% bonus damage to buildings, so the bear takes towers roughly a third slower. Fast towers are the entire reason Lone Druid gets picked.",
       "play": [
         "Recalculate what you can take before a rotation arrives."
       ],
@@ -1223,7 +1223,7 @@
       "verdict": "nerf",
       "impact": 3,
       "summary": "Savage Roar talents cut alongside the bear's push nerf.",
-      "why": "Small talent trims on their own, but they land in the same patch as the bear's Demolish and armour nerfs. The hero was targeted as a package.",
+      "why": "Savage Roar returns 1 second slower and covers 25 less radius. Minor alone, but they land in the same patch as the bear's tower nerf.",
       "play": [
         "Push speed and defensive Roar got worse together."
       ]
@@ -1232,7 +1232,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Juxtapose Shard on a 3-second longer cooldown.",
-      "why": "A 20% cooldown increase on the shard that feeds his illusion count. Light touch for a hero at 53.2%.",
+      "why": "The shard illusion returns 3 seconds slower, so slightly fewer illusions across a fight. A light touch for a hero winning 53% of his games.",
       "counter": [
         "Longer gaps between his shard illusion bursts."
       ]
@@ -1241,7 +1241,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Illusory Orb costs a second more cooldown at every level.",
-      "why": "Less freedom to use the orb for harass and escape. Small, but it's her main mobility tool.",
+      "why": "One second longer on Illusory Orb at every level. Across a lane that's one less orb for harass or escape.",
       "play": [
         "One less orb over a long lane exchange."
       ]
@@ -1250,7 +1250,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "One less health regen, on a hero already struggling.",
-      "why": "Worse lane sustain on a hero sitting at 44.7% — one of the weakest in the changed list.",
+      "why": "1 less health regen makes staying in lane harder. Worth noting because he's already one of the weakest heroes in the patch at 44.7%.",
       "play": [
         "Budget more regen consumables."
       ]
@@ -1259,7 +1259,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "The scepter illusion can see properly now.",
-      "why": "The Vengeance Aura illusion becomes a scouting and split-push body rather than just damage. She's in 13.2% of games.",
+      "why": "The scepter illusion can see properly now, so you can send it to hold vision or push a side lane instead of only using it for damage.",
       "play": [
         "Use the illusion to hold vision or push a side lane."
       ]
@@ -1268,7 +1268,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Two points of base agility gone.",
-      "why": "Slightly more fragile and slower to last hit early. Purely a laning-stage nerf.",
+      "why": "2 less base agility — about 0.33 armour and 2 attack speed. Slightly harder last hitting early, nothing after that.",
       "play": [
         "Marginally harder early last hitting."
       ]
@@ -1277,7 +1277,7 @@
       "verdict": "nerf",
       "impact": 1,
       "summary": "The Maledict talent no longer bursts off illusions.",
-      "why": "A targeted fix to an unintended interaction. Normal play is unaffected.",
+      "why": "A fix so the level 20 talent stops bursting off illusions. Nothing changes unless you were relying on that.",
       "play": [
         "No change unless you were exploiting it."
       ]
@@ -1286,7 +1286,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Concussive Grenade is castable while rooted.",
-      "why": "Part of the wider root rework — he gets a defensive option against root lineups he simply didn't have before.",
+      "why": "He can now use the grenade while rooted. He doesn't get the self-push, but he can still shove someone off him — an escape he simply didn't have before.",
       "play": [
         "Root no longer locks you out of the grenade."
       ]
@@ -1295,7 +1295,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "Snakebite initial damage up sharply at higher levels.",
-      "why": "A 30% increase at rank 4 with nothing given back. Real gains to lane harass and teamfight chip.",
+      "why": "Snakebite does 30% more damage at max rank and gives up nothing. It's worth maxing now.",
       "play": [
         "Maxing Snakebite is a stronger choice than it was."
       ]
@@ -1304,7 +1304,7 @@
       "verdict": "buff",
       "impact": 4,
       "summary": "Blur can no longer be dispelled.",
-      "why": "Removes one of the cleanest counters to her evasion. Teams now need true strike, which is a much bigger investment.",
+      "why": "Dispelling Blur used to strip her evasion. It doesn't anymore, so you need Monkey King Bar or Bloodthorn — a far bigger purchase than a dispel.",
       "counter": [
         "Buy true strike. Dispelling Blur is no longer an option."
       ]
@@ -1313,7 +1313,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Psionic Projection can now be interrupted by root.",
-      "why": "Her repositioning tool is cancellable by any root in the game. Lands on a hero already at 46.5%.",
+      "why": "Any root now cancels her escape. Bad news for a hero already sitting at 46.5%.",
       "counter": [
         "A root cancels her projection escape outright."
       ]
@@ -1322,7 +1322,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Wyrm's Wrath splash area up 20% at every level.",
-      "why": "Better wave clear and farming in dragon form, which is where his mid-game tempo comes from.",
+      "why": "20% more splash in dragon form, so waves die faster and pushes come sooner.",
       "play": [
         "Faster wave clear means better push windows."
       ]
@@ -1331,7 +1331,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Hammer of Purity heals more, faster.",
-      "why": "40% over 4s beats 35% over 5s in both dimensions — and speed is what matters when burst is killing your target.",
+      "why": "The heal delivers more in less time — 40% over 4 seconds instead of 35% over 5. Speed is what matters when burst is killing the person you're saving.",
       "play": [
         "The heal now lands fast enough to contest burst."
       ]
@@ -1340,7 +1340,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Crippling Fear radius trimmed by 25.",
-      "why": "A light touch on a hero at 53.2%. Valve reaching for a strong hero with minimal force.",
+      "why": "25 less radius on Crippling Fear. A small trim on a hero winning 53% of his games.",
       "play": [
         "Tighter positioning needed to catch multiple heroes."
       ]
@@ -1348,8 +1348,8 @@
     "weaver": {
       "verdict": "buff",
       "impact": 2,
-      "summary": "Threads of Fate break distance now scales with level.",
-      "why": "Marginally worse at level 1, clearly better from level 2 on, reaching 1140 at level 25. A late-game buff dressed as a rescale.",
+      "summary": "The thread stretches further as you level.",
+      "why": "The thread now stretches further the more you level, reaching 1140 by level 25 instead of a flat 900.",
       "play": [
         "The thread holds over longer distances as the game goes."
       ]
@@ -1358,7 +1358,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Intelligence gain up, which is mana and damage.",
-      "why": "Compounds into a bigger pool and more spell damage. Welcome on a frequently mana-starved support at 46.2%.",
+      "why": "More intelligence per level — roughly 90 extra mana by level 25. Welcome on a support who is always empty.",
       "play": [
         "A little more room to cast in the mid game."
       ]
@@ -1367,7 +1367,7 @@
       "verdict": "qol",
       "impact": 1,
       "summary": "Smoldering Resin no longer applies when attacking allies.",
-      "why": "A bug-class fix that stops him debuffing his own units when denying.",
+      "why": "A fix so he stops putting his own debuff on friendly units when denying. Normal play is unaffected.",
       "play": [
         "Denying no longer wastes resin."
       ]
@@ -1375,8 +1375,8 @@
     "spectre": {
       "verdict": "nerf",
       "impact": 4,
-      "summary": "Haunt flattened — better at rank 1, worse at rank 3 and level 25.",
-      "why": "She's the strongest carry in the data at 54.1% on 13.3% of games, and this takes power specifically from the late game where she dominated.",
+      "summary": "Her late-game Haunt is weaker; early Haunt slightly stronger.",
+      "why": "Haunt sends illusions that copy a share of her damage. That share moved from 30/50/70% to 35/50/65%, so an early Haunt hits slightly harder and a max-level Haunt hits noticeably less. She's the best carry in the game at 54.1%, and this takes power from the late game where she was winning.",
       "play": [
         "Her spike is earlier — a 40-minute plan is weaker now."
       ],
@@ -1388,7 +1388,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "Ice Blast cooldown cut by 10 seconds at rank 1.",
-      "why": "Ice Blast is his entire threat. Having it 10s more often at rank 1 dramatically changes how often he can contest an early fight or deny a heal.",
+      "why": "Ice Blast returns 10 seconds sooner at rank 1 — often the difference between having it for a fight and not.",
       "play": [
         "You can use Ice Blast more speculatively early."
       ]
@@ -1397,7 +1397,7 @@
       "verdict": "buff",
       "impact": 3,
       "summary": "Chaos Bolt is 30% faster and much harder to dodge.",
-      "why": "700 → 900 cuts reaction time by a third. A stun good players could answer with a blink or Eul's is now far more reliable.",
+      "why": "His stun flies 30% faster, so you have about a third less time to blink or Eul's out of it. Far more reliable.",
       "counter": [
         "React to the cast animation, not the projectile."
       ]
@@ -1406,7 +1406,7 @@
       "verdict": "qol",
       "impact": 2,
       "summary": "Stone Form no longer breaks invisibility when ordering Familiars.",
-      "why": "Makes an invisible Familiar setup workable. Notable because he's the highest-winrate hero in the changed list at 54.5% — and this is a buff.",
+      "why": "He can order Familiars to attack from Stone Form without breaking invisibility, so invisible setups actually work. He's also the highest-winrate hero in this patch at 54.5%.",
       "play": [
         "Invisibility-based Familiar setups are viable now."
       ]
@@ -1415,7 +1415,7 @@
       "verdict": "qol",
       "impact": 3,
       "summary": "Split Shot toggles while invisible or silenced.",
-      "why": "No more deciding your Split Shot state before going invisible, and silence can't lock you into the wrong one. Shadow Blade is much more attractive.",
+      "why": "You no longer decide Split Shot on or off before going invisible, and a silence can't lock you into the wrong one. Shadow Blade is a genuine option now.",
       "play": [
         "Shadow Blade is a real option — configure on the approach."
       ]
@@ -1424,7 +1424,7 @@
       "verdict": "buff",
       "impact": 1,
       "summary": "Horn Toss damage up slightly.",
-      "why": "A small flat increase with no trade-off. Nothing changes about how he's played.",
+      "why": "25 more damage on Horn Toss. Nothing else moves.",
       "play": [
         "Marginally more damage on the setup."
       ]
@@ -1433,7 +1433,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Five movement speed gone.",
-      "why": "A small but permanent mobility tax on a hero whose whole pattern is movement.",
+      "why": "5 slower base movement, permanently, on a hero whose entire game is moving.",
       "play": [
         "Slightly worse at chasing and repositioning on foot."
       ]
@@ -1442,7 +1442,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Less intelligence, weaker Magnetize talent.",
-      "why": "Tightens an already awkward mana situation and trims his level 20 payoff. Neither changes his play pattern.",
+      "why": "1 less base intelligence is 12 less mana, on a hero who is always short of it. The level 20 Magnetize talent was trimmed too.",
       "play": [
         "Mana is a little tighter in early rotations."
       ]
@@ -1451,7 +1451,7 @@
       "verdict": "nerf",
       "impact": 4,
       "summary": "Fiend's Gate can now be cancelled by any root in the game.",
-      "why": "The biggest single-hero consequence of the root rework. His global is how his team commits and retreats — now it's something you have to check the enemy lineup for.",
+      "why": "Any root in the game now cancels his global teleport. That's how his team commits and retreats, so you have to check the enemy draft before planning around it.",
       "play": [
         "Channel from further back; check for roots before committing."
       ],
@@ -1463,7 +1463,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Dark Portrait illusion can see properly.",
-      "why": "The copy becomes useful for vision and split-pushing rather than purely damage.",
+      "why": "The Dark Portrait copy can see properly now, so it works for vision and split-pushing rather than only damage.",
       "play": [
         "The illusion is a map tool as well as damage now."
       ]
@@ -1472,7 +1472,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Intelligence gain up.",
-      "why": "A slightly bigger mana pool over the game. Small, but he's at 46.7% so any help is directional.",
+      "why": "More intelligence per level — roughly 60 extra mana by level 25. Small, but he's at 46.7% so anything helps.",
       "play": [
         "A little more casting room mid game."
       ]
@@ -1481,7 +1481,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Impalement Arts clears creeps much worse early, slightly better late.",
-      "why": "A 30% cut at rank 1 that doesn't break even until rank 4 — a farming nerf during the phase where it matters most.",
+      "why": "Impalement Arts kills creeps 30% slower at rank 1 and doesn't catch up until rank 4. Slower farming exactly when farming matters most.",
       "play": [
         "Slower early wave clear and jungle farming."
       ]
@@ -1490,7 +1490,7 @@
       "verdict": "qol",
       "impact": 2,
       "summary": "Gunslinger toggles without breaking invisibility.",
-      "why": "Same theme as Medusa and Troll — Shadow Blade and Smoke setups get cleaner. Welcome at 46.8%.",
+      "why": "Same fix as Medusa and Troll — you can flip Gunslinger while invisible, so Shadow Blade setups actually work.",
       "play": [
         "Shadow Blade is a more comfortable item now."
       ]
@@ -1499,7 +1499,7 @@
       "verdict": "nerf",
       "impact": 2,
       "summary": "Both high-level talents trimmed.",
-      "why": "His late-game payoff got worse, which is a surprising call on a hero already at 46.7%.",
+      "why": "Both late talents were trimmed, and Primal Roar returns 5 seconds slower with the level 25. An odd call on a hero already at 46.7%.",
       "play": [
         "Primal Roar returns 5 seconds slower with the level 25 talent."
       ]
@@ -1510,183 +1510,183 @@
       "verdict": "mixed",
       "impact": 4,
       "summary": "Worse on agility carries, better on everyone else.",
-      "why": "Those 5 agility were also armour and attack speed; the +5 damage only replaces the damage. On strength and intelligence heroes the agility was worth less, so the trade is a small gain.",
+      "why": "You trade 5 agility for 5 damage. On an agility carry those 5 agility were also 0.83 armour and 5 attack speed, so you come out behind. On a strength or intelligence hero the agility was worth less, so it's a small gain.",
       "who": "Agility carries lose; strength and int heroes buying it for evasion gain slightly."
     },
     "mask_of_madness": {
       "verdict": "nerf",
       "impact": 4,
       "summary": "Ranged heroes lost half their slow resistance; melee kept all of it.",
-      "why": "Slow resistance is what made MoM safe on a ranged carry — you take the damage amplification because you can kite. That window is now far more punishing.",
+      "why": "Slow resistance is what let a ranged carry switch it on and still get away. Cutting it to 15% for ranged only means the window where you take extra damage is now genuinely dangerous. Melee heroes lost nothing.",
       "who": "Clinkz, Sniper, Gyrocopter and ranged-stance Troll."
     },
     "kaya": {
       "verdict": "nerf",
       "impact": 5,
       "summary": "The regen bonus itself shrank by a third.",
-      "why": "30% → 20% amplification is a third off Kaya's contribution, not a tenth. Spell amp and intelligence are untouched, so it's still a fine damage item.",
+      "why": "This multiplies your existing regen rather than adding a flat amount, so going 30% to 20% removes a third of what Kaya was giving you. Spell amp and intelligence are untouched — still a good damage item, just no longer the fix for running out of mana.",
       "who": "Every int core that treated Kaya as the end of their mana problems."
     },
     "kaya_and_sange": {
       "verdict": "nerf",
       "impact": 4,
       "summary": "Same regen cut as the rest of the line.",
-      "why": "A quarter of the bonus gone. Status resistance and spell amp are unchanged, so it remains a strong pickup — the sustain half just got worse.",
+      "why": "A quarter off the mana regen. Status resistance and spell amp are unchanged, so it's still worth buying — just don't count on the sustain.",
       "who": "Hybrid cores like Doom, Legion Commander and Dragon Knight."
     },
     "yasha_and_kaya": {
       "verdict": "nerf",
       "impact": 4,
       "summary": "Same regen cut as the rest of the line.",
-      "why": "Movement speed, attack speed and spell amp survive intact. The sustain that made it comfortable on spell-spammers is a quarter weaker.",
+      "why": "A quarter off the mana regen. Movement speed, attack speed and spell amp all survive intact.",
       "who": "Storm Spirit, Ember Spirit and similar mobile spell-spammers."
     },
     "meteor_hammer": {
       "verdict": "nerf",
       "impact": 3,
-      "summary": "The biggest regen cut in the line at 10 percentage points.",
-      "why": "A 29% reduction to the bonus. Supports often buy it as much for regen as for the channel, so it hits the secondary purpose hard.",
+      "summary": "The biggest mana regen cut of the four.",
+      "why": "The biggest cut in the line — 29% off the regen. Supports often buy this as much for the mana as the stun, and that half got clearly worse.",
       "who": "Supports who bought it partly for sustain."
     },
     "satanic": {
       "verdict": "nerf",
       "impact": 5,
       "summary": "One Unholy Rage per fight instead of two.",
-      "why": "A 33% cooldown increase on the most reliable 'don't die' button a carry can hold — and it bites hardest in the long fights where unkillable carries decided games.",
+      "why": "In a long fight you used to get two Unholy Rages. Now you get one. That's precisely the situation where an unkillable carry used to win the game on their own.",
       "who": "Every right-click carry, lifestealing melee most of all."
     },
     "refresher_shard": {
       "verdict": "nerf",
       "impact": 4,
       "summary": "Stripped of all its stats — it only does the thing now.",
-      "why": "It was quietly a stat stick that also refreshed. If you were buying it partly for the passive value while you waited, that reason is gone.",
+      "why": "It used to be a decent stat stick that also refreshed your spells. Now it's only the refresh — so if you were slotting it early for the regen and damage, that reason is gone.",
       "who": "Anyone who slotted it early for the stats."
     },
     "rapier": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "Double Rapier spell amp no longer stacks.",
-      "why": "Closes a degenerate stack. The damage still stacks — only the spell amp was capped.",
+      "why": "Only the spell amp was capped; the damage still stacks. Changes nothing in a normal game.",
       "who": "Late-game spell-damage cheese builds."
     },
     "urn_of_shadows": {
       "verdict": "nerf",
       "impact": 3,
       "summary": "Less mana regen, and no more free charges from the stash.",
-      "why": "An Urn parked in your base was collecting charges from deaths near the fountain, including fights you were losing. It has to be carried to earn now.",
+      "why": "Two cuts. Less mana regen, and an Urn left in your base used to collect charges from deaths near your fountain — including fights you were losing. Now you have to carry it to earn them.",
       "who": "Supports who bought it early and stashed it."
     },
     "spirit_vessel": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "No more stash charge farming.",
-      "why": "Same loophole close as Urn. Passive top-ups during base defence are gone.",
+      "why": "Same fix as Urn. No more free charges while it sits in your base during a defence.",
       "who": "Late-game supports holding Vessel through base defences."
     },
     "essence_distiller": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "No more stash charge farming.",
-      "why": "Same treatment as Urn and Spirit Vessel — all three fixed together, which is what makes it read as deliberate.",
+      "why": "Same fix again. All three charge items got it in one patch, which is what makes it deliberate rather than incidental.",
       "who": "Anyone stashing it for passive charges."
     },
     "skadi": {
       "verdict": "buff",
       "impact": 3,
       "summary": "Cold Attack attack speed slow up by a quarter.",
-      "why": "It was already the go-to answer to a fed attacker. This makes it noticeably better at that job.",
+      "why": "25% attack speed slow instead of 20%. It was already the answer to a fed right-clicker, and it's better at that job now.",
       "who": "Anyone building it to shut down an enemy carry."
     },
     "hand_of_midas": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Five more attack speed.",
-      "why": "A better hold after the charges are spent, in the awkward window before you'd normally sell it.",
+      "why": "5 more attack speed makes it less awkward to hold onto after you've spent the charges.",
       "who": "Mid-laners and farming cores."
     },
     "abyssal_blade": {
       "verdict": "buff",
       "impact": 2,
-      "summary": "Four more strength.",
-      "why": "A clean durability gain on an already excellent item, with nothing given back.",
+      "summary": "About 88 more health.",
+      "why": "4 more strength is about 88 extra health, free, on an item you were already buying. You're simply harder to kill.",
       "who": "Melee carries and initiators."
     },
     "heavens_halberd": {
       "verdict": "buff",
       "impact": 1,
       "summary": "One second off the disarm cooldown.",
-      "why": "Marginal, but a straight improvement to how often you shut down an attacking carry.",
+      "why": "One second less on the disarm, so you can shut down an attacking carry slightly more often.",
       "who": "Anyone answering a right-click core."
     },
     "shivas_guard": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Cheaper recipe, same total cost — easier to build toward.",
-      "why": "More gold sits in components you can use while building, instead of a recipe that does nothing until it completes. Easy to skim past as 'no change'.",
+      "why": "Same total cost, but 100 gold moved out of the recipe into the components. More of your gold is doing something for you while you build it.",
       "who": "Anyone building Shiva's — same item, friendlier path."
     },
     "gungir": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Cheaper recipe, same total cost — easier to build toward.",
-      "why": "Same logic as Shiva's: less gold parked in a recipe, more in usable components.",
+      "why": "Same idea — 100 gold shifted from the recipe into usable parts. The finished item is identical.",
       "who": "Anyone building Gleipnir."
     },
     "veil_of_discord": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Spell Weakness costs half the mana.",
-      "why": "Supports buy Veil, and supports are exactly who's feeling the Kaya regen nerfs. This pushes back.",
+      "why": "Half the mana to cast. Supports buy Veil, and supports are the ones feeling the Kaya nerfs, so this pushes back a little.",
       "who": "Magic damage lineups and their supports."
     },
     "orb_of_venom": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Poison damage up 20%.",
-      "why": "A real increase at the stage where health pools are small, so aggressive lane play with it got stronger.",
+      "why": "20% more damage per second, at the stage of the game when health pools are small enough for that to actually hurt.",
       "who": "Melee offlaners and aggressive supports."
     },
     "orb_of_corrosion": {
       "verdict": "buff",
       "impact": 2,
       "summary": "More healing reduction.",
-      "why": "Better at its core job of shutting down lane regen, which is the whole reason it gets bought.",
+      "why": "Cuts enemy healing a bit harder, which is the only reason anyone buys it.",
       "who": "Lane bullies."
     },
     "orb_of_frost": {
       "verdict": "mixed",
       "impact": 2,
       "summary": "More healing reduction, and it stops misfiring on allies.",
-      "why": "Stronger regen shutdown plus a fix that stops you debuffing your own units when denying. Both directions favour the holder.",
+      "why": "Cuts healing harder, and it stopped applying to your own units when you deny. Both changes favour whoever's holding it.",
       "who": "Ranged laners."
     },
     "hurricane_pike": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "One second off the Hurricane Thrust buff.",
-      "why": "A shorter attack range window after the active, compounding with the Drow Multishot change for ranged heroes buying range to extend abilities.",
+      "why": "The attack range bonus after using the active lasts one second less.",
       "who": "Ranged carries, especially Drow."
     },
     "crellas_crozier": {
       "verdict": "buff",
       "impact": 2,
       "summary": "Longer speed steal, stronger aura effect.",
-      "why": "Straightforward increases to the item's utility with no trade-off.",
+      "why": "Longer speed steal and a stronger aura, with nothing given up.",
       "who": "Support and utility builds."
     },
     "chasm_stone": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "100 gold more expensive.",
-      "why": "A pure timing nerf — same item, later spike.",
+      "why": "100 gold more expensive for exactly the same item, so it comes online a little later.",
       "who": "Anyone on its build path."
     },
     "smoke_of_deceit": {
       "verdict": "nerf",
       "impact": 2,
-      "summary": "Buff duration amplification no longer extends Smoke.",
-      "why": "Closes an interaction where duration-boosting effects made smoke ganks last longer than intended.",
-      "who": "Anyone stacking buff duration amplification."
+      "summary": "Smoke can't be made to last longer.",
+      "why": "Effects that stretch buff durations no longer stretch smoke. Only matters if you were stacking buff duration on purpose.",
+      "who": "Anyone who was stacking buff-duration effects."
     }
   },
   "neutrals": {
@@ -1694,37 +1694,37 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Forage time down 25%.",
-      "why": "Meaningfully faster over the many times you'll use it in a game."
+      "why": "Forages 25% faster. You use it constantly, so it adds up over a game."
     },
     "conjurers_catalyst": {
       "verdict": "nerf",
       "impact": 2,
       "summary": "Weaker against non-heroes, and the illusion interaction was tightened.",
-      "why": "A third off its farming value, plus the illusion threshold now counts only pre-amplification damage."
+      "why": "A third less damage to creeps, so it farms worse. The illusion trigger was tightened too."
     },
     "enchanters_bauble": {
       "verdict": "nerf",
       "impact": 1,
-      "summary": "Recraft bonus down 5 percentage points.",
-      "why": "A small trim to a tier 3 item's main effect."
+      "summary": "Recraft bonus down from 40% to 35%.",
+      "why": "A small trim to the only thing it does."
     },
     "enhancement_greedy": {
       "verdict": "nerf",
       "impact": 3,
       "summary": "Meaningfully less gold per minute.",
-      "why": "A 10-13% cut to the enchantment's entire purpose. If you picked Greedy for farm acceleration, that maths just got worse."
+      "why": "10-13% less gold per minute, which is the entire reason anyone picks it."
     },
     "enhancement_feverish": {
       "verdict": "mixed",
       "impact": 3,
       "summary": "The drawback changed shape — much worse for casters.",
-      "why": "A 20% smaller mana pool is far more punishing for a caster needing a full combo than a 7% cost increase ever was. Mild for heroes who barely use mana. Re-evaluate per hero."
+      "why": "The downside changed completely. It used to make spells cost 7% more; now it cuts your maximum mana by 20%. For a caster who needs a full combo that's far worse. For a hero who barely casts, it's mild."
     },
     "heavy_blade": {
       "verdict": "buff",
       "impact": 3,
       "summary": "Witchbane cleanses 25% more often.",
-      "why": "A solid increase in dispel frequency, which matters a lot in fights with repeated debuff application."
+      "why": "Witchbane cleanses every 30 seconds instead of 40, so you get a dispel more often in fights with repeated debuffs."
     }
   }
 }

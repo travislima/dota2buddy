@@ -71,7 +71,13 @@ entire premise of the product. Budgets, enforced by taste not tooling:
   `notable` → "Worth knowing about", `minor` → "The rest of the patch". **There is no target
   number of headlines.** Anything genuinely noteworthy gets its own row; never bundle several
   unrelated changes into one card to keep the count down. 7.41e has 15.
-- hero and item `why` — 1-2 sentences, ~20 words.
+- hero and item `why` — 1-2 sentences. **Answer "so what does that actually do for me?"**, never
+  restate the change. "Four more strength" is not a reason; "about 88 extra health, so you're
+  harder to kill" is. Convert stats into what a player feels: **1 strength = 22 health,
+  1 intelligence = 12 mana, 1 agility = 1/6 armour + 1 attack speed** (verify these each patch).
+  Banned words because a reader has to decode them: *flattened, rescaled, amplification,
+  front-loaded, percentage points, second-order*. If an ability needs explaining to make the
+  change land — Haunt copies a share of her damage — explain it in the sentence.
 - `summary` — one line, always.
 - `do[]` — the most valued part. Keep these, keep them imperative, keep them concrete.
 
