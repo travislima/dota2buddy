@@ -115,9 +115,9 @@ const TIERS = [
 
 const AGREEMENT_LABEL = {
   corroborated: 'Other analysts agree',
-  partial: 'Others mentioned it, but did not analyse it',
-  ours: 'Our own opinion — nobody else flagged this',
-  disputed: 'Another analyst disagrees with us',
+  partial: 'Mentioned, not analysed',
+  ours: 'Our own opinion',
+  disputed: 'An analyst disagrees',
 };
 
 /** Count of changed lines, used when a hero has no write-up yet. */
@@ -457,11 +457,6 @@ function renderBeyond() {
 
 function renderMethod() {
   const b = state.brief;
-  const counts = (b?.themes ?? []).reduce((acc, t) => {
-    const k = t.agreement?.level ?? 'ours';
-    acc[k] = (acc[k] ?? 0) + 1;
-    return acc;
-  }, {});
 
   app.innerHTML = `
     <div class="section-head">
@@ -469,20 +464,11 @@ function renderMethod() {
     </div>
 
     <div class="callout">
-      We take Valve's patch notes, add live win-rate data, read what other Dota analysts said
-      about the patch, and turn all of it into one short guide. The numbers come from Valve.
-      The opinions are ours, and we tell you which ones other people agree with.
+      We use Claude (Anthropic's AI) to read Valve's full patch notes, add live win-rate data,
+      and check the result against what other Dota analysts said about the patch — then boil it
+      into one short guide. The numbers come from Valve. The opinions come from that research,
+      and we show which ones other analysts agree with, with links.
     </div>
-
-    ${b?.method ? `
-      <div class="section-head"><h2>Who writes it</h2></div>
-      <div class="callout">
-        <p style="margin:0 0 9px">${esc(b.method)}</p>
-        <p style="margin:0;color:var(--text-faint);font-size:13px">
-          Most sites that work this way don't tell you. We'd rather say it, show the process
-          below, and let you weigh the calls yourself — which is why every point on the Brief
-          says whether other analysts agreed with it.</p>
-      </div>` : ''}
 
     <div class="section-head"><h2>What we actually do</h2></div>
     <ol class="method-steps">
@@ -501,36 +487,30 @@ function renderMethod() {
 
     <div class="section-head">
       <h2>How our analysis compares</h2>
-      <span class="hint">We checked all ${(b?.themes ?? []).length} of our points against other analysts</span>
+      <span class="hint">Open a card to see which points, and check the source</span>
     </div>
-    <div class="compare">
+    <div class="grid compare-grid">
       ${Object.entries(AGREEMENT_LABEL).map(([k, label]) => {
         const inGroup = (b?.themes ?? []).filter((t) => (t.agreement?.level ?? 'ours') === k);
         if (!inGroup.length) return '';
         return `
-        <details class="agreement ${esc(k)} standalone">
+        <details class="agreement ${esc(k)} card">
           <summary>
             <b>${esc(label)}</b>
             <span>${inGroup.length} of ${b.themes.length}</span>
             <i class="chev-sm" aria-hidden="true">▶</i>
           </summary>
           <ul class="compare-list">
-            ${inGroup.map((t) => `
-              <li>
-                <a class="compare-title" href="#/theme/${esc(t.id)}">${esc(t.title)}</a>
-                <p>${esc(t.agreement?.note ?? '')}</p>
-                ${(t.agreement?.sources ?? []).length ? `
-                  <p class="compare-links">Check it yourself:
-                    ${t.agreement.sources.map((src) => `
-                      <a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.name)} →</a>`).join('')}
-                  </p>` : `<p class="compare-links none">No source to link — this one is ours alone.</p>`}
-              </li>`).join('')}
+            ${inGroup.map((t) => {
+              const src = (t.agreement?.sources ?? [])[0];
+              return `<li>${src
+                ? `<a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(t.title)}</a>`
+                : `<span>${esc(t.title)}</span>`}</li>`;
+            }).join('')}
           </ul>
         </details>`;
       }).join('')}
     </div>
-    <p class="aside">Open any of these to see which points they cover and read the source yourself.
-      Every point on the Brief carries the same label.</p>
 
     <div class="section-head"><h2>Where the information comes from</h2></div>
     <div class="grid">
@@ -543,14 +523,6 @@ function renderMethod() {
           <p class="creator-what">${esc(src.role)}</p>
           ${src.licence ? `<p class="creator-status">${esc(src.licence)}</p>` : ''}
         </div>`).join('')}
-    </div>
-
-    <div class="section-head"><h2>What we don't do</h2></div>
-    <div class="callout">
-      We don't copy anyone's writing, and we never claim someone said something they didn't.
-      Other people's analysis is linked so you can read it yourself. Valve's patch text is
-      quoted word for word and marked as theirs. If we get something wrong, tell us and we'll
-      fix it.
     </div>
   `;
 }
