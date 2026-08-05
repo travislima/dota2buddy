@@ -251,7 +251,8 @@ function renderBrief() {
     { key: 'all', label: 'All', count: all.length },
     { key: 'worse', cls: 'nerf', label: 'Nerfs', count: dirCount('worse'), hint: 'Something got weaker' },
     { key: 'better', cls: 'buff', label: 'Buffs', count: dirCount('better'), hint: 'Something got stronger' },
-    { key: 'neutral', cls: 'mixed', label: 'Neither', count: dirCount('neutral'), hint: 'Changed, but not up or down' },
+    { key: 'neutral', cls: 'mixed', label: 'Neither', count: dirCount('neutral'),
+      hint: 'Neither a buff nor a nerf — a mechanic change that cuts both ways' },
   ];
   const filtering = state.themeFilter !== 'all';
   const themes = filtering ? all.filter((t) => dirOf(t) === state.themeFilter) : all;
@@ -324,8 +325,12 @@ function renderGlance(v, themeCount) {
   const lose = split(v.biggest_loser);
 
   const seg = (key, label) => tally[key]
-    ? `<i class="${key}" style="flex:${tally[key]}" title="${tally[key]} ${label}">
-         ${tally[key] / total > 0.12 ? `${tally[key]} ${label}` : ''}</i>`
+    ? `<i class="${key}" style="flex:${tally[key]}"
+         title="${tally[key]} ${label} — ${esc(VERDICT_HINT[key] ?? '')}"></i>`
+    : '';
+
+  const key = (k, label, meaning) => tally[k]
+    ? `<li class="${k}"><b>${tally[k]}</b> ${esc(label)} <span>${esc(meaning)}</span></li>`
     : '';
 
   return `
@@ -348,8 +353,14 @@ function renderGlance(v, themeCount) {
       <p class="glance-tldr">${rich(b.tldr)}</p>
 
       <div class="split-bar" aria-label="How the hero changes break down">
-        ${seg('nerf', 'nerfed')}${seg('buff', 'buffed')}${seg('mixed', 'mixed')}${seg('qol', 'QoL')}
+        ${seg('nerf', 'nerfed')}${seg('buff', 'buffed')}${seg('mixed', 'mixed')}${seg('qol', 'quality of life')}
       </div>
+      <ul class="split-key">
+        ${key('nerf', 'nerfed', 'weaker')}
+        ${key('buff', 'buffed', 'stronger')}
+        ${key('mixed', 'mixed', 'better and worse')}
+        ${key('qol', 'quality of life', 'easier to use, not stronger')}
+      </ul>
 
       <div class="wl">
         <div class="win">

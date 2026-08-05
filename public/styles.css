@@ -1087,11 +1087,14 @@ body {
 
 /* ---------- top bar ---------- */
 
+/* The bar spans the window for its background, but its contents line up with the
+   content column below. On a wide screen the brand was sitting 365px outside it. */
 .topbar {
   position: relative;
   background: linear-gradient(180deg, rgba(10, 13, 16, .96), rgba(8, 10, 13, .9));
   border-bottom: 1px solid var(--line-soft);
-  padding: 11px 18px;
+  padding: 11px max(18px, env(safe-area-inset-right), calc((100% - var(--maxw)) / 2))
+           11px max(18px, env(safe-area-inset-left), calc((100% - var(--maxw)) / 2));
 }
 /* the gold rule under the header */
 .topbar::after {
@@ -1151,7 +1154,9 @@ body {
   background: rgba(8, 10, 13, .94);
   border-bottom: 1px solid var(--line-soft);
   gap: 4px;
-  padding: 0 14px;
+  /* Same alignment as the topbar — first tab sits on the content column's edge. */
+  padding: 0 max(14px, env(safe-area-inset-right), calc((100% - var(--maxw)) / 2))
+           0 max(14px, env(safe-area-inset-left), calc((100% - var(--maxw)) / 2));
 }
 .tabs a {
   padding: 13px 15px 11px;
@@ -2004,3 +2009,30 @@ details.verbatim .body { padding: 2px 18px 16px; }
   cursor: pointer; padding: 3px 7px;
 }
 .intro .dismiss:hover { color: var(--text); }
+
+/* Key for the split bar. The two narrow segments can't hold a label, and a
+   tooltip is useless on a phone — so every segment is named here instead. */
+.split-key {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  margin: 0 0 14px; padding: 0;
+  list-style: none;
+}
+.split-key li {
+  position: relative;
+  padding-left: 15px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.split-key li::before {
+  content: "";
+  position: absolute; left: 0; top: 50%;
+  width: 8px; height: 8px;
+  transform: translateY(-50%) rotate(45deg);
+}
+.split-key .nerf::before { background: var(--nerf); }
+.split-key .buff::before { background: var(--buff); }
+.split-key .mixed::before { background: var(--mixed); }
+.split-key .qol::before { background: var(--qol); }
+.split-key b { color: var(--text); font-weight: 700; }
+.split-key span { color: var(--text-faint); }
