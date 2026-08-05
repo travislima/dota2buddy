@@ -104,11 +104,20 @@ const VERDICT_ORDER = ['nerf', 'buff', 'mixed', 'qol', 'rework'];
 
 /* How well a conclusion survived being checked against independent coverage.
    Stated per headline so a reader can weight it, rather than trusting the lot. */
+/* Three plain tiers, driven by severity. A headline earns its own row if it's
+   worth knowing at all; the small stuff goes to the bottom rather than being
+   bundled into a vague "three small things" card. */
+const TIERS = [
+  { severity: 'major', label: 'The big changes', hint: '' },
+  { severity: 'notable', label: 'Worth knowing about', hint: 'Smaller, but they change something' },
+  { severity: 'minor', label: 'The rest of the patch', hint: 'Minor — read if you want everything' },
+];
+
 const AGREEMENT_LABEL = {
   corroborated: 'Other analysts agree',
-  partial: 'Mentioned elsewhere, not analysed',
-  ours: 'Our own reading',
-  disputed: 'We disagree with other coverage',
+  partial: 'Others mentioned it, but did not analyse it',
+  ours: 'Our own opinion — nobody else flagged this',
+  disputed: 'Another analyst disagrees with us',
 };
 
 /** Count of changed lines, used when a hero has no write-up yet. */
@@ -257,7 +266,7 @@ function renderBrief() {
     ${renderForYou()}
 
     <div class="section-head">
-      <h2>${filtering ? 'Filtered' : 'If you read nothing else'}</h2>
+      <h2>${filtering ? 'Filtered' : TIERS[0].label}</h2>
       <div class="head-actions">
         ${!filtering && unread > 0 && unread < all.length
           ? `<span class="progress">${all.length - unread}/${all.length} read</span>` : ''}
@@ -270,15 +279,16 @@ function renderBrief() {
     ${filtering ? (themes.length
         ? themes.map(renderHeadline).join('')
         : '<div class="empty">Nothing in this patch matches that.</div>')
-      : `
-        ${themes.filter((t) => (t.rank ?? 99) <= 3).map(renderHeadline).join('')}
-
-        <div class="section-head">
-          <h2>Worth knowing</h2>
-          <span class="hint">${themes.length - 3} more, ranked</span>
-        </div>
-
-        ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}`}
+      : TIERS.map((tier, i) => {
+          const inTier = themes.filter((t) => (t.severity ?? 'minor') === tier.severity);
+          if (!inTier.length) return '';
+          // The first tier's heading is already printed above, with the controls.
+          return (i === 0 ? '' : `
+            <div class="section-head">
+              <h2>${esc(tier.label)}</h2>
+              <span class="hint">${esc(tier.hint)}</span>
+            </div>`) + inTier.map(renderHeadline).join('');
+        }).join('')}
 
 
     ${renderBeyond()}
@@ -438,7 +448,9 @@ function renderBeyond() {
           <strong>${esc(i.title)}</strong>
           <p>${esc(i.what)}</p>
           <p class="beyond-why">${esc(i.why)}</p>
-          <span class="beyond-src">via ${esc(i.source)}</span>
+          ${i.source_url
+            ? `<a class="beyond-src" href="${esc(i.source_url)}" target="_blank" rel="noopener noreferrer">via ${esc(i.source)} →</a>`
+            : `<span class="beyond-src">via ${esc(i.source)}</span>`}
         </div>`).join('')}
     </div>`;
 }
@@ -456,33 +468,32 @@ function renderMethod() {
   app.innerHTML = `
     <div class="section-head">
       <h2>How this is put together</h2>
-      <span class="hint">So you can judge it rather than trust it</span>
     </div>
 
     <div class="callout">
-      Every number here comes from Valve's own patch file. The judgement about what a change
-      <em>means</em> is ours, and we check it against people who analyse the patch independently.
-      Where we're the only ones saying something, we say so.
+      We take Valve's patch notes, add live win-rate data, read what other Dota analysts said
+      about the patch, and turn all of it into one short guide. The numbers come from Valve.
+      The opinions are ours, and we tell you which ones other people agree with.
     </div>
 
-    <div class="section-head"><h2>The process</h2></div>
+    <div class="section-head"><h2>What we actually do</h2></div>
     <ol class="method-steps">
-      <li><b>Read the whole diff.</b> Every changed hero and item, in one pass. The themes only
-        appear when you see all of it at once — six heroes getting the same invisibility fix
-        sit forty lines apart in the official notes.</li>
-      <li><b>Do the arithmetic, then check the inputs.</b> Rescales hide their direction. Base
-        values come from Liquipedia, not memory — that's where our one published error came from.</li>
-      <li><b>Ground it in live data.</b> Pick and win rates from OpenDota, printed on the card so
-        you can check the claim against the number.</li>
-      <li><b>Test it against other coverage.</b> We read independent analyses and record whether
-        they reached the same conclusion. We never reproduce their words.</li>
-      <li><b>Label the confidence.</b> Mechanics and arithmetic are checkable. How the meta
-        responds is a prediction, and is marked as one.</li>
+      <li><b>Read every change.</b> All 57 heroes and 32 items, start to finish. Some of the
+        biggest stories are several small changes that add up — you only spot those by reading
+        the lot in one go.</li>
+      <li><b>Check the maths.</b> When a change hides its real effect, we work it out and look
+        up the numbers we need on Liquipedia rather than trusting memory.</li>
+      <li><b>Add real data.</b> Pick and win rates come from OpenDota and are printed on every
+        hero card, so you can check what we say against the number.</li>
+      <li><b>Compare with other analysts.</b> We read other people's patch write-ups and note
+        whether they reached the same conclusion. We never copy their words.</li>
+      <li><b>Say how sure we are.</b> Numbers and mechanics are facts. What the meta does next
+        is a guess, and we label it as one.</li>
     </ol>
 
     <div class="section-head">
-      <h2>How the headlines held up</h2>
-      <span class="hint">${(b?.themes ?? []).length} headlines, checked against independent coverage</span>
+      <h2>How our analysis compares</h2>
+      <span class="hint">We checked all ${(b?.themes ?? []).length} of our points against other analysts</span>
     </div>
     <div class="grid">
       ${Object.entries(AGREEMENT_LABEL).map(([k, label]) => counts[k] ? `
@@ -491,8 +502,10 @@ function renderMethod() {
           <span>${counts[k]} of ${b.themes.length}</span>
         </div>` : '').join('')}
     </div>
+    <p class="aside">Every point on the Brief page carries one of these labels, so you can see
+      which of our calls are backed up and which are just ours.</p>
 
-    <div class="section-head"><h2>Where it all comes from</h2></div>
+    <div class="section-head"><h2>Where the information comes from</h2></div>
     <div class="grid">
       ${(b?.sources ?? []).map((src) => `
         <div class="creator">
@@ -505,11 +518,12 @@ function renderMethod() {
         </div>`).join('')}
     </div>
 
-    <div class="callout" style="margin-top:18px">
-      <strong>What we don't do.</strong> We don't reproduce anyone's writing, and we never put
-      words in a named person's mouth. Other people's analysis is linked, not summarised. Valve's
-      patch text is quoted verbatim and labelled as theirs. If we're wrong about something,
-      it's our error to fix — tell us and we will.
+    <div class="section-head"><h2>What we don't do</h2></div>
+    <div class="callout">
+      We don't copy anyone's writing, and we never claim someone said something they didn't.
+      Other people's analysis is linked so you can read it yourself. Valve's patch text is
+      quoted word for word and marked as theirs. If we get something wrong, tell us and we'll
+      fix it.
     </div>
   `;
 }
@@ -828,7 +842,7 @@ function renderHeadline(t) {
   const chips = [...heroChips, ...itemChips];
 
   return `
-  <details class="headline ${(t.rank ?? 99) <= 3 ? 'top' : ''} ${store.hasRead(t.id) ? '' : 'unread'}"
+  <details class="headline ${t.severity === 'major' ? 'top' : ''} ${store.hasRead(t.id) ? '' : 'unread'}"
            id="theme-${esc(t.id)}" data-theme="${esc(t.id)}">
     <summary class="headline-row">
       <span class="rank">#${t.rank ?? '?'}</span>

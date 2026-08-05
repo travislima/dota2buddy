@@ -10,7 +10,6 @@
     "biggest_loser": "Late-game carries — Satanic, Refresher Shard, Butterfly and Haunt all trimmed at once.",
     "biggest_winner": "Shadow Blade buyers — six heroes can now toggle without breaking invisibility."
   },
-
   "beyond_gameplay": {
     "note": "Shipped with 7.41e but absent from Valve's gameplay notes feed, so it isn't in the lists above. Found while cross-checking other coverage.",
     "items": [
@@ -18,23 +17,25 @@
         "title": "Soft ranked reset",
         "what": "Immortal matchmaking was recalculated, moving players into a 1–9,500 MMR band where some had previously sat as high as 17,000.",
         "why": "For anyone near the top this is the most consequential thing in the patch, and it has nothing to do with heroes.",
-        "source": "win.gg"
+        "source": "win.gg",
+        "source_url": "https://win.gg/dota-2s-ti-patch-7-41e/"
       },
       {
         "title": "Summer Scrub 2026",
         "what": "Roughly 200 bug fixes and quality-of-life changes shipped alongside the balance pass.",
         "why": "Individually small, but it's where several long-standing interaction bugs were finally fixed.",
-        "source": "win.gg"
+        "source": "win.gg",
+        "source_url": "https://win.gg/dota-2s-ti-patch-7-41e/"
       },
       {
         "title": "TI15 content",
         "what": "Predictions, Fantasy and Supporter Bundles for The International 15.",
         "why": "No gameplay effect — listed so the picture is complete.",
-        "source": "win.gg"
+        "source": "win.gg",
+        "source_url": "https://win.gg/dota-2s-ti-patch-7-41e/"
       }
     ]
   },
-
   "sources": [
     {
       "name": "Valve — official 7.41e notes",
@@ -68,7 +69,6 @@
       "role": "Win-rate movement since the patch went live."
     }
   ],
-
   "creators": {
     "checked": "2026-08-05",
     "note": "Links to other people's work, in their words. Nothing here is summarised or paraphrased by us.",
@@ -86,20 +86,26 @@
       }
     ]
   },
-
   "themes": [
     {
       "id": "toggle-invis",
       "rank": 1,
-      "title": "Six heroes can toggle while invisible",
-      "punch": { "stat": "6 heroes", "dir": "better" },
+      "title": "Six heroes no longer break invisibility when toggling",
+      "punch": {
+        "stat": "6 heroes",
+        "dir": "better"
+      },
       "bites": [
         "Troll, Zeus, Elder Titan",
         "Visage, Medusa, Muerta",
         "Shadow Blade & Smoke got better"
       ],
       "severity": "major",
-      "tags": ["mechanics", "invisibility", "ganking"],
+      "tags": [
+        "mechanics",
+        "invisibility",
+        "ganking"
+      ],
       "what": "Troll's Battle Stance, Zeus's Lightning Hands, Elder Titan's Astral Spirit controls, Visage's Stone Form, Medusa's Split Shot and Muerta's Gunslinger no longer break invisibility. Zeus and Medusa can also toggle while silenced.",
       "why": "You used to set your toggle *before* going invisible and hope you guessed the fight right. Now you walk in and configure on the way. Shadow Blade, Glimmer and Smoke all got better on the six heroes that found them most awkward.",
       "do": [
@@ -108,23 +114,60 @@
         "Visage can order Familiars to execute from Stone Form without revealing himself."
       ],
       "watch": "If Shadow Blade starts appearing on Medusa and Muerta, this line is why.",
-      "affects": { "heroes": ["troll_warlord", "zuus", "elder_titan", "visage", "medusa", "muerta"], "items": [] },
+      "affects": {
+        "heroes": [
+          "troll_warlord",
+          "zuus",
+          "elder_titan",
+          "visage",
+          "medusa",
+          "muerta"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Troll Warlord — Battle Stance", "text": "Toggling between stances no longer breaks invisibility" },
-        { "source": "Zeus — Lightning Hands", "text": "Toggling on/off no longer breaks invisibility and can be done while silenced" },
-        { "source": "Elder Titan — Astral Spirit", "text": "Return and Move sub-abilities no longer break invisibility when used" },
-        { "source": "Visage — Stone Form", "text": "No longer breaks invisibility when used to order Familiars to execute" },
-        { "source": "Medusa — Split Shot", "text": "Toggling on/off no longer breaks invisibility and can be done while silenced" },
-        { "source": "Muerta — Gunslinger", "text": "Toggling on/off no longer breaks invisibility" }
+        {
+          "source": "Troll Warlord — Battle Stance",
+          "text": "Toggling between stances no longer breaks invisibility"
+        },
+        {
+          "source": "Zeus — Lightning Hands",
+          "text": "Toggling on/off no longer breaks invisibility and can be done while silenced"
+        },
+        {
+          "source": "Elder Titan — Astral Spirit",
+          "text": "Return and Move sub-abilities no longer break invisibility when used"
+        },
+        {
+          "source": "Visage — Stone Form",
+          "text": "No longer breaks invisibility when used to order Familiars to execute"
+        },
+        {
+          "source": "Medusa — Split Shot",
+          "text": "Toggling on/off no longer breaks invisibility and can be done while silenced"
+        },
+        {
+          "source": "Muerta — Gunslinger",
+          "text": "Toggling on/off no longer breaks invisibility"
+        }
       ],
-      "agreement": { "level": "ours", "note": "No source we read singled this out. It's our own reading of the diff — six separate lines that only look like a pattern side by side." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "ours",
+        "note": "No source we read singled this out. It's our own reading of the diff — six separate lines that only look like a pattern side by side."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "kaya-mana",
       "rank": 2,
-      "title": "The Kaya line's mana regen cut by a third",
-      "punch": { "stat": "30% → 20%", "dir": "worse" },
+      "title": "Kaya's mana regen drops from 30% to 20%",
+      "punch": {
+        "stat": "30% → 20%",
+        "dir": "worse"
+      },
       "bites": [
         "Kaya 30% → 20%",
         "Meteor Hammer 35% → 25%",
@@ -132,7 +175,11 @@
         "Urn regen 1.25 → 1"
       ],
       "severity": "major",
-      "tags": ["items", "casters", "sustain"],
+      "tags": [
+        "items",
+        "casters",
+        "sustain"
+      ],
       "what": "Kaya 30% → 20%. Meteor Hammer 35% → 25%. Kaya and Sange 40% → 30%. Yasha and Kaya 40% → 30%. Urn of Shadows also dropped from +1.25 to +1 mana regen.",
       "why": "This is *amplification*, so the bonus shrank by a third — not by ten percent. Every int core that treated a mid-game Kaya as the end of their mana problems no longer has one, and the Urn nerf removes the cheap substitute.",
       "do": [
@@ -141,22 +188,60 @@
         "Kaya's spell amp and intelligence are untouched. Just don't buy it *for* the regen."
       ],
       "watch": "Out of mana in fights you used to be fine in? This, not your play.",
-      "affects": { "heroes": ["invoker", "zuus", "queenofpain", "necrolyte"], "items": ["kaya", "meteor_hammer", "kaya_and_sange", "yasha_and_kaya", "urn_of_shadows"] },
+      "affects": {
+        "heroes": [
+          "invoker",
+          "zuus",
+          "queenofpain",
+          "necrolyte"
+        ],
+        "items": [
+          "kaya",
+          "meteor_hammer",
+          "kaya_and_sange",
+          "yasha_and_kaya",
+          "urn_of_shadows"
+        ]
+      },
       "changes": [
-        { "source": "Kaya", "text": "Mana Regen Amplification decreased from 30% to 20%" },
-        { "source": "Meteor Hammer", "text": "Mana Regen Amplification decreased from 35% to 25%" },
-        { "source": "Kaya and Sange", "text": "Mana Regen Amplification decreased from 40% to 30%" },
-        { "source": "Yasha and Kaya", "text": "Mana Regen Amplification decreased from 40% to 30%" },
-        { "source": "Urn of Shadows", "text": "Mana Regen bonus decreased from +1.25 to +1" }
+        {
+          "source": "Kaya",
+          "text": "Mana Regen Amplification decreased from 30% to 20%"
+        },
+        {
+          "source": "Meteor Hammer",
+          "text": "Mana Regen Amplification decreased from 35% to 25%"
+        },
+        {
+          "source": "Kaya and Sange",
+          "text": "Mana Regen Amplification decreased from 40% to 30%"
+        },
+        {
+          "source": "Yasha and Kaya",
+          "text": "Mana Regen Amplification decreased from 40% to 30%"
+        },
+        {
+          "source": "Urn of Shadows",
+          "text": "Mana Regen bonus decreased from +1.25 to +1"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips groups the same four items and reaches the same conclusion." },
-      "confidence": { "mechanics": "high", "meta": "high" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips groups the same four items and reaches the same conclusion."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "high"
+      }
     },
     {
       "id": "root-interrupts",
       "rank": 3,
-      "title": "Root now cancels channels and globals",
-      "punch": { "stat": "4 abilities", "dir": "neutral" },
+      "title": "Root now cancels channels and teleports",
+      "punch": {
+        "stat": "4 abilities",
+        "dir": "neutral"
+      },
       "bites": [
         "Twin Gates cancellable",
         "Underlord's Fiend's Gate cancellable",
@@ -164,7 +249,11 @@
         "Sniper can grenade while rooted"
       ],
       "severity": "major",
-      "tags": ["mechanics", "root", "map"],
+      "tags": [
+        "mechanics",
+        "root",
+        "map"
+      ],
       "what": "Root now interrupts Twin Gate channeling, Underlord's Fiend's Gate and Templar Assassin's Psionic Projection. Sniper can now cast Concussive Grenade while rooted, without the knockback.",
       "why": "Root has a distinct job now: stun stops everything, silence stops casting, root stops you *leaving*. Underlord is the casualty — Fiend's Gate is his identity and any root cancels it. Naga, Meepo, Treant and Broodmother all gained a use overnight.",
       "do": [
@@ -173,21 +262,49 @@
         "Templar Assassin can't rely on Psionic Projection to escape a rooting lineup."
       ],
       "watch": "Expect roots to be valued a notch higher in draft.",
-      "affects": { "heroes": ["abyssal_underlord", "templar_assassin", "sniper"], "items": [] },
+      "affects": {
+        "heroes": [
+          "abyssal_underlord",
+          "templar_assassin",
+          "sniper"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Twin Gates", "text": "Channeling the Twin Gate can now be interrupted by root" },
-        { "source": "Underlord — Fiend's Gate", "text": "Gate channeling can now be interrupted by root" },
-        { "source": "Templar Assassin — Psionic Projection", "text": "Can now be interrupted by root" },
-        { "source": "Sniper — Concussive Grenade", "text": "Can now be cast while rooted, but will not knock Sniper back if he is under the effect of root" }
+        {
+          "source": "Twin Gates",
+          "text": "Channeling the Twin Gate can now be interrupted by root"
+        },
+        {
+          "source": "Underlord — Fiend's Gate",
+          "text": "Gate channeling can now be interrupted by root"
+        },
+        {
+          "source": "Templar Assassin — Psionic Projection",
+          "text": "Can now be interrupted by root"
+        },
+        {
+          "source": "Sniper — Concussive Grenade",
+          "text": "Can now be cast while rooted, but will not knock Sniper back if he is under the effect of root"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips: roots gain strategic value for punishing escapes and rotations." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips: roots gain strategic value for punishing escapes and rotations."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "carry-lategame-trim",
       "rank": 4,
-      "title": "Late-game carries trimmed four ways",
-      "punch": { "stat": "Satanic 30s → 40s", "dir": "worse" },
+      "title": "Four separate nerfs to late-game carries",
+      "punch": {
+        "stat": "Satanic 30s → 40s",
+        "dir": "worse"
+      },
       "bites": [
         "Satanic 30s → 40s",
         "Refresher Shard: all stats gone",
@@ -195,7 +312,11 @@
         "Spectre's Haunt flattened"
       ],
       "severity": "major",
-      "tags": ["items", "carries", "lategame"],
+      "tags": [
+        "items",
+        "carries",
+        "lategame"
+      ],
       "what": "Satanic cooldown 30s → 40s. Refresher Shard lost all its stats. Butterfly traded 5 agility for 5 damage. Spectre's Haunt was flattened.",
       "why": "No single line moves the needle; four together do. Satanic at 40s means one Unholy Rage per fight instead of two — exactly the scenario where an unkillable carry decided games. Butterfly's swap also costs agility carries armour and attack speed that +5 damage doesn't replace.",
       "do": [
@@ -204,49 +325,51 @@
         "Refresher Shard is pure utility now — recheck whether it still earns the slot."
       ],
       "watch": "Long fights against a fed carry should be meaningfully more winnable.",
-      "affects": { "heroes": ["spectre"], "items": ["satanic", "refresher_shard", "butterfly"] },
+      "affects": {
+        "heroes": [
+          "spectre"
+        ],
+        "items": [
+          "satanic",
+          "refresher_shard",
+          "butterfly"
+        ]
+      },
       "changes": [
-        { "source": "Satanic", "text": "Unholy Rage cooldown increased from 30s to 40s" },
-        { "source": "Refresher Shard", "text": "No longer provides +12 Health Regen, +6 Mana Regen, or +20 Damage" },
-        { "source": "Butterfly", "text": "Agility bonus decreased from +35 to +30; Damage bonus increased from +25 to +30" },
-        { "source": "Spectre — Haunt", "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%" }
+        {
+          "source": "Satanic",
+          "text": "Unholy Rage cooldown increased from 30s to 40s"
+        },
+        {
+          "source": "Refresher Shard",
+          "text": "No longer provides +12 Health Regen, +6 Mana Regen, or +20 Damage"
+        },
+        {
+          "source": "Butterfly",
+          "text": "Agility bonus decreased from +35 to +30; Damage bonus increased from +25 to +30"
+        },
+        {
+          "source": "Spectre — Haunt",
+          "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips calls the Satanic cooldown one of the biggest item nerfs in the patch." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
-    },
-    {
-      "id": "stash-charges",
-      "rank": 5,
-      "title": "Charge items no longer farm in your stash",
-      "punch": { "stat": "3 items", "dir": "worse" },
-      "bites": [
-        "Urn of Shadows",
-        "Spirit Vessel",
-        "Essence Distiller"
-      ],
-      "severity": "notable",
-      "tags": ["items", "exploit-fix"],
-      "what": "Urn of Shadows, Spirit Vessel and Essence Distiller no longer gain charges from nearby hero deaths while sitting in your stash.",
-      "why": "An Urn parked in your base was collecting charges off every death near your fountain — including fights you were losing. The item has to be carried to earn now.",
-      "do": [
-        "Buy an early Urn, carry it. Stashing it to save the slot now costs you real value.",
-        "Slightly lowers the ceiling on late-game Vessel supports topping up during base defence."
-      ],
-      "watch": "Low visibility, but it removes a free lunch the informed were taking.",
-      "affects": { "heroes": [], "items": ["urn_of_shadows", "spirit_vessel", "essence_distiller"] },
-      "changes": [
-        { "source": "Urn of Shadows", "text": "When in Stash, no longer grants charges from nearby hero deaths" },
-        { "source": "Spirit Vessel", "text": "When in Stash, no longer grants charges from nearby hero deaths" },
-        { "source": "Essence Distiller", "text": "When in Stash, no longer grants charges from nearby hero deaths" }
-      ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips reads it the same way — an anti-cheese fix." },
-      "confidence": { "mechanics": "high", "meta": "high" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips calls the Satanic cooldown one of the biggest item nerfs in the patch."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "legion-duel",
-      "rank": 6,
+      "rank": 5,
       "title": "Legion's infinite Duel chain is dead",
-      "punch": { "stat": "Full reset → −30s", "dir": "worse" },
+      "punch": {
+        "stat": "Full reset → −30s",
+        "dir": "worse"
+      },
       "bites": [
         "Lv25 Duel: full reset → −30s",
         "Base strength 24 → 25",
@@ -254,7 +377,10 @@
         "Strength gain 3.1 → 3.0"
       ],
       "severity": "major",
-      "tags": ["heroes", "talents"],
+      "tags": [
+        "heroes",
+        "talents"
+      ],
       "what": "Level 25 talent 'Duel Refreshes Cooldown On Victory' is now 'Duel Advances Cooldown by 30s On Victory'. Also: base strength 24 → 25, base attack speed 100 → 105, more level 1 damage, strength gain 3.1 → 3.0.",
       "why": "A guaranteed follow-up duel became a maybe. Valve moved that power into her lane instead — +5 base attack speed and +1 strength is a real level 1 upgrade. Stronger early, much less terrifying at 25.",
       "do": [
@@ -262,28 +388,57 @@
         "Against a fed Legion, extended fights are survivable again."
       ],
       "watch": "52.4% winrate on 14.7% of games. Expect fewer late-game blowouts, similar winrate.",
-      "affects": { "heroes": ["legion_commander"], "items": [] },
+      "affects": {
+        "heroes": [
+          "legion_commander"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Legion Commander", "text": "Level 25 Talent Duel Refreshes Cooldown On Victory replaced with Duel Advances Cooldown by 30s On Victory" },
-        { "source": "Legion Commander", "text": "Base Strength increased from 24 to 25" },
-        { "source": "Legion Commander", "text": "Base Attack Speed increased from 100 to 105" },
-        { "source": "Legion Commander", "text": "Strength gain decreased from 3.1 to 3.0" }
+        {
+          "source": "Legion Commander",
+          "text": "Level 25 Talent Duel Refreshes Cooldown On Victory replaced with Duel Advances Cooldown by 30s On Victory"
+        },
+        {
+          "source": "Legion Commander",
+          "text": "Base Strength increased from 24 to 25"
+        },
+        {
+          "source": "Legion Commander",
+          "text": "Base Attack Speed increased from 100 to 105"
+        },
+        {
+          "source": "Legion Commander",
+          "text": "Strength gain decreased from 3.1 to 3.0"
+        }
       ],
-      "agreement": { "level": "partial", "note": "Nobody we read discussed the level 25 Duel talent. CyberScore reports her pick rate falling, but attributes it to the strength nerf." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "partial",
+        "note": "Nobody we read discussed the level 25 Duel talent. CyberScore reports her pick rate falling, but attributes it to the strength nerf."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "drow-multishot",
-      "rank": 7,
-      "title": "Multishot stopped scaling with range items",
-      "punch": { "stat": "1321 → 1230 range", "dir": "worse" },
+      "rank": 6,
+      "title": "Drow's Multishot no longer scales with attack range",
+      "punch": {
+        "stat": "1321 → 1230 range",
+        "dir": "worse"
+      },
       "bites": [
         "Range 1.75× → 475 + 1×",
         "Mana 50 → 70 at rank 1",
         "Damage −20pp at every level"
       ],
       "severity": "major",
-      "tags": ["heroes", "math"],
+      "tags": [
+        "heroes",
+        "math"
+      ],
       "what": "Multishot arrow range changed from 1.75× attack range to 475 + 1× attack range. Mana cost 50 → 70 at rank 1, and base damage down 20 percentage points at every level.",
       "why": "The range line looks neutral and isn't. At her base 625 range it's a wash (1094 → 1100), but at 755 with a Dragon Lance it's 1230 instead of 1321 — you lose range exactly when you pay for it. Add 40% more mana at level 1 and it's a much worse laning tool.",
       "do": [
@@ -291,20 +446,99 @@
         "Stop spamming it in lane. 70 mana at level 1 is a serious chunk of her pool."
       ],
       "watch": "This is arithmetic — both figures come straight from the two formulas.",
-      "affects": { "heroes": ["drow_ranger"], "items": [] },
+      "affects": {
+        "heroes": [
+          "drow_ranger"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Drow Ranger — Multishot", "text": "Arrow Range rescaled from 1.75x Drow Ranger's Attack Range to 475 + 1x Drow Ranger's Attack Range" },
-        { "source": "Drow Ranger — Multishot", "text": "Mana Cost increased from 50/70/90/110 to 70/85/100/115" },
-        { "source": "Drow Ranger — Multishot", "text": "Arrow Base Damage Bonus decreased from 100/120/140/160% to 80/100/120/140%" }
+        {
+          "source": "Drow Ranger — Multishot",
+          "text": "Arrow Range rescaled from 1.75x Drow Ranger's Attack Range to 475 + 1x Drow Ranger's Attack Range"
+        },
+        {
+          "source": "Drow Ranger — Multishot",
+          "text": "Mana Cost increased from 50/70/90/110 to 70/85/100/115"
+        },
+        {
+          "source": "Drow Ranger — Multishot",
+          "text": "Arrow Base Damage Bonus decreased from 100/120/140/160% to 80/100/120/140%"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips and win.gg both call Multishot severely nerfed. CyberScore reports she has since lost over 5% win rate." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips and win.gg both call Multishot severely nerfed. CyberScore reports she has since lost over 5% win rate."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
+    },
+    {
+      "id": "stash-charges",
+      "rank": 7,
+      "title": "Charge items no longer farm in your stash",
+      "punch": {
+        "stat": "3 items",
+        "dir": "worse"
+      },
+      "bites": [
+        "Urn of Shadows",
+        "Spirit Vessel",
+        "Essence Distiller"
+      ],
+      "severity": "notable",
+      "tags": [
+        "items",
+        "exploit-fix"
+      ],
+      "what": "Urn of Shadows, Spirit Vessel and Essence Distiller no longer gain charges from nearby hero deaths while sitting in your stash.",
+      "why": "An Urn parked in your base was collecting charges off every death near your fountain — including fights you were losing. The item has to be carried to earn now.",
+      "do": [
+        "Buy an early Urn, carry it. Stashing it to save the slot now costs you real value.",
+        "Slightly lowers the ceiling on late-game Vessel supports topping up during base defence."
+      ],
+      "watch": "Low visibility, but it removes a free lunch the informed were taking.",
+      "affects": {
+        "heroes": [],
+        "items": [
+          "urn_of_shadows",
+          "spirit_vessel",
+          "essence_distiller"
+        ]
+      },
+      "changes": [
+        {
+          "source": "Urn of Shadows",
+          "text": "When in Stash, no longer grants charges from nearby hero deaths"
+        },
+        {
+          "source": "Spirit Vessel",
+          "text": "When in Stash, no longer grants charges from nearby hero deaths"
+        },
+        {
+          "source": "Essence Distiller",
+          "text": "When in Stash, no longer grants charges from nearby hero deaths"
+        }
+      ],
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips reads it the same way — an anti-cheese fix."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "high"
+      }
     },
     {
       "id": "clockwerk-cogs",
       "rank": 8,
-      "title": "Cogs lost their vision and camp block",
-      "punch": { "stat": "1600 → 800 vision", "dir": "worse" },
+      "title": "Clockwerk's Cogs lost vision and camp blocking",
+      "punch": {
+        "stat": "1600 → 800 vision",
+        "dir": "worse"
+      },
       "bites": [
         "Vision 1600 → 800",
         "No longer blocks camps",
@@ -312,7 +546,11 @@
         "Mana burn down"
       ],
       "severity": "notable",
-      "tags": ["heroes", "vision", "jungle"],
+      "tags": [
+        "heroes",
+        "vision",
+        "jungle"
+      ],
       "what": "Power Cogs vision cut from 1600/600 to 800/400, cogs no longer block creep camps, travel distance now scales 850-1000 instead of a flat 1000, mana burn down at higher levels.",
       "why": "Cogs were a free 1600-vision ward you could drop anywhere, and a camp block. Both gone. Trapping is untouched, so this barely affects casual Clockwerk and guts the expert version.",
       "do": [
@@ -320,27 +558,56 @@
         "Level 1 travel distance dropped 1000 → 850 — practise the tighter spacing."
       ],
       "watch": "A nerf that mostly hits people who were playing the hero well.",
-      "affects": { "heroes": ["rattletrap"], "items": [] },
+      "affects": {
+        "heroes": [
+          "rattletrap"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Clockwerk — Power Cogs", "text": "Cogs Day/Night Vision decreased from 1600/600 to 800/400" },
-        { "source": "Clockwerk — Power Cogs", "text": "Cogs no longer block creep camps" },
-        { "source": "Clockwerk — Power Cogs", "text": "Cogs Travel Distance decreased from 1000 to 850/900/950/1000" },
-        { "source": "Clockwerk — Power Cogs", "text": "Mana Burn decreased from 40/80/120/160 to 40/75/110/145" }
+        {
+          "source": "Clockwerk — Power Cogs",
+          "text": "Cogs Day/Night Vision decreased from 1600/600 to 800/400"
+        },
+        {
+          "source": "Clockwerk — Power Cogs",
+          "text": "Cogs no longer block creep camps"
+        },
+        {
+          "source": "Clockwerk — Power Cogs",
+          "text": "Cogs Travel Distance decreased from 1000 to 850/900/950/1000"
+        },
+        {
+          "source": "Clockwerk — Power Cogs",
+          "text": "Mana Burn decreased from 40/80/120/160 to 40/75/110/145"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips calls losing camp blocking huge for pro Dota — the same non-obvious use we flagged." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips calls losing camp blocking huge for pro Dota — the same non-obvious use we flagged."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "invoker-ghostwalk",
       "rank": 9,
-      "title": "Invoker's Ghost Walk got shorter",
-      "punch": { "stat": "60s → 50s", "dir": "worse" },
+      "title": "Invoker's Ghost Walk is 10 seconds shorter",
+      "punch": {
+        "stat": "60s → 50s",
+        "dir": "worse"
+      },
       "bites": [
         "Duration 60s → 50s",
         "Shard no longer widens the radius"
       ],
       "severity": "notable",
-      "tags": ["heroes", "invisibility"],
+      "tags": [
+        "heroes",
+        "invisibility"
+      ],
       "what": "Ghost Walk duration cut from 60s to 50s, and the Aghanim's Shard no longer increases its radius.",
       "why": "10 seconds less free map movement, and the Shard's radius bonus is gone so it's no longer a gank tool. He's in 19% of games, so most people will meet this.",
       "do": [
@@ -348,26 +615,49 @@
         "Playing him: don't buy the Shard for the Ghost Walk radius."
       ],
       "watch": "51.9% winrate on 18.9% of games — the most-picked hero in this patch's list.",
-      "affects": { "heroes": ["invoker"], "items": [] },
+      "affects": {
+        "heroes": [
+          "invoker"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Invoker — Ghost Walk", "text": "Duration decreased from 60s to 50s" },
-        { "source": "Invoker — Ghost Walk", "text": "Aghanim's Shard no longer increases radius" }
+        {
+          "source": "Invoker — Ghost Walk",
+          "text": "Duration decreased from 60s to 50s"
+        },
+        {
+          "source": "Invoker — Ghost Walk",
+          "text": "Aghanim's Shard no longer increases radius"
+        }
       ],
-      "agreement": { "level": "partial", "note": "Mentioned in passing by Dota2ProTips, with no analysis attached. The reading is ours." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "partial",
+        "note": "Mentioned in passing by Dota2ProTips, with no analysis attached. The reading is ours."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "mom-melee-split",
       "rank": 10,
       "title": "Mask of Madness now favours melee",
-      "punch": { "stat": "30% → 15% slow resist", "dir": "worse" },
+      "punch": {
+        "stat": "30% → 15% slow resist",
+        "dir": "worse"
+      },
       "bites": [
         "Ranged slow resist 30% → 15%",
         "Melee keeps all 30%",
         "Ranged move speed 8% → 6%"
       ],
       "severity": "notable",
-      "tags": ["items", "ranged"],
+      "tags": [
+        "items",
+        "ranged"
+      ],
       "what": "Berserk movement speed on ranged heroes 8% → 6%. Slow resistance is now 15% ranged and 30% melee, where it used to be 30% for everyone.",
       "why": "Slow resistance is what let a ranged carry pop Berserk and still get away. Halving it for ranged only makes that window far more punishing. Melee lost nothing.",
       "do": [
@@ -375,25 +665,50 @@
         "Your slows are now far more effective on a ranged hero who just popped Berserk."
       ],
       "watch": "Expect MoM to drift toward melee heroes.",
-      "affects": { "heroes": ["troll_warlord"], "items": ["mask_of_madness"] },
+      "affects": {
+        "heroes": [
+          "troll_warlord"
+        ],
+        "items": [
+          "mask_of_madness"
+        ]
+      },
       "changes": [
-        { "source": "Mask of Madness", "text": "Berserk movement speed bonus on ranged heroes decreased from 8% to 6%" },
-        { "source": "Mask of Madness", "text": "Berserk now provides 15% slow resistance for ranged heroes and 30% for melee heroes, instead of 30% for any hero" }
+        {
+          "source": "Mask of Madness",
+          "text": "Berserk movement speed bonus on ranged heroes decreased from 8% to 6%"
+        },
+        {
+          "source": "Mask of Madness",
+          "text": "Berserk now provides 15% slow resistance for ranged heroes and 30% for melee heroes, instead of 30% for any hero"
+        }
       ],
-      "agreement": { "level": "corroborated", "note": "Dota2ProTips groups it under changes stacking up against ranged carries." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "corroborated",
+        "note": "Dota2ProTips groups it under changes stacking up against ranged carries."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "spectre-haunt",
       "rank": 11,
-      "title": "Spectre's Haunt was flattened",
-      "punch": { "stat": "70% → 65%", "dir": "worse" },
+      "title": "Spectre's Haunt is weaker at max level",
+      "punch": {
+        "stat": "70% → 65%",
+        "dir": "worse"
+      },
       "bites": [
         "Haunt 30/50/70% → 35/50/65%",
         "Lv25 talent +15% → +12%"
       ],
       "severity": "notable",
-      "tags": ["heroes", "carries"],
+      "tags": [
+        "heroes",
+        "carries"
+      ],
       "what": "Haunt illusion damage rescaled from 30/50/70% to 35/50/65%, and the level 25 talent dropped from +15% to +12%.",
       "why": "Rank 1 got better, rank 3 and the level 25 talent got worse. She's the strongest carry in the data at 54.1%, and this takes power precisely from the late game where she was oppressive.",
       "do": [
@@ -401,26 +716,49 @@
         "Against her, max-level Haunt does about 7% less illusion damage before talents."
       ],
       "watch": "The clearest 'aimed at a strong hero' change in the patch.",
-      "affects": { "heroes": ["spectre"], "items": [] },
+      "affects": {
+        "heroes": [
+          "spectre"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Spectre — Haunt", "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%" },
-        { "source": "Spectre", "text": "Level 25 Talent All Spectre Illusion Damage decreased from +15% to +12%" }
+        {
+          "source": "Spectre — Haunt",
+          "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%"
+        },
+        {
+          "source": "Spectre",
+          "text": "Level 25 Talent All Spectre Illusion Damage decreased from +15% to +12%"
+        }
       ],
-      "agreement": { "level": "partial", "note": "Dota2ProTips lists it as an honourable mention only." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "partial",
+        "note": "Dota2ProTips lists it as an honourable mention only."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
       "id": "bane-nightmare",
       "rank": 12,
-      "title": "Bane's Nightmare fully blinds you",
-      "punch": { "stat": "Total blindness", "dir": "better" },
+      "title": "Bane's Nightmare now fully blinds you",
+      "punch": {
+        "stat": "Total blindness",
+        "dir": "better"
+      },
       "bites": [
         "Now total blindness",
         "Duration −0.5s at every level",
         "Ichor: 6 terrors at 4% each"
       ],
       "severity": "notable",
-      "tags": ["heroes", "vision"],
+      "tags": [
+        "heroes",
+        "vision"
+      ],
       "what": "Nightmare now completely disables the target's sight instead of overriding their vision range, for 0.5s less duration at every level.",
       "why": "Nightmare used to shrink your vision. Now you see nothing at all, so Bane's team can reposition or walk straight past you while you're blind. Half a second is a cheap price for that.",
       "do": [
@@ -428,139 +766,965 @@
         "As Bane, you're trading duration for total information denial. Worth it."
       ],
       "watch": "His Ichor tweak also slightly lowers his status resistance ceiling.",
-      "affects": { "heroes": ["bane"], "items": [] },
+      "affects": {
+        "heroes": [
+          "bane"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Bane — Nightmare", "text": "Now completely disables the target's sight, instead of overriding the vision range value" },
-        { "source": "Bane — Nightmare", "text": "Duration decreased from 3.5/4.5/5.5/6.5s to 3/4/5/6s" }
+        {
+          "source": "Bane — Nightmare",
+          "text": "Now completely disables the target's sight, instead of overriding the vision range value"
+        },
+        {
+          "source": "Bane — Nightmare",
+          "text": "Duration decreased from 3.5/4.5/5.5/6.5s to 3/4/5/6s"
+        }
       ],
-      "agreement": { "level": "disputed", "note": "Dota2ProTips lists Bane as a straight loser and doesn't mention the sight change at all. We read it as mixed because total blindness is a real gain. Treat this one as our opinion." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "disputed",
+        "note": "Dota2ProTips lists Bane as a straight loser and doesn't mention the sight change at all. We read it as mixed because total blindness is a real gain. Treat this one as our opinion."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     },
     {
-      "id": "misc-sharp-edges",
+      "id": "pa-blur",
       "rank": 13,
-      "title": "Three small lines, big consequences",
-      "punch": { "stat": "Blur undispellable", "dir": "better" },
+      "title": "Phantom Assassin's Blur can't be dispelled",
+      "punch": {
+        "stat": "Blur undispellable",
+        "dir": "better"
+      },
       "bites": [
-        "PA's Blur can't be dispelled",
-        "Double Rapier spell amp capped",
-        "Chaos Bolt speed 700 → 900"
+        "Dispels no longer strip Blur",
+        "You need true strike now"
       ],
-      "severity": "notable",
-      "tags": ["mechanics", "items", "heroes"],
-      "what": "Phantom Assassin's Blur can no longer be dispelled. Divine Rapier spell amp no longer stacks. Chaos Knight's Chaos Bolt travels at 900 instead of 700.",
-      "why": "PA keeping Blur through dispels kills a clean counter — you need true strike now, not a dispel. Chaos Bolt at 900 cuts reaction time by a third, so the dodge window is mostly gone. The Rapier line just closes a cheese stack.",
+      "severity": "minor",
+      "tags": [
+        "heroes"
+      ],
+      "what": "Blur can no longer be dispelled.",
+      "why": "Stripping Blur with a dispel was one of the cleaner answers to her evasion. That's gone, so you need real true strike — a much bigger investment.",
       "do": [
-        "Against PA, buy Monkey King Bar or Bloodthorn. Dispelling Blur isn't an option.",
-        "Against Chaos Knight, react to the cast animation — the projectile is too fast now."
+        "Buy Monkey King Bar or Bloodthorn. Dispelling Blur is no longer an option."
       ],
-      "watch": "Phantom Lancer, also at 53.2%, had his Shard cooldown lengthened in the same patch.",
-      "affects": { "heroes": ["phantom_assassin", "chaos_knight"], "items": ["rapier"] },
+      "watch": "She's at 49.8% winrate on 14.4% of games, so most players will meet this.",
+      "affects": {
+        "heroes": [
+          "phantom_assassin"
+        ],
+        "items": []
+      },
       "changes": [
-        { "source": "Phantom Assassin — Blur", "text": "Now cannot be dispelled" },
-        { "source": "Divine Rapier", "text": "Spell Amplification from multiple Divine Rapiers no longer stacks" },
-        { "source": "Chaos Knight — Chaos Bolt", "text": "Bolt Speed increased from 700 to 900" }
+        {
+          "source": "Phantom Assassin — Blur",
+          "text": "Now cannot be dispelled"
+        }
       ],
-      "agreement": { "level": "ours", "note": "Our own grouping of three unrelated one-line changes." },
-      "confidence": { "mechanics": "high", "meta": "medium" }
+      "agreement": {
+        "level": "ours",
+        "note": "Nobody we read singled this out. It's our own reading."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
+    },
+    {
+      "id": "rapier-stack",
+      "rank": 14,
+      "title": "Double Divine Rapier spell amp no longer stacks",
+      "punch": {
+        "stat": "Spell amp capped",
+        "dir": "worse"
+      },
+      "bites": [
+        "Damage still stacks",
+        "Only spell amp is capped"
+      ],
+      "severity": "minor",
+      "tags": [
+        "items"
+      ],
+      "what": "Spell Amplification from multiple Divine Rapiers no longer stacks.",
+      "why": "Closes a cheese stack. The damage still adds up — only the spell amp was capped — so this changes nothing in a normal game.",
+      "do": [
+        "Ignore this unless you were stacking Rapiers for spell damage."
+      ],
+      "watch": "Listed for completeness rather than impact.",
+      "affects": {
+        "heroes": [],
+        "items": [
+          "rapier"
+        ]
+      },
+      "changes": [
+        {
+          "source": "Divine Rapier",
+          "text": "Spell Amplification from multiple Divine Rapiers no longer stacks"
+        }
+      ],
+      "agreement": {
+        "level": "ours",
+        "note": "Not mentioned in the coverage we read."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
+    },
+    {
+      "id": "chaos-bolt",
+      "rank": 15,
+      "title": "Chaos Knight's stun is 30% faster",
+      "punch": {
+        "stat": "700 → 900 speed",
+        "dir": "better"
+      },
+      "bites": [
+        "Chaos Bolt 700 → 900 speed",
+        "Much harder to dodge"
+      ],
+      "severity": "minor",
+      "tags": [
+        "heroes"
+      ],
+      "what": "Chaos Bolt travels at 900 instead of 700.",
+      "why": "Cuts your reaction time by about a third. A stun that good players answered with a quick blink or Eul's is now far more reliable.",
+      "do": [
+        "React to the cast animation, not the projectile — you have much less time."
+      ],
+      "watch": "Raises his floor in ordinary games more than his ceiling in pro ones.",
+      "affects": {
+        "heroes": [
+          "chaos_knight"
+        ],
+        "items": []
+      },
+      "changes": [
+        {
+          "source": "Chaos Knight — Chaos Bolt",
+          "text": "Bolt Speed increased from 700 to 900"
+        }
+      ],
+      "agreement": {
+        "level": "ours",
+        "note": "Not mentioned in the coverage we read."
+      },
+      "confidence": {
+        "mechanics": "high",
+        "meta": "medium"
+      }
     }
   ],
-
   "heroes": {
-    "bane": { "verdict": "mixed", "impact": 4, "summary": "Nightmare is now a true blind, at the cost of half a second.", "why": "Total sight denial beats the duration loss — the target has no information at all. The Ichor change (6 terrors at 4% instead of 5 at 5%) slightly lowers his status resistance ceiling and makes each stack worth less.", "play": ["Use Nightmare as setup — your team can reposition freely while the target is blind."], "counter": ["Assume you know nothing about enemy positions when it ends."] },
-    "rattletrap": { "verdict": "nerf", "impact": 4, "summary": "Cogs lost their two expert uses: free vision and camp blocking.", "why": "Vision halved and camp blocking removed. Trapping is untouched, so this hits good Clockwerk players far harder than average ones.", "play": ["Budget real wards for what cogs used to scout."], "counter": ["Much less free vision around Roshan and high ground."] },
-    "troll_warlord": { "verdict": "buff", "impact": 4, "summary": "Battle Trance now grants 35% slow resistance, and stance toggling doesn't break invisibility.", "why": "Slow resistance is real survivability on an ultimate that commits him to a fight. Shadow Blade also got much smoother. The Mask of Madness ranged nerf pulls the other way in ranged stance.", "play": ["Shadow Blade is a better pickup — pick your stance mid-approach."], "counter": ["Slows are 35% weaker on him during Battle Trance."] },
-    "legion_commander": { "verdict": "mixed", "impact": 5, "summary": "Better lane, no more infinite Duel chain at level 25.", "why": "A guaranteed Duel refresh became a flat 30-second reduction. In exchange: +1 base strength, +5 base attack speed, more level 1 damage, minus a little strength gain.", "play": ["Push your advantage earlier — the gains are front-loaded."], "counter": ["Long fights against a fed Legion are survivable again."] },
-    "snapfire": { "verdict": "nerf", "impact": 4, "summary": "Hit in five places at once — damage down across the kit plus three talent cuts.", "why": "Scatterblast, Cookie and Mortimer Kisses all lost damage, and Scatterblast's width no longer benefits from AoE bonuses — which quietly kills a scaling path.", "play": ["Scatterblast needs tighter positioning now that width can't be inflated."], "counter": ["Her burst is lower at every stage."] },
-    "drow_ranger": { "verdict": "nerf", "impact": 5, "summary": "Multishot stopped scaling with attack range items.", "why": "The new formula is a wash at her base range but loses ~90 range once you buy Dragon Lance. Plus 40% more mana at level 1 and 20 points less base damage.", "play": ["Buy range items for the auto-attacks, not to extend Multishot."], "counter": ["Her lane spam is far more mana-limited."] },
-    "zuus": { "verdict": "mixed", "impact": 3, "summary": "Ultimate damage down, but Lightning Hands toggles while invisible or silenced.", "why": "Thundergod's Wrath lost 8-11% damage and Lightning Hands lost 10 attack speed. The toggle change is a genuine gain for smoke ganks.", "play": ["Toggle Lightning Hands as the gank lands, not before."], "counter": ["His global finish is weaker — slightly more low-HP leeway."] },
-    "doom_bringer": { "verdict": "mixed", "impact": 3, "summary": "Shorter attack range, and Infernal Blade shifted from early damage to late.", "why": "200 → 175 attack range is a real laning nerf. Infernal Blade's max-HP burn is worse at ranks 1-2 and better at rank 4.", "play": ["Skill Infernal Blade later — its early value dropped."], "counter": ["Contest his last hits harder; he reaches 25 units less far."] },
-    "gyrocopter": { "verdict": "buff", "impact": 3, "summary": "A rescue attempt — mana costs down across the board.", "why": "Homing Missile flattened to 120 mana at all levels with ~5s off the cooldown. He's the worst performer in the changed list at 44.0%, so this is Valve reaching for him.", "play": ["Homing Missile is far more spammable — use it as harassment."], "counter": ["Expect more frequent missiles in lane."] },
-    "obsidian_destroyer": { "verdict": "buff", "impact": 4, "summary": "Objurgation is now instant-cast and doesn't stop your movement.", "why": "No cast animation and no movement cancel means you can barrier mid-chase without losing tempo. Early barrier also up 120 → 150. Already at 52.7%.", "play": ["Barrier while running — it costs you nothing now."], "counter": ["He can shield reactively, so burst windows are tighter."] },
-    "treant": { "verdict": "nerf", "impact": 3, "summary": "Slower attacks, shorter early root, pricier early Living Armor.", "why": "Base attack speed 100 → 90 hurts his lane directly, and Living Armor at a flat 80 mana is a real constraint on an already mana-hungry support.", "play": ["Be more selective with early Living Armor."], "counter": ["His level 1-2 root is noticeably shorter."] },
-    "hoodwink": { "verdict": "nerf", "impact": 3, "summary": "Sharpshooter costs a lot more mana and Boomerang is on a longer leash.", "why": "Sharpshooter is 50 mana more expensive at every level and Boomerang's cooldown went up 2s. Her harass cadence drops significantly.", "play": ["You can't casually cast Sharpshooter to scout or chip anymore."], "counter": ["Her harassment is meaningfully slower."] },
-    "axe": { "verdict": "nerf", "impact": 2, "summary": "Less armour and attack speed, weaker Battle Hunger scaling.", "why": "Base agility 20 → 18 costs a bit of armour and attack speed, and Battle Hunger's DPS is down 20% at max.", "play": ["Battle Hunger is a weaker maxing choice."], "counter": ["Marginally easier to trade with in lane."] },
-    "morphling": { "verdict": "buff", "impact": 3, "summary": "Morph is available more often and the scepter illusion can see.", "why": "10-15s off Morph's cooldown is real flexibility on a hero defined by swapping stats, and the illusion is now usable for scouting rather than just damage.", "play": ["The scepter illusion is a map tool now, not just a body."], "counter": ["He swaps stats more often — burst windows close faster."] },
-    "nevermore": { "verdict": "nerf", "impact": 3, "summary": "Smaller mana pool and the level 25 raze talent no longer procs attack modifiers.", "why": "Base intelligence 18 → 16 bites exactly when he's spamming razes. The talent losing modifier and proc application removes a combo that made it disproportionately strong.", "play": ["The raze stack window is a second tighter — sequence faster."], "counter": ["His level 25 talent no longer carries item procs."] },
-    "necrolyte": { "verdict": "nerf", "impact": 3, "summary": "Death Seeker lost 150 cast range, and Sadist scales worse.", "why": "A 20% cut to his primary engage range means committing much closer. Sadist is now slightly better at level 1 and clearly worse after.", "play": ["You're inside a much tighter range to land Death Seeker."], "counter": ["He has to step 150 units closer — that's your punish window."] },
-    "queenofpain": { "verdict": "buff", "impact": 2, "summary": "Cheaper Shadow Strike, and double Sonic Waves now stack.", "why": "Flatter mana costs help against the Kaya regen nerf, and stacking Sonic Waves matters specifically for Refresher builds.", "play": ["Refresher combos got better — the second wave isn't wasted."], "counter": ["A Refresher QoP now does full double-ultimate damage."] },
-    "death_prophet": { "verdict": "buff", "impact": 2, "summary": "Better attack scaling per level.", "why": "Agility gain 2.0 → 2.3 and more damage per level compound over a game. Small but purely positive.", "play": ["Her right-click contribution grows faster now."] },
-    "pugna": { "verdict": "buff", "impact": 1, "summary": "Slightly more intelligence and damage at level 1.", "why": "Base intelligence 26 → 27 plus a point of damage. Marginal laning improvement, nothing changes.", "play": ["Very slightly better level 1 last hitting."] },
-    "invoker": { "verdict": "nerf", "impact": 3, "summary": "Ghost Walk is 10 seconds shorter and the Shard no longer widens it.", "why": "Less free map movement and no more offensive slow application from the Shard. At 18.9% pick rate it touches a lot of games.", "play": ["Don't buy the Shard for the Ghost Walk radius."], "counter": ["Slightly larger window to catch him out of position."] },
-    "undying": { "verdict": "mixed", "impact": 2, "summary": "Slower normally, faster inside Flesh Golem.", "why": "300 → 295 base with Flesh Golem up 20 → 25 is a wash while ulting and a straight nerf outside it. Nudges him toward ulting to engage.", "play": ["You're 5 speed slower all game except when ulting."] },
-    "keeper_of_the_light": { "verdict": "nerf", "impact": 3, "summary": "Chakra Magic on a longer cooldown, Solar Bind 100 range shorter.", "why": "Less mana fed to your core, compounding with the Kaya nerfs elsewhere. Solar Bind at 750 forces him meaningfully closer.", "play": ["Solar Bind takes real commitment at 750 range."], "counter": ["His mana battery role is less generous."] },
-    "centaur": { "verdict": "nerf", "impact": 2, "summary": "Retaliate returns less damage; Shard buff is shorter.", "why": "12% less return damage at max, which matters most in the long attrition fights Centaur wins.", "play": ["Standing in a fight returns less — commit more deliberately."] },
-    "elder_titan": { "verdict": "buff", "impact": 3, "summary": "More armour from Momentum, and Astral Spirit controls don't break invisibility.", "why": "The speed-to-armour base rate jumped 40%, real durability on a hero who stacks movement speed. Smoke and Shadow Blade setups also got much cleaner.", "play": ["Movement speed items are worth more — they convert to armour better."] },
-    "oracle": { "verdict": "mixed", "impact": 3, "summary": "False Promise reaches further, but Fate's Edict can now be stripped.", "why": "A save that was guaranteed is now contestable by any enemy dispel. The extra False Promise range partly compensates.", "play": ["Against dispel-heavy lineups, Fate's Edict isn't a reliable save."], "counter": ["Bring a dispel and strip the Edict off his carry."] },
-    "spirit_bear": { "verdict": "nerf", "impact": 4, "summary": "Lone Druid's bear takes towers a third slower and has less armour.", "why": "Demolish 30% → 20% cuts directly into the thing Lone Druid exists to do, and 1 less armour makes the bear easier to kill while doing it.", "play": ["Recalculate what you can take before a rotation arrives."], "counter": ["You have more time to answer a Lone Druid push."] },
-    "lone_druid": { "verdict": "nerf", "impact": 3, "summary": "Savage Roar talents cut alongside the bear's push nerf.", "why": "Small talent trims on their own, but they land in the same patch as the bear's Demolish and armour nerfs. The hero was targeted as a package.", "play": ["Push speed and defensive Roar got worse together."] },
-    "phantom_lancer": { "verdict": "nerf", "impact": 2, "summary": "Juxtapose Shard on a 3-second longer cooldown.", "why": "A 20% cooldown increase on the shard that feeds his illusion count. Light touch for a hero at 53.2%.", "counter": ["Longer gaps between his shard illusion bursts."] },
-    "puck": { "verdict": "nerf", "impact": 2, "summary": "Illusory Orb costs a second more cooldown at every level.", "why": "Less freedom to use the orb for harass and escape. Small, but it's her main mobility tool.", "play": ["One less orb over a long lane exchange."] },
-    "tiny": { "verdict": "nerf", "impact": 2, "summary": "One less health regen, on a hero already struggling.", "why": "Worse lane sustain on a hero sitting at 44.7% — one of the weakest in the changed list.", "play": ["Budget more regen consumables."] },
-    "vengefulspirit": { "verdict": "buff", "impact": 2, "summary": "The scepter illusion can see properly now.", "why": "The Vengeance Aura illusion becomes a scouting and split-push body rather than just damage. She's in 13.2% of games.", "play": ["Use the illusion to hold vision or push a side lane."] },
-    "lina": { "verdict": "nerf", "impact": 2, "summary": "Two points of base agility gone.", "why": "Slightly more fragile and slower to last hit early. Purely a laning-stage nerf.", "play": ["Marginally harder early last hitting."] },
-    "witch_doctor": { "verdict": "nerf", "impact": 1, "summary": "The Maledict talent no longer bursts off illusions.", "why": "A targeted fix to an unintended interaction. Normal play is unaffected.", "play": ["No change unless you were exploiting it."] },
-    "sniper": { "verdict": "buff", "impact": 2, "summary": "Concussive Grenade is castable while rooted.", "why": "Part of the wider root rework — he gets a defensive option against root lineups he simply didn't have before.", "play": ["Root no longer locks you out of the grenade."] },
-    "venomancer": { "verdict": "buff", "impact": 3, "summary": "Snakebite initial damage up sharply at higher levels.", "why": "A 30% increase at rank 4 with nothing given back. Real gains to lane harass and teamfight chip.", "play": ["Maxing Snakebite is a stronger choice than it was."] },
-    "phantom_assassin": { "verdict": "buff", "impact": 4, "summary": "Blur can no longer be dispelled.", "why": "Removes one of the cleanest counters to her evasion. Teams now need true strike, which is a much bigger investment.", "counter": ["Buy true strike. Dispelling Blur is no longer an option."] },
-    "templar_assassin": { "verdict": "nerf", "impact": 2, "summary": "Psionic Projection can now be interrupted by root.", "why": "Her repositioning tool is cancellable by any root in the game. Lands on a hero already at 46.5%.", "counter": ["A root cancels her projection escape outright."] },
-    "dragon_knight": { "verdict": "buff", "impact": 2, "summary": "Wyrm's Wrath splash area up 20% at every level.", "why": "Better wave clear and farming in dragon form, which is where his mid-game tempo comes from.", "play": ["Faster wave clear means better push windows."] },
-    "omniknight": { "verdict": "buff", "impact": 2, "summary": "Hammer of Purity heals more, faster.", "why": "40% over 4s beats 35% over 5s in both dimensions — and speed is what matters when burst is killing your target.", "play": ["The heal now lands fast enough to contest burst."] },
-    "night_stalker": { "verdict": "nerf", "impact": 2, "summary": "Crippling Fear radius trimmed by 25.", "why": "A light touch on a hero at 53.2%. Valve reaching for a strong hero with minimal force.", "play": ["Tighter positioning needed to catch multiple heroes."] },
-    "weaver": { "verdict": "buff", "impact": 2, "summary": "Threads of Fate break distance now scales with level.", "why": "Marginally worse at level 1, clearly better from level 2 on, reaching 1140 at level 25. A late-game buff dressed as a rescale.", "play": ["The thread holds over longer distances as the game goes."] },
-    "jakiro": { "verdict": "buff", "impact": 2, "summary": "Intelligence gain up, which is mana and damage.", "why": "Compounds into a bigger pool and more spell damage. Welcome on a frequently mana-starved support at 46.2%.", "play": ["A little more room to cast in the mid game."] },
-    "batrider": { "verdict": "qol", "impact": 1, "summary": "Smoldering Resin no longer applies when attacking allies.", "why": "A bug-class fix that stops him debuffing his own units when denying.", "play": ["Denying no longer wastes resin."] },
-    "spectre": { "verdict": "nerf", "impact": 4, "summary": "Haunt flattened — better at rank 1, worse at rank 3 and level 25.", "why": "She's the strongest carry in the data at 54.1% on 13.3% of games, and this takes power specifically from the late game where she dominated.", "play": ["Her spike is earlier — a 40-minute plan is weaker now."], "counter": ["Late Haunt does ~7% less illusion damage before talents."] },
-    "ancient_apparition": { "verdict": "buff", "impact": 3, "summary": "Ice Blast cooldown cut by 10 seconds at rank 1.", "why": "Ice Blast is his entire threat. Having it 10s more often at rank 1 dramatically changes how often he can contest an early fight or deny a heal.", "play": ["You can use Ice Blast more speculatively early."] },
-    "chaos_knight": { "verdict": "buff", "impact": 3, "summary": "Chaos Bolt is 30% faster and much harder to dodge.", "why": "700 → 900 cuts reaction time by a third. A stun good players could answer with a blink or Eul's is now far more reliable.", "counter": ["React to the cast animation, not the projectile."] },
-    "visage": { "verdict": "qol", "impact": 2, "summary": "Stone Form no longer breaks invisibility when ordering Familiars.", "why": "Makes an invisible Familiar setup workable. Notable because he's the highest-winrate hero in the changed list at 54.5% — and this is a buff.", "play": ["Invisibility-based Familiar setups are viable now."] },
-    "medusa": { "verdict": "qol", "impact": 3, "summary": "Split Shot toggles while invisible or silenced.", "why": "No more deciding your Split Shot state before going invisible, and silence can't lock you into the wrong one. Shadow Blade is much more attractive.", "play": ["Shadow Blade is a real option — configure on the approach."] },
-    "magnataur": { "verdict": "buff", "impact": 1, "summary": "Horn Toss damage up slightly.", "why": "A small flat increase with no trade-off. Nothing changes about how he's played.", "play": ["Marginally more damage on the setup."] },
-    "ember_spirit": { "verdict": "nerf", "impact": 2, "summary": "Five movement speed gone.", "why": "A small but permanent mobility tax on a hero whose whole pattern is movement.", "play": ["Slightly worse at chasing and repositioning on foot."] },
-    "earth_spirit": { "verdict": "nerf", "impact": 2, "summary": "Less intelligence, weaker Magnetize talent.", "why": "Tightens an already awkward mana situation and trims his level 20 payoff. Neither changes his play pattern.", "play": ["Mana is a little tighter in early rotations."] },
-    "abyssal_underlord": { "verdict": "nerf", "impact": 4, "summary": "Fiend's Gate can now be cancelled by any root in the game.", "why": "The biggest single-hero consequence of the root rework. His global is how his team commits and retreats — now it's something you have to check the enemy lineup for.", "play": ["Channel from further back; check for roots before committing."], "counter": ["One root cancels his global. Draft accordingly."] },
-    "grimstroke": { "verdict": "buff", "impact": 2, "summary": "Dark Portrait illusion can see properly.", "why": "The copy becomes useful for vision and split-pushing rather than purely damage.", "play": ["The illusion is a map tool as well as damage now."] },
-    "mars": { "verdict": "buff", "impact": 2, "summary": "Intelligence gain up.", "why": "A slightly bigger mana pool over the game. Small, but he's at 46.7% so any help is directional.", "play": ["A little more casting room mid game."] },
-    "ringmaster": { "verdict": "nerf", "impact": 2, "summary": "Impalement Arts clears creeps much worse early, slightly better late.", "why": "A 30% cut at rank 1 that doesn't break even until rank 4 — a farming nerf during the phase where it matters most.", "play": ["Slower early wave clear and jungle farming."] },
-    "muerta": { "verdict": "qol", "impact": 2, "summary": "Gunslinger toggles without breaking invisibility.", "why": "Same theme as Medusa and Troll — Shadow Blade and Smoke setups get cleaner. Welcome at 46.8%.", "play": ["Shadow Blade is a more comfortable item now."] },
-    "beastmaster": { "verdict": "nerf", "impact": 2, "summary": "Both high-level talents trimmed.", "why": "His late-game payoff got worse, which is a surprising call on a hero already at 46.7%.", "play": ["Primal Roar returns 5 seconds slower with the level 25 talent."] }
+    "bane": {
+      "verdict": "mixed",
+      "impact": 4,
+      "summary": "Nightmare is now a true blind, at the cost of half a second.",
+      "why": "Total sight denial beats the duration loss — the target has no information at all. The Ichor change (6 terrors at 4% instead of 5 at 5%) slightly lowers his status resistance ceiling and makes each stack worth less.",
+      "play": [
+        "Use Nightmare as setup — your team can reposition freely while the target is blind."
+      ],
+      "counter": [
+        "Assume you know nothing about enemy positions when it ends."
+      ]
+    },
+    "rattletrap": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Cogs lost their two expert uses: free vision and camp blocking.",
+      "why": "Vision halved and camp blocking removed. Trapping is untouched, so this hits good Clockwerk players far harder than average ones.",
+      "play": [
+        "Budget real wards for what cogs used to scout."
+      ],
+      "counter": [
+        "Much less free vision around Roshan and high ground."
+      ]
+    },
+    "troll_warlord": {
+      "verdict": "buff",
+      "impact": 4,
+      "summary": "Battle Trance now grants 35% slow resistance, and stance toggling doesn't break invisibility.",
+      "why": "Slow resistance is real survivability on an ultimate that commits him to a fight. Shadow Blade also got much smoother. The Mask of Madness ranged nerf pulls the other way in ranged stance.",
+      "play": [
+        "Shadow Blade is a better pickup — pick your stance mid-approach."
+      ],
+      "counter": [
+        "Slows are 35% weaker on him during Battle Trance."
+      ]
+    },
+    "legion_commander": {
+      "verdict": "mixed",
+      "impact": 5,
+      "summary": "Better lane, no more infinite Duel chain at level 25.",
+      "why": "A guaranteed Duel refresh became a flat 30-second reduction. In exchange: +1 base strength, +5 base attack speed, more level 1 damage, minus a little strength gain.",
+      "play": [
+        "Push your advantage earlier — the gains are front-loaded."
+      ],
+      "counter": [
+        "Long fights against a fed Legion are survivable again."
+      ]
+    },
+    "snapfire": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Hit in five places at once — damage down across the kit plus three talent cuts.",
+      "why": "Scatterblast, Cookie and Mortimer Kisses all lost damage, and Scatterblast's width no longer benefits from AoE bonuses — which quietly kills a scaling path.",
+      "play": [
+        "Scatterblast needs tighter positioning now that width can't be inflated."
+      ],
+      "counter": [
+        "Her burst is lower at every stage."
+      ]
+    },
+    "drow_ranger": {
+      "verdict": "nerf",
+      "impact": 5,
+      "summary": "Multishot stopped scaling with attack range items.",
+      "why": "The new formula is a wash at her base range but loses ~90 range once you buy Dragon Lance. Plus 40% more mana at level 1 and 20 points less base damage.",
+      "play": [
+        "Buy range items for the auto-attacks, not to extend Multishot."
+      ],
+      "counter": [
+        "Her lane spam is far more mana-limited."
+      ]
+    },
+    "zuus": {
+      "verdict": "mixed",
+      "impact": 3,
+      "summary": "Ultimate damage down, but Lightning Hands toggles while invisible or silenced.",
+      "why": "Thundergod's Wrath lost 8-11% damage and Lightning Hands lost 10 attack speed. The toggle change is a genuine gain for smoke ganks.",
+      "play": [
+        "Toggle Lightning Hands as the gank lands, not before."
+      ],
+      "counter": [
+        "His global finish is weaker — slightly more low-HP leeway."
+      ]
+    },
+    "doom_bringer": {
+      "verdict": "mixed",
+      "impact": 3,
+      "summary": "Shorter attack range, and Infernal Blade shifted from early damage to late.",
+      "why": "200 → 175 attack range is a real laning nerf. Infernal Blade's max-HP burn is worse at ranks 1-2 and better at rank 4.",
+      "play": [
+        "Skill Infernal Blade later — its early value dropped."
+      ],
+      "counter": [
+        "Contest his last hits harder; he reaches 25 units less far."
+      ]
+    },
+    "gyrocopter": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "A rescue attempt — mana costs down across the board.",
+      "why": "Homing Missile flattened to 120 mana at all levels with ~5s off the cooldown. He's the worst performer in the changed list at 44.0%, so this is Valve reaching for him.",
+      "play": [
+        "Homing Missile is far more spammable — use it as harassment."
+      ],
+      "counter": [
+        "Expect more frequent missiles in lane."
+      ]
+    },
+    "obsidian_destroyer": {
+      "verdict": "buff",
+      "impact": 4,
+      "summary": "Objurgation is now instant-cast and doesn't stop your movement.",
+      "why": "No cast animation and no movement cancel means you can barrier mid-chase without losing tempo. Early barrier also up 120 → 150. Already at 52.7%.",
+      "play": [
+        "Barrier while running — it costs you nothing now."
+      ],
+      "counter": [
+        "He can shield reactively, so burst windows are tighter."
+      ]
+    },
+    "treant": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Slower attacks, shorter early root, pricier early Living Armor.",
+      "why": "Base attack speed 100 → 90 hurts his lane directly, and Living Armor at a flat 80 mana is a real constraint on an already mana-hungry support.",
+      "play": [
+        "Be more selective with early Living Armor."
+      ],
+      "counter": [
+        "His level 1-2 root is noticeably shorter."
+      ]
+    },
+    "hoodwink": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Sharpshooter costs a lot more mana and Boomerang is on a longer leash.",
+      "why": "Sharpshooter is 50 mana more expensive at every level and Boomerang's cooldown went up 2s. Her harass cadence drops significantly.",
+      "play": [
+        "You can't casually cast Sharpshooter to scout or chip anymore."
+      ],
+      "counter": [
+        "Her harassment is meaningfully slower."
+      ]
+    },
+    "axe": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Less armour and attack speed, weaker Battle Hunger scaling.",
+      "why": "Base agility 20 → 18 costs a bit of armour and attack speed, and Battle Hunger's DPS is down 20% at max.",
+      "play": [
+        "Battle Hunger is a weaker maxing choice."
+      ],
+      "counter": [
+        "Marginally easier to trade with in lane."
+      ]
+    },
+    "morphling": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Morph is available more often and the scepter illusion can see.",
+      "why": "10-15s off Morph's cooldown is real flexibility on a hero defined by swapping stats, and the illusion is now usable for scouting rather than just damage.",
+      "play": [
+        "The scepter illusion is a map tool now, not just a body."
+      ],
+      "counter": [
+        "He swaps stats more often — burst windows close faster."
+      ]
+    },
+    "nevermore": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Smaller mana pool and the level 25 raze talent no longer procs attack modifiers.",
+      "why": "Base intelligence 18 → 16 bites exactly when he's spamming razes. The talent losing modifier and proc application removes a combo that made it disproportionately strong.",
+      "play": [
+        "The raze stack window is a second tighter — sequence faster."
+      ],
+      "counter": [
+        "His level 25 talent no longer carries item procs."
+      ]
+    },
+    "necrolyte": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Death Seeker lost 150 cast range, and Sadist scales worse.",
+      "why": "A 20% cut to his primary engage range means committing much closer. Sadist is now slightly better at level 1 and clearly worse after.",
+      "play": [
+        "You're inside a much tighter range to land Death Seeker."
+      ],
+      "counter": [
+        "He has to step 150 units closer — that's your punish window."
+      ]
+    },
+    "queenofpain": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Cheaper Shadow Strike, and double Sonic Waves now stack.",
+      "why": "Flatter mana costs help against the Kaya regen nerf, and stacking Sonic Waves matters specifically for Refresher builds.",
+      "play": [
+        "Refresher combos got better — the second wave isn't wasted."
+      ],
+      "counter": [
+        "A Refresher QoP now does full double-ultimate damage."
+      ]
+    },
+    "death_prophet": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Better attack scaling per level.",
+      "why": "Agility gain 2.0 → 2.3 and more damage per level compound over a game. Small but purely positive.",
+      "play": [
+        "Her right-click contribution grows faster now."
+      ]
+    },
+    "pugna": {
+      "verdict": "buff",
+      "impact": 1,
+      "summary": "Slightly more intelligence and damage at level 1.",
+      "why": "Base intelligence 26 → 27 plus a point of damage. Marginal laning improvement, nothing changes.",
+      "play": [
+        "Very slightly better level 1 last hitting."
+      ]
+    },
+    "invoker": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Ghost Walk is 10 seconds shorter and the Shard no longer widens it.",
+      "why": "Less free map movement and no more offensive slow application from the Shard. At 18.9% pick rate it touches a lot of games.",
+      "play": [
+        "Don't buy the Shard for the Ghost Walk radius."
+      ],
+      "counter": [
+        "Slightly larger window to catch him out of position."
+      ]
+    },
+    "undying": {
+      "verdict": "mixed",
+      "impact": 2,
+      "summary": "Slower normally, faster inside Flesh Golem.",
+      "why": "300 → 295 base with Flesh Golem up 20 → 25 is a wash while ulting and a straight nerf outside it. Nudges him toward ulting to engage.",
+      "play": [
+        "You're 5 speed slower all game except when ulting."
+      ]
+    },
+    "keeper_of_the_light": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Chakra Magic on a longer cooldown, Solar Bind 100 range shorter.",
+      "why": "Less mana fed to your core, compounding with the Kaya nerfs elsewhere. Solar Bind at 750 forces him meaningfully closer.",
+      "play": [
+        "Solar Bind takes real commitment at 750 range."
+      ],
+      "counter": [
+        "His mana battery role is less generous."
+      ]
+    },
+    "centaur": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Retaliate returns less damage; Shard buff is shorter.",
+      "why": "12% less return damage at max, which matters most in the long attrition fights Centaur wins.",
+      "play": [
+        "Standing in a fight returns less — commit more deliberately."
+      ]
+    },
+    "elder_titan": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "More armour from Momentum, and Astral Spirit controls don't break invisibility.",
+      "why": "The speed-to-armour base rate jumped 40%, real durability on a hero who stacks movement speed. Smoke and Shadow Blade setups also got much cleaner.",
+      "play": [
+        "Movement speed items are worth more — they convert to armour better."
+      ]
+    },
+    "oracle": {
+      "verdict": "mixed",
+      "impact": 3,
+      "summary": "False Promise reaches further, but Fate's Edict can now be stripped.",
+      "why": "A save that was guaranteed is now contestable by any enemy dispel. The extra False Promise range partly compensates.",
+      "play": [
+        "Against dispel-heavy lineups, Fate's Edict isn't a reliable save."
+      ],
+      "counter": [
+        "Bring a dispel and strip the Edict off his carry."
+      ]
+    },
+    "spirit_bear": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Lone Druid's bear takes towers a third slower and has less armour.",
+      "why": "Demolish 30% → 20% cuts directly into the thing Lone Druid exists to do, and 1 less armour makes the bear easier to kill while doing it.",
+      "play": [
+        "Recalculate what you can take before a rotation arrives."
+      ],
+      "counter": [
+        "You have more time to answer a Lone Druid push."
+      ]
+    },
+    "lone_druid": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Savage Roar talents cut alongside the bear's push nerf.",
+      "why": "Small talent trims on their own, but they land in the same patch as the bear's Demolish and armour nerfs. The hero was targeted as a package.",
+      "play": [
+        "Push speed and defensive Roar got worse together."
+      ]
+    },
+    "phantom_lancer": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Juxtapose Shard on a 3-second longer cooldown.",
+      "why": "A 20% cooldown increase on the shard that feeds his illusion count. Light touch for a hero at 53.2%.",
+      "counter": [
+        "Longer gaps between his shard illusion bursts."
+      ]
+    },
+    "puck": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Illusory Orb costs a second more cooldown at every level.",
+      "why": "Less freedom to use the orb for harass and escape. Small, but it's her main mobility tool.",
+      "play": [
+        "One less orb over a long lane exchange."
+      ]
+    },
+    "tiny": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "One less health regen, on a hero already struggling.",
+      "why": "Worse lane sustain on a hero sitting at 44.7% — one of the weakest in the changed list.",
+      "play": [
+        "Budget more regen consumables."
+      ]
+    },
+    "vengefulspirit": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "The scepter illusion can see properly now.",
+      "why": "The Vengeance Aura illusion becomes a scouting and split-push body rather than just damage. She's in 13.2% of games.",
+      "play": [
+        "Use the illusion to hold vision or push a side lane."
+      ]
+    },
+    "lina": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Two points of base agility gone.",
+      "why": "Slightly more fragile and slower to last hit early. Purely a laning-stage nerf.",
+      "play": [
+        "Marginally harder early last hitting."
+      ]
+    },
+    "witch_doctor": {
+      "verdict": "nerf",
+      "impact": 1,
+      "summary": "The Maledict talent no longer bursts off illusions.",
+      "why": "A targeted fix to an unintended interaction. Normal play is unaffected.",
+      "play": [
+        "No change unless you were exploiting it."
+      ]
+    },
+    "sniper": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Concussive Grenade is castable while rooted.",
+      "why": "Part of the wider root rework — he gets a defensive option against root lineups he simply didn't have before.",
+      "play": [
+        "Root no longer locks you out of the grenade."
+      ]
+    },
+    "venomancer": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Snakebite initial damage up sharply at higher levels.",
+      "why": "A 30% increase at rank 4 with nothing given back. Real gains to lane harass and teamfight chip.",
+      "play": [
+        "Maxing Snakebite is a stronger choice than it was."
+      ]
+    },
+    "phantom_assassin": {
+      "verdict": "buff",
+      "impact": 4,
+      "summary": "Blur can no longer be dispelled.",
+      "why": "Removes one of the cleanest counters to her evasion. Teams now need true strike, which is a much bigger investment.",
+      "counter": [
+        "Buy true strike. Dispelling Blur is no longer an option."
+      ]
+    },
+    "templar_assassin": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Psionic Projection can now be interrupted by root.",
+      "why": "Her repositioning tool is cancellable by any root in the game. Lands on a hero already at 46.5%.",
+      "counter": [
+        "A root cancels her projection escape outright."
+      ]
+    },
+    "dragon_knight": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Wyrm's Wrath splash area up 20% at every level.",
+      "why": "Better wave clear and farming in dragon form, which is where his mid-game tempo comes from.",
+      "play": [
+        "Faster wave clear means better push windows."
+      ]
+    },
+    "omniknight": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Hammer of Purity heals more, faster.",
+      "why": "40% over 4s beats 35% over 5s in both dimensions — and speed is what matters when burst is killing your target.",
+      "play": [
+        "The heal now lands fast enough to contest burst."
+      ]
+    },
+    "night_stalker": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Crippling Fear radius trimmed by 25.",
+      "why": "A light touch on a hero at 53.2%. Valve reaching for a strong hero with minimal force.",
+      "play": [
+        "Tighter positioning needed to catch multiple heroes."
+      ]
+    },
+    "weaver": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Threads of Fate break distance now scales with level.",
+      "why": "Marginally worse at level 1, clearly better from level 2 on, reaching 1140 at level 25. A late-game buff dressed as a rescale.",
+      "play": [
+        "The thread holds over longer distances as the game goes."
+      ]
+    },
+    "jakiro": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Intelligence gain up, which is mana and damage.",
+      "why": "Compounds into a bigger pool and more spell damage. Welcome on a frequently mana-starved support at 46.2%.",
+      "play": [
+        "A little more room to cast in the mid game."
+      ]
+    },
+    "batrider": {
+      "verdict": "qol",
+      "impact": 1,
+      "summary": "Smoldering Resin no longer applies when attacking allies.",
+      "why": "A bug-class fix that stops him debuffing his own units when denying.",
+      "play": [
+        "Denying no longer wastes resin."
+      ]
+    },
+    "spectre": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Haunt flattened — better at rank 1, worse at rank 3 and level 25.",
+      "why": "She's the strongest carry in the data at 54.1% on 13.3% of games, and this takes power specifically from the late game where she dominated.",
+      "play": [
+        "Her spike is earlier — a 40-minute plan is weaker now."
+      ],
+      "counter": [
+        "Late Haunt does ~7% less illusion damage before talents."
+      ]
+    },
+    "ancient_apparition": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Ice Blast cooldown cut by 10 seconds at rank 1.",
+      "why": "Ice Blast is his entire threat. Having it 10s more often at rank 1 dramatically changes how often he can contest an early fight or deny a heal.",
+      "play": [
+        "You can use Ice Blast more speculatively early."
+      ]
+    },
+    "chaos_knight": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Chaos Bolt is 30% faster and much harder to dodge.",
+      "why": "700 → 900 cuts reaction time by a third. A stun good players could answer with a blink or Eul's is now far more reliable.",
+      "counter": [
+        "React to the cast animation, not the projectile."
+      ]
+    },
+    "visage": {
+      "verdict": "qol",
+      "impact": 2,
+      "summary": "Stone Form no longer breaks invisibility when ordering Familiars.",
+      "why": "Makes an invisible Familiar setup workable. Notable because he's the highest-winrate hero in the changed list at 54.5% — and this is a buff.",
+      "play": [
+        "Invisibility-based Familiar setups are viable now."
+      ]
+    },
+    "medusa": {
+      "verdict": "qol",
+      "impact": 3,
+      "summary": "Split Shot toggles while invisible or silenced.",
+      "why": "No more deciding your Split Shot state before going invisible, and silence can't lock you into the wrong one. Shadow Blade is much more attractive.",
+      "play": [
+        "Shadow Blade is a real option — configure on the approach."
+      ]
+    },
+    "magnataur": {
+      "verdict": "buff",
+      "impact": 1,
+      "summary": "Horn Toss damage up slightly.",
+      "why": "A small flat increase with no trade-off. Nothing changes about how he's played.",
+      "play": [
+        "Marginally more damage on the setup."
+      ]
+    },
+    "ember_spirit": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Five movement speed gone.",
+      "why": "A small but permanent mobility tax on a hero whose whole pattern is movement.",
+      "play": [
+        "Slightly worse at chasing and repositioning on foot."
+      ]
+    },
+    "earth_spirit": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Less intelligence, weaker Magnetize talent.",
+      "why": "Tightens an already awkward mana situation and trims his level 20 payoff. Neither changes his play pattern.",
+      "play": [
+        "Mana is a little tighter in early rotations."
+      ]
+    },
+    "abyssal_underlord": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Fiend's Gate can now be cancelled by any root in the game.",
+      "why": "The biggest single-hero consequence of the root rework. His global is how his team commits and retreats — now it's something you have to check the enemy lineup for.",
+      "play": [
+        "Channel from further back; check for roots before committing."
+      ],
+      "counter": [
+        "One root cancels his global. Draft accordingly."
+      ]
+    },
+    "grimstroke": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Dark Portrait illusion can see properly.",
+      "why": "The copy becomes useful for vision and split-pushing rather than purely damage.",
+      "play": [
+        "The illusion is a map tool as well as damage now."
+      ]
+    },
+    "mars": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Intelligence gain up.",
+      "why": "A slightly bigger mana pool over the game. Small, but he's at 46.7% so any help is directional.",
+      "play": [
+        "A little more casting room mid game."
+      ]
+    },
+    "ringmaster": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Impalement Arts clears creeps much worse early, slightly better late.",
+      "why": "A 30% cut at rank 1 that doesn't break even until rank 4 — a farming nerf during the phase where it matters most.",
+      "play": [
+        "Slower early wave clear and jungle farming."
+      ]
+    },
+    "muerta": {
+      "verdict": "qol",
+      "impact": 2,
+      "summary": "Gunslinger toggles without breaking invisibility.",
+      "why": "Same theme as Medusa and Troll — Shadow Blade and Smoke setups get cleaner. Welcome at 46.8%.",
+      "play": [
+        "Shadow Blade is a more comfortable item now."
+      ]
+    },
+    "beastmaster": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Both high-level talents trimmed.",
+      "why": "His late-game payoff got worse, which is a surprising call on a hero already at 46.7%.",
+      "play": [
+        "Primal Roar returns 5 seconds slower with the level 25 talent."
+      ]
+    }
   },
-
   "items": {
-    "butterfly": { "verdict": "mixed", "impact": 4, "summary": "Worse on agility carries, better on everyone else.", "why": "Those 5 agility were also armour and attack speed; the +5 damage only replaces the damage. On strength and intelligence heroes the agility was worth less, so the trade is a small gain.", "who": "Agility carries lose; strength and int heroes buying it for evasion gain slightly." },
-    "mask_of_madness": { "verdict": "nerf", "impact": 4, "summary": "Ranged heroes lost half their slow resistance; melee kept all of it.", "why": "Slow resistance is what made MoM safe on a ranged carry — you take the damage amplification because you can kite. That window is now far more punishing.", "who": "Clinkz, Sniper, Gyrocopter and ranged-stance Troll." },
-    "kaya": { "verdict": "nerf", "impact": 5, "summary": "The regen bonus itself shrank by a third.", "why": "30% → 20% amplification is a third off Kaya's contribution, not a tenth. Spell amp and intelligence are untouched, so it's still a fine damage item.", "who": "Every int core that treated Kaya as the end of their mana problems." },
-    "kaya_and_sange": { "verdict": "nerf", "impact": 4, "summary": "Same regen cut as the rest of the line.", "why": "A quarter of the bonus gone. Status resistance and spell amp are unchanged, so it remains a strong pickup — the sustain half just got worse.", "who": "Hybrid cores like Doom, Legion Commander and Dragon Knight." },
-    "yasha_and_kaya": { "verdict": "nerf", "impact": 4, "summary": "Same regen cut as the rest of the line.", "why": "Movement speed, attack speed and spell amp survive intact. The sustain that made it comfortable on spell-spammers is a quarter weaker.", "who": "Storm Spirit, Ember Spirit and similar mobile spell-spammers." },
-    "meteor_hammer": { "verdict": "nerf", "impact": 3, "summary": "The biggest regen cut in the line at 10 percentage points.", "why": "A 29% reduction to the bonus. Supports often buy it as much for regen as for the channel, so it hits the secondary purpose hard.", "who": "Supports who bought it partly for sustain." },
-    "satanic": { "verdict": "nerf", "impact": 5, "summary": "One Unholy Rage per fight instead of two.", "why": "A 33% cooldown increase on the most reliable 'don't die' button a carry can hold — and it bites hardest in the long fights where unkillable carries decided games.", "who": "Every right-click carry, lifestealing melee most of all." },
-    "refresher_shard": { "verdict": "nerf", "impact": 4, "summary": "Stripped of all its stats — it only does the thing now.", "why": "It was quietly a stat stick that also refreshed. If you were buying it partly for the passive value while you waited, that reason is gone.", "who": "Anyone who slotted it early for the stats." },
-    "rapier": { "verdict": "nerf", "impact": 2, "summary": "Double Rapier spell amp no longer stacks.", "why": "Closes a degenerate stack. The damage still stacks — only the spell amp was capped.", "who": "Late-game spell-damage cheese builds." },
-    "urn_of_shadows": { "verdict": "nerf", "impact": 3, "summary": "Less mana regen, and no more free charges from the stash.", "why": "An Urn parked in your base was collecting charges from deaths near the fountain, including fights you were losing. It has to be carried to earn now.", "who": "Supports who bought it early and stashed it." },
-    "spirit_vessel": { "verdict": "nerf", "impact": 2, "summary": "No more stash charge farming.", "why": "Same loophole close as Urn. Passive top-ups during base defence are gone.", "who": "Late-game supports holding Vessel through base defences." },
-    "essence_distiller": { "verdict": "nerf", "impact": 2, "summary": "No more stash charge farming.", "why": "Same treatment as Urn and Spirit Vessel — all three fixed together, which is what makes it read as deliberate.", "who": "Anyone stashing it for passive charges." },
-    "skadi": { "verdict": "buff", "impact": 3, "summary": "Cold Attack attack speed slow up by a quarter.", "why": "It was already the go-to answer to a fed attacker. This makes it noticeably better at that job.", "who": "Anyone building it to shut down an enemy carry." },
-    "hand_of_midas": { "verdict": "buff", "impact": 2, "summary": "Five more attack speed.", "why": "A better hold after the charges are spent, in the awkward window before you'd normally sell it.", "who": "Mid-laners and farming cores." },
-    "abyssal_blade": { "verdict": "buff", "impact": 2, "summary": "Four more strength.", "why": "A clean durability gain on an already excellent item, with nothing given back.", "who": "Melee carries and initiators." },
-    "heavens_halberd": { "verdict": "buff", "impact": 1, "summary": "One second off the disarm cooldown.", "why": "Marginal, but a straight improvement to how often you shut down an attacking carry.", "who": "Anyone answering a right-click core." },
-    "shivas_guard": { "verdict": "buff", "impact": 2, "summary": "Cheaper recipe, same total cost — easier to build toward.", "why": "More gold sits in components you can use while building, instead of a recipe that does nothing until it completes. Easy to skim past as 'no change'.", "who": "Anyone building Shiva's — same item, friendlier path." },
-    "gungir": { "verdict": "buff", "impact": 2, "summary": "Cheaper recipe, same total cost — easier to build toward.", "why": "Same logic as Shiva's: less gold parked in a recipe, more in usable components.", "who": "Anyone building Gleipnir." },
-    "veil_of_discord": { "verdict": "buff", "impact": 2, "summary": "Spell Weakness costs half the mana.", "why": "Supports buy Veil, and supports are exactly who's feeling the Kaya regen nerfs. This pushes back.", "who": "Magic damage lineups and their supports." },
-    "orb_of_venom": { "verdict": "buff", "impact": 2, "summary": "Poison damage up 20%.", "why": "A real increase at the stage where health pools are small, so aggressive lane play with it got stronger.", "who": "Melee offlaners and aggressive supports." },
-    "orb_of_corrosion": { "verdict": "buff", "impact": 2, "summary": "More healing reduction.", "why": "Better at its core job of shutting down lane regen, which is the whole reason it gets bought.", "who": "Lane bullies." },
-    "orb_of_frost": { "verdict": "mixed", "impact": 2, "summary": "More healing reduction, and it stops misfiring on allies.", "why": "Stronger regen shutdown plus a fix that stops you debuffing your own units when denying. Both directions favour the holder.", "who": "Ranged laners." },
-    "hurricane_pike": { "verdict": "nerf", "impact": 2, "summary": "One second off the Hurricane Thrust buff.", "why": "A shorter attack range window after the active, compounding with the Drow Multishot change for ranged heroes buying range to extend abilities.", "who": "Ranged carries, especially Drow." },
-    "crellas_crozier": { "verdict": "buff", "impact": 2, "summary": "Longer speed steal, stronger aura effect.", "why": "Straightforward increases to the item's utility with no trade-off.", "who": "Support and utility builds." },
-    "chasm_stone": { "verdict": "nerf", "impact": 2, "summary": "100 gold more expensive.", "why": "A pure timing nerf — same item, later spike.", "who": "Anyone on its build path." },
-    "smoke_of_deceit": { "verdict": "nerf", "impact": 2, "summary": "Buff duration amplification no longer extends Smoke.", "why": "Closes an interaction where duration-boosting effects made smoke ganks last longer than intended.", "who": "Anyone stacking buff duration amplification." }
+    "butterfly": {
+      "verdict": "mixed",
+      "impact": 4,
+      "summary": "Worse on agility carries, better on everyone else.",
+      "why": "Those 5 agility were also armour and attack speed; the +5 damage only replaces the damage. On strength and intelligence heroes the agility was worth less, so the trade is a small gain.",
+      "who": "Agility carries lose; strength and int heroes buying it for evasion gain slightly."
+    },
+    "mask_of_madness": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Ranged heroes lost half their slow resistance; melee kept all of it.",
+      "why": "Slow resistance is what made MoM safe on a ranged carry — you take the damage amplification because you can kite. That window is now far more punishing.",
+      "who": "Clinkz, Sniper, Gyrocopter and ranged-stance Troll."
+    },
+    "kaya": {
+      "verdict": "nerf",
+      "impact": 5,
+      "summary": "The regen bonus itself shrank by a third.",
+      "why": "30% → 20% amplification is a third off Kaya's contribution, not a tenth. Spell amp and intelligence are untouched, so it's still a fine damage item.",
+      "who": "Every int core that treated Kaya as the end of their mana problems."
+    },
+    "kaya_and_sange": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Same regen cut as the rest of the line.",
+      "why": "A quarter of the bonus gone. Status resistance and spell amp are unchanged, so it remains a strong pickup — the sustain half just got worse.",
+      "who": "Hybrid cores like Doom, Legion Commander and Dragon Knight."
+    },
+    "yasha_and_kaya": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Same regen cut as the rest of the line.",
+      "why": "Movement speed, attack speed and spell amp survive intact. The sustain that made it comfortable on spell-spammers is a quarter weaker.",
+      "who": "Storm Spirit, Ember Spirit and similar mobile spell-spammers."
+    },
+    "meteor_hammer": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "The biggest regen cut in the line at 10 percentage points.",
+      "why": "A 29% reduction to the bonus. Supports often buy it as much for regen as for the channel, so it hits the secondary purpose hard.",
+      "who": "Supports who bought it partly for sustain."
+    },
+    "satanic": {
+      "verdict": "nerf",
+      "impact": 5,
+      "summary": "One Unholy Rage per fight instead of two.",
+      "why": "A 33% cooldown increase on the most reliable 'don't die' button a carry can hold — and it bites hardest in the long fights where unkillable carries decided games.",
+      "who": "Every right-click carry, lifestealing melee most of all."
+    },
+    "refresher_shard": {
+      "verdict": "nerf",
+      "impact": 4,
+      "summary": "Stripped of all its stats — it only does the thing now.",
+      "why": "It was quietly a stat stick that also refreshed. If you were buying it partly for the passive value while you waited, that reason is gone.",
+      "who": "Anyone who slotted it early for the stats."
+    },
+    "rapier": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Double Rapier spell amp no longer stacks.",
+      "why": "Closes a degenerate stack. The damage still stacks — only the spell amp was capped.",
+      "who": "Late-game spell-damage cheese builds."
+    },
+    "urn_of_shadows": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Less mana regen, and no more free charges from the stash.",
+      "why": "An Urn parked in your base was collecting charges from deaths near the fountain, including fights you were losing. It has to be carried to earn now.",
+      "who": "Supports who bought it early and stashed it."
+    },
+    "spirit_vessel": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "No more stash charge farming.",
+      "why": "Same loophole close as Urn. Passive top-ups during base defence are gone.",
+      "who": "Late-game supports holding Vessel through base defences."
+    },
+    "essence_distiller": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "No more stash charge farming.",
+      "why": "Same treatment as Urn and Spirit Vessel — all three fixed together, which is what makes it read as deliberate.",
+      "who": "Anyone stashing it for passive charges."
+    },
+    "skadi": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Cold Attack attack speed slow up by a quarter.",
+      "why": "It was already the go-to answer to a fed attacker. This makes it noticeably better at that job.",
+      "who": "Anyone building it to shut down an enemy carry."
+    },
+    "hand_of_midas": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Five more attack speed.",
+      "why": "A better hold after the charges are spent, in the awkward window before you'd normally sell it.",
+      "who": "Mid-laners and farming cores."
+    },
+    "abyssal_blade": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Four more strength.",
+      "why": "A clean durability gain on an already excellent item, with nothing given back.",
+      "who": "Melee carries and initiators."
+    },
+    "heavens_halberd": {
+      "verdict": "buff",
+      "impact": 1,
+      "summary": "One second off the disarm cooldown.",
+      "why": "Marginal, but a straight improvement to how often you shut down an attacking carry.",
+      "who": "Anyone answering a right-click core."
+    },
+    "shivas_guard": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Cheaper recipe, same total cost — easier to build toward.",
+      "why": "More gold sits in components you can use while building, instead of a recipe that does nothing until it completes. Easy to skim past as 'no change'.",
+      "who": "Anyone building Shiva's — same item, friendlier path."
+    },
+    "gungir": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Cheaper recipe, same total cost — easier to build toward.",
+      "why": "Same logic as Shiva's: less gold parked in a recipe, more in usable components.",
+      "who": "Anyone building Gleipnir."
+    },
+    "veil_of_discord": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Spell Weakness costs half the mana.",
+      "why": "Supports buy Veil, and supports are exactly who's feeling the Kaya regen nerfs. This pushes back.",
+      "who": "Magic damage lineups and their supports."
+    },
+    "orb_of_venom": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Poison damage up 20%.",
+      "why": "A real increase at the stage where health pools are small, so aggressive lane play with it got stronger.",
+      "who": "Melee offlaners and aggressive supports."
+    },
+    "orb_of_corrosion": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "More healing reduction.",
+      "why": "Better at its core job of shutting down lane regen, which is the whole reason it gets bought.",
+      "who": "Lane bullies."
+    },
+    "orb_of_frost": {
+      "verdict": "mixed",
+      "impact": 2,
+      "summary": "More healing reduction, and it stops misfiring on allies.",
+      "why": "Stronger regen shutdown plus a fix that stops you debuffing your own units when denying. Both directions favour the holder.",
+      "who": "Ranged laners."
+    },
+    "hurricane_pike": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "One second off the Hurricane Thrust buff.",
+      "why": "A shorter attack range window after the active, compounding with the Drow Multishot change for ranged heroes buying range to extend abilities.",
+      "who": "Ranged carries, especially Drow."
+    },
+    "crellas_crozier": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Longer speed steal, stronger aura effect.",
+      "why": "Straightforward increases to the item's utility with no trade-off.",
+      "who": "Support and utility builds."
+    },
+    "chasm_stone": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "100 gold more expensive.",
+      "why": "A pure timing nerf — same item, later spike.",
+      "who": "Anyone on its build path."
+    },
+    "smoke_of_deceit": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Buff duration amplification no longer extends Smoke.",
+      "why": "Closes an interaction where duration-boosting effects made smoke ganks last longer than intended.",
+      "who": "Anyone stacking buff duration amplification."
+    }
   },
-
   "neutrals": {
-    "foragers_kit": { "verdict": "buff", "impact": 2, "summary": "Forage time down 25%.", "why": "Meaningfully faster over the many times you'll use it in a game." },
-    "conjurers_catalyst": { "verdict": "nerf", "impact": 2, "summary": "Weaker against non-heroes, and the illusion interaction was tightened.", "why": "A third off its farming value, plus the illusion threshold now counts only pre-amplification damage." },
-    "enchanters_bauble": { "verdict": "nerf", "impact": 1, "summary": "Recraft bonus down 5 percentage points.", "why": "A small trim to a tier 3 item's main effect." },
-    "enhancement_greedy": { "verdict": "nerf", "impact": 3, "summary": "Meaningfully less gold per minute.", "why": "A 10-13% cut to the enchantment's entire purpose. If you picked Greedy for farm acceleration, that maths just got worse." },
-    "enhancement_feverish": { "verdict": "mixed", "impact": 3, "summary": "The drawback changed shape — much worse for casters.", "why": "A 20% smaller mana pool is far more punishing for a caster needing a full combo than a 7% cost increase ever was. Mild for heroes who barely use mana. Re-evaluate per hero." },
-    "heavy_blade": { "verdict": "buff", "impact": 3, "summary": "Witchbane cleanses 25% more often.", "why": "A solid increase in dispel frequency, which matters a lot in fights with repeated debuff application." }
+    "foragers_kit": {
+      "verdict": "buff",
+      "impact": 2,
+      "summary": "Forage time down 25%.",
+      "why": "Meaningfully faster over the many times you'll use it in a game."
+    },
+    "conjurers_catalyst": {
+      "verdict": "nerf",
+      "impact": 2,
+      "summary": "Weaker against non-heroes, and the illusion interaction was tightened.",
+      "why": "A third off its farming value, plus the illusion threshold now counts only pre-amplification damage."
+    },
+    "enchanters_bauble": {
+      "verdict": "nerf",
+      "impact": 1,
+      "summary": "Recraft bonus down 5 percentage points.",
+      "why": "A small trim to a tier 3 item's main effect."
+    },
+    "enhancement_greedy": {
+      "verdict": "nerf",
+      "impact": 3,
+      "summary": "Meaningfully less gold per minute.",
+      "why": "A 10-13% cut to the enchantment's entire purpose. If you picked Greedy for farm acceleration, that maths just got worse."
+    },
+    "enhancement_feverish": {
+      "verdict": "mixed",
+      "impact": 3,
+      "summary": "The drawback changed shape — much worse for casters.",
+      "why": "A 20% smaller mana pool is far more punishing for a caster needing a full combo than a 7% cost increase ever was. Mild for heroes who barely use mana. Re-evaluate per hero."
+    },
+    "heavy_blade": {
+      "verdict": "buff",
+      "impact": 3,
+      "summary": "Witchbane cleanses 25% more often.",
+      "why": "A solid increase in dispel frequency, which matters a lot in fights with repeated debuff application."
+    }
   }
 }

@@ -56,7 +56,10 @@ winnable again" is the product. Always push one step past the obvious reading.
 **Keep it short. This is the rule most likely to slip.** The reader is busy — that is the
 entire premise of the product. Budgets, enforced by taste not tooling:
 
-- theme `title` — 5-8 words. It is the whole card when collapsed, so it has to land alone.
+- theme `title` — 5-9 words, **plain and literal**. Say what changed, with the number where
+  there is one: "Kaya's mana regen drops from 30% to 20%", not "the Kaya line's mana regen cut
+  by a third". No wordplay, no "trimmed four ways", no jargon like "flattened" — if a reader has
+  to decode the headline, it has failed. Name the hero or item so it reads standalone.
 - theme `punch` — `{stat, dir}`. `stat` is unused in the UI now but `dir` drives the brief
   filter and colours the first bite, so keep it accurate.
 - theme `bites[]` — **2-4 concrete facts, 3-6 words each.** These sit on the collapsed row and
@@ -64,6 +67,10 @@ entire premise of the product. Budgets, enforced by taste not tooling:
   (`Satanic 30s → 40s`), hero names where the change is behavioural
   (`Troll, Zeus, Elder Titan`). Never a sentence — a bite that needs a verb is too long.
 - theme `why` — 2-3 sentences, ~40 words. Lead with the consequence.
+- `severity` drives which of the three tiers a headline lands in: `major` → "The big changes",
+  `notable` → "Worth knowing about", `minor` → "The rest of the patch". **There is no target
+  number of headlines.** Anything genuinely noteworthy gets its own row; never bundle several
+  unrelated changes into one card to keep the count down. 7.41e has 15.
 - hero and item `why` — 1-2 sentences, ~20 words.
 - `summary` — one line, always.
 - `do[]` — the most valued part. Keep these, keep them imperative, keep them concrete.
