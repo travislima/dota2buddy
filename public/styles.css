@@ -2045,3 +2045,14 @@ details.verbatim .body { padding: 2px 18px 16px; }
 .modal-foot #picker-count { margin-right: auto; }
 .link-btn.danger { color: var(--text-faint); }
 .link-btn.danger:hover { color: var(--dire); }
+
+/* The tagline is longer than a phone header can hold on one line. Wrapping to
+   two beats an ellipsis that cuts it mid-word. */
+@media (max-width: 560px) {
+  .brand-text em {
+    white-space: normal;
+    line-height: 1.25;
+    font-size: 11px;
+  }
+  .brand-text { max-width: 46vw; }
+}
