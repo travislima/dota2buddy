@@ -281,7 +281,14 @@ divide `scrollHeight` by `innerHeight`.
   `heroes_picked`, `signup`, `expand_all`, `filter_*`.
 
 The signup is a promise. While `endpoint` is null it says plainly nothing is connected. It renders
-inline in the "you're caught up" banner *or* as a card at the foot — never both.
+inline in the "you're caught up" banner *or* as a card at the foot — never both — and `signupEarned()`
+withholds it entirely until the site has been useful: three headlines opened, or a return visit.
+Don't ask a first-timer who has read nothing.
+
+`renderIntro()` is the only thing a first-timer reads before deciding whether to stay. It has to
+answer "what is this, why do I care" in one line and point at the personalisation, because that's
+the one feature nothing else has — and without it the site presents as just another patch summary.
+It retires permanently once heroes are picked or it's dismissed.
 
 ---
 

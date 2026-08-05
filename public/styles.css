@@ -1981,3 +1981,26 @@ details.verbatim .body { padding: 2px 18px 16px; }
 .compare-list a { color: var(--accent-soft); border-bottom: 1px solid rgba(227, 196, 105, .25); }
 .compare-list a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .compare-list span { color: var(--text-faint); }
+
+/* First-visit strip: what this is, and the one thing nobody else does. */
+.intro {
+  position: relative;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 2px;
+  padding: 14px 44px 14px 16px;
+  background: linear-gradient(100deg, rgba(201,162,39,.09), rgba(0,0,0,0) 46%), var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+.intro p { margin: 0; flex: 1 1 320px; font-size: 14.5px; line-height: 1.5; color: var(--text-dim); }
+.intro b { color: var(--text-bright); font-weight: 600; }
+.intro .btn-primary { flex: none; }
+.intro .dismiss {
+  position: absolute; top: 8px; right: 10px;
+  background: none; border: 0;
+  color: var(--text-faint);
+  font-size: 19px; line-height: 1;
+  cursor: pointer; padding: 3px 7px;
+}
+.intro .dismiss:hover { color: var(--text); }

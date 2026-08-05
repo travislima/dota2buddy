@@ -257,6 +257,8 @@ function renderBrief() {
   const themes = filtering ? all.filter((t) => dirOf(t) === state.themeFilter) : all;
 
   app.innerHTML = `
+    ${renderIntro()}
+
     ${renderWelcome(unread, all.length)}
 
     ${renderGlance(v, all.length)}
@@ -293,7 +295,7 @@ function renderBrief() {
 
     ${renderCreators()}
 
-    ${signupShownInline(unread) ? '' : renderJoin()}
+    ${signupShownInline(unread) || !signupEarned(unread) ? '' : renderJoin()}
   `;
 
   attachBriefHandlers();
@@ -368,6 +370,25 @@ function renderGlance(v, themeCount) {
     </section>`;
 }
 
+/**
+ * The only thing a first-timer reads before deciding whether to stay. It has to
+ * answer "what is this and why do I care" in one line, and point at the one
+ * feature nothing else has. Disappears for good once you've picked heroes or
+ * dismissed it.
+ */
+function renderIntro() {
+  if (store.heroes.length || store.isDismissed('intro')) return '';
+  return `
+    <div class="intro">
+      <button class="dismiss" data-dismiss="intro" aria-label="Dismiss">×</button>
+      <p>
+        <b>Every hero and item Valve changed, in about a minute.</b>
+        Pick the heroes you play and this page leads with just yours.
+      </p>
+      <button class="btn-primary" data-open-picker>Pick my heroes</button>
+    </div>`;
+}
+
 /** A short line that only appears when it has something to say. */
 function renderWelcome(unread, total) {
   if (state.isNewPatch) {
@@ -389,6 +410,17 @@ function renderWelcome(unread, total) {
     </div>`;
   }
   return '';
+}
+
+/**
+ * Only ask for an email once the site has actually been useful — three headlines
+ * opened, or a return visit. Asking a first-timer who has read nothing is asking
+ * before giving.
+ */
+function signupEarned(unread) {
+  if (store.joined) return true;              // still render the confirmation
+  if (state.previousVisit) return true;       // they came back, that's earned
+  return store.readCount >= 3;
 }
 
 /** True when the caught-up banner is already carrying the signup. */
@@ -510,6 +542,14 @@ function renderMethod() {
           </ul>
         </details>`;
       }).join('')}
+    </div>
+
+    <div class="section-head"><h2>Patches covered</h2></div>
+    <div class="callout">
+      <strong>${esc(b?.patch ?? '')} is the first patch we've covered</strong> — this started the
+      week it shipped. Every patch from here on gets the same treatment, and this list grows
+      into an archive. If you want a nudge when the next one lands, there's a signup at the
+      bottom of the <a href="#/" style="color:var(--accent-soft)">Brief</a>.
     </div>
 
     <div class="section-head"><h2>Where the information comes from</h2></div>
