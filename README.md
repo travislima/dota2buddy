@@ -1,4 +1,4 @@
-# Dota Buddy
+# Dota 2 Buddy
 
 Dota 2 patch notes, distilled into what actually matters — and why.
 

@@ -1,4 +1,4 @@
-# Dota Buddy — the build guide
+# Dota 2 Buddy — the build guide
 
 Read this before touching anything. It is the accumulated result of a lot of specific feedback,
 and most of the rules here exist because an earlier version got it wrong.
