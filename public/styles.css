@@ -1166,6 +1166,14 @@ body {
   color: var(--text-faint);
   border-bottom: 2px solid transparent;
 }
+/* Five tabs need 523px and a phone gives 375, so Method sat entirely off-screen
+   with nothing to say it was there. Tighten the tracking and padding until they
+   fit rather than relying on a horizontal scroll nobody can see. */
+@media (max-width: 560px) {
+  .tabs { gap: 0; padding-left: 6px; padding-right: 6px; }
+  .tabs a { padding: 13px 8px 11px; font-size: 11px; letter-spacing: .06em; }
+}
+
 .tabs a:hover { color: #c8c2b4; }
 .tabs a.active {
   color: var(--text-bright);

@@ -136,11 +136,11 @@
         },
         {
           "source": "Elder Titan — Astral Spirit",
-          "text": "Return and Move sub-abilities no longer break invisibility when used"
+          "text": "Return Astral Spirit and Move Astral Spirit sub-abilities no longer break Elder Titan's invisibility when used"
         },
         {
           "source": "Visage — Stone Form",
-          "text": "No longer breaks invisibility when used to order Familiars to execute"
+          "text": "No longer breaks Visage's invisibility when used to order Familiars to execute"
         },
         {
           "source": "Medusa — Split Shot",
@@ -287,7 +287,7 @@
         },
         {
           "source": "Templar Assassin — Psionic Projection",
-          "text": "Can now be interrupted by root"
+          "text": "Can now be now interrupted by root"
         },
         {
           "source": "Sniper — Concussive Grenade",
@@ -358,7 +358,11 @@
         },
         {
           "source": "Butterfly",
-          "text": "Agility bonus decreased from +35 to +30; Damage bonus increased from +25 to +30"
+          "text": "Agility bonus decreased from +35 to +30"
+        },
+        {
+          "source": "Butterfly",
+          "text": "Damage bonus increased from +25 to +30"
         },
         {
           "source": "Spectre — Haunt",
@@ -1204,7 +1208,7 @@
       "verdict": "buff",
       "impact": 2,
       "summary": "Better attack scaling per level.",
-      "why": "More agility and damage every level. By level 25 that's roughly 1.25 extra armour and 7 attack speed — small each level, real by the end.",
+      "why": "More agility and damage every level. By level 25 that's roughly 1.2 extra armour and 7 attack speed — small each level, real by the end.",
       "play": [
         "Her right-click contribution grows faster now."
       ]

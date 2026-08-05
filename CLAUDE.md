@@ -182,7 +182,11 @@ link, say so — "no source to link" is more credible than a gap.
 someone to test your own conclusion is research and is encouraged. Copying is not, ever.
 
 - **Facts aren't copyrightable.** "Satanic 30s → 40s" is free. Every number chip is fine.
-- **Valve's patch text** is quoted verbatim under a disclosure and labelled as theirs.
+- **Valve's patch text** is quoted verbatim under a disclosure and labelled as theirs. *Verbatim
+  means verbatim* — don't trim a hero's name out of a line, don't fix their typos, don't join two
+  lines with a semicolon. Four lines had been tidied that way; the facts were right but the label
+  promised their words. `npm run validate` now diffs every `changes[].text` against the raw feed
+  and fails on any that don't match.
 - **Liquipedia** is CC-BY-SA 3.0 — reusable with attribution *and* share-alike (your derivative
   takes the same licence). Their images are separately licensed.
 - **Other analysts** get linked and characterised in our words, never quoted at length.

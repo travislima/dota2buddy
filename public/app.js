@@ -48,13 +48,22 @@ const fmtDate = (iso) => new Date(iso).toLocaleDateString(undefined, {
   day: 'numeric', month: 'short', year: 'numeric',
 });
 
+/* Calendar days, not elapsed hours. The raw file's `released` carries a time
+   (07:00Z) and the brief's is a bare date, so diffing milliseconds put the same
+   patch at "6 days ago" in the header and "7 days ago" in the panel below it. */
+const midnightUTC = (d) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+
 const daysAgo = (iso) => {
-  const d = Math.round((Date.now() - new Date(iso)) / 86400000);
+  const d = Math.round((midnightUTC(new Date()) - midnightUTC(new Date(iso))) / 86400000);
   if (d <= 0) return 'today';
   if (d === 1) return 'yesterday';
   if (d < 30) return `${d} days ago`;
   return fmtDate(iso);
 };
+
+/* meta.json stores rates as numbers, so `+(13.30).toFixed(2)` came back 13.3 and
+   the cards mixed one and two decimals. Format at render, not at storage. */
+const pct = (n) => (typeof n === 'number' ? n.toFixed(2) : '–');
 
 const impactDots = (n = 0) =>
   `<span class="impact ${n >= 4 ? 'hi' : ''}">${
@@ -627,7 +636,9 @@ function renderForYou() {
 
     ${mine.length
       ? `<div class="grid">${mine.map(heroCard).join('')}</div>`
-      : `<div class="welcome done">None of your ${picked.length} heroes were touched this patch.
+      : `<div class="welcome done">${picked.length === 1
+            ? 'Your hero wasn\'t touched this patch.'
+            : `None of your ${picked.length} heroes were touched this patch.`}
            Nothing to relearn.</div>`}
 
     ${untouched > 0 && mine.length
@@ -996,8 +1007,8 @@ function heroCard(h) {
       </div>
       <p class="entity-summary">${rich(b?.summary ?? `${lineCount(h)} change${lineCount(h) === 1 ? '' : 's'} — not written up yet`)}</p>
       ${m ? `<div class="entity-stats">
-        <span><b>${m.high.winrate ?? '–'}%</b> win</span>
-        <span><b>${m.all.pickrate ?? '–'}%</b> picked</span>
+        <span><b>${pct(m.high.winrate)}%</b> win</span>
+        <span><b>${pct(m.all.pickrate)}%</b> picked</span>
       </div>` : ''}
     </div>
   </a>`;
@@ -1168,9 +1179,9 @@ function renderHeroDetail(key) {
 
     ${m ? `
       <div class="statline">
-        <div class="stat"><span>Win rate</span><b>${m.high.winrate ?? '–'}<small>%</small></b></div>
-        <div class="stat"><span>Pick rate</span><b>${m.all.pickrate ?? '–'}<small>%</small></b></div>
-        <div class="stat"><span>All brackets</span><b>${m.all.winrate ?? '–'}<small>%</small></b></div>
+        <div class="stat"><span>Win rate</span><b>${pct(m.high.winrate)}<small>%</small></b></div>
+        <div class="stat"><span>Pick rate</span><b>${pct(m.all.pickrate)}<small>%</small></b></div>
+        <div class="stat"><span>All brackets</span><b>${pct(m.all.winrate)}<small>%</small></b></div>
         <div class="stat"><span>Pro picks</span><b>${m.pro.picks ?? 0}</b></div>
       </div>` : ''}
 

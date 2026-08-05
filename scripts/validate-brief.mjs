@@ -49,5 +49,33 @@ for (const t of brief.themes ?? []) {
   }
 }
 
+/* Every line in `changes[]` is shown to the reader as Valve's own words, so it
+   has to be exactly that. Four had been tidied — a name trimmed, a typo fixed,
+   two lines joined with a semicolon. The facts were right, but the label said
+   verbatim, so the text has to be verbatim. Cheaper to enforce than to re-audit. */
+const valveLines = new Set();
+(function walk(node) {
+  if (Array.isArray(node)) return node.forEach(walk);
+  if (node && typeof node === 'object') {
+    if (typeof node.text === 'string') valveLines.add(node.text.trim());
+    Object.values(node).forEach(walk);
+  }
+}(raw));
+
+const paraphrased = [];
+for (const t of brief.themes ?? []) {
+  for (const c of t.changes ?? []) {
+    if (!valveLines.has((c.text ?? '').trim())) paraphrased.push(`${t.id}: "${c.text}"`);
+  }
+}
+console.log(`\nVerbatim quotes (${(brief.themes ?? []).flatMap((t) => t.changes ?? []).length} checked)`);
+if (paraphrased.length) {
+  console.log(`  NOT IN VALVE'S FEED (${paraphrased.length}):`);
+  for (const p of paraphrased) console.log(`    ${p}`);
+  problems.push(`${paraphrased.length} quoted line(s) not verbatim`);
+} else {
+  console.log('  ✓ every quoted line matches the feed exactly');
+}
+
 console.log(`\n${problems.length ? `✗ ${problems.length} problem(s)` : '✓ brief is complete and consistent'}`);
 process.exit(problems.length ? 1 : 0);
