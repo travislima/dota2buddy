@@ -102,6 +102,15 @@ function verdictCounts(list, lookup) {
 
 const VERDICT_ORDER = ['nerf', 'buff', 'mixed', 'qol', 'rework'];
 
+/* How well a conclusion survived being checked against independent coverage.
+   Stated per headline so a reader can weight it, rather than trusting the lot. */
+const AGREEMENT_LABEL = {
+  corroborated: 'Other analysts agree',
+  partial: 'Mentioned elsewhere, not analysed',
+  ours: 'Our own reading',
+  disputed: 'We disagree with other coverage',
+};
+
 /** Count of changed lines, used when a hero has no write-up yet. */
 const lineCount = (h) =>
   realNotes(h.notes).length + (h.abilities ?? []).reduce((s, a) => s + realNotes(a.notes).length, 0)
@@ -192,6 +201,7 @@ function route() {
     case 'items': renderItems(); break;
     case 'item': renderItemDetail(arg); break;
     case 'notes': renderNotes(); break;
+    case 'method': renderMethod(); break;
     case 'theme': renderBrief(); break;
     default: renderBrief();
   }
@@ -270,6 +280,8 @@ function renderBrief() {
 
         ${themes.filter((t) => (t.rank ?? 99) > 3).map(renderHeadline).join('')}`}
 
+
+    ${renderBeyond()}
 
     ${renderCreators()}
 
@@ -408,6 +420,97 @@ function renderCreators() {
         </div>`).join('')}
     </div>
     ${c.checked ? `<p class="aside">Links checked ${esc(fmtDate(c.checked))}.</p>` : ''}
+  `;
+}
+
+/** Shipped with the patch but absent from Valve's gameplay notes feed. */
+function renderBeyond() {
+  const b = state.brief?.beyond_gameplay;
+  if (!b?.items?.length) return '';
+  return `
+    <div class="section-head">
+      <h2>Also in this patch</h2>
+      <span class="hint">${esc(b.note ?? '')}</span>
+    </div>
+    <div class="grid">
+      ${b.items.map((i) => `
+        <div class="beyond">
+          <strong>${esc(i.title)}</strong>
+          <p>${esc(i.what)}</p>
+          <p class="beyond-why">${esc(i.why)}</p>
+          <span class="beyond-src">via ${esc(i.source)}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+/* ---------- view: method ---------- */
+
+function renderMethod() {
+  const b = state.brief;
+  const counts = (b?.themes ?? []).reduce((acc, t) => {
+    const k = t.agreement?.level ?? 'ours';
+    acc[k] = (acc[k] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  app.innerHTML = `
+    <div class="section-head">
+      <h2>How this is put together</h2>
+      <span class="hint">So you can judge it rather than trust it</span>
+    </div>
+
+    <div class="callout">
+      Every number here comes from Valve's own patch file. The judgement about what a change
+      <em>means</em> is ours, and we check it against people who analyse the patch independently.
+      Where we're the only ones saying something, we say so.
+    </div>
+
+    <div class="section-head"><h2>The process</h2></div>
+    <ol class="method-steps">
+      <li><b>Read the whole diff.</b> Every changed hero and item, in one pass. The themes only
+        appear when you see all of it at once — six heroes getting the same invisibility fix
+        sit forty lines apart in the official notes.</li>
+      <li><b>Do the arithmetic, then check the inputs.</b> Rescales hide their direction. Base
+        values come from Liquipedia, not memory — that's where our one published error came from.</li>
+      <li><b>Ground it in live data.</b> Pick and win rates from OpenDota, printed on the card so
+        you can check the claim against the number.</li>
+      <li><b>Test it against other coverage.</b> We read independent analyses and record whether
+        they reached the same conclusion. We never reproduce their words.</li>
+      <li><b>Label the confidence.</b> Mechanics and arithmetic are checkable. How the meta
+        responds is a prediction, and is marked as one.</li>
+    </ol>
+
+    <div class="section-head">
+      <h2>How the headlines held up</h2>
+      <span class="hint">${(b?.themes ?? []).length} headlines, checked against independent coverage</span>
+    </div>
+    <div class="grid">
+      ${Object.entries(AGREEMENT_LABEL).map(([k, label]) => counts[k] ? `
+        <div class="agreement ${esc(k)} standalone">
+          <b>${esc(label)}</b>
+          <span>${counts[k]} of ${b.themes.length}</span>
+        </div>` : '').join('')}
+    </div>
+
+    <div class="section-head"><h2>Where it all comes from</h2></div>
+    <div class="grid">
+      ${(b?.sources ?? []).map((src) => `
+        <div class="creator">
+          <div class="creator-head">
+            <strong>${esc(src.name)}</strong>
+            <a class="link-btn" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">Open →</a>
+          </div>
+          <p class="creator-what">${esc(src.role)}</p>
+          ${src.licence ? `<p class="creator-status">${esc(src.licence)}</p>` : ''}
+        </div>`).join('')}
+    </div>
+
+    <div class="callout" style="margin-top:18px">
+      <strong>What we don't do.</strong> We don't reproduce anyone's writing, and we never put
+      words in a named person's mouth. Other people's analysis is linked, not summarised. Valve's
+      patch text is quoted verbatim and labelled as theirs. If we're wrong about something,
+      it's our error to fix — tell us and we will.
+    </div>
   `;
 }
 
@@ -749,6 +852,12 @@ function renderHeadline(t) {
 
       <div class="why-label">Why it matters</div>
       <p class="why">${rich(t.why)}</p>
+
+      ${t.agreement ? `
+        <div class="agreement ${esc(t.agreement.level)}">
+          <b>${esc(AGREEMENT_LABEL[t.agreement.level] ?? t.agreement.level)}</b>
+          <span>${esc(t.agreement.note)}</span>
+        </div>` : ''}
 
       ${(t.do ?? []).length ? `
         <div class="do-list">

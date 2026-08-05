@@ -172,6 +172,30 @@ Before publishing any calculated claim, verify every input against
 other people's analysis to test your own conclusions is research and is encouraged — reproducing
 their words is not, and never is.
 
+## Corroborate, don't copy
+
+After writing the brief, read two or three independent analyses of the same patch and record
+how each headline held up in `theme.agreement`:
+
+- `corroborated` — someone else independently reached the same conclusion
+- `partial` — mentioned elsewhere but not analysed; the reading is ours
+- `ours` — nobody else flagged it (fine, but say so)
+- `disputed` — other coverage disagrees. Keep our view if we can defend it, and show theirs.
+
+This is research, not sourcing material. **Never reproduce another writer's words or
+paraphrase their analysis closely.** Read them, test our conclusion, write our own. The
+`agreement.note` describes what they concluded in our words and names them, which is citation.
+
+For 7.41e that gave 7 corroborated, 3 partial, 2 ours, 1 disputed — a useful honesty signal,
+and it caught that our top-ranked headline had no independent support.
+
+## Valve's feed is not the whole patch
+
+`patchnotes` carries gameplay notes only. 7.41e also shipped a soft ranked reset and a ~200-bug
+Summer Scrub, and neither appears anywhere in our data — for a lot of players the reset was the
+biggest thing in the patch. Always check general patch coverage for what shipped alongside, and
+put it in `beyond_gameplay` with a source.
+
 ## Claims have to be backed by something
 
 "Most likely to show up against you" is ranked by **pick rate from `meta.json`**, and the number

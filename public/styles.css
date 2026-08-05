@@ -1870,3 +1870,63 @@ details.verbatim .body { padding: 2px 18px 16px; }
   border-bottom: 1px solid rgba(227, 196, 105, .3);
 }
 .creator-extra:hover { color: var(--accent); }
+
+/* How well a conclusion held up against independent coverage. */
+.agreement {
+  display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  background: var(--inset);
+  border-left: 2px solid var(--line-strong);
+  font-size: 12.5px; line-height: 1.5;
+}
+.agreement b {
+  font-family: var(--display);
+  font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.agreement span { color: var(--text-faint); }
+.agreement.corroborated { border-left-color: var(--buff); }
+.agreement.corroborated b { color: var(--buff); }
+.agreement.partial { border-left-color: var(--mixed); }
+.agreement.partial b { color: var(--mixed); }
+.agreement.ours { border-left-color: var(--accent); }
+.agreement.ours b { color: var(--accent); }
+.agreement.disputed { border-left-color: var(--nerf); }
+.agreement.disputed b { color: var(--nerf); }
+.agreement.standalone {
+  flex-direction: column; gap: 4px;
+  margin: 0; padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-left-width: 3px;
+}
+.agreement.standalone span { font-size: 15px; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* Shipped with the patch but outside the gameplay notes. */
+.beyond {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--qol);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.beyond strong {
+  font-family: var(--display);
+  font-size: 14px; font-weight: 600; letter-spacing: .02em;
+  color: var(--text-bright);
+  display: block; margin-bottom: 6px;
+}
+.beyond p { margin: 0 0 7px; font-size: 13.5px; line-height: 1.45; color: var(--text-dim); }
+.beyond-why { color: var(--text-faint) !important; font-size: 12.5px !important; }
+.beyond-src {
+  font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Method page */
+.method-steps { margin: 0; padding-left: 20px; }
+.method-steps li {
+  font-size: 14.5px; line-height: 1.6; color: var(--text-dim);
+  margin-bottom: 11px;
+}
+.method-steps b { color: var(--text); font-weight: 600; }

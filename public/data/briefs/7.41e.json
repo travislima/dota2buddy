@@ -11,6 +11,64 @@
     "biggest_winner": "Shadow Blade buyers — six heroes can now toggle without breaking invisibility."
   },
 
+  "beyond_gameplay": {
+    "note": "Shipped with 7.41e but absent from Valve's gameplay notes feed, so it isn't in the lists above. Found while cross-checking other coverage.",
+    "items": [
+      {
+        "title": "Soft ranked reset",
+        "what": "Immortal matchmaking was recalculated, moving players into a 1–9,500 MMR band where some had previously sat as high as 17,000.",
+        "why": "For anyone near the top this is the most consequential thing in the patch, and it has nothing to do with heroes.",
+        "source": "win.gg"
+      },
+      {
+        "title": "Summer Scrub 2026",
+        "what": "Roughly 200 bug fixes and quality-of-life changes shipped alongside the balance pass.",
+        "why": "Individually small, but it's where several long-standing interaction bugs were finally fixed.",
+        "source": "win.gg"
+      },
+      {
+        "title": "TI15 content",
+        "what": "Predictions, Fantasy and Supporter Bundles for The International 15.",
+        "why": "No gameplay effect — listed so the picture is complete.",
+        "source": "win.gg"
+      }
+    ]
+  },
+
+  "sources": [
+    {
+      "name": "Valve — official 7.41e notes",
+      "url": "https://www.dota2.com/patches/7.41e",
+      "role": "The changes themselves. Every number and quoted line comes from here."
+    },
+    {
+      "name": "Liquipedia",
+      "url": "https://liquipedia.net/dota2",
+      "role": "Base hero and item values the arithmetic depends on — attack ranges, item bonuses, attribute ratios.",
+      "licence": "Text is CC-BY-SA 3.0."
+    },
+    {
+      "name": "OpenDota",
+      "url": "https://www.opendota.com",
+      "role": "Pick and win rates by skill bracket, printed on every hero card."
+    },
+    {
+      "name": "Dota2ProTips",
+      "url": "https://www.dota2protips.com/blog/patch-7-41e-overview",
+      "role": "Independent 7.41e analysis, read to test our conclusions against someone else's."
+    },
+    {
+      "name": "win.gg",
+      "url": "https://win.gg/dota-2s-ti-patch-7-41e/",
+      "role": "Patch coverage beyond the gameplay notes — the ranked reset and Summer Scrub."
+    },
+    {
+      "name": "CyberScore",
+      "url": "https://cyberscore.live/en/news/meta-report-hero-changes-patch-7-41e/",
+      "role": "Win-rate movement since the patch went live."
+    }
+  ],
+
   "creators": {
     "checked": "2026-08-05",
     "note": "Links to other people's work, in their words. Nothing here is summarised or paraphrased by us.",
@@ -59,6 +117,7 @@
         { "source": "Medusa — Split Shot", "text": "Toggling on/off no longer breaks invisibility and can be done while silenced" },
         { "source": "Muerta — Gunslinger", "text": "Toggling on/off no longer breaks invisibility" }
       ],
+      "agreement": { "level": "ours", "note": "No source we read singled this out. It's our own reading of the diff — six separate lines that only look like a pattern side by side." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -90,6 +149,7 @@
         { "source": "Yasha and Kaya", "text": "Mana Regen Amplification decreased from 40% to 30%" },
         { "source": "Urn of Shadows", "text": "Mana Regen bonus decreased from +1.25 to +1" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips groups the same four items and reaches the same conclusion." },
       "confidence": { "mechanics": "high", "meta": "high" }
     },
     {
@@ -120,6 +180,7 @@
         { "source": "Templar Assassin — Psionic Projection", "text": "Can now be interrupted by root" },
         { "source": "Sniper — Concussive Grenade", "text": "Can now be cast while rooted, but will not knock Sniper back if he is under the effect of root" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips: roots gain strategic value for punishing escapes and rotations." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -150,6 +211,7 @@
         { "source": "Butterfly", "text": "Agility bonus decreased from +35 to +30; Damage bonus increased from +25 to +30" },
         { "source": "Spectre — Haunt", "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips calls the Satanic cooldown one of the biggest item nerfs in the patch." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -177,6 +239,7 @@
         { "source": "Spirit Vessel", "text": "When in Stash, no longer grants charges from nearby hero deaths" },
         { "source": "Essence Distiller", "text": "When in Stash, no longer grants charges from nearby hero deaths" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips reads it the same way — an anti-cheese fix." },
       "confidence": { "mechanics": "high", "meta": "high" }
     },
     {
@@ -206,6 +269,7 @@
         { "source": "Legion Commander", "text": "Base Attack Speed increased from 100 to 105" },
         { "source": "Legion Commander", "text": "Strength gain decreased from 3.1 to 3.0" }
       ],
+      "agreement": { "level": "partial", "note": "Nobody we read discussed the level 25 Duel talent. CyberScore reports her pick rate falling, but attributes it to the strength nerf." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -233,6 +297,7 @@
         { "source": "Drow Ranger — Multishot", "text": "Mana Cost increased from 50/70/90/110 to 70/85/100/115" },
         { "source": "Drow Ranger — Multishot", "text": "Arrow Base Damage Bonus decreased from 100/120/140/160% to 80/100/120/140%" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips and win.gg both call Multishot severely nerfed. CyberScore reports she has since lost over 5% win rate." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -262,6 +327,7 @@
         { "source": "Clockwerk — Power Cogs", "text": "Cogs Travel Distance decreased from 1000 to 850/900/950/1000" },
         { "source": "Clockwerk — Power Cogs", "text": "Mana Burn decreased from 40/80/120/160 to 40/75/110/145" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips calls losing camp blocking huge for pro Dota — the same non-obvious use we flagged." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -287,6 +353,7 @@
         { "source": "Invoker — Ghost Walk", "text": "Duration decreased from 60s to 50s" },
         { "source": "Invoker — Ghost Walk", "text": "Aghanim's Shard no longer increases radius" }
       ],
+      "agreement": { "level": "partial", "note": "Mentioned in passing by Dota2ProTips, with no analysis attached. The reading is ours." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -313,6 +380,7 @@
         { "source": "Mask of Madness", "text": "Berserk movement speed bonus on ranged heroes decreased from 8% to 6%" },
         { "source": "Mask of Madness", "text": "Berserk now provides 15% slow resistance for ranged heroes and 30% for melee heroes, instead of 30% for any hero" }
       ],
+      "agreement": { "level": "corroborated", "note": "Dota2ProTips groups it under changes stacking up against ranged carries." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -338,6 +406,7 @@
         { "source": "Spectre — Haunt", "text": "Illusion Damage rescaled from 30/50/70% to 35/50/65%" },
         { "source": "Spectre", "text": "Level 25 Talent All Spectre Illusion Damage decreased from +15% to +12%" }
       ],
+      "agreement": { "level": "partial", "note": "Dota2ProTips lists it as an honourable mention only." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -364,6 +433,7 @@
         { "source": "Bane — Nightmare", "text": "Now completely disables the target's sight, instead of overriding the vision range value" },
         { "source": "Bane — Nightmare", "text": "Duration decreased from 3.5/4.5/5.5/6.5s to 3/4/5/6s" }
       ],
+      "agreement": { "level": "disputed", "note": "Dota2ProTips lists Bane as a straight loser and doesn't mention the sight change at all. We read it as mixed because total blindness is a real gain. Treat this one as our opinion." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     },
     {
@@ -391,6 +461,7 @@
         { "source": "Divine Rapier", "text": "Spell Amplification from multiple Divine Rapiers no longer stacks" },
         { "source": "Chaos Knight — Chaos Bolt", "text": "Bolt Speed increased from 700 to 900" }
       ],
+      "agreement": { "level": "ours", "note": "Our own grouping of three unrelated one-line changes." },
       "confidence": { "mechanics": "high", "meta": "medium" }
     }
   ],
