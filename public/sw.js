@@ -1,7 +1,7 @@
 /* Offline support: cache the shell, always try the network for data first so a
    freshly regenerated brief shows up without anyone clearing anything. */
 
-const VERSION = 'dota-buddy-v5';
+const VERSION = 'dota-buddy-v6';
 const SHELL = [
   './',
   'index.html',
@@ -15,9 +15,16 @@ const SHELL = [
 ];
 
 self.addEventListener('install', (event) => {
+  /* addAll() fetches through the HTTP cache, and GitHub Pages sends max-age=600.
+     So a worker installing within ten minutes of a deploy precached the *old*
+     app.js — and because that copy satisfied every later request, the stale code
+     survived reloads indefinitely. Same `cache: 'no-cache'` the fetch handler
+     already uses, for the same reason. */
   event.waitUntil(
     caches.open(VERSION)
-      .then((cache) => cache.addAll(SHELL))
+      .then((cache) => Promise.all(SHELL.map((url) =>
+        fetch(new Request(url, { cache: 'no-cache' }))
+          .then((res) => (res.ok ? cache.put(url, res) : null)))))
       .then(() => self.skipWaiting())
   );
 });

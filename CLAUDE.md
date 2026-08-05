@@ -312,6 +312,11 @@ divide `scrollHeight` by `innerHeight`.
 - The feed contains literal `<br>` rows and blank notes. `realNotes()` filters them.
 - GitHub Pages sends `max-age=600`, so the service worker fetches with `cache: 'no-cache'`.
   Without it, a returning visitor gets fresh JSON against stale JS — worse than either alone.
+  **This applies to install as much as fetch.** `cache.addAll()` goes through the HTTP cache, so
+  a worker installing inside that ten-minute window precached the old `app.js` — and since that
+  copy then answered every request, the stale code survived reloads for good. The fetch handler
+  had the fix and the install handler didn't, which is why it took a live check to find. Bump
+  `VERSION` when you touch the worker; `activate` deletes every other cache.
 - Delegated listeners belong in `attachAppHandlers()`, bound **once** at boot. Binding them per
   render leaked and made a filter click on Heroes re-render the Brief underneath you.
 - The tabs pin at `top: 0` because the reskin lets the brand bar scroll away. Don't reintroduce a
