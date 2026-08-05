@@ -1,252 +1,293 @@
-# Dota Buddy — how to update this
+# Dota Buddy — the build guide
 
-The product is **not** "here's what changed." Valve already publishes that. The product is
-**"here's why it matters and what you should do about it."** Everything below serves that.
+Read this before touching anything. It is the accumulated result of a lot of specific feedback,
+and most of the rules here exist because an earlier version got it wrong.
 
-## The workflow when a new patch drops
+---
+
+## 1. What this actually is
+
+**The product is not "here's what changed."** Valve publishes that, in full, for free. The product
+is **"here's what it means for you, and what to do about it"** — delivered fast enough that a busy
+person actually reads it.
+
+Three things make it worth existing. Protect all three:
+
+1. **Speed.** The whole brief is scannable in about a minute. Rival write-ups run 4,000 words.
+2. **Personalisation.** Pick your heroes, see only what changed for you. Nothing else does this.
+3. **Honesty.** Every number is sourced, every opinion is labelled with whether others agree.
+
+If a change would make the site slower, vaguer or less checkable, don't make it.
+
+---
+
+## 2. When a patch drops
 
 The user says "new patch." Then:
 
 ```bash
-npm run update              # fetch patch + live meta stats
-npm run validate            # tells you exactly what still needs writing
+npm run update      # pulls the patch + fresh OpenDota stats
+npm run validate    # tells you exactly what still needs writing
+npm run dev         # look at it
 ```
 
-1. `npm run update` writes `public/data/raw/<version>.json` and refreshes
-   `public/data/meta.json`.
-2. **Read the whole raw file.** Not a skim — every hero, every item. The systemic themes only
-   become visible when you've seen all of it at once.
-3. Write `public/data/briefs/<version>.json` (copy the previous patch's file as the shape).
-4. `npm run validate` until it passes. It fails if any changed hero or item has no write-up,
-   or if a theme references a key that doesn't exist.
-5. `npm run dev` and look at it.
+1. `npm run update` writes `public/data/raw/<version>.json` and refreshes `public/data/meta.json`.
+2. **Read the entire raw file.** Every hero, every item, in one pass. The best headlines are
+   patterns spread 40 lines apart — you only see them with the whole thing in front of you.
+3. **Search the web for what else shipped.** Valve's feed carries gameplay notes only. 7.41e also
+   had a soft ranked reset and a ~200-bug Summer Scrub, and neither was in our data. For a lot of
+   players the reset was the biggest thing in the patch. Put those in `beyond_gameplay` with a
+   source link.
+4. **Read 2–3 independent analyses** of the patch (Dota2ProTips, win.gg, CyberScore, esports.gg).
+   Not to copy — to test your conclusions. Record the result in each theme's `agreement`.
+5. Write `public/data/briefs/<version>.json`. Copy the previous patch's file as the shape.
+6. `npm run validate` until it passes.
+7. Check the site at desktop **and** 375px before saying it's done.
 
 There is no API key and no generation step. The analysis is written by hand, in session.
 
-## Writing the brief — the actual craft
+---
 
-**Find the systemic themes first.** The best headlines in 7.41e weren't single hero changes,
-they were patterns spread across the file: six unrelated heroes all got "toggling no longer
-breaks invisibility"; four items in the Kaya line all lost mana regen amplification; three
-charge items all stopped working in the stash. Nobody reading the official notes top-to-bottom
-notices these, because they're 40 lines apart. Grouping them is the single highest-value thing
-this dashboard does. Read the whole file before writing a word.
+## 3. How to write — this is the part that matters most
 
-**Do the arithmetic — then check the inputs.** The most useful line in the 7.41e brief was
-working out that Drow's Multishot range rescale is a wash at base attack range but a ~90 range
-*loss* once you buy Dragon Lance. That's not opinion, it's two formulas evaluated at two numbers — and it turns a
-change that reads as neutral into a clear nerf. Look for rescales, percentage-to-flat
-conversions, and anything where the direction depends on a value the note doesn't mention.
+Every rule below came from direct feedback. Breaking them is how the product gets worse.
 
-**Ground claims in `public/data/meta.json`.** It has real pick/win rates per bracket. "Spectre
-got nerfed" is weak; "Spectre got nerfed, and she's at 54.1% winrate in 13% of games" explains
-*why Valve did it*. Use the high bracket (Ancient+) number — that's where changes get exploited
-first.
+### Say the thing. Don't perform it.
 
-**Be honest about the two kinds of claim.** Mechanics, numbers and arithmetic are checkable —
-state them plainly. How the meta will respond is a prediction — write "expect", "likely",
-and set `confidence.meta` accordingly. Never write "pros are doing X" or "players are building
-Y" — there is no data source backing that claim. Inventing community consensus is the one
-thing that would make this dashboard worthless.
+Headlines are **plain and literal**. Say what changed, with the number.
 
-**Explain the second-order effect, not the first.** "Cooldown 30s → 40s" is the change.
-"You get one Satanic per fight instead of two, so extended fights against a fed carry are
-winnable again" is the product. Always push one step past the obvious reading.
+| Don't | Do |
+|---|---|
+| "The Kaya line's mana regen cut by a third" | **"Kaya's mana regen drops from 30% to 20%"** |
+| "Late-game carries trimmed four ways" | **"Four separate nerfs to late-game carries"** |
+| "Spectre's Haunt was flattened" | **"Spectre's Haunt is weaker at max level"** |
+| "Three small lines, big consequences" | *(split it — see below)* |
 
-**Keep it short. This is the rule most likely to slip.** The reader is busy — that is the
-entire premise of the product. Budgets, enforced by taste not tooling:
+Name the hero or item so the headline stands alone. 5–9 words. No wordplay, no cleverness.
+**If a reader has to decode the headline, it has failed.**
 
-- theme `title` — 5-9 words, **plain and literal**. Say what changed, with the number where
-  there is one: "Kaya's mana regen drops from 30% to 20%", not "the Kaya line's mana regen cut
-  by a third". No wordplay, no "trimmed four ways", no jargon like "flattened" — if a reader has
-  to decode the headline, it has failed. Name the hero or item so it reads standalone.
-- theme `punch` — `{stat, dir}`. `stat` is unused in the UI now but `dir` drives the brief
-  filter and colours the first bite, so keep it accurate.
-- theme `bites[]` — **2-4 concrete facts, 3-6 words each.** These sit on the collapsed row and
-  are what a reader uses to decide whether to open it. Numbers where possible
-  (`Satanic 30s → 40s`), hero names where the change is behavioural
-  (`Troll, Zeus, Elder Titan`). Never a sentence — a bite that needs a verb is too long.
-- theme `why` — 2-3 sentences, ~40 words. Lead with the consequence.
-- `severity` drives which of the three tiers a headline lands in: `major` → "The big changes",
-  `notable` → "Worth knowing about", `minor` → "The rest of the patch". **There is no target
-  number of headlines.** Anything genuinely noteworthy gets its own row; never bundle several
-  unrelated changes into one card to keep the count down. 7.41e has 15.
-- hero and item `why` — 1-2 sentences. **Answer "so what does that actually do for me?"**, never
-  restate the change. "Four more strength" is not a reason; "about 88 extra health, so you're
-  harder to kill" is. Convert stats into what a player feels: **1 strength = 22 health,
-  1 intelligence = 12 mana, 1 agility = 1/6 armour + 1 attack speed** (verify these each patch).
-  Banned words because a reader has to decode them: *flattened, rescaled, amplification,
-  front-loaded, percentage points, second-order*. If an ability needs explaining to make the
-  change land — Haunt copies a share of her damage — explain it in the sentence.
-- `summary` — one line, always.
-- `do[]` — the most valued part. Keep these, keep them imperative, keep them concrete.
+### "Why it matters" answers "so what?"
 
-Cut throat-clearing openers ("This looks like a footnote and isn't", "Read these as a set,
-because..."). Cut restating the change you already put in `what`. Cut the sentence explaining
-why the previous sentence mattered. If a sentence doesn't carry a number, a consequence or an
-instruction, delete it.
+Never restate the change. The change is already in the bites and the verbatim lines.
 
-**Cover everything.** Every changed hero and item gets an entry, even the boring ones — the
-point is that someone can click any hero and get an answer. Two honest sentences beats an
-omission. `npm run validate` enforces this.
+> ❌ "Four more strength." / "A clean durability gain on an already excellent item."
+> ✅ **"4 more strength is about 88 extra health, free, on an item you were already buying.
+>    You're simply harder to kill."**
 
-## File shapes
+**Convert stats into what a player feels.** Verify these each patch, they change:
 
-`public/data/briefs/<version>.json`:
+- **1 strength = 22 health** (+0.1 HP regen)
+- **1 intelligence = 12 mana** (+0.05 mana regen, +0.1% magic resist)
+- **1 agility = 1/6 armour + 1 attack speed**
 
-- `tldr` — one paragraph. The whole patch for someone with fifteen seconds.
-- `verdict` — `shape`, `biggest_loser`, `biggest_winner`.
-- `themes[]` — the ranked headlines. Fields: `id`, `rank`, `title`,
-  `punch` (`{stat, dir}` where dir is `better`/`worse`/`neutral` — renders as the coloured chip
-  on the collapsed row), `severity` (`major`/`notable`/`minor`), `tags[]`,
-  `what` (neutral statement — only rendered as a fallback when `bites` is absent, since the
-  bites say the same thing more scannably), `why` (the payload),
-  `do[]` (actionable), `watch`, `affects.heroes[]` / `affects.items[]` (must be real keys —
-  they render as clickable chips), `changes[]` (`{source, text}`, shown verbatim under a
-  disclosure), `confidence`.
-- `heroes{}` / `items{}` / `neutrals{}` — keyed by the `key` field in the raw file.
-  Fields: `verdict` (`buff`/`nerf`/`mixed`/`qol`/`rework`), `impact` (1-5, drives sort order),
-  `summary` (one line), `why` (the reasoning), and for heroes `play[]` / `counter[]`,
-  for items `who`.
+If a change only makes sense once you know how the ability works, **explain it in the sentence**:
 
-Prose fields support `*emphasis*`. Everything is escaped before rendering.
+> "Haunt sends illusions that copy a share of her damage. That share moved from 30/50/70% to
+> 35/50/65%, so an early Haunt hits slightly harder and a max-level Haunt hits noticeably less."
 
-## Gotchas already hit
+### Banned words
 
-- Valve's patch feed is entirely numeric ids. `scripts/lib/dota-api.mjs` resolves them against
-  `herolist` / `itemlist` / `abilitylist`.
-- Some entries aren't heroes. Lone Druid's Spirit Bear appears as `hero_id: 1961` and isn't in
-  `herolist` — see `UNIT_OVERRIDES` in `scripts/fetch-patch.mjs`. If a new patch shows
-  "Hero <number>", check the ability icon filename to identify the unit and add an override.
-- The feed contains literal `<br>` rows and blank notes. `realNotes()` in `app.js` filters them.
-- A Reddit community feed was tried and removed: the subreddit's top posts are mostly memes
-  and cosplay, so it surfaced noise rather than patch discussion. If it comes back, it should
-  query Reddit's search RSS for the patch number specifically, not the general subreddit feed.
-- OpenDota's window is roughly the last week, so just after a patch it's a blend of before and
-  after. Don't describe it as post-patch data.
+Anything the reader has to decode: **flattened, rescaled, amplification, front-loaded,
+percentage points, second-order, degenerate, ceiling/floor**. Also never surface the raw key
+`qol` — the UI says "Quality of life".
 
-## Density is a feature
+### Cut the fluff
 
-The collapsed brief was audited at 742 words and 3.2 screens; it is now ~435 and 2.5, with each
-row carrying 24 words of structured facts instead of 39 words of prose. That was achieved by moving `what` inside the expanded card,
-replacing the TL;DR paragraph with counts plus a split bar, and giving every headline one
-number chip. If a future patch's brief starts creeping back up, re-measure rather than eyeball
-it — count words in `main` and divide `scrollHeight` by `innerHeight`.
+No throat-clearing openers ("This looks like a footnote and isn't"). No self-congratulation
+("Most sites that work this way don't tell you"). No sentence explaining why the previous
+sentence mattered. **If a sentence carries no number, consequence or instruction, delete it.**
 
-## The visual system
+### The `do[]` bullets are the most valued part of the whole product
 
-`public/styles.css` is two layers in one file. Everything above the RESKIN banner is **structure**
-— grids, flex containers, `grid-template-areas`. Everything below is the **visual system** from the
-"more like Dota 2" design handoff: tokens, type, colour, panel treatment. The reskin layer loads
-last so it wins the cascade, and it was written assuming the structure above stays put. If you move
-a rule between layers, keep that split — layout up top, looks below.
+Keep them imperative and concrete. This is what a reader takes into their next game. The user
+specifically confirmed these land — "play her harder earlier, extended fights are survivable
+again" was read correctly as *win fast, don't bank on the late game*.
 
-Key facts to preserve:
+### Length budgets
 
-- **Two fonts.** Cinzel (`--display`) names things: brand, tabs, section headings, hero and item
-  names, verdict slabs, labels. Barlow Semi Condensed (`--font`) is prose, numbers and controls.
-  `--mono` stays on the verbatim patch lines — that contrast between our words and Valve's is
-  doing real work.
-- **Gold is the accent** (`#c9a227`), not red. Red (`--dire`) is now only for destructive buttons
-  and "biggest loser".
-- **Nothing is round.** `--radius: 0`. Softening happens with angular `clip-path` notches on hero
-  art and the icon plate, not radii.
-- Hero cards and hero detail use `portrait` (the `crops/` art) from the raw feed; chips, the picker
-  and the full-notes list use `icon`. `spirit_bear` reusing `lone_druid`'s crop is correct.
-- `scripts/make-icons.mjs` mirrors `public/icon.svg` by hand. Change one, change the other, then
-  `npm run icons`.
+| Field | Budget |
+|---|---|
+| `title` | 5–9 words, plain, literal |
+| `bites[]` | **2–4 facts, 3–6 words each.** Numbers where possible (`Satanic 30s → 40s`), hero names where behavioural (`Troll, Zeus, Elder Titan`). Never a sentence — if it needs a verb it's too long |
+| `why` (theme) | 2–3 sentences, ~40 words. Lead with the consequence |
+| `why` (hero/item) | 1–2 sentences. Answer "so what?" |
+| `summary` | one line, always |
+| `tldr` | one short paragraph, ~25 words |
 
-## Filters and the colour language
+### There is no target number of headlines
 
-Red = weaker, green = stronger, amber = mixed, blue = quality of life. Since the reskin these are
-Dire crimson and Radiant moss, so "biggest winner / biggest loser" and "buffed / nerfed" share one
-colour language instead of colliding. That mapping is used by
-verdict pills, hero/item card borders, the split bar and the filter buttons, so it has to stay
-consistent — `filterBar()` and `VERDICT_LABEL` / `VERDICT_HINT` in `app.js` are the single
-source. Filters with a count of zero hide themselves rather than render a dead button.
+Anything genuinely noteworthy gets its own row. **Never bundle unrelated changes into one card
+to keep the count down** — "Three small lines, big consequences" was hiding three real changes
+and got split. 7.41e has 15. Twenty would be fine.
 
-Never surface the raw key `qol` as a label. It reads as jargon to anyone who isn't deep in Dota
-discourse; the filter says "Quality of life" and the pill carries a tooltip.
+`severity` places it in a tier: `major` → "The big changes", `notable` → "Worth knowing about",
+`minor` → "The rest of the patch".
 
-The brief filters on `punch.dir` (`worse`/`better`/`neutral`) rather than a verdict, because a
-headline groups several changes and often has no single verdict. When a filter is active the
-two-tier "if you read nothing else / worth knowing" split collapses into one flat list.
+### Cover everything
 
-## Fact-check the numbers you didn't get from the diff
+Every changed hero and item gets an entry, even boring ones — someone can click any hero and
+must get an answer. Two honest sentences beats an omission. `npm run validate` enforces this.
 
-The patch file gives you the change. Anything else the arithmetic depends on — base attack
-range, an item's bonus, how much armour a point of agility is worth — comes from memory unless
-you look it up, and memory is where the errors are. The 7.41e Drow claim originally read
-"1339 → 1240" because it assumed Dragon Lance still gave +140 attack range; it gives +130, so
-the real figures are 1321 → 1230. The conclusion held, the numbers didn't.
+---
 
-Before publishing any calculated claim, verify every input against
-[Liquipedia](https://liquipedia.net/dota2) or the Dota 2 wiki and note what you checked. Reading
-other people's analysis to test your own conclusions is research and is encouraged — reproducing
-their words is not, and never is.
+## 4. Accuracy — non-negotiable
 
-## Corroborate, don't copy
+### Check every input the maths depends on
 
-After writing the brief, read two or three independent analyses of the same patch and record
-how each headline held up in `theme.agreement`:
+The patch file gives you *the change*. Base attack ranges, item bonuses, attribute ratios come
+from memory unless you look them up, **and that is exactly where the one published error came
+from**: the Drow claim assumed Dragon Lance gave +140 attack range. It gives +130. The
+conclusion held; the numbers didn't.
+
+Verify against [Liquipedia](https://liquipedia.net/dota2) before publishing any calculated claim.
+
+### Ground claims in real data
+
+`public/data/meta.json` has pick/win rates per bracket. "Spectre got nerfed" is weak; "Spectre
+got nerfed, and she's at 54.1% winrate in 13% of games" explains *why Valve did it*. Use the
+high bracket (Ancient+) — that's where changes get exploited first.
+
+**If a section name asserts something, the sort key must be that thing.** "Most likely to show up
+against you" is sorted by pick rate, not by our editorial impact score. It was originally sorted
+by impact, which made the heading a claim the data didn't support.
+
+### Label the two kinds of claim
+
+Mechanics, numbers and arithmetic are checkable — state them plainly. How the meta will respond
+is a prediction — write "expect", "likely", set `confidence.meta`. **Never write "pros are doing
+X" or "players are building Y"** unless a source says so and you link it.
+
+### Corroborate every headline
+
+After writing, read independent analyses and record how each held up in `theme.agreement`:
 
 - `corroborated` — someone else independently reached the same conclusion
 - `partial` — mentioned elsewhere but not analysed; the reading is ours
-- `ours` — nobody else flagged it (fine, but say so)
-- `disputed` — other coverage disagrees. Keep our view if we can defend it, and show theirs.
+- `ours` — nobody else flagged it (fine — say so)
+- `disputed` — other coverage disagrees. Keep our view if defensible, show theirs
 
-Add `agreement.sources` — `[{name, url}]` — wherever a real link exists. The Method page groups
-every headline under its verdict and prints those links, so a reader can open the source and
-judge for themselves. Where there's no link, it says so plainly rather than leaving a gap;
-"no source to link — this one is ours alone" is more credible than silence.
+Add `agreement.sources` (`[{name, url}]`) wherever a real link exists. The Method page groups
+every headline under its verdict and prints the link so a reader can check. Where there's no
+link, say so — "no source to link" is more credible than a gap.
 
-This is research, not sourcing material. **Never reproduce another writer's words or
-paraphrase their analysis closely.** Read them, test our conclusion, write our own. The
-`agreement.note` describes what they concluded in our words and names them, which is citation.
+7.41e came out 7 corroborated / 3 partial / 4 ours / 1 disputed.
 
-For 7.41e that gave 7 corroborated, 3 partial, 2 ours, 1 disputed — a useful honesty signal,
-and it caught that our top-ranked headline had no independent support.
+---
 
-## Valve's feed is not the whole patch
+## 5. Copyright — hard lines
 
-`patchnotes` carries gameplay notes only. 7.41e also shipped a soft ranked reset and a ~200-bug
-Summer Scrub, and neither appears anywhere in our data — for a lot of players the reset was the
-biggest thing in the patch. Always check general patch coverage for what shipped alongside, and
-put it in `beyond_gameplay` with a source.
+**Never reproduce another writer's words, and never paraphrase their analysis closely.** Reading
+someone to test your own conclusion is research and is encouraged. Copying is not, ever.
 
-## Claims have to be backed by something
+- **Facts aren't copyrightable.** "Satanic 30s → 40s" is free. Every number chip is fine.
+- **Valve's patch text** is quoted verbatim under a disclosure and labelled as theirs.
+- **Liquipedia** is CC-BY-SA 3.0 — reusable with attribution *and* share-alike (your derivative
+  takes the same licence). Their images are separately licensed.
+- **Other analysts** get linked and characterised in our words, never quoted at length.
+- **Never put words in a named person's mouth.** If asked what a creator said about a patch,
+  go and find it. If they haven't covered it, say that — as we do for Torte de Lini, whose
+  guides were on 7.41d when this was written.
 
-"Most likely to show up against you" is ranked by **pick rate from `meta.json`**, and the number
-is printed on every card so a reader can check it. It was originally ranked by the hand-authored
-`impact` score, which made the heading a claim the data didn't support — impact is an editorial
-judgement about how much a change matters, not a prediction about who you'll meet. If a section
-name asserts something, the sort key has to be the thing it asserts.
+---
 
-## The client-side layer
+## 6. File shapes
 
-- `public/config.js` — the only file to edit to switch analytics or the signup form on. Analytics
-  defaults to `none` and loads nothing third-party until a provider and site id are set.
-- `public/store.js` — one `localStorage` key holding chosen heroes, votes, read state, last visit
-  and the signup placeholder. `startPatch()` deliberately clears reads and votes when the patch
-  changes, so progress always refers to the patch on screen.
-- `public/analytics.js` — `trackEvent()` / `trackView()` wrappers. Events fired today:
-  `headline_open`, `vote`, `share`, `heroes_picked`, `signup`, `expand_all`. If you add a feature
-  worth measuring, fire an event for it — that data is what tells us which write-ups earn their
-  keep.
+`public/data/briefs/<version>.json`:
 
-Who writes the analysis is stated on the **Method** page and in the footer, never on the Brief's
-glance panel — honest without being the first thing anyone reads. `config.provenance.showOnBrief`
-controls only that extra placement. Don't remove it from Method: the repo is public and every
-commit is co-authored, so the disclosure exists either way; the only choice is whether the site
-says it or a reader discovers it.
+- `patch`, `released`, `written_at`, `method`
+- `tldr` — one short paragraph
+- `verdict` — `shape`, `biggest_loser`, `biggest_winner`. Format as `"Headline — detail"`; the UI
+  splits on the em dash into a bold name and quiet detail
+- `beyond_gameplay` — `{note, items[{title, what, why, source, source_url}]}` for anything that
+  shipped with the patch but isn't in Valve's gameplay feed
+- `sources[]` — `{name, url, role, licence?}` rendered on the Method page
+- `creators` — `{checked, note, people[{name, who, what, url, extra, status}]}` — links out only
+- `themes[]` — `id`, `rank`, `title`, `punch{stat,dir}`, `bites[]`, `severity`, `tags[]`, `what`,
+  `why`, `do[]`, `watch`, `affects{heroes[],items[]}` (must be real keys), `changes[{source,text}]`,
+  `agreement{level,note,sources[]}`, `confidence`
+- `heroes{}` / `items{}` / `neutrals{}` — keyed by the raw file's `key`. Fields: `verdict`
+  (`buff`/`nerf`/`mixed`/`qol`/`rework`), `impact` (1-5, drives sort), `summary`, `why`, plus
+  `play[]`/`counter[]` for heroes and `who` for items
 
-The signup form is a promise. While `config.signup.endpoint` is null it says plainly that
-nothing is connected and the address stays on-device; when an endpoint is set the copy switches
-to the real commitment. Never let it imply an email was sent when none was. It renders in two
-places — inline in the "you're caught up" banner (the moment the need is felt, and where it
-converts) and as a card at the foot of the brief for everyone else. Only ever one at a time.
+`punch.stat` is no longer rendered but `punch.dir` drives the brief filter and colours the first
+bite — keep it accurate. Prose supports `*emphasis*`; everything is escaped before rendering.
 
-## Not this
+---
 
-Don't add a build step, a framework, or dependencies. It's plain files on purpose so it can be
-dropped on any static host and still work in a year.
+## 7. The look
+
+`public/styles.css` is **two layers in one file**. Above the RESKIN banner is structure — grids,
+flex containers, `grid-template-areas`. Below is the visual system from the "more like Dota 2"
+handoff. The reskin loads last so it wins the cascade and assumes the structure stays put. Keep
+that split: layout up top, looks below.
+
+- **Two fonts.** Cinzel (`--display`) names things — brand, tabs, headings, hero and item names,
+  verdict slabs. Barlow Semi Condensed (`--font`) is prose, numbers, controls. `--mono` stays on
+  Valve's verbatim lines; that contrast between our words and theirs is doing real work.
+- **Gold is the accent** (`#c9a227`). Red (`--dire`) is only destructive buttons and "biggest loser".
+- **Nothing is round.** `--radius: 0`. Softening is angular `clip-path` notches.
+- **Colour language, everywhere:** red = weaker, green = stronger, amber = mixed, blue = quality
+  of life. Used by verdict pills, card borders, the split bar and every filter. `filterBar()` and
+  `VERDICT_LABEL` / `VERDICT_HINT` in `app.js` are the single source.
+- Hero cards and hero detail use `portrait` (the `crops/` art); chips, the picker and full notes
+  use `icon`. `spirit_bear` reusing `lone_druid`'s crop is correct.
+- `scripts/make-icons.mjs` mirrors `public/icon.svg` by hand. Change one, change the other, then
+  `npm run icons`.
+- Filters with a count of zero hide themselves rather than render a dead button.
+- Expandable things need a visible affordance. The chevron is a 24px bordered square that rotates
+  and turns gold when open — an 11px grey glyph was technically an affordance and practically
+  invisible.
+
+---
+
+## 8. Density is a feature — measure it
+
+The collapsed brief was audited at 742 words and 3.2 screens. It is now ~690 and 2.6 with 15
+headlines instead of 13, each row carrying ~24 words of structured facts rather than 39 words of
+prose. If a future brief creeps up, **re-measure rather than eyeball**: count words in `main` and
+divide `scrollHeight` by `innerHeight`.
+
+---
+
+## 9. Gotchas already hit
+
+- Valve's feed is entirely numeric ids. `scripts/lib/dota-api.mjs` resolves them.
+- Some entries aren't heroes. Lone Druid's Spirit Bear is `hero_id: 1961` and isn't in `herolist`
+  — see `UNIT_OVERRIDES`. If a patch shows "Hero <number>", check the ability icon filename.
+- The feed contains literal `<br>` rows and blank notes. `realNotes()` filters them.
+- GitHub Pages sends `max-age=600`, so the service worker fetches with `cache: 'no-cache'`.
+  Without it, a returning visitor gets fresh JSON against stale JS — worse than either alone.
+- Delegated listeners belong in `attachAppHandlers()`, bound **once** at boot. Binding them per
+  render leaked and made a filter click on Heroes re-render the Brief underneath you.
+- The tabs pin at `top: 0` because the reskin lets the brand bar scroll away. Don't reintroduce a
+  height-derived offset — that coupling broke once already.
+- OpenDota's window is ~a week, so just after a patch it blends before and after. Don't call it
+  post-patch data.
+- A Reddit feed was tried and removed — the subreddit's top posts are memes and cosplay. If it
+  returns, query the search RSS for the patch number specifically.
+
+---
+
+## 10. Client-side layer
+
+- `public/config.js` — the only file to edit for analytics, signup or provenance.
+  Analytics is GoatCounter (`dota2buddy`). Signup posts to Buttondown (`dota2buddy`).
+  `provenance.showOnBrief` is `false`: authorship is always on the Method page and in the footer,
+  never on the Brief's glance panel.
+- `public/store.js` — one `localStorage` key: chosen heroes, votes, read state, last visit,
+  signup. `startPatch()` clears reads and votes when the patch changes.
+- `public/analytics.js` — `trackEvent()` / `trackView()`. Hits buffer until the provider script
+  loads, or the first pageview of every visit is lost. Events: `headline_open`, `vote`, `share`,
+  `heroes_picked`, `signup`, `expand_all`, `filter_*`.
+
+The signup is a promise. While `endpoint` is null it says plainly nothing is connected. It renders
+inline in the "you're caught up" banner *or* as a card at the foot — never both.
+
+---
+
+## 11. Don't
+
+- Don't add a build step, a framework, or dependencies. Plain files on purpose.
+- Don't make the reader work. If you're unsure whether something is clear, it isn't.
+- Don't pad. The user's most repeated instruction across the whole project is **be less verbose
+  and get to the point.**
