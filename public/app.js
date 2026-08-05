@@ -1104,6 +1104,9 @@ function renderBuildImpact(heroKey) {
               <span class="bi-freq">${r.builds} builds</span>
             </div>
             <p class="bi-sum">${rich(r.change.summary)}</p>
+            <p class="bi-why">${rich(r.change.why)}</p>
+            ${r.change.instead ? `
+              <p class="bi-do"><b>What to do</b> ${rich(r.change.instead)}</p>` : ''}
           </div>
         </a>`).join('')}
     ` : `<div class="welcome done">Nothing you normally build on this hero changed this patch.</div>`}
@@ -1319,6 +1322,7 @@ function renderItemDetail(key) {
         <p>${rich(b.why)}</p>
       </div>
       ${b.who ? `<div class="block"><h4>Who this hits</h4><p>${rich(b.who)}</p></div>` : ''}
+      ${b.instead ? `<div class="block"><h4>What to do about it</h4><p>${rich(b.instead)}</p></div>` : ''}
     ` : `<div class="callout">This item hasn't been written up yet — official lines below.</div>`}
 
     <div class="section-head"><h2>The actual changes</h2></div>

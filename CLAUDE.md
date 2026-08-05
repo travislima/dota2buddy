@@ -209,7 +209,7 @@ someone to test your own conclusion is research and is encouraged. Copying is no
   `agreement{level,note,sources[]}`, `confidence`
 - `heroes{}` / `items{}` / `neutrals{}` — keyed by the raw file's `key`. Fields: `verdict`
   (`buff`/`nerf`/`mixed`/`qol`/`rework`), `impact` (1-5, drives sort), `summary`, `why`, plus
-  `play[]`/`counter[]` for heroes and `who` for items
+  `play[]`/`counter[]` for heroes, and `who` plus optional `instead` for items
 
 `punch.stat` is no longer rendered but `punch.dir` drives the brief filter and colours the first
 bite — keep it accurate. Prose supports `*emphasis*`; everything is escaped before rendering.
@@ -272,6 +272,28 @@ blocking the render.
 
 "Untouched — build these exactly as before" earns its place: knowing what *didn't* change is half
 of what a patch reader wants.
+
+### `instead` — the item-level version of `do[]`
+
+Each changed item shows `summary` (what moved), `why` (so what) and, where it applies, `instead`
+(what to do). Three weights, and the eye can stop after any one of them.
+
+**Only write `instead` where the nerf changes a decision.** 7.41e has eleven of twenty-six. It is
+not "here is a worse item to buy instead" — most of the time the honest answer is *keep buying it,
+and change one thing*:
+
+- Kaya multiplies regen you already have, so name the flat sources that feed it — Void Stone +1.75,
+  Octarine +6 — and the pool items for when refilling isn't the problem.
+- Mask of Madness: still buy it, switch it off before you commit, or hold it for after the BKB.
+- Satanic: there is no substitute. Say so, then say what changes — spend the one Rage on the fight
+  you have to win.
+- Hurricane Pike, Rapier, Chasm Stone, Smoke: nothing changes. **No `instead` field at all.** An
+  empty recommendation is worse than none.
+
+**Every item you name must be verified.** These are the same checkable claims as anything else —
+`api.opendota.com/api/constants/items` gives you the attribute block. It lags the live patch (it
+still showed Kaya at 30% and Refresher Shard with its stats after both were cut), so use it for
+*other* items' properties, never for the ones this patch touched.
 
 ## 8. Density is a feature — measure it
 

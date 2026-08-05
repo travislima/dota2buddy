@@ -1585,6 +1585,7 @@
       "impact": 4,
       "summary": "Worse on agility carries, better on everyone else.",
       "why": "You trade 5 agility for 5 damage. On an agility carry those 5 agility were also 0.83 armour and 5 attack speed, so you come out behind. On a strength or intelligence hero the agility was worth less, so it's a small gain.",
+      "instead": "Agility carries lose a little, but it's still the evasion item and there's no reason to drop it. Strength and intelligence heroes buying it for evasion come out slightly ahead.",
       "who": "Agility carries lose; strength and int heroes buying it for evasion gain slightly."
     },
     "mask_of_madness": {
@@ -1592,6 +1593,7 @@
       "impact": 4,
       "summary": "Ranged heroes lost half their slow resistance; melee kept all of it.",
       "why": "Slow resistance is what let a ranged carry switch it on and still get away. Cutting it to 15% for ranged only means the window where you take extra damage is now genuinely dangerous. Melee heroes lost nothing.",
+      "instead": "Ranged: still worth buying to farm with, but switch it off before you commit to a fight, or hold it for after your BKB. Melee lost nothing — build it exactly as before.",
       "who": "Clinkz, Sniper, Gyrocopter and ranged-stance Troll."
     },
     "kaya": {
@@ -1599,6 +1601,7 @@
       "impact": 5,
       "summary": "The regen bonus itself shrank by a third.",
       "why": "This multiplies your existing regen rather than adding a flat amount, so going 30% to 20% removes a third of what Kaya was giving you. Spell amp and intelligence are untouched — still a good damage item, just no longer the fix for running out of mana.",
+      "instead": "Kaya multiplies the regen you already have, so the way to get it back is more flat regen underneath it — a Void Stone is +1.75, Octarine is +6. If the real problem is the pool emptying rather than refilling, Bloodstone's 450 mana or a Soul Ring does more than the Kaya line ever did.",
       "who": "Every int core that treated Kaya as the end of their mana problems."
     },
     "kaya_and_sange": {
@@ -1606,6 +1609,7 @@
       "impact": 4,
       "summary": "Same regen cut as the rest of the line.",
       "why": "A quarter off the mana regen. Status resistance and spell amp are unchanged, so it's still worth buying — just don't count on the sustain.",
+      "instead": "Keep buying it — 25% slow resistance is the reason it's in your build, and that didn't move. Cover the mana somewhere else: a Soul Ring early, Octarine late.",
       "who": "Hybrid cores like Doom, Legion Commander and Dragon Knight."
     },
     "yasha_and_kaya": {
@@ -1613,6 +1617,7 @@
       "impact": 4,
       "summary": "Same regen cut as the rest of the line.",
       "why": "A quarter off the mana regen. Movement speed, attack speed and spell amp all survive intact.",
+      "instead": "Still worth it for the movement and attack speed. If you were spamming spells off the regen, an early Bottle or Soul Ring carries more of that job now.",
       "who": "Storm Spirit, Ember Spirit and similar mobile spell-spammers."
     },
     "meteor_hammer": {
@@ -1620,6 +1625,7 @@
       "impact": 3,
       "summary": "The biggest mana regen cut of the four.",
       "why": "The biggest cut in the line — 29% off the regen. Supports often buy this as much for the mana as the stun, and that half got clearly worse.",
+      "instead": "Fine to buy for the stun. If you were buying it for the mana, Arcane Boots do that directly — 125 mana, plus regen for everyone standing near you.",
       "who": "Supports who bought it partly for sustain."
     },
     "satanic": {
@@ -1627,6 +1633,7 @@
       "impact": 5,
       "summary": "One Unholy Rage per fight instead of two.",
       "why": "In a long fight you used to get two Unholy Rages. Now you get one. That's precisely the situation where an unkillable carry used to win the game on their own.",
+      "instead": "There's no substitute; nothing else gives lifesteal at this level. Change how you spend it instead — save Unholy Rage for the fight you have to win, not the first one you're in.",
       "who": "Every right-click carry, lifestealing melee most of all."
     },
     "refresher_shard": {
@@ -1634,6 +1641,7 @@
       "impact": 4,
       "summary": "Stripped of all its stats — it only does the thing now.",
       "why": "It used to be a decent stat stick that also refreshed your spells. Now it's only the refresh — so if you were slotting it early for the regen and damage, that reason is gone.",
+      "instead": "Buy it at the point you actually want the refresh. It isn't an early slot filler any more, so if you were picking it up for the regen and damage, pick up something else.",
       "who": "Anyone who slotted it early for the stats."
     },
     "rapier": {
@@ -1648,6 +1656,7 @@
       "impact": 3,
       "summary": "Less mana regen, and no more free charges from the stash.",
       "why": "Two cuts. Less mana regen, and an Urn left in your base used to collect charges from deaths near your fountain — including fights you were losing. Now you have to carry it to earn them.",
+      "instead": "Carry it. Charges now come from being near the kill, so an Urn sitting in your base is doing nothing — and if you can't get into fights, don't buy it early.",
       "who": "Supports who bought it early and stashed it."
     },
     "spirit_vessel": {
@@ -1655,6 +1664,7 @@
       "impact": 2,
       "summary": "No more stash charge farming.",
       "why": "Same fix as Urn. No more free charges while it sits in your base during a defence.",
+      "instead": "Same as the Urn: it has to be on you to charge. Holding it in base through a defence no longer pays.",
       "who": "Late-game supports holding Vessel through base defences."
     },
     "essence_distiller": {
@@ -1662,6 +1672,7 @@
       "impact": 2,
       "summary": "No more stash charge farming.",
       "why": "Same fix again. All three charge items got it in one patch, which is what makes it deliberate rather than incidental.",
+      "instead": "Same as the other two — carry it or don't buy it.",
       "who": "Anyone stashing it for passive charges."
     },
     "skadi": {
