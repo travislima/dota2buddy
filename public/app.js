@@ -164,9 +164,7 @@ async function boot() {
     const notes = [];
     if (meta?.fetched_at) notes.push(`Meta stats updated ${daysAgo(meta.fetched_at)}.`);
     if (brief?.written_at) {
-      notes.push(config.provenance.show
-        ? `Analysis written ${fmtDate(brief.written_at)} by Claude, from Valve's full patch diff.`
-        : `Analysis written ${fmtDate(brief.written_at)}.`);
+      notes.push(`Analysis written ${fmtDate(brief.written_at)} by Claude, from Valve's full patch diff.`);
     }
     document.getElementById('footer-note').textContent = notes.join(' ');
 
@@ -362,7 +360,7 @@ function renderGlance(v, themeCount) {
         </div>
       </div>
 
-      ${config.provenance.show && b.method ? `
+      ${config.provenance.showOnBrief && b.method ? `
         <details class="provenance">
           <summary>Written by AI from the official diff — how to read that</summary>
           <p>${esc(b.method)}</p>
@@ -475,6 +473,16 @@ function renderMethod() {
       about the patch, and turn all of it into one short guide. The numbers come from Valve.
       The opinions are ours, and we tell you which ones other people agree with.
     </div>
+
+    ${b?.method ? `
+      <div class="section-head"><h2>Who writes it</h2></div>
+      <div class="callout">
+        <p style="margin:0 0 9px">${esc(b.method)}</p>
+        <p style="margin:0;color:var(--text-faint);font-size:13px">
+          Most sites that work this way don't tell you. We'd rather say it, show the process
+          below, and let you weigh the calls yourself — which is why every point on the Brief
+          says whether other analysts agreed with it.</p>
+      </div>` : ''}
 
     <div class="section-head"><h2>What we actually do</h2></div>
     <ol class="method-steps">

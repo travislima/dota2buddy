@@ -223,6 +223,12 @@ name asserts something, the sort key has to be the thing it asserts.
   worth measuring, fire an event for it — that data is what tells us which write-ups earn their
   keep.
 
+Who writes the analysis is stated on the **Method** page and in the footer, never on the Brief's
+glance panel — honest without being the first thing anyone reads. `config.provenance.showOnBrief`
+controls only that extra placement. Don't remove it from Method: the repo is public and every
+commit is co-authored, so the disclosure exists either way; the only choice is whether the site
+says it or a reader discovers it.
+
 The signup form is a promise. While `config.signup.endpoint` is null it says plainly that
 nothing is connected and the address stays on-device; when an endpoint is set the copy switches
 to the real commitment. Never let it imply an email was sent when none was. It renders in two

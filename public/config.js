@@ -26,13 +26,15 @@ export const config = {
   },
 
   /**
-   * Whether to show who wrote the analysis. Off for now at the owner's request.
-   * Flip to true before sharing this anywhere public — the write-ups are AI
-   * reasoning over the diff, and that's much better said upfront than found out.
-   * The text itself lives in the brief's `method` field.
+   * Who writes the analysis is always stated on the Method page — that page
+   * exists to answer exactly this, and the repo is public anyway.
+   *
+   * This flag only controls whether it *also* appears on the Brief's glance
+   * panel, which is prime real estate. Off means it's honest but not shouted.
+   * The wording lives in the brief's `method` field.
    */
   provenance: {
-    show: false,
+    showOnBrief: false,
   },
 
   /**
