@@ -503,15 +503,34 @@ function renderMethod() {
       <h2>How our analysis compares</h2>
       <span class="hint">We checked all ${(b?.themes ?? []).length} of our points against other analysts</span>
     </div>
-    <div class="grid">
-      ${Object.entries(AGREEMENT_LABEL).map(([k, label]) => counts[k] ? `
-        <div class="agreement ${esc(k)} standalone">
-          <b>${esc(label)}</b>
-          <span>${counts[k]} of ${b.themes.length}</span>
-        </div>` : '').join('')}
+    <div class="compare">
+      ${Object.entries(AGREEMENT_LABEL).map(([k, label]) => {
+        const inGroup = (b?.themes ?? []).filter((t) => (t.agreement?.level ?? 'ours') === k);
+        if (!inGroup.length) return '';
+        return `
+        <details class="agreement ${esc(k)} standalone">
+          <summary>
+            <b>${esc(label)}</b>
+            <span>${inGroup.length} of ${b.themes.length}</span>
+            <i class="chev-sm" aria-hidden="true">▶</i>
+          </summary>
+          <ul class="compare-list">
+            ${inGroup.map((t) => `
+              <li>
+                <a class="compare-title" href="#/theme/${esc(t.id)}">${esc(t.title)}</a>
+                <p>${esc(t.agreement?.note ?? '')}</p>
+                ${(t.agreement?.sources ?? []).length ? `
+                  <p class="compare-links">Check it yourself:
+                    ${t.agreement.sources.map((src) => `
+                      <a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.name)} →</a>`).join('')}
+                  </p>` : `<p class="compare-links none">No source to link — this one is ours alone.</p>`}
+              </li>`).join('')}
+          </ul>
+        </details>`;
+      }).join('')}
     </div>
-    <p class="aside">Every point on the Brief page carries one of these labels, so you can see
-      which of our calls are backed up and which are just ours.</p>
+    <p class="aside">Open any of these to see which points they cover and read the source yourself.
+      Every point on the Brief carries the same label.</p>
 
     <div class="section-head"><h2>Where the information comes from</h2></div>
     <div class="grid">

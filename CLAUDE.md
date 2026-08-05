@@ -195,6 +195,11 @@ how each headline held up in `theme.agreement`:
 - `ours` — nobody else flagged it (fine, but say so)
 - `disputed` — other coverage disagrees. Keep our view if we can defend it, and show theirs.
 
+Add `agreement.sources` — `[{name, url}]` — wherever a real link exists. The Method page groups
+every headline under its verdict and prints those links, so a reader can open the source and
+judge for themselves. Where there's no link, it says so plainly rather than leaving a gap;
+"no source to link — this one is ours alone" is more credible than silence.
+
 This is research, not sourcing material. **Never reproduce another writer's words or
 paraphrase their analysis closely.** Read them, test our conclusion, write our own. The
 `agreement.note` describes what they concluded in our words and names them, which is citation.

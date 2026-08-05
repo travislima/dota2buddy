@@ -1930,3 +1930,43 @@ details.verbatim .body { padding: 2px 18px 16px; }
   margin-bottom: 11px;
 }
 .method-steps b { color: var(--text); font-weight: 600; }
+
+/* "How our analysis compares" — each verdict opens into the points it covers. */
+.compare { display: grid; gap: 2px; }
+.compare .agreement.standalone { padding: 0; display: block; }
+.compare summary {
+  display: flex; align-items: center; gap: 10px;
+  padding: 13px 15px;
+  cursor: pointer;
+  list-style: none;
+}
+.compare summary::-webkit-details-marker { display: none; }
+.compare summary:hover { background: rgba(255,255,255,.02); }
+.compare summary span {
+  font-size: 15px; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+.chev-sm { font-size: 8px; color: var(--text-faint); transition: transform .18s; }
+.compare details[open] .chev-sm, .compare .agreement[open] .chev-sm { transform: rotate(90deg); }
+
+.compare-list { margin: 0; padding: 0 15px 14px; list-style: none; }
+.compare-list li {
+  padding: 11px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.compare-title {
+  font-family: var(--display);
+  font-size: 13.5px; font-weight: 600; letter-spacing: .01em;
+  color: var(--text-bright);
+  border-bottom: 1px solid transparent;
+}
+.compare-title:hover { border-bottom-color: var(--accent-line); color: var(--accent-soft); }
+.compare-list p { margin: 5px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--text-faint); }
+.compare-links a {
+  color: var(--accent-soft);
+  margin-right: 10px;
+  border-bottom: 1px solid rgba(227,196,105,.28);
+}
+.compare-links a:hover { color: var(--accent); }
+.compare-links.none { font-style: italic; }

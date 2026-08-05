@@ -227,7 +227,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips groups the same four items and reaches the same conclusion."
+        "note": "Dota2ProTips groups the same four items and reaches the same conclusion.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -290,7 +296,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips: roots gain strategic value for punishing escapes and rotations."
+        "note": "Dota2ProTips: roots gain strategic value for punishing escapes and rotations.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -355,7 +367,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips calls the Satanic cooldown one of the biggest item nerfs in the patch."
+        "note": "Dota2ProTips calls the Satanic cooldown one of the biggest item nerfs in the patch.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -414,7 +432,13 @@
       ],
       "agreement": {
         "level": "partial",
-        "note": "Nobody we read discussed the level 25 Duel talent. CyberScore reports her pick rate falling, but attributes it to the strength nerf."
+        "note": "Nobody we read discussed the level 25 Duel talent. CyberScore reports her pick rate falling, but attributes it to the strength nerf.",
+        "sources": [
+          {
+            "name": "CyberScore",
+            "url": "https://cyberscore.live/en/news/meta-report-hero-changes-patch-7-41e/"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -468,7 +492,21 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips and win.gg both call Multishot severely nerfed. CyberScore reports she has since lost over 5% win rate."
+        "note": "Dota2ProTips and win.gg both call Multishot severely nerfed. CyberScore reports she has since lost over 5% win rate.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          },
+          {
+            "name": "win.gg",
+            "url": "https://win.gg/dota-2s-ti-patch-7-41e/"
+          },
+          {
+            "name": "CyberScore",
+            "url": "https://cyberscore.live/en/news/meta-report-hero-changes-patch-7-41e/"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -524,7 +562,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips reads it the same way — an anti-cheese fix."
+        "note": "Dota2ProTips reads it the same way — an anti-cheese fix.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -584,7 +628,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips calls losing camp blocking huge for pro Dota — the same non-obvious use we flagged."
+        "note": "Dota2ProTips calls losing camp blocking huge for pro Dota — the same non-obvious use we flagged.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -633,7 +683,13 @@
       ],
       "agreement": {
         "level": "partial",
-        "note": "Mentioned in passing by Dota2ProTips, with no analysis attached. The reading is ours."
+        "note": "Mentioned in passing by Dota2ProTips, with no analysis attached. The reading is ours.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -685,7 +741,13 @@
       ],
       "agreement": {
         "level": "corroborated",
-        "note": "Dota2ProTips groups it under changes stacking up against ranged carries."
+        "note": "Dota2ProTips groups it under changes stacking up against ranged carries.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -734,7 +796,13 @@
       ],
       "agreement": {
         "level": "partial",
-        "note": "Dota2ProTips lists it as an honourable mention only."
+        "note": "Dota2ProTips lists it as an honourable mention only.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
@@ -784,7 +852,13 @@
       ],
       "agreement": {
         "level": "disputed",
-        "note": "Dota2ProTips lists Bane as a straight loser and doesn't mention the sight change at all. We read it as mixed because total blindness is a real gain. Treat this one as our opinion."
+        "note": "Dota2ProTips lists Bane as a straight loser and doesn't mention the sight change at all. We read it as mixed because total blindness is a real gain. Treat this one as our opinion.",
+        "sources": [
+          {
+            "name": "Dota2ProTips",
+            "url": "https://www.dota2protips.com/blog/patch-7-41e-overview"
+          }
+        ]
       },
       "confidence": {
         "mechanics": "high",
