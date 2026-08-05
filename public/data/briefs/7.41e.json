@@ -212,7 +212,7 @@
       "id": "drow-multishot",
       "rank": 7,
       "title": "Multishot stopped scaling with range items",
-      "punch": { "stat": "1339 → 1240 range", "dir": "worse" },
+      "punch": { "stat": "1321 → 1230 range", "dir": "worse" },
       "bites": [
         "Range 1.75× → 475 + 1×",
         "Mana 50 → 70 at rank 1",
@@ -221,7 +221,7 @@
       "severity": "major",
       "tags": ["heroes", "math"],
       "what": "Multishot arrow range changed from 1.75× attack range to 475 + 1× attack range. Mana cost 50 → 70 at rank 1, and base damage down 20 percentage points at every level.",
-      "why": "The range line looks neutral and isn't. At her base 625 range it's a wash (1093 → 1100), but at 765 with a Dragon Lance it's 1240 instead of 1339 — you lose range exactly when you pay for it. Add 40% more mana at level 1 and it's a much worse laning tool.",
+      "why": "The range line looks neutral and isn't. At her base 625 range it's a wash (1094 → 1100), but at 755 with a Dragon Lance it's 1230 instead of 1321 — you lose range exactly when you pay for it. Add 40% more mana at level 1 and it's a much worse laning tool.",
       "do": [
         "Buy Dragon Lance and Pike for the auto-attacks, not to extend Multishot.",
         "Stop spamming it in lane. 70 mana at level 1 is a serious chunk of her pool."
@@ -401,7 +401,7 @@
     "troll_warlord": { "verdict": "buff", "impact": 4, "summary": "Battle Trance now grants 35% slow resistance, and stance toggling doesn't break invisibility.", "why": "Slow resistance is real survivability on an ultimate that commits him to a fight. Shadow Blade also got much smoother. The Mask of Madness ranged nerf pulls the other way in ranged stance.", "play": ["Shadow Blade is a better pickup — pick your stance mid-approach."], "counter": ["Slows are 35% weaker on him during Battle Trance."] },
     "legion_commander": { "verdict": "mixed", "impact": 5, "summary": "Better lane, no more infinite Duel chain at level 25.", "why": "A guaranteed Duel refresh became a flat 30-second reduction. In exchange: +1 base strength, +5 base attack speed, more level 1 damage, minus a little strength gain.", "play": ["Push your advantage earlier — the gains are front-loaded."], "counter": ["Long fights against a fed Legion are survivable again."] },
     "snapfire": { "verdict": "nerf", "impact": 4, "summary": "Hit in five places at once — damage down across the kit plus three talent cuts.", "why": "Scatterblast, Cookie and Mortimer Kisses all lost damage, and Scatterblast's width no longer benefits from AoE bonuses — which quietly kills a scaling path.", "play": ["Scatterblast needs tighter positioning now that width can't be inflated."], "counter": ["Her burst is lower at every stage."] },
-    "drow_ranger": { "verdict": "nerf", "impact": 5, "summary": "Multishot stopped scaling with attack range items.", "why": "The new formula is a wash at her base range but loses ~100 range once you buy Dragon Lance. Plus 40% more mana at level 1 and 20 points less base damage.", "play": ["Buy range items for the auto-attacks, not to extend Multishot."], "counter": ["Her lane spam is far more mana-limited."] },
+    "drow_ranger": { "verdict": "nerf", "impact": 5, "summary": "Multishot stopped scaling with attack range items.", "why": "The new formula is a wash at her base range but loses ~90 range once you buy Dragon Lance. Plus 40% more mana at level 1 and 20 points less base damage.", "play": ["Buy range items for the auto-attacks, not to extend Multishot."], "counter": ["Her lane spam is far more mana-limited."] },
     "zuus": { "verdict": "mixed", "impact": 3, "summary": "Ultimate damage down, but Lightning Hands toggles while invisible or silenced.", "why": "Thundergod's Wrath lost 8-11% damage and Lightning Hands lost 10 attack speed. The toggle change is a genuine gain for smoke ganks.", "play": ["Toggle Lightning Hands as the gank lands, not before."], "counter": ["His global finish is weaker — slightly more low-HP leeway."] },
     "doom_bringer": { "verdict": "mixed", "impact": 3, "summary": "Shorter attack range, and Infernal Blade shifted from early damage to late.", "why": "200 → 175 attack range is a real laning nerf. Infernal Blade's max-HP burn is worse at ranks 1-2 and better at rank 4.", "play": ["Skill Infernal Blade later — its early value dropped."], "counter": ["Contest his last hits harder; he reaches 25 units less far."] },
     "gyrocopter": { "verdict": "buff", "impact": 3, "summary": "A rescue attempt — mana costs down across the board.", "why": "Homing Missile flattened to 120 mana at all levels with ~5s off the cooldown. He's the worst performer in the changed list at 44.0%, so this is Valve reaching for him.", "play": ["Homing Missile is far more spammable — use it as harassment."], "counter": ["Expect more frequent missiles in lane."] },

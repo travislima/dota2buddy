@@ -32,9 +32,9 @@ charge items all stopped working in the stash. Nobody reading the official notes
 notices these, because they're 40 lines apart. Grouping them is the single highest-value thing
 this dashboard does. Read the whole file before writing a word.
 
-**Do the arithmetic.** The most useful line in the 7.41e brief was working out that Drow's
-Multishot range rescale is a wash at base attack range but a ~100 range *loss* once you buy
-Dragon Lance. That's not opinion, it's two formulas evaluated at two numbers — and it turns a
+**Do the arithmetic — then check the inputs.** The most useful line in the 7.41e brief was
+working out that Drow's Multishot range rescale is a wash at base attack range but a ~90 range
+*loss* once you buy Dragon Lance. That's not opinion, it's two formulas evaluated at two numbers — and it turns a
 change that reads as neutral into a clear nerf. Look for rescales, percentage-to-flat
 conversions, and anything where the direction depends on a value the note doesn't mention.
 
@@ -158,6 +158,19 @@ discourse; the filter says "Quality of life" and the pill carries a tooltip.
 The brief filters on `punch.dir` (`worse`/`better`/`neutral`) rather than a verdict, because a
 headline groups several changes and often has no single verdict. When a filter is active the
 two-tier "if you read nothing else / worth knowing" split collapses into one flat list.
+
+## Fact-check the numbers you didn't get from the diff
+
+The patch file gives you the change. Anything else the arithmetic depends on — base attack
+range, an item's bonus, how much armour a point of agility is worth — comes from memory unless
+you look it up, and memory is where the errors are. The 7.41e Drow claim originally read
+"1339 → 1240" because it assumed Dragon Lance still gave +140 attack range; it gives +130, so
+the real figures are 1321 → 1230. The conclusion held, the numbers didn't.
+
+Before publishing any calculated claim, verify every input against
+[Liquipedia](https://liquipedia.net/dota2) or the Dota 2 wiki and note what you checked. Reading
+other people's analysis to test your own conclusions is research and is encouraged — reproducing
+their words is not, and never is.
 
 ## Claims have to be backed by something
 
