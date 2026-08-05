@@ -377,10 +377,12 @@ function renderGlance(v, themeCount) {
  * dismissed it.
  */
 function renderIntro() {
-  if (store.heroes.length || store.isDismissed('intro')) return '';
+  // No dismiss: picking heroes is what retires it. Letting someone hide the one
+  // feature nothing else has means they never find it — but it's gone for good
+  // the moment it's done its job, so it never nags anyone who's already used it.
+  if (store.heroes.length) return '';
   return `
     <div class="intro">
-      <button class="dismiss" data-dismiss="intro" aria-label="Dismiss">×</button>
       <p>
         <b>Every hero and item Valve changed, in about a minute.</b>
         Pick the heroes you play and this page leads with just yours.

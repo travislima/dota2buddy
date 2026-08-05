@@ -288,7 +288,11 @@ Don't ask a first-timer who has read nothing.
 `renderIntro()` is the only thing a first-timer reads before deciding whether to stay. It has to
 answer "what is this, why do I care" in one line and point at the personalisation, because that's
 the one feature nothing else has — and without it the site presents as just another patch summary.
-It retires permanently once heroes are picked or it's dismissed.
+
+**It has no dismiss button, deliberately.** Picking heroes is what retires it. A dismiss let
+someone permanently hide the one thing that makes the site different, which is the opposite of
+what it's for; without one it persists for everyone who hasn't used the feature and vanishes for
+good the moment they do. It never nags anyone it has already served.
 
 ---
 
