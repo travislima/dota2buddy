@@ -7,10 +7,11 @@
   "scripts": {
     "fetch": "node scripts/fetch-patch.mjs",
     "meta": "node scripts/fetch-meta.mjs",
-    "update": "npm run fetch && npm run meta",
+    "update": "npm run fetch && npm run meta && npm run builds",
     "validate": "node scripts/validate-brief.mjs",
     "icons": "node scripts/make-icons.mjs",
     "dev": "node scripts/serve.mjs",
-    "start": "node scripts/serve.mjs"
+    "start": "node scripts/serve.mjs",
+    "builds": "node scripts/fetch-builds.mjs"
   }
 }

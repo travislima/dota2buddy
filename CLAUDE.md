@@ -26,12 +26,14 @@ If a change would make the site slower, vaguer or less checkable, don't make it.
 The user says "new patch." Then:
 
 ```bash
-npm run update      # pulls the patch + fresh OpenDota stats
+npm run update      # pulls the patch, OpenDota stats, and what people build
 npm run validate    # tells you exactly what still needs writing
 npm run dev         # look at it
 ```
 
-1. `npm run update` writes `public/data/raw/<version>.json` and refreshes `public/data/meta.json`.
+1. `npm run update` writes `public/data/raw/<version>.json` and refreshes `public/data/meta.json`
+   and `public/data/builds.json`. The builds fetch makes 127 OpenDota calls at ~1.1s apart, so it
+   takes about three minutes — that's the rate limit, not a bug.
 2. **Read the entire raw file.** Every hero, every item, in one pass. The best headlines are
    patterns spread 40 lines apart — you only see them with the whole thing in front of you.
 3. **Search the web for what else shipped.** Valve's feed carries gameplay notes only. 7.41e also
@@ -249,6 +251,27 @@ that split: layout up top, looks below.
   invisible.
 
 ---
+
+## 7b. What this means for your build
+
+Each hero page ends with the items people *actually* buy on that hero, split into the ones that
+changed this patch and the ones that didn't. `builds.json` is live OpenDota item popularity and
+is deliberately **not** filtered by the current patch, so it keeps working when the next one lands.
+
+Two things that took a rebuild to get right:
+
+- **Components are not a build.** Mithril Hammer and Demon Edge top every list and mean nothing.
+  Only finished items count — the test is whether the item has `components` of its own, plus a
+  small `KEEP` list for real purchases that don't (Boots, Aghanim's Shard, Quelling Blade).
+- **The per-hero cap decides what you can see.** At 22 items Satanic fell off Sniper's list even
+  though it changed. It's 25 now, after components stopped taking half the slots.
+
+Item names live in one shared `names` lookup rather than repeating per hero — 224KB to 56KB. The
+file is lazy-loaded on hero pages only, and the section fills in when it arrives rather than
+blocking the render.
+
+"Untouched — build these exactly as before" earns its place: knowing what *didn't* change is half
+of what a patch reader wants.
 
 ## 8. Density is a feature — measure it
 

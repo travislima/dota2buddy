@@ -16,6 +16,7 @@ const state = {
   itemSearch: '',
   themeFilter: 'all',
   pickerSearch: '',
+  builds: null,        // lazy-loaded; only hero pages need it
   previousVisit: null,
   isNewPatch: false,
 };
@@ -129,6 +130,9 @@ const heroByKey = (key) => state.raw.heroes.find((h) => h.key === key);
 const itemByKey = (key) =>
   [...state.raw.items, ...state.raw.neutral_items].find((i) => i.key === key);
 const metaByKey = (key) => state.meta?.heroes.find((h) => h.key === key);
+
+const CDN_ITEMS = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items';
+const itemArt = (key) => itemByKey(key)?.icon ?? `${CDN_ITEMS}/${key}.png`;
 
 const briefHero = (key) => state.brief?.heroes?.[key];
 const briefItem = (key) => state.brief?.items?.[key] ?? state.brief?.neutrals?.[key];
@@ -1060,11 +1064,74 @@ function renderHeroes() {
   });
 }
 
+/**
+ * What people actually buy on this hero, joined against what changed this patch.
+ * Loaded on demand — only hero pages need it, and it's 56KB.
+ */
+async function ensureBuilds() {
+  if (state.builds !== null) return state.builds;
+  state.builds = await json('data/builds.json').catch(() => false);
+  return state.builds;
+}
+
+function renderBuildImpact(heroKey) {
+  const data = state.builds;
+  if (!data || data === false) return '';
+
+  const list = data.heroes?.[heroKey] ?? [];
+  if (!list.length) return '';
+
+  const rows = list.map(([key, builds]) => ({
+    key, builds, name: data.names?.[key] ?? key, change: briefItem(key) ?? null,
+  }));
+  const changed = rows.filter((r) => r.change);
+  const untouched = rows.filter((r) => !r.change).slice(0, 12);
+
+  return `
+    <div class="section-head">
+      <h2>What this means for your build</h2>
+      <span class="hint">Items players actually buy on this hero</span>
+    </div>
+
+    ${changed.length ? `
+      ${changed.map((r) => `
+        <a class="build-item ${esc(r.change.verdict)}" href="#/item/${esc(r.key)}">
+          <img src="${esc(itemArt(r.key))}" alt="" loading="lazy">
+          <div class="bi-body">
+            <div class="bi-head">
+              <strong>${esc(r.name)}</strong>
+              ${verdictPill(r.change.verdict)}
+              <span class="bi-freq">${r.builds} builds</span>
+            </div>
+            <p class="bi-sum">${rich(r.change.summary)}</p>
+          </div>
+        </a>`).join('')}
+    ` : `<div class="welcome done">Nothing you normally build on this hero changed this patch.</div>`}
+
+    ${untouched.length ? `
+      <p class="aside">Untouched — build these exactly as before:</p>
+      <ul class="rest">
+        ${untouched.map((r) => `
+          <li><img src="${esc(itemArt(r.key))}" alt="" loading="lazy"><span>${esc(r.name)}</span></li>`).join('')}
+      </ul>` : ''}
+
+    <p class="aside">Build frequency from OpenDota public matches, updated ${esc(daysAgo(data.fetched_at))}.</p>`;
+}
+
 /* ---------- view: hero detail ---------- */
 
 function renderHeroDetail(key) {
   const h = heroByKey(key);
   if (!h) { app.innerHTML = '<div class="empty">Hero not found.</div>'; return; }
+
+  // Build data is lazy; fill the section in once it lands rather than blocking
+  // the page or re-rendering the lot.
+  if (state.builds === null) {
+    ensureBuilds().then(() => {
+      const slot = document.getElementById('build-impact');
+      if (slot && location.hash.endsWith(`/${key}`)) slot.innerHTML = renderBuildImpact(key);
+    });
+  }
 
   const b = briefHero(key);
   const m = metaByKey(key);
@@ -1124,6 +1191,8 @@ function renderHeroDetail(key) {
         ${b.counter?.length ? `<div class="counter"><h4>If you're against them</h4>
           <ul>${b.counter.map((p) => `<li>${rich(p)}</li>`).join('')}</ul></div>` : ''}
       </div>` : ''}
+
+    <div id="build-impact">${renderBuildImpact(key)}</div>
 
     <div class="section-head"><h2>The actual changes</h2></div>
     ${groups.map((g) => `
