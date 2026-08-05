@@ -234,9 +234,10 @@ that split: layout up top, looks below.
 - `scripts/make-icons.mjs` mirrors `public/icon.svg` by hand. Change one, change the other, then
   `npm run icons`.
 - Filters with a count of zero hide themselves rather than render a dead button.
-- The split bar carries a legend naming every segment. The narrow ones can't hold a label and a
-  tooltip does nothing on a phone, so the orange and blue blocks read as mystery colours without
-  it. Any colour-coded chart needs a key that works without hovering.
+- The split bar labels its wide segments in place and carries a legend defining all four
+  (`26 nerfed = weaker`). The narrow ones can't hold a label and a tooltip does nothing on a
+  phone, so without the legend the orange and blue blocks are mystery colours. Any colour-coded
+  chart needs a key that works without hovering.
 - The topbar and tabs span the window for their background but pad in to `--maxw`, so the brand
   and the first tab sit on the same edge as the content. On a 1900px screen they were 365px
   outside it.

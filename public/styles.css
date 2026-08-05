@@ -2034,5 +2034,5 @@ details.verbatim .body { padding: 2px 18px 16px; }
 .split-key .buff::before { background: var(--buff); }
 .split-key .mixed::before { background: var(--mixed); }
 .split-key .qol::before { background: var(--qol); }
-.split-key b { color: var(--text); font-weight: 700; }
+.split-key b { color: var(--text); font-weight: 600; }
 .split-key span { color: var(--text-faint); }

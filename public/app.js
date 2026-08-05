@@ -324,13 +324,16 @@ function renderGlance(v, themeCount) {
   const win = split(v.biggest_winner);
   const lose = split(v.biggest_loser);
 
+  // Wide segments label themselves in the bar; the legend below defines every
+  // colour, so the two narrow ones are never mystery blocks.
   const seg = (key, label) => tally[key]
     ? `<i class="${key}" style="flex:${tally[key]}"
-         title="${tally[key]} ${label} — ${esc(VERDICT_HINT[key] ?? '')}"></i>`
+         title="${tally[key]} ${label} — ${esc(VERDICT_HINT[key] ?? '')}">${
+           tally[key] / total > 0.12 ? `${tally[key]} ${label}` : ''}</i>`
     : '';
 
   const key = (k, label, meaning) => tally[k]
-    ? `<li class="${k}"><b>${tally[k]}</b> ${esc(label)} <span>${esc(meaning)}</span></li>`
+    ? `<li class="${k}"><b>${tally[k]} ${esc(label)}</b> = <span>${esc(meaning)}</span></li>`
     : '';
 
   return `
@@ -358,7 +361,7 @@ function renderGlance(v, themeCount) {
       <ul class="split-key">
         ${key('nerf', 'nerfed', 'weaker')}
         ${key('buff', 'buffed', 'stronger')}
-        ${key('mixed', 'mixed', 'better and worse')}
+        ${key('mixed', 'mixed', 'a mix of both')}
         ${key('qol', 'quality of life', 'easier to use, not stronger')}
       </ul>
 
