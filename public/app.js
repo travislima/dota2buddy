@@ -326,11 +326,15 @@ function renderGlance(v, themeCount) {
 
   // Wide segments label themselves in the bar; the legend below defines every
   // colour, so the two narrow ones are never mystery blocks.
-  const seg = (key, label) => tally[key]
-    ? `<i class="${key}" style="flex:${tally[key]}"
-         title="${tally[key]} ${label} — ${esc(VERDICT_HINT[key] ?? '')}">${
-           tally[key] / total > 0.12 ? `${tally[key]} ${label}` : ''}</i>`
-    : '';
+  /* Every segment shows its count. Wide ones have room for the word too; narrow
+     ones get the number alone and take their name from the legend below. */
+  const seg = (key, label) => {
+    if (!tally[key]) return '';
+    const share = tally[key] / total;
+    const text = share > 0.12 ? `${tally[key]} ${label}` : tally[key];
+    return `<i class="${key} ${share > 0.12 ? '' : 'narrow'}" style="flex:${tally[key]}"
+              title="${tally[key]} ${label} — ${esc(VERDICT_HINT[key] ?? '')}">${text}</i>`;
+  };
 
   const key = (k, label, meaning) => tally[k]
     ? `<li class="${k}"><b>${tally[k]} ${esc(label)}</b> = <span>${esc(meaning)}</span></li>`
@@ -656,6 +660,7 @@ function openHeroPicker() {
       <div class="picker-grid" id="picker-grid"></div>
       <div class="modal-foot">
         <span id="picker-count"></span>
+        <button class="link-btn danger" id="picker-clear" hidden>Clear all</button>
         <button class="btn-primary" id="picker-done">Done</button>
       </div>
     </div>`;
@@ -673,6 +678,8 @@ function openHeroPicker() {
     const n = store.heroes.length;
     overlay.querySelector('#picker-count').textContent =
       n ? `${n} hero${n === 1 ? '' : 'es'} selected` : 'None selected yet';
+    // Clearing is how you go back to browsing every hero rather than only yours.
+    overlay.querySelector('#picker-clear').hidden = n === 0;
   };
 
   const close = () => {
@@ -682,9 +689,16 @@ function openHeroPicker() {
   };
 
   overlay.addEventListener('click', (e) => {
-    if (e.target === overlay || e.target.closest('.modal-close') || e.target.closest('#picker-done')) {
+    if (e.target === overlay || e.target.closest('.modal-close')
+        || (e.target.closest('#picker-done') && !e.target.closest('#picker-clear'))) {
       trackEvent('heroes_picked', String(store.heroes.length));
       close();
+      return;
+    }
+    if (e.target.closest('#picker-clear')) {
+      store.clearHeroes();
+      trackEvent('heroes_cleared');
+      paint();
       return;
     }
     const btn = e.target.closest('[data-hero]');

@@ -234,6 +234,9 @@ that split: layout up top, looks below.
 - `scripts/make-icons.mjs` mirrors `public/icon.svg` by hand. Change one, change the other, then
   `npm run icons`.
 - Filters with a count of zero hide themselves rather than render a dead button.
+- The picker has a "Clear all" that empties your list without closing the modal, so you can drop
+  back to browsing every hero. Clearing also brings the intro strip back, which is correct — you
+  are no longer using the feature it points at.
 - The split bar labels its wide segments in place and carries a legend defining all four
   (`26 nerfed = weaker`). The narrow ones can't hold a label and a tooltip does nothing on a
   phone, so without the legend the orange and blue blocks are mystery colours. Any colour-coded

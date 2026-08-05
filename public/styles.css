@@ -2036,3 +2036,12 @@ details.verbatim .body { padding: 2px 18px 16px; }
 .split-key .qol::before { background: var(--qol); }
 .split-key b { color: var(--text); font-weight: 600; }
 .split-key span { color: var(--text-faint); }
+
+/* Narrow segments carry just the number; the legend supplies the word. */
+.split-bar i.narrow { font-size: 10.5px; letter-spacing: 0; }
+
+/* Clearing your list is deliberate, so it reads as destructive without shouting. */
+.modal-foot { gap: 14px; }
+.modal-foot #picker-count { margin-right: auto; }
+.link-btn.danger { color: var(--text-faint); }
+.link-btn.danger:hover { color: var(--dire); }
